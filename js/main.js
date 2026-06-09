@@ -173,6 +173,12 @@ async function loadGithubStats(){
   }catch(e){console.log('GitHub API fallback failed:',e)}
 }
 loadGithubStats();
+function clearGithubCache(){
+  try{localStorage.removeItem(GH_CACHE_KEY)}catch(e){}
+  renderStats({public_repos:'—',followers:'—',public_gists:'—'},'—');
+  renderLangs([]);
+  loadGithubStats().then(()=>alert('GitHub stats refreshed!'));
+}
 
 // Close modals on overlay click
 document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('active')})});

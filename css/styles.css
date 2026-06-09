@@ -171,3 +171,19 @@ footer{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-con
   footer{flex-direction:column;gap:1.5rem;text-align:center}
 }
 @keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
+/* Skeleton loading animation */
+.skeleton{background:linear-gradient(90deg,var(--border) 25%,var(--surface-hover) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:6px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skeleton-line{height:14px;margin-bottom:8px;border-radius:4px}
+.skeleton-line.short{width:40%}
+.skeleton-line.medium{width:70%}
+.skeleton-line.long{width:90%}
+.skeleton-stat{height:40px;width:60px;border-radius:6px;margin:0 auto 8px}
+.skeleton-bar{height:6px;border-radius:3px;margin-bottom:10px}
+.github-api-stats .skeleton-bar:nth-child(1){width:85%}
+.github-api-stats .skeleton-bar:nth-child(2){width:65%}
+.github-api-stats .skeleton-bar:nth-child(3){width:75%}
+.github-api-stats .skeleton-bar:nth-child(4){width:50%}
+.github-api-langs .skeleton-bar:nth-child(1){width:90%}
+.github-api-langs .skeleton-bar:nth-child(2){width:70%}
+.github-api-langs .skeleton-bar:nth-child(3){width:55%}
