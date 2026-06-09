@@ -16,25 +16,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f8fafc;--surface:#ffffff;--surface-hover:#f1f5f9;
-  --text:#0f172a;--text-inverse:#ffffff;--muted:#64748b;
-  --accent:#4f46e5;--accent-rgb:79,70,229;
-  --accent-gradient:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);
-  --border:#e2e8f0;--tag-bg:#e0e7ff;
-  --shadow:rgba(99,102,241,0.05);
-  --glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.06);
-  --input-bg:rgba(0,0,0,0.01);--input-border:rgba(0,0,0,0.08);
-  --glow-strength:rgba(79,70,229,0.05);
-}
+:root{--bg:#f8fafc;--surface:#ffffff;--surface-hover:#f1f5f9;--text:#0f172a;--text-inverse:#ffffff;--muted:#64748b;--accent:#4f46e5;--accent-rgb:79,70,229;--accent-gradient:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);--border:#e2e8f0;--tag-bg:#e0e7ff;--glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.06);--input-bg:rgba(0,0,0,0.01);--input-border:rgba(0,0,0,0.08);--glow-strength:rgba(79,70,229,0.05)}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.7;overflow-x:hidden;position:relative}
 body::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.06;z-index:-2;pointer-events:none}
 .ambient-glow{position:absolute;width:500px;height:500px;background:radial-gradient(circle,var(--glow-strength) 0%,rgba(0,0,0,0) 70%);z-index:-1;pointer-events:none;filter:blur(40px)}
 .glow-1{top:10%;left:-150px}.glow-2{top:45%;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(168,85,247,0.06) 0%,rgba(0,0,0,0) 70%)}.glow-3{bottom:10%;left:-100px}
-/* Scroll Progress */
 #scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent-gradient);width:0%;z-index:101;transition:width 0.1s ease}
-/* Navbar */
 nav{position:fixed;top:0;left:0;right:0;background:var(--glass-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--glass-border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;z-index:100}
 .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.05em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:6px}
 .nav-logo::before{content:'';display:block;width:8px;height:8px;background:var(--accent-gradient);border-radius:50%}
@@ -45,46 +33,41 @@ nav{position:fixed;top:0;left:0;right:0;background:var(--glass-bg);backdrop-filt
 .nav-links a:hover::after{width:100%}
 .nav-links a:hover{color:var(--text)}
 .mobile-menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px}
-/* Main */
 main{max-width:860px;margin:0 auto;padding:0 2rem}
-/* Hero */
-.hero{padding:160px 0 80px;border-bottom:1px solid var(--border);position:relative}
-.status-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Fira Code',monospace;font-size:11px;color:var(--accent);background:var(--tag-bg);padding:6px 14px;border-radius:20px;margin-bottom:2rem;border:1px solid rgba(var(--accent-rgb),0.15);animation:pulseGlow 3s infinite alternate}
+.hero{padding:140px 0 80px;border-bottom:1px solid var(--border);position:relative;display:flex;gap:40px;align-items:center}
+.profile-photo{width:160px;height:160px;border-radius:50%;border:3px solid var(--accent);object-fit:cover;flex-shrink:0;box-shadow:0 8px 30px rgba(var(--accent-rgb),0.2)}
+.hero-content{flex:1}
+.status-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Fira Code',monospace;font-size:11px;color:var(--accent);background:var(--tag-bg);padding:6px 14px;border-radius:20px;margin-bottom:1.5rem;border:1px solid rgba(var(--accent-rgb),0.15);animation:pulseGlow 3s infinite alternate}
 @keyframes pulseGlow{0%{box-shadow:0 0 0px rgba(var(--accent-rgb),0)}100%{box-shadow:0 0 8px rgba(var(--accent-rgb),0.15)}}
 .status-dot{width:6px;height:6px;background:#10b981;border-radius:50%;position:relative}
 .status-dot::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:#10b981;border-radius:50%;animation:ripple 1.5s infinite}
 @keyframes ripple{0%{transform:scale(1);opacity:1}100%{transform:scale(2.5);opacity:0}}
-.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:600;line-height:1.15;letter-spacing:-0.03em;margin-bottom:1.5rem}
-.hero h1 span{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
-.typing-wrapper{display:inline}
-.typing-cursor{display:inline-block;width:3px;height:1em;background:var(--accent);margin-left:2px;vertical-align:text-bottom;animation:blink 1s infinite}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:600;line-height:1.15;letter-spacing:-0.03em;margin-bottom:1rem}
+.hero h1 span{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.typing-wrapper{display:inline}.typing-cursor{display:inline-block;width:3px;height:1em;background:var(--accent);margin-left:2px;vertical-align:text-bottom;animation:blink 1s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-desc{max-width:580px;color:var(--muted);font-size:16px;line-height:1.8;margin-bottom:2.5rem}
-.hero-cta-group{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:3rem}
+.hero-desc{max-width:580px;color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:2rem}
+.hero-cta-group{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
 .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent-gradient);color:var(--text-inverse);text-decoration:none;font-size:14px;font-weight:600;padding:12px 26px;border-radius:6px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);box-shadow:0 4px 14px rgba(var(--accent-rgb),0.2)}
 .hero-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(var(--accent-rgb),0.35)}
 .hero-cta.secondary{background:var(--surface);color:var(--text);border:1px solid var(--border);box-shadow:none}
 .hero-cta.secondary:hover{border-color:var(--accent);color:var(--accent)}
 .hero-cta svg{width:16px;height:16px;transition:transform 0.2s ease}
 .hero-cta:hover svg{transform:translateX(4px)}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:2rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
 .tag{font-family:'Fira Code',monospace;font-size:11px;background:var(--tag-bg);color:var(--text);padding:5px 12px;border-radius:4px;border:1px solid var(--glass-border);transition:all 0.2s ease}
 .tag:hover{border-color:var(--accent);transform:translateY(-1px)}
-/* Section Global */
 section{padding:80px 0;border-bottom:1px solid var(--border)}
 section:last-of-type{border-bottom:none}
 .section-header{margin-bottom:3.5rem}
 .section-label{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase;margin-bottom:0.5rem;display:inline-block}
 .section-title{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;letter-spacing:-0.02em}
-/* Fade-in Animation */
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-/* About */
 .about-container{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center}
 .about-terminal{background:#0d0e15;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.3);font-family:'Fira Code',monospace;font-size:13px;line-height:1.5}
 .terminal-header{background:#171821;padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border)}
-.terminal-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-.dot-red{background-color:#ef4444}.dot-yellow{background-color:#f59e0b}.dot-green{background-color:#10b981}
+.terminal-dot{width:10px;height:10px;border-radius:50%;display:inline-block}.dot-red{background-color:#ef4444}.dot-yellow{background-color:#f59e0b}.dot-green{background-color:#10b981}
 .terminal-title{color:#9ca3af;font-size:11px;margin-left:10px}
 .terminal-body{padding:1.5rem}
 .terminal-line{margin-bottom:10px}
@@ -97,7 +80,6 @@ section:last-of-type{border-bottom:none}
 .qualification-icon{color:var(--accent);margin-top:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .qualification-info h4{font-size:14px;font-weight:600;color:var(--text)}
 .qualification-info p{font-size:12px;color:var(--muted);margin-bottom:0;line-height:1.4}
-/* Education Timeline */
 .timeline{position:relative;padding-left:24px}
 .timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--border)}
 .timeline-item{position:relative;margin-bottom:2rem}
@@ -105,7 +87,6 @@ section:last-of-type{border-bottom:none}
 .timeline-item h4{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:4px}
 .timeline-item .timeline-date{font-family:'Fira Code',monospace;font-size:11px;color:var(--accent);margin-bottom:6px}
 .timeline-item p{font-size:13px;color:var(--muted);line-height:1.6}
-/* Skills */
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .skill-category{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:all 0.3s ease}
 .skill-category:hover{border-color:rgba(var(--accent-rgb),0.3);box-shadow:0 8px 24px rgba(var(--accent-rgb),0.08)}
@@ -114,7 +95,6 @@ section:last-of-type{border-bottom:none}
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
 .skill-tag{font-family:'Fira Code',monospace;font-size:11px;background:var(--tag-bg);color:var(--text);padding:4px 10px;border-radius:4px;border:1px solid var(--glass-border);transition:all 0.2s}
 .skill-tag:hover{border-color:var(--accent);transform:translateY(-1px)}
-/* Projects */
 .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2rem;display:flex;flex-direction:column;height:100%;position:relative;transition:all 0.3s cubic-bezier(0.16,1,0.3,1)}
 .project-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--accent-gradient);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease}
@@ -128,8 +108,6 @@ section:last-of-type{border-bottom:none}
 .project-links{display:flex;gap:12px;flex-wrap:wrap}
 .project-link{font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s ease}
 .project-link:hover{text-decoration:underline;gap:10px}
-.project-link svg{width:14px;height:14px}
-/* Roadmap CTA */
 .roadmap-cta{background:var(--surface);border:2px solid var(--accent);border-radius:12px;padding:3rem;text-align:center;position:relative;overflow:hidden}
 .roadmap-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent-gradient)}
 .roadmap-cta h3{font-family:'Space Grotesk',sans-serif;font-size:24px;margin-bottom:1rem}
@@ -138,7 +116,15 @@ section:last-of-type{border-bottom:none}
 .roadmap-stat{text-align:center}
 .roadmap-stat .stat-num{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--accent);display:block}
 .roadmap-stat .stat-label{font-size:12px;color:var(--muted);font-family:'Fira Code',monospace}
-/* GitHub Stats */
+/* Certifications */
+.certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all 0.3s ease}
+.cert-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 12px 30px rgba(var(--accent-rgb),0.18)}
+.cert-card img{width:100%;height:auto;display:block;border-bottom:1px solid var(--border)}
+.cert-card .cert-info{padding:1.25rem}
+.cert-card .cert-name{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;margin-bottom:4px}
+.cert-card .cert-issuer{font-size:12px;color:var(--muted)}
+.cert-card .cert-date{font-family:'Fira Code',monospace;font-size:11px;color:var(--accent);margin-top:6px}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:2rem}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;text-align:center;transition:all 0.3s ease}
 .stat-card:hover{border-color:rgba(var(--accent-rgb),0.3);transform:translateY(-3px);box-shadow:0 8px 20px rgba(var(--accent-rgb),0.1)}
@@ -146,12 +132,10 @@ section:last-of-type{border-bottom:none}
 .stat-card .stat-label{font-size:12px;color:var(--muted);margin-top:4px}
 .github-embed{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:1rem}
 .github-embed img{width:100%;display:block}
-/* Blog */
 .blog-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:3rem;text-align:center}
 .blog-card .coming-soon{font-family:'Fira Code',monospace;font-size:11px;color:var(--accent);background:var(--tag-bg);padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:1rem}
 .blog-card h3{font-family:'Space Grotesk',sans-serif;font-size:20px;margin-bottom:0.5rem}
 .blog-card p{color:var(--muted);font-size:14px}
-/* Contact */
 .contact-links{display:flex;flex-direction:column;gap:1.5rem;max-width:500px}
 .contact-line{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;transition:all 0.3s ease;text-decoration:none;color:var(--text)}
 .contact-line:hover{border-color:var(--accent);transform:translateX(5px);box-shadow:0 4px 12px rgba(var(--accent-rgb),0.1)}
@@ -162,42 +146,43 @@ section:last-of-type{border-bottom:none}
 .contact-value{font-size:14px;font-weight:500}
 .resume-btn{display:inline-flex;align-items:center;gap:10px;background:var(--surface);color:var(--text);border:1px solid var(--border);text-decoration:none;font-size:14px;font-weight:600;padding:12px 26px;border-radius:6px;transition:all 0.3s ease;margin-top:2rem}
 .resume-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-/* Footer */
 footer{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:2.5rem 2rem;font-size:12px;color:var(--muted);font-family:'Fira Code',monospace;border-top:1px solid var(--border);margin-top:4rem}
 .footer-right{display:flex;gap:1.5rem;align-items:center}
 .footer-right a{color:var(--muted);text-decoration:none;transition:color 0.2s}
 .footer-right a:hover{color:var(--text)}
 .login-btn{background:none;border:1px solid var(--border);color:var(--muted);font-family:'Fira Code',monospace;font-size:11px;padding:4px 10px;border-radius:4px;cursor:pointer;transition:all 0.2s}
 .login-btn:hover{border-color:var(--accent);color:var(--accent)}
-/* Admin Panel Modal */
+/* Admin */
 .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center}
 .modal-overlay.active{display:flex}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem;width:90%;max-width:480px;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem;width:90%;max-width:650px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
 .modal h3{font-family:'Space Grotesk',sans-serif;font-size:20px;margin-bottom:0.5rem}
-.modal p{color:var(--muted);font-size:13px;margin-bottom:1.5rem}
+.modal>p,.modal .modal-desc{color:var(--muted);font-size:13px;margin-bottom:1.5rem}
 .modal .form-group{margin-bottom:1.25rem}
 .modal label{display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:var(--text)}
-.modal input,.modal textarea{width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:6px;color:var(--text);padding:10px 14px;font-family:inherit;font-size:14px;transition:all 0.2s}
-.modal input:focus,.modal textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),0.15)}
-.modal textarea{min-height:80px;resize:vertical}
+.modal input,.modal textarea,.modal select{width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:6px;color:var(--text);padding:10px 14px;font-family:inherit;font-size:14px;transition:all 0.2s}
+.modal input:focus,.modal textarea:focus,.modal select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),0.15)}
+.modal textarea{min-height:120px;resize:vertical;font-family:'Fira Code',monospace;font-size:12px}
 .modal-btn{width:100%;background:var(--accent-gradient);color:var(--text-inverse);border:none;border-radius:6px;padding:12px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s}
 .modal-btn:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(var(--accent-rgb),0.25)}
 .modal-btn.cancel{background:var(--surface);color:var(--text);border:1px solid var(--border);margin-top:8px}
 .modal-btn.cancel:hover{border-color:var(--muted)}
 .modal-error{color:#ef4444;font-size:12px;margin-top:8px;display:none}
-/* Responsive */
+.admin-section-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.admin-tab{font-family:'Fira Code',monospace;font-size:11px;background:var(--tag-bg);color:var(--text);padding:5px 12px;border-radius:4px;border:1px solid var(--glass-border);cursor:pointer;transition:all 0.2s}
+.admin-tab:hover,.admin-tab.active{border-color:var(--accent);background:var(--accent);color:var(--text-inverse)}
 @media(max-width:768px){
+  .hero{flex-direction:column;align-items:center;text-align:center;padding:120px 0 60px}
+  .profile-photo{width:120px;height:120px}
+  .hero-cta-group{justify-content:center}
+  .tags{justify-content:center}
   .about-container{grid-template-columns:1fr;gap:30px}
-  .skills-grid{grid-template-columns:1fr}
-  .projects-grid{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr}
+  .skills-grid,.projects-grid,.certs-grid,.stats-grid{grid-template-columns:1fr}
   nav{padding:0 1.5rem}
   .nav-links{display:none;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:1.5rem;gap:1.25rem;box-shadow:0 10px 20px rgba(0,0,0,0.1);z-index:101}
   .nav-links.show{display:flex}
   .mobile-menu-btn{display:block}
-  .hero{padding:120px 0 60px}
-  .hero-cta-group{flex-direction:column;align-items:flex-start}
-  .roadmap-cta .roadmap-stats{gap:1.5rem}
+  .hero-cta-group{flex-direction:column;align-items:stretch}
   footer{flex-direction:column;gap:1.5rem;text-align:center}
 }
 @keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
@@ -217,93 +202,51 @@ footer{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-con
       <li><a href="#education" onclick="toggleMenu(false)">Education</a></li>
       <li><a href="#skills" onclick="toggleMenu(false)">Skills</a></li>
       <li><a href="#projects" onclick="toggleMenu(false)">Projects</a></li>
+      <li><a href="#certs" onclick="toggleMenu(false)">Certificates</a></li>
       <li><a href="#roadmap" onclick="toggleMenu(false)">Roadmap</a></li>
       <li><a href="#contact" onclick="toggleMenu(false)">Contact</a></li>
     </ul>
     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
   </div>
 </nav>
 
 <main>
   <!-- Hero -->
-  <div class="hero">
-    <div class="status-badge">
-      <span class="status-dot"></span>
-      Open to opportunities & collaborations
-    </div>
-    <h1>Hi, I'm <span>Shubham Mallick</span><br><span class="typing-wrapper"><span id="typing-text"></span><span class="typing-cursor"></span></span></h1>
-    <p class="hero-desc">I'm a <strong id="age-display"></strong>AI Engineer and developer from Kolkata, building intelligent software at the intersection of AI/ML and modern web development. Passionate about LLMs, Computer Vision, and creating tools that make a difference.</p>
-    <div class="hero-cta-group">
-      <a href="#projects" class="hero-cta">
-        View My Work
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </a>
-      <a href="#contact" class="hero-cta secondary">
-        Get In Touch
-      </a>
-    </div>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">C/C++</span>
-      <span class="tag">Machine Learning</span>
-      <span class="tag">LLMs</span>
-      <span class="tag">Computer Vision</span>
-      <span class="tag">JavaScript</span>
-      <span class="tag">MySQL</span>
+  <div class="hero" id="hero">
+    <img src="https://avatars.githubusercontent.com/u/226120019?v=4" alt="Shubham Mallick" class="profile-photo" id="profile-photo">
+    <div class="hero-content">
+      <div class="status-badge"><span class="status-dot"></span>Open to opportunities & collaborations</div>
+      <h1>Hi, I'm <span id="hero-name">Shubham Mallick</span><br><span class="typing-wrapper"><span id="typing-text"></span><span class="typing-cursor"></span></span></h1>
+      <p class="hero-desc" id="hero-desc">I'm a <strong id="age-display"></strong>AI Engineer and developer from Kolkata, building intelligent software at the intersection of AI/ML and modern web development. Passionate about LLMs, Computer Vision, and creating tools that make a difference.</p>
+      <div class="hero-cta-group">
+        <a href="#projects" class="hero-cta">View My Work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="#contact" class="hero-cta secondary">Get In Touch</a>
+      </div>
+      <div class="tags" id="hero-tags"><span class="tag">Python</span><span class="tag">C/C++</span><span class="tag">Machine Learning</span><span class="tag">LLMs</span><span class="tag">Computer Vision</span><span class="tag">JavaScript</span><span class="tag">MySQL</span></div>
     </div>
   </div>
 
   <!-- About -->
   <section id="about" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Background</span>
-      <h2 class="section-title">About Me</h2>
-    </div>
+    <div class="section-header"><span class="section-label">Background</span><h2 class="section-title">About Me</h2></div>
     <div class="about-container">
       <div class="about-terminal">
-        <div class="terminal-header">
-          <span class="terminal-dot dot-red"></span>
-          <span class="terminal-dot dot-yellow"></span>
-          <span class="terminal-dot dot-green"></span>
-          <span class="terminal-title">developer_profile.json</span>
-        </div>
+        <div class="terminal-header"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span><span class="terminal-title">developer_profile.json</span></div>
         <div class="terminal-body">
           <div class="terminal-line"><span class="terminal-prompt">shubham@portfolio:~$</span> <span class="terminal-output">cat profile.json</span></div>
-          <div class="terminal-line" style="color:#f3f4f6;font-family:inherit">
-            {<br>
-            &nbsp;&nbsp;<span style="color:#38bdf8">"name"</span>: <span style="color:#a7f3d0">"Shubham Mallick"</span>,<br>
-            &nbsp;&nbsp;<span style="color:#38bdf8">"role"</span>: <span style="color:#a7f3d0">"AI Engineer (LLM Specialisation)"</span>,<br>
-            &nbsp;&nbsp;<span style="color:#38bdf8">"education"</span>: <span style="color:#a7f3d0">"B.Tech CSE (AI) — BBIT, MAKAUT"</span>,<br>
-            &nbsp;&nbsp;<span style="color:#38bdf8">"school"</span>: <span style="color:#a7f3d0">"JNV North 24 Parganas"</span>,<br>
-            &nbsp;&nbsp;<span style="color:#38bdf8">"location"</span>: <span style="color:#a7f3d0">"Kolkata, West Bengal"</span>,<br>
-            &nbsp;&nbsp;<span style="color:#38bdf8">"focus"</span>: [<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"LLM Integration"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"AI/ML Systems"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Computer Vision"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Full Stack Development"</span><br>
-            &nbsp;&nbsp;]<br>
-            }
-          </div>
+          <div class="terminal-line" style="color:#f3f4f6;font-family:inherit">{<br>&nbsp;&nbsp;<span style="color:#38bdf8">"name"</span>: <span style="color:#a7f3d0">"Shubham Mallick"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"role"</span>: <span style="color:#a7f3d0">"AI Engineer (LLM Specialisation)"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"education"</span>: <span style="color:#a7f3d0">"B.Tech CSE (AI) — BBIT, MAKAUT"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"school"</span>: <span style="color:#a7f3d0">"JNV North 24 Parganas"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"location"</span>: <span style="color:#a7f3d0">"Kolkata, West Bengal"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"focus"</span>: [<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"LLM Integration"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"AI/ML Systems"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Computer Vision"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Full Stack Development"</span><br>&nbsp;&nbsp;]<br>}</div>
           <div class="terminal-line"><span class="terminal-prompt">shubham@portfolio:~$</span> <span style="background:#4f46e5;width:8px;height:15px;display:inline-block;animation:cursorBlink 1s infinite;vertical-align:middle"></span></div>
         </div>
       </div>
-      <div class="about-text">
+      <div class="about-text" id="about-text">
         <h3>Hello, I'm Shubham</h3>
         <p>I'm an AI Engineering student at <strong>Budge Budge Institute of Technology</strong> (MAKAUT), specializing in Artificial Intelligence. My journey started at <strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong>, where I discovered my passion for technology and problem-solving.</p>
         <p>Today, I focus on building intelligent systems — from LLM-powered applications and computer vision pipelines to modern web platforms. I believe in learning by building, and every project on this portfolio represents a step in that journey.</p>
         <ul class="qualification-list">
-          <li class="qualification-item">
-            <div class="qualification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-            <div class="qualification-info"><h4>Always Learning</h4><p>Currently deepening my expertise in LLMs, AI Agents, and system design.</p></div>
-          </li>
-          <li class="qualification-item">
-            <div class="qualification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div>
-            <div class="qualification-info"><h4>Builder at Heart</h4><p>23+ repositories on GitHub, from AI systems to web apps to low-level C projects.</p></div>
-          </li>
+          <li class="qualification-item"><div class="qualification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="qualification-info"><h4>Always Learning</h4><p>Currently deepening my expertise in LLMs, AI Agents, and system design.</p></div></li>
+          <li class="qualification-item"><div class="qualification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div><div class="qualification-info"><h4>Builder at Heart</h4><p>23+ repositories on GitHub, from AI systems to web apps to low-level C projects.</p></div></li>
         </ul>
       </div>
     </div>
@@ -311,256 +254,87 @@ footer{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-con
 
   <!-- Education -->
   <section id="education" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Journey</span>
-      <h2 class="section-title">Education</h2>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2025 — Present</div>
-        <h4>B.Tech in CSE (Artificial Intelligence)</h4>
-        <p><strong>Budge Budge Institute of Technology</strong> under MAKAUT — Currently in 1st year, specializing in AI/ML. Actively building projects and exploring LLM integrations, computer vision, and full-stack development.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2023 — 2025</div>
-        <h4>Higher Secondary (12th Grade)</h4>
-        <p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Completed 12th grade in 2025. This is where my interest in computers and technology first took shape.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Earlier</div>
-        <h4>Secondary (10th Grade)</h4>
-        <p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Built the foundation. Learned discipline, curiosity, and the joy of solving problems.</p>
-      </div>
+    <div class="section-header"><span class="section-label">Journey</span><h2 class="section-title">Education</h2></div>
+    <div class="timeline" id="education-timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 — Present</div><h4>B.Tech in CSE (Artificial Intelligence)</h4><p><strong>Budge Budge Institute of Technology</strong> under MAKAUT — Currently in 1st year, specializing in AI/ML. Actively building projects and exploring LLM integrations, computer vision, and full-stack development.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2023 — 2025</div><h4>Higher Secondary (12th Grade)</h4><p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Completed 12th grade in 2025. This is where my interest in computers and technology first took shape.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Earlier</div><h4>Secondary (10th Grade)</h4><p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Built the foundation. Learned discipline, curiosity, and the joy of solving problems.</p></div>
     </div>
   </section>
 
   <!-- Skills -->
   <section id="skills" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Expertise</span>
-      <h2 class="section-title">Skills & Technologies</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3><span class="cat-icon">🐍</span> Programming Languages</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">C</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">Dart</span>
-          <span class="skill-tag">HTML5/CSS3</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><span class="cat-icon">🤖</span> AI / Machine Learning</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">YOLO</span>
-          <span class="skill-tag">LangChain</span>
-          <span class="skill-tag">HuggingFace</span>
-          <span class="skill-tag">OpenAI API</span>
-          <span class="skill-tag">LLMs</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><span class="cat-icon">🌐</span> Web Development</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Flask</span>
-          <span class="skill-tag">FastAPI</span>
-          <span class="skill-tag">REST APIs</span>
-          <span class="skill-tag">WebSocket</span>
-          <span class="skill-tag">PWA</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3><span class="cat-icon">🔧</span> Tools & Platforms</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Git / GitHub</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">MySQL</span>
-          <span class="skill-tag">MongoDB</span>
-          <span class="skill-tag">Vercel</span>
-          <span class="skill-tag">HuggingFace Spaces</span>
-          <span class="skill-tag">GitHub Pages</span>
-        </div>
-      </div>
+    <div class="section-header"><span class="section-label">Expertise</span><h2 class="section-title">Skills & Technologies</h2></div>
+    <div class="skills-grid" id="skills-grid">
+      <div class="skill-category"><h3><span class="cat-icon">🐍</span> Programming Languages</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Dart</span><span class="skill-tag">HTML5/CSS3</span></div></div>
+      <div class="skill-category"><h3><span class="cat-icon">🤖</span> AI / Machine Learning</h3><div class="skill-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">OpenCV</span><span class="skill-tag">YOLO</span><span class="skill-tag">LangChain</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">LLMs</span></div></div>
+      <div class="skill-category"><h3><span class="cat-icon">🌐</span> Web Development</h3><div class="skill-tags"><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">Flask</span><span class="skill-tag">FastAPI</span><span class="skill-tag">REST APIs</span><span class="skill-tag">WebSocket</span><span class="skill-tag">PWA</span></div></div>
+      <div class="skill-category"><h3><span class="cat-icon">🔧</span> Tools & Platforms</h3><div class="skill-tags"><span class="skill-tag">Git / GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">Linux</span><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Vercel</span><span class="skill-tag">HuggingFace Spaces</span><span class="skill-tag">GitHub Pages</span></div></div>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Portfolio</span>
-      <h2 class="section-title">Featured Projects</h2>
-    </div>
-    <div class="projects-grid">
-      <!-- GRBS -->
-      <div class="project-card">
-        <div class="project-emoji">🗺️</div>
-        <h3 class="project-title">GRBS — AI/ML Roadmap</h3>
-        <p class="project-desc">A comprehensive, interactive AI/ML learning roadmap tracker with 18 phases, curated resources (English + Hindi), progress tracking, activity heatmap, project suggestions, and a PWA for offline access. Built as a single-page JavaScript application.</p>
-        <div class="project-tags">
-          <span class="project-tag">JavaScript</span>
-          <span class="project-tag">PWA</span>
-          <span class="project-tag">Chart.js</span>
-          <span class="project-tag">HTML/CSS</span>
-        </div>
-        <div class="project-links">
-          <a href="https://shubham001312.github.io/GRBS/" class="project-link" target="_blank">Live Demo →</a>
-          <a href="https://github.com/shubham001312/GRBS" class="project-link" target="_blank">Source Code →</a>
-        </div>
-      </div>
-      <!-- cuet-ai -->
-      <div class="project-card">
-        <div class="project-emoji">🧠</div>
-        <h3 class="project-title">CUET AI Assistant</h3>
-        <p class="project-desc">An AI-powered assistant built with Python and deployed on HuggingFace Spaces. Features intelligent conversational capabilities, document processing, and smart query handling for academic and general-purpose use.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">HuggingFace</span>
-          <span class="project-tag">LLM</span>
-          <span class="project-tag">Gradio</span>
-        </div>
-        <div class="project-links">
-          <a href="https://huggingface.co/spaces/shubham001312/cuet-ai" class="project-link" target="_blank">Live Demo →</a>
-          <a href="https://github.com/shubham001312/cuet-ai" class="project-link" target="_blank">Source Code →</a>
-        </div>
-      </div>
-      <!-- newsbuzz -->
-      <div class="project-card">
-        <div class="project-emoji">📰</div>
-        <h3 class="project-title">NewsBuzz</h3>
-        <p class="project-desc">A modern news aggregator application that fetches and displays real-time news from multiple sources. Features category filtering, search functionality, and a clean responsive interface for an optimal reading experience.</p>
-        <div class="project-tags">
-          <span class="project-tag">JavaScript</span>
-          <span class="project-tag">REST API</span>
-          <span class="project-tag">HTML/CSS</span>
-          <span class="project-tag">Responsive</span>
-        </div>
-        <div class="project-links">
-          <a href="https://shubham001312.github.io/newsbuzz/" class="project-link" target="_blank">Live Demo →</a>
-          <a href="https://github.com/shubham001312/newsbuzz" class="project-link" target="_blank">Source Code →</a>
-        </div>
-      </div>
-      <!-- guzu -->
-      <div class="project-card">
-        <div class="project-emoji">📱</div>
-        <h3 class="project-title">Guzu — Android Browser</h3>
-        <p class="project-desc">A lightweight, privacy-focused Android browser application built with Flutter/Dart. Features multiple search engine support, clean UI, and secure private browsing for a fast and safe web experience on mobile.</p>
-        <div class="project-tags">
-          <span class="project-tag">Dart</span>
-          <span class="project-tag">Flutter</span>
-          <span class="project-tag">Android</span>
-          <span class="project-tag">WebView</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/shubham001312/guzu--ANDROID_SOURCE_CODE" class="project-link" target="_blank">Source Code →</a>
-        </div>
-      </div>
+    <div class="section-header"><span class="section-label">Portfolio</span><h2 class="section-title">Featured Projects</h2></div>
+    <div class="projects-grid" id="projects-grid">
+      <div class="project-card"><div class="project-emoji">🗺️</div><h3 class="project-title">GRBS — AI/ML Roadmap</h3><p class="project-desc">A comprehensive, interactive AI/ML learning roadmap tracker with 18 phases, curated resources (English + Hindi), progress tracking, activity heatmap, project suggestions, and a PWA for offline access.</p><div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">PWA</span><span class="project-tag">Chart.js</span><span class="project-tag">HTML/CSS</span></div><div class="project-links"><a href="https://shubham001312.github.io/GRBS/" class="project-link" target="_blank">Live Demo →</a><a href="https://github.com/shubham001312/GRBS" class="project-link" target="_blank">Source Code →</a></div></div>
+      <div class="project-card"><div class="project-emoji">🧠</div><h3 class="project-title">CUET AI Assistant</h3><p class="project-desc">An AI-powered assistant built with Python and deployed on HuggingFace Spaces. Features intelligent conversational capabilities, document processing, and smart query handling.</p><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">HuggingFace</span><span class="project-tag">LLM</span><span class="project-tag">Gradio</span></div><div class="project-links"><a href="https://huggingface.co/spaces/shubham001312/cuet-ai" class="project-link" target="_blank">Live Demo →</a><a href="https://github.com/shubham001312/cuet-ai" class="project-link" target="_blank">Source Code →</a></div></div>
+      <div class="project-card"><div class="project-emoji">📰</div><h3 class="project-title">NewsBuzz</h3><p class="project-desc">A modern news aggregator that fetches and displays real-time news from multiple sources with category filtering, search functionality, and a clean responsive interface.</p><div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">REST API</span><span class="project-tag">HTML/CSS</span><span class="project-tag">Responsive</span></div><div class="project-links"><a href="https://shubham001312.github.io/newsbuzz/" class="project-link" target="_blank">Live Demo →</a><a href="https://github.com/shubham001312/newsbuzz" class="project-link" target="_blank">Source Code →</a></div></div>
+      <div class="project-card"><div class="project-emoji">📱</div><h3 class="project-title">Guzu — Android Browser</h3><p class="project-desc">A lightweight, privacy-focused Android browser built with Flutter/Dart. Features multiple search engine support, clean UI, and secure private browsing.</p><div class="project-tags"><span class="project-tag">Dart</span><span class="project-tag">Flutter</span><span class="project-tag">Android</span><span class="project-tag">WebView</span></div><div class="project-links"><a href="https://github.com/shubham001312/guzu--ANDROID_SOURCE_CODE" class="project-link" target="_blank">Source Code →</a></div></div>
     </div>
   </section>
 
-  <!-- Learning Roadmap -->
-  <section id="roadmap" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Learning Path</span>
-      <h2 class="section-title">AI/ML Learning Roadmap</h2>
+  <!-- Certifications -->
+  <section id="certs" class="fade-in">
+    <div class="section-header"><span class="section-label">Credentials</span><h2 class="section-title">Certifications</h2></div>
+    <div class="certs-grid" id="certs-grid">
+      <div class="cert-card"><img src="assets/cert-google-ai-essentials.png" alt="Google AI Essentials Certificate" loading="lazy"><div class="cert-info"><div class="cert-name">Google AI Essentials</div><div class="cert-issuer">Google · Coursera</div><div class="cert-date">Issued May 2026 · Credential ID: 7E70JFWK9SYF</div></div></div>
+      <div class="cert-card"><img src="assets/cert-google-ai-professional.png" alt="Google AI Professional Certificate" loading="lazy"><div class="cert-info"><div class="cert-name">Google AI Professional</div><div class="cert-issuer">Google · Coursera</div><div class="cert-date">Issued May 2026 · Credential ID: 7L7FT1QN9CEI</div></div></div>
     </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="fade-in">
+    <div class="section-header"><span class="section-label">Learning Path</span><h2 class="section-title">AI/ML Learning Roadmap</h2></div>
     <div class="roadmap-cta">
       <h3>🗺️ GRBS — Your AI Learning Companion</h3>
-      <p>I built an interactive roadmap that tracks your entire AI/ML learning journey — from computer science fundamentals to advanced research. 18 phases, curated resources in English & Hindi, progress tracking, and more.</p>
-      <div class="roadmap-stats">
-        <div class="roadmap-stat"><span class="stat-num">18</span><span class="stat-label">PHASES</span></div>
-        <div class="roadmap-stat"><span class="stat-num">100+</span><span class="stat-label">RESOURCES</span></div>
-        <div class="roadmap-stat"><span class="stat-num">50+</span><span class="stat-label">PROJECTS</span></div>
-      </div>
-      <a href="https://shubham001312.github.io/GRBS/" class="hero-cta" target="_blank">
-        Explore the Roadmap
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </a>
+      <p>I built an interactive roadmap that tracks your entire AI/ML learning journey — from CS fundamentals to advanced research. 18 phases, curated resources in English & Hindi, progress tracking, and more.</p>
+      <div class="roadmap-stats"><div class="roadmap-stat"><span class="stat-num">18</span><span class="stat-label">PHASES</span></div><div class="roadmap-stat"><span class="stat-num">100+</span><span class="stat-label">RESOURCES</span></div><div class="roadmap-stat"><span class="stat-num">50+</span><span class="stat-label">PROJECTS</span></div></div>
+      <a href="https://shubham001312.github.io/GRBS/" class="hero-cta" target="_blank">Explore the Roadmap <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
   </section>
 
   <!-- GitHub Stats -->
   <section id="stats" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Activity</span>
-      <h2 class="section-title">GitHub Stats</h2>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-value">23+</div><div class="stat-label">Public Repos</div></div>
-      <div class="stat-card"><div class="stat-value">2</div><div class="stat-label">Followers</div></div>
-      <div class="stat-card"><div class="stat-value">7+</div><div class="stat-label">Languages</div></div>
-    </div>
-    <div class="github-embed">
-      <img src="https://github-readme-stats.vercel.app/api?username=shubham001312&show_icons=true&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&icon_color=4f46e5&text_color=0f172a" alt="GitHub Stats" loading="lazy">
-    </div>
-    <div class="github-embed" style="margin-top:12px">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shubham001312&layout=compact&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&text_color=0f172a" alt="Top Languages" loading="lazy">
-    </div>
-    <div class="github-embed" style="margin-top:12px">
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=shubham001312&theme=default&hide_border=true&background=f8fafc&stroke=4f46e5&ring=4f46e5&fire=4f46e5&currStreakLabel=4f46e5" alt="GitHub Streak" loading="lazy" onerror="this.parentElement.style.display='none'">
-    </div>
+    <div class="section-header"><span class="section-label">Activity</span><h2 class="section-title">GitHub Stats</h2></div>
+    <div class="stats-grid"><div class="stat-card"><div class="stat-value">23+</div><div class="stat-label">Public Repos</div></div><div class="stat-card"><div class="stat-value">2</div><div class="stat-label">Followers</div></div><div class="stat-card"><div class="stat-value">7+</div><div class="stat-label">Languages</div></div></div>
+    <div class="github-embed"><img src="https://github-readme-stats.vercel.app/api?username=shubham001312&show_icons=true&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&icon_color=4f46e5&text_color=0f172a" alt="GitHub Stats" loading="lazy"></div>
+    <div class="github-embed" style="margin-top:12px"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shubham001312&layout=compact&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&text_color=0f172a" alt="Top Languages" loading="lazy"></div>
+    <div class="github-embed" style="margin-top:12px"><img src="https://github-readme-streak-stats.herokuapp.com/?user=shubham001312&theme=default&hide_border=true&background=f8fafc&stroke=4f46e5&ring=4f46e5&fire=4f46e5&currStreakLabel=4f46e5" alt="GitHub Streak" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
   </section>
 
   <!-- Blog -->
   <section id="blog" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Writings</span>
-      <h2 class="section-title">Blog</h2>
-    </div>
-    <div class="blog-card">
-      <span class="coming-soon">COMING SOON</span>
-      <h3>Articles & Tutorials</h3>
-      <p>I'll be sharing insights on AI/ML, development tips, and project breakdowns. Stay tuned.</p>
-    </div>
+    <div class="section-header"><span class="section-label">Writings</span><h2 class="section-title">Blog</h2></div>
+    <div class="blog-card"><span class="coming-soon">COMING SOON</span><h3>Articles & Tutorials</h3><p>I'll be sharing insights on AI/ML, development tips, and project breakdowns. Stay tuned.</p></div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="fade-in">
-    <div class="section-header">
-      <span class="section-label">Reach Out</span>
-      <h2 class="section-title">Get In Touch</h2>
-    </div>
+    <div class="section-header"><span class="section-label">Reach Out</span><h2 class="section-title">Get In Touch</h2></div>
     <p style="color:var(--muted);margin-bottom:2rem;font-size:15px">Have a project idea, collaboration opportunity, or just want to connect? I'm always happy to hear from fellow developers, recruiters, and anyone passionate about technology.</p>
-    <div class="contact-links">
-      <a href="mailto:gmail.shubham@gmail.com" class="contact-line">
-        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></div>
-        <div class="contact-text"><span class="contact-label">Email</span><span class="contact-value">gmail.shubham@gmail.com</span></div>
-      </a>
-      <a href="https://linkedin.com/in/shubham-mallick-061298378" class="contact-line" target="_blank">
-        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-        <div class="contact-text"><span class="contact-label">LinkedIn</span><span class="contact-value">shubham-mallick →</span></div>
-      </a>
-      <a href="https://github.com/shubham001312" class="contact-line" target="_blank">
-        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
-        <div class="contact-text"><span class="contact-label">GitHub</span><span class="contact-value">@shubham001312 →</span></div>
-      </a>
-      <a href="https://x.com/shubham_1440" class="contact-line" target="_blank">
-        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></div>
-        <div class="contact-text"><span class="contact-label">Twitter / X</span><span class="contact-value">@shubham_1440 →</span></div>
-      </a>
+    <div class="contact-links" id="contact-links">
+      <a href="mailto:gmail.shubham@gmail.com" class="contact-line"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></div><div class="contact-text"><span class="contact-label">Email</span><span class="contact-value">gmail.shubham@gmail.com</span></div></a>
+      <a href="https://linkedin.com/in/shubham-mallick-061298378" class="contact-line" target="_blank"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div class="contact-text"><span class="contact-label">LinkedIn</span><span class="contact-value">shubham-mallick →</span></div></a>
+      <a href="https://github.com/shubham001312" class="contact-line" target="_blank"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div><div class="contact-text"><span class="contact-label">GitHub</span><span class="contact-value">@shubham001312 →</span></div></a>
+      <a href="https://x.com/shubham_1440" class="contact-line" target="_blank"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></div><div class="contact-text"><span class="contact-label">Twitter / X</span><span class="contact-value">@shubham_1440 →</span></div></a>
     </div>
-    <a href="#" class="resume-btn" onclick="alert('Resume coming soon!');return false">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      Download Resume (Coming Soon)
-    </a>
+    <a href="#" class="resume-btn" onclick="alert('Resume coming soon!');return false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Download Resume (Coming Soon)</a>
   </section>
 </main>
 
 <footer>
-  <div>
-    <span>© 2026 Shubham Mallick. Built with passion.</span>
-  </div>
+  <div><span>© 2026 Shubham Mallick. Built with passion.</span></div>
   <div class="footer-right">
     <a href="https://github.com/shubham001312" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/shubham-mallick-061298378" target="_blank">LinkedIn</a>
@@ -573,277 +347,167 @@ footer{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-con
 <div class="modal-overlay" id="admin-modal">
   <div class="modal">
     <h3>🔐 Admin Login</h3>
-    <p>Enter your credentials to access the admin panel. Password is verified locally using SHA-256 hashing.</p>
-    <div class="form-group">
-      <label for="admin-email">Email / ID</label>
-      <input type="email" id="admin-email" placeholder="Enter your email" onkeydown="if(event.key==='Enter')document.getElementById('admin-password').focus()">
-    </div>
-    <div class="form-group">
-      <label for="admin-password">Password</label>
-      <input type="password" id="admin-password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')handleAdminLogin()">
-      <div class="modal-error" id="login-error">Incorrect email or password. Try again.</div>
-    </div>
+    <p class="modal-desc">Enter your credentials to access the admin panel.</p>
+    <div class="form-group"><label for="admin-email">Email / ID</label><input type="email" id="admin-email" placeholder="Enter your email" onkeydown="if(event.key==='Enter')document.getElementById('admin-password').focus()"></div>
+    <div class="form-group"><label for="admin-password">Password</label><input type="password" id="admin-password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')handleAdminLogin()"><div class="modal-error" id="login-error">Incorrect email or password. Try again.</div></div>
     <button class="modal-btn" onclick="handleAdminLogin()">Login</button>
     <button class="modal-btn cancel" onclick="closeAdminPanel()">Cancel</button>
   </div>
 </div>
 
-<!-- Admin Edit Modal -->
+<!-- Full Admin Dashboard -->
 <div class="modal-overlay" id="edit-modal">
-  <div class="modal" style="max-width:600px">
-    <h3>✏️ Edit Content</h3>
-    <p>Update your portfolio content. Changes are saved to your browser's localStorage.</p>
-    <div class="form-group">
-      <label for="edit-section">Section</label>
-      <select id="edit-section" style="width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:6px;color:var(--text);padding:10px 14px;font-family:inherit;font-size:14px;transition:all 0.2s;cursor:pointer" onchange="loadSectionData()" onfocus="this.style.borderColor='var(--accent)';this.style.boxShadow='0 0 0 3px rgba(var(--accent-rgb),0.15)'" onblur="this.style.borderColor='var(--input-border)';this.style.boxShadow='none'">
-        <option value="hero">Hero / Intro</option>
-        <option value="about">About Me</option>
-        <option value="projects">Projects</option>
-        <option value="contact">Contact Info</option>
-        <option value="meta">Site Meta (Title, Description)</option>
-        <option value="credentials">🔑 Change Password</option>
-      </select>
+  <div class="modal" style="max-width:700px">
+    <h3>⚙️ Admin Dashboard</h3>
+    <p class="modal-desc">Edit any section of your portfolio. Changes save to localStorage and apply on refresh.</p>
+    <div class="admin-section-tabs" id="admin-tabs">
+      <button class="admin-tab active" data-section="hero">Hero</button>
+      <button class="admin-tab" data-section="about">About</button>
+      <button class="admin-tab" data-section="education">Education</button>
+      <button class="admin-tab" data-section="skills">Skills</button>
+      <button class="admin-tab" data-section="projects">Projects</button>
+      <button class="admin-tab" data-section="certs">Certificates</button>
+      <button class="admin-tab" data-section="contact">Contact</button>
+      <button class="admin-tab" data-section="meta">Meta</button>
+      <button class="admin-tab" data-section="credentials">🔑 Password</button>
     </div>
-    <div class="form-group">
-      <label for="edit-content">Content (JSON or text)</label>
-      <textarea id="edit-content" style="width:100%;min-height:150px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:6px;color:var(--text);padding:10px 14px;font-family:'Fira Code',monospace;font-size:12px" placeholder="Edit content here..."></textarea>
-    </div>
-    <div class="modal-error" id="edit-error">Invalid format. Please check your input.</div>
-    <button class="modal-btn" onclick="saveSectionData()">Save Changes</button>
+    <div class="form-group"><label for="edit-content">Content (JSON)</label><textarea id="edit-content" placeholder="Edit content here..."></textarea></div>
+    <div class="modal-error" id="edit-error">Invalid JSON format.</div>
+    <button class="modal-btn" onclick="saveSectionData()">💾 Save Changes</button>
     <button class="modal-btn cancel" onclick="closeEditPanel()">Cancel</button>
   </div>
 </div>
 
 <script>
 // ===== TYPING EFFECT =====
-const typingPhrases = [
-  "AI Engineer (LLM Specialisation)",
-  "Building Intelligent Software",
-  "Python • C • Machine Learning • LLMs",
-  "Turning Ideas Into Reality"
-];
-let phraseIdx = 0, charIdx = 0, isDeleting = false;
-const typingEl = document.getElementById('typing-text');
-function typeEffect() {
-  const current = typingPhrases[phraseIdx];
-  if (isDeleting) {
-    typingEl.textContent = current.substring(0, charIdx - 1);
-    charIdx--;
-  } else {
-    typingEl.textContent = current.substring(0, charIdx + 1);
-    charIdx++;
-  }
-  let speed = isDeleting ? 40 : 80;
-  if (!isDeleting && charIdx === current.length) { speed = 2000; isDeleting = true; }
-  else if (isDeleting && charIdx === 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % typingPhrases.length; speed = 500; }
-  setTimeout(typeEffect, speed);
-}
+const typingPhrases=["AI Engineer (LLM Specialisation)","Building Intelligent Software","Python • C • Machine Learning • LLMs","Turning Ideas Into Reality"];
+let phraseIdx=0,charIdx=0,isDeleting=false;
+const typingEl=document.getElementById('typing-text');
+function typeEffect(){const current=typingPhrases[phraseIdx];if(isDeleting){typingEl.textContent=current.substring(0,charIdx-1);charIdx--}else{typingEl.textContent=current.substring(0,charIdx+1);charIdx++}let speed=isDeleting?40:80;if(!isDeleting&&charIdx===current.length){speed=2000;isDeleting=true}else if(isDeleting&&charIdx===0){isDeleting=false;phraseIdx=(phraseIdx+1)%typingPhrases.length;speed=500}setTimeout(typeEffect,speed)}
 typeEffect();
 
 // ===== AUTO-UPDATING AGE =====
-function updateAge() {
-  const birthDate = new Date(2006, 0, 1);
-  const now = new Date();
-  let age = now.getFullYear() - birthDate.getFullYear();
-  const m = now.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && now.getDate() < birthDate.getDate())) age--;
-  const el = document.getElementById('age-display');
-  if (el) el.textContent = age + '-year-old ';
-}
-updateAge();
-setInterval(updateAge, 60000);
+function updateAge(){const birthDate=new Date(2006,0,1);const now=new Date();let age=now.getFullYear()-birthDate.getFullYear();const m=now.getMonth()-birthDate.getMonth();if(m<0||(m===0&&now.getDate()<birthDate.getDate()))age--;const el=document.getElementById('age-display');if(el)el.textContent=age+'-year-old '}
+updateAge();setInterval(updateAge,60000);
 
 // ===== SCROLL PROGRESS =====
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  document.getElementById('scroll-progress').style.width = pct + '%';
-});
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('scroll-progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
 
-// ===== FADE-IN ON SCROLL =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+// ===== FADE-IN =====
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
 // ===== MOBILE MENU =====
-function toggleMenu(show) {
-  const nav = document.getElementById('nav-links');
-  if (show === false) { nav.classList.remove('show'); }
-  else { nav.classList.toggle('show'); }
-}
+function toggleMenu(show){const nav=document.getElementById('nav-links');if(show===false)nav.classList.remove('show');else nav.classList.toggle('show')}
 
 // ===== ADMIN PANEL =====
-const ADMIN_HASH_KEY = 'portfolio_admin_hash';
+const ADMIN_HASH_KEY='portfolio_admin_hash';
+const ADMIN_EMAIL_KEY='portfolio_admin_email';
+let currentAdminSection='hero';
 
-async function sha256(message) {
-  const msgBuffer = new TextEncoder().encode(message);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
+async function sha256(m){const buf=new TextEncoder().encode(m);const hash=await crypto.subtle.digest('SHA-256',buf);return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('')}
 
-const ADMIN_EMAIL_KEY = 'portfolio_admin_email';
-
-async function setupAdminHash() {
-  if (!localStorage.getItem(ADMIN_EMAIL_KEY)) {
-    localStorage.setItem(ADMIN_EMAIL_KEY, 'shubham.mallick1440@gmail.com');
-  }
-  const existing = localStorage.getItem(ADMIN_HASH_KEY);
-  if (!existing) {
-    const hash = await sha256('admin');
-    localStorage.setItem(ADMIN_HASH_KEY, hash);
-  }
+async function setupAdminHash(){
+  if(!localStorage.getItem(ADMIN_EMAIL_KEY))localStorage.setItem(ADMIN_EMAIL_KEY,'shubham.mallick1440@gmail.com');
+  if(!localStorage.getItem(ADMIN_HASH_KEY)){const h=await sha256('admin');localStorage.setItem(ADMIN_HASH_KEY,h)}
 }
 setupAdminHash();
 
-function openAdminPanel() {
-  document.getElementById('admin-modal').classList.add('active');
-  document.getElementById('admin-email').value = localStorage.getItem(ADMIN_EMAIL_KEY) || '';
-  document.getElementById('admin-password').value = '';
-  document.getElementById('login-error').style.display = 'none';
-  document.getElementById('admin-email').focus();
+function openAdminPanel(){document.getElementById('admin-modal').classList.add('active');document.getElementById('admin-email').value=localStorage.getItem(ADMIN_EMAIL_KEY)||'';document.getElementById('admin-password').value='';document.getElementById('login-error').style.display='none';document.getElementById('admin-email').focus()}
+function closeAdminPanel(){document.getElementById('admin-modal').classList.remove('active')}
+
+async function handleAdminLogin(){
+  const email=document.getElementById('admin-email').value.trim(),pw=document.getElementById('admin-password').value;
+  if(!email||!pw)return;
+  const storedEmail=localStorage.getItem(ADMIN_EMAIL_KEY),hash=await sha256(pw),storedHash=localStorage.getItem(ADMIN_HASH_KEY);
+  if(email===storedEmail&&hash===storedHash){closeAdminPanel();openEditPanel()}else{document.getElementById('login-error').style.display='block'}
 }
 
-function closeAdminPanel() {
-  document.getElementById('admin-modal').classList.remove('active');
+function openEditPanel(){document.getElementById('edit-modal').classList.add('active');loadSectionData()}
+function closeEditPanel(){document.getElementById('edit-modal').classList.remove('active')}
+
+// Admin tab clicks
+document.querySelectorAll('.admin-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    currentAdminSection=tab.dataset.section;
+    loadSectionData();
+  });
+});
+
+// Default data for each section
+const sectionDefaults={
+  hero:()=>JSON.stringify({name:'Shubham Mallick',headline:'AI Engineer (LLM Specialisation)',description:'AI Engineer and developer from Kolkata, building intelligent software at the intersection of AI/ML and modern web development. Passionate about LLMs, Computer Vision, and creating tools that make a difference.',tags:['Python','C/C++','Machine Learning','LLMs','Computer Vision','JavaScript','MySQL'],photoUrl:'https://avatars.githubusercontent.com/u/226120019?v=4'},null,2),
+  about:()=>JSON.stringify({text1:"I'm an AI Engineering student at Budge Budge Institute of Technology (MAKAUT), specializing in Artificial Intelligence. My journey started at Jawahar Navodaya Vidyalaya, North 24 Parganas, where I discovered my passion for technology and problem-solving.",text2:"Today, I focus on building intelligent systems — from LLM-powered applications and computer vision pipelines to modern web platforms. I believe in learning by building, and every project on this portfolio represents a step in that journey."},null,2),
+  education:()=>JSON.stringify([{date:'2025 — Present',title:'B.Tech in CSE (Artificial Intelligence)',school:'Budge Budge Institute of Technology',detail:'under MAKAUT — Currently in 1st year, specializing in AI/ML.'},{date:'2023 — 2025',title:'Higher Secondary (12th Grade)',school:'Jawahar Navodaya Vidyalaya, North 24 Parganas',detail:'Completed 12th grade in 2025.'},{date:'Earlier',title:'Secondary (10th Grade)',school:'Jawahar Navodaya Vidyalaya, North 24 Parganas',detail:'Built the foundation.'}],null,2),
+  skills:()=>JSON.stringify([{icon:'🐍',name:'Programming Languages',skills:['Python','C','C++','JavaScript','TypeScript','Dart','HTML5/CSS3']},{icon:'🤖',name:'AI / Machine Learning',skills:['PyTorch','OpenCV','YOLO','LangChain','HuggingFace','OpenAI API','LLMs']},{icon:'🌐',name:'Web Development',skills:['React','Node.js','Flask','FastAPI','REST APIs','WebSocket','PWA']},{icon:'🔧',name:'Tools & Platforms',skills:['Git / GitHub','Docker','Linux','MySQL','MongoDB','Vercel','HuggingFace Spaces','GitHub Pages']}],null,2),
+  projects:()=>JSON.stringify([{emoji:'🗺️',title:'GRBS — AI/ML Roadmap',desc:'A comprehensive, interactive AI/ML learning roadmap tracker with 18 phases, curated resources (English + Hindi), progress tracking, activity heatmap, and a PWA for offline access.',tags:['JavaScript','PWA','Chart.js','HTML/CSS'],demo:'https://shubham001312.github.io/GRBS/',source:'https://github.com/shubham001312/GRBS'},{emoji:'🧠',title:'CUET AI Assistant',desc:'An AI-powered assistant built with Python and deployed on HuggingFace Spaces. Features intelligent conversational capabilities and smart query handling.',tags:['Python','HuggingFace','LLM','Gradio'],demo:'https://huggingface.co/spaces/shubham001312/cuet-ai',source:'https://github.com/shubham001312/cuet-ai'},{emoji:'📰',title:'NewsBuzz',desc:'A modern news aggregator that fetches and displays real-time news from multiple sources with category filtering and search.',tags:['JavaScript','REST API','HTML/CSS','Responsive'],demo:'https://shubham001312.github.io/newsbuzz/',source:'https://github.com/shubham001312/newsbuzz'},{emoji:'📱',title:'Guzu — Android Browser',desc:'A lightweight, privacy-focused Android browser built with Flutter/Dart with multiple search engine support.',tags:['Dart','Flutter','Android','WebView'],source:'https://github.com/shubham001312/guzu--ANDROID_SOURCE_CODE'}],null,2),
+  certs:()=>JSON.stringify([{name:'Google AI Essentials',issuer:'Google · Coursera',date:'Issued May 2026',credential:'7E70JFWK9SYF',image:'assets/cert-google-ai-essentials.png'},{name:'Google AI Professional',issuer:'Google · Coursera',date:'Issued May 2026',credential:'7L7FT1QN9CEI',image:'assets/cert-google-ai-professional.png'}],null,2),
+  contact:()=>JSON.stringify({email:'gmail.shubham@gmail.com',linkedin:'https://linkedin.com/in/shubham-mallick-061298378',github:'https://github.com/shubham001312',twitter:'https://x.com/shubham_1440'},null,2),
+  meta:()=>JSON.stringify({title:'Shubham Mallick | AI Engineer & Developer',description:'Portfolio of Shubham Mallick — AI Engineer specializing in LLMs, Computer Vision, and Full Stack Development.'},null,2),
+  credentials:()=>JSON.stringify({email:localStorage.getItem(ADMIN_EMAIL_KEY)||'',newPassword:''},null,2)
+};
+
+function loadSectionData(){
+  document.getElementById('edit-error').style.display='none';
+  const stored=localStorage.getItem('portfolio_'+currentAdminSection);
+  document.getElementById('edit-content').value=stored||sectionDefaults[currentAdminSection]();
 }
 
-async function handleAdminLogin() {
-  const email = document.getElementById('admin-email').value.trim();
-  const pw = document.getElementById('admin-password').value;
-  if (!email || !pw) return;
-  const storedEmail = localStorage.getItem(ADMIN_EMAIL_KEY);
-  const hash = await sha256(pw);
-  const storedHash = localStorage.getItem(ADMIN_HASH_KEY);
-  if (email === storedEmail && hash === storedHash) {
-    closeAdminPanel();
-    openEditPanel();
-  } else {
-    document.getElementById('login-error').style.display = 'block';
-  }
-}
-
-function openEditPanel() {
-  document.getElementById('edit-modal').classList.add('active');
-  loadSectionData();
-}
-
-function closeEditPanel() {
-  document.getElementById('edit-modal').classList.remove('active');
-}
-
-function loadSectionData() {
-  const section = document.getElementById('edit-section').value;
-  document.getElementById('edit-error').style.display = 'none';
-  if (section === 'credentials') {
-    document.getElementById('edit-content').value = JSON.stringify({ email: localStorage.getItem(ADMIN_EMAIL_KEY) || '', newPassword: '' }, null, 2);
+function saveSectionData(){
+  const content=document.getElementById('edit-content').value;
+  if(currentAdminSection==='credentials'){
+    try{
+      const d=JSON.parse(content);
+      if(!d.newPassword||d.newPassword.length<4){document.getElementById('edit-error').textContent='Password must be at least 4 characters.';document.getElementById('edit-error').style.display='block';return}
+      if(d.email&&d.newPassword){
+        localStorage.setItem(ADMIN_EMAIL_KEY,d.email);
+        sha256(d.newPassword).then(hash=>{localStorage.setItem(ADMIN_HASH_KEY,hash);document.getElementById('edit-error').style.display='none';alert('Credentials updated!');closeEditPanel()});
+      }else{document.getElementById('edit-error').textContent='Provide both email and newPassword.';document.getElementById('edit-error').style.display='block'}
+    }catch(e){document.getElementById('edit-error').textContent='Invalid JSON. Example: {"email":"...","newPassword":"..."}';document.getElementById('edit-error').style.display='block'}
     return;
   }
-  const data = localStorage.getItem('portfolio_' + section) || '';
-  document.getElementById('edit-content').value = data;
-}
-
-function saveSectionData() {
-  const section = document.getElementById('edit-section').value;
-  const content = document.getElementById('edit-content').value;
-  if (section === 'credentials') {
-    try {
-      const d = JSON.parse(content);
-      if (!d.newPassword || d.newPassword.length < 4) {
-        document.getElementById('edit-error').textContent = 'Password must be at least 4 characters.';
-        document.getElementById('edit-error').style.display = 'block';
-        return;
-      }
-      if (d.email && d.newPassword) {
-        localStorage.setItem(ADMIN_EMAIL_KEY, d.email);
-        sha256(d.newPassword).then(hash => {
-          localStorage.setItem(ADMIN_HASH_KEY, hash);
-          document.getElementById('edit-error').style.display = 'none';
-          alert('Credentials updated! Use your new email and password to login next time.');
-          closeEditPanel();
-        });
-      } else {
-        document.getElementById('edit-error').textContent = 'Please provide both "email" and "newPassword" in the JSON.';
-        document.getElementById('edit-error').style.display = 'block';
-      }
-    } catch (e) {
-      document.getElementById('edit-error').textContent = 'Invalid JSON format. Example: {"email":"your@email.com","newPassword":"newpass"}';
-      document.getElementById('edit-error').style.display = 'block';
-    }
-    return;
-  }
-  try {
-    if (content.trim().startsWith('{') || content.trim().startsWith('[')) JSON.parse(content);
-    localStorage.setItem('portfolio_' + section, content);
-    document.getElementById('edit-error').style.display = 'none';
-    alert('Changes saved! Refresh the page to see updates.');
+  try{
+    if(content.trim().startsWith('{')||content.trim().startsWith('['))JSON.parse(content);
+    localStorage.setItem('portfolio_'+currentAdminSection,content);
+    document.getElementById('edit-error').style.display='none';
+    alert('Saved! Refresh to see changes.');
     closeEditPanel();
-  } catch (e) {
-    document.getElementById('edit-error').style.display = 'block';
-  }
+  }catch(e){document.getElementById('edit-error').textContent='Invalid JSON format.';document.getElementById('edit-error').style.display='block'}
 }
 
 // ===== APPLY SAVED CONTENT ON LOAD =====
-function applySavedContent() {
-  // Hero section
-  const heroData = localStorage.getItem('portfolio_hero');
-  if (heroData) {
-    try {
-      const d = JSON.parse(heroData);
-      if (d.name) document.querySelector('.hero h1 span').textContent = d.name;
-      if (d.headline) typingPhrases[0] = d.headline;
-      if (d.description) document.querySelector('.hero-desc').innerHTML = 'I\'m a <strong id="age-display"></strong>' + d.description;
-      updateAge();
-    } catch(e) {}
-  }
-  // About section
-  const aboutData = localStorage.getItem('portfolio_about');
-  if (aboutData) {
-    try {
-      const d = JSON.parse(aboutData);
-      if (d.text) document.querySelector('.about-text p').textContent = d.text;
-    } catch(e) {}
-  }
-  // Contact section
-  const contactData = localStorage.getItem('portfolio_contact');
-  if (contactData) {
-    try {
-      const d = JSON.parse(contactData);
-      if (d.email) {
-        const emailLink = document.querySelector('a[href^="mailto:"]');
-        if (emailLink) emailLink.href = 'mailto:' + d.email;
-        const emailVal = document.querySelector('.contact-line:first-child .contact-value');
-        if (emailVal) emailVal.textContent = d.email;
-      }
-      if (d.github) {
-        const ghLink = document.querySelectorAll('.contact-line')[2];
-        if (ghLink) ghLink.href = d.github;
-      }
-      if (d.linkedin) {
-        const liLink = document.querySelectorAll('.contact-line')[1];
-        if (liLink) liLink.href = d.linkedin;
-      }
-    } catch(e) {}
-  }
+function applySavedContent(){
+  // Hero
+  const hd=localStorage.getItem('portfolio_hero');
+  if(hd)try{const d=JSON.parse(hd);if(d.name)document.getElementById('hero-name').textContent=d.name;if(d.headline)typingPhrases[0]=d.headline;if(d.description){document.getElementById('hero-desc').innerHTML="I'm a <strong id=\"age-display\"></strong>"+d.description;updateAge()}if(d.photoUrl)document.getElementById('profile-photo').src=d.photoUrl;if(d.tags){const t=document.getElementById('hero-tags');t.innerHTML=d.tags.map(tag=>'<span class="tag">'+tag+'</span>').join('')}}catch(e){}
+  // About
+  const ad=localStorage.getItem('portfolio_about');
+  if(ad)try{const d=JSON.parse(ad);const el=document.getElementById('about-text');if(d.text1)el.querySelector('p:first-of-type').textContent=d.text1;if(d.text2)el.querySelectorAll('p')[1].textContent=d.text2}catch(e){}
+  // Education
+  const ed=localStorage.getItem('portfolio_education');
+  if(ed)try{const items=JSON.parse(ed);const t=document.getElementById('education-timeline');t.innerHTML=items.map(i=>'<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">'+i.date+'</div><h4>'+i.title+'</h4><p><strong>'+i.school+'</strong> '+i.detail+'</p></div>').join('')}catch(e){}
+  // Skills
+  const sk=localStorage.getItem('portfolio_skills');
+  if(sk)try{const cats=JSON.parse(sk);const g=document.getElementById('skills-grid');g.innerHTML=cats.map(c=>'<div class="skill-category"><h3><span class="cat-icon">'+c.icon+'</span> '+c.name+'</h3><div class="skill-tags">'+c.skills.map(s=>'<span class="skill-tag">'+s+'</span>').join('')+'</div></div>').join('')}catch(e){}
+  // Projects
+  const pd=localStorage.getItem('portfolio_projects');
+  if(pd)try{const projs=JSON.parse(pd);const g=document.getElementById('projects-grid');g.innerHTML=projs.map(p=>'<div class="project-card"><div class="project-emoji">'+p.emoji+'</div><h3 class="project-title">'+p.title+'</h3><p class="project-desc">'+p.desc+'</p><div class="project-tags">'+p.tags.map(t=>'<span class="project-tag">'+t+'</span>').join('')+'</div><div class="project-links">'+(p.demo?'<a href="'+p.demo+'" class="project-link" target="_blank">Live Demo →</a>':'')+(p.source?'<a href="'+p.source+'" class="project-link" target="_blank">Source Code →</a>':'')+'</div></div>').join('')}catch(e){}
+  // Certs
+  const cd=localStorage.getItem('portfolio_certs');
+  if(cd)try{const certs=JSON.parse(cd);const g=document.getElementById('certs-grid');g.innerHTML=certs.map(c=>'<div class="cert-card"><img src="'+c.image+'" alt="'+c.name+'" loading="lazy"><div class="cert-info"><div class="cert-name">'+c.name+'</div><div class="cert-issuer">'+c.issuer+'</div><div class="cert-date">'+c.date+' · Credential ID: '+c.credential+'</div></div></div>').join('')}catch(e){}
+  // Contact
+  const ct=localStorage.getItem('portfolio_contact');
+  if(ct)try{const d=JSON.parse(ct);const links=document.querySelectorAll('.contact-line');if(d.email){links[0].href='mailto:'+d.email;links[0].querySelector('.contact-value').textContent=d.email}if(d.linkedin){links[1].href=d.linkedin}if(d.github){links[2].href=d.github}if(d.twitter){links[3].href=d.twitter}}catch(e){}
   // Meta
-  const metaData = localStorage.getItem('portfolio_meta');
-  if (metaData) {
-    try {
-      const d = JSON.parse(metaData);
-      if (d.title) document.title = d.title;
-      if (d.description) document.querySelector('meta[name="description"]').content = d.description;
-    } catch(e) {}
-  }
+  const mt=localStorage.getItem('portfolio_meta');
+  if(mt)try{const d=JSON.parse(mt);if(d.title)document.title=d.title;if(d.description)document.querySelector('meta[name="description"]').content=d.description}catch(e){}
 }
 applySavedContent();
 
 // Close modals on overlay click
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.classList.remove('active');
-  });
-});
+document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('active')})});
 </script>
 </body>
 </html>
