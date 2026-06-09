@@ -478,31 +478,32 @@ function saveSectionData(){
 }
 
 // ===== APPLY SAVED CONTENT ON LOAD =====
+function sanitize(t){const d=document.createElement('div');d.textContent=t;return d.innerHTML}
 function applySavedContent(){
   // Hero
   const hd=localStorage.getItem('portfolio_hero');
-  if(hd)try{const d=JSON.parse(hd);if(d.name)document.getElementById('hero-name').textContent=d.name;if(d.headline)typingPhrases[0]=d.headline;if(d.description){document.getElementById('hero-desc').innerHTML="I'm a <strong id=\"age-display\"></strong>"+d.description;updateAge()}if(d.photoUrl)document.getElementById('profile-photo').src=d.photoUrl;if(d.tags){const t=document.getElementById('hero-tags');t.innerHTML=d.tags.map(tag=>'<span class="tag">'+tag+'</span>').join('')}}catch(e){}
+  if(hd)try{const d=JSON.parse(hd);if(d.name)document.getElementById('hero-name').textContent=sanitize(d.name);if(d.headline)typingPhrases[0]=d.headline;if(d.description){document.getElementById('hero-desc').innerHTML="I'm a <strong id=\"age-display\"></strong>"+sanitize(d.description);updateAge()}if(d.photoUrl)document.getElementById('profile-photo').src=d.photoUrl;if(d.tags){const t=document.getElementById('hero-tags');t.innerHTML=d.tags.map(tag=>'<span class="tag">'+sanitize(tag)+'</span>').join('')}}catch(e){}
   // About
   const ad=localStorage.getItem('portfolio_about');
-  if(ad)try{const d=JSON.parse(ad);const el=document.getElementById('about-text');if(d.text1)el.querySelector('p:first-of-type').textContent=d.text1;if(d.text2)el.querySelectorAll('p')[1].textContent=d.text2}catch(e){}
+  if(ad)try{const d=JSON.parse(ad);const el=document.getElementById('about-text');if(d.text1)el.querySelector('p:first-of-type').textContent=sanitize(d.text1);if(d.text2)el.querySelectorAll('p')[1].textContent=sanitize(d.text2)}catch(e){}
   // Education
   const ed=localStorage.getItem('portfolio_education');
-  if(ed)try{const items=JSON.parse(ed);const t=document.getElementById('education-timeline');t.innerHTML=items.map(i=>'<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">'+i.date+'</div><h4>'+i.title+'</h4><p><strong>'+i.school+'</strong> '+i.detail+'</p></div>').join('')}catch(e){}
+  if(ed)try{const items=JSON.parse(ed);const t=document.getElementById('education-timeline');t.innerHTML=items.map(i=>'<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">'+sanitize(i.date)+'</div><h4>'+sanitize(i.title)+'</h4><p><strong>'+sanitize(i.school)+'</strong> '+sanitize(i.detail)+'</p></div>').join('')}catch(e){}
   // Skills
   const sk=localStorage.getItem('portfolio_skills');
-  if(sk)try{const cats=JSON.parse(sk);const g=document.getElementById('skills-grid');g.innerHTML=cats.map(c=>'<div class="skill-category"><h3><span class="cat-icon">'+c.icon+'</span> '+c.name+'</h3><div class="skill-tags">'+c.skills.map(s=>'<span class="skill-tag">'+s+'</span>').join('')+'</div></div>').join('')}catch(e){}
+  if(sk)try{const cats=JSON.parse(sk);const g=document.getElementById('skills-grid');g.innerHTML=cats.map(c=>'<div class="skill-category"><h3><span class="cat-icon">'+sanitize(c.icon)+'</span> '+sanitize(c.name)+'</h3><div class="skill-tags">'+c.skills.map(s=>'<span class="skill-tag">'+sanitize(s)+'</span>').join('')+'</div></div>').join('')}catch(e){}
   // Projects
   const pd=localStorage.getItem('portfolio_projects');
-  if(pd)try{const projs=JSON.parse(pd);const g=document.getElementById('projects-grid');g.innerHTML=projs.map(p=>'<div class="project-card"><div class="project-emoji">'+p.emoji+'</div><h3 class="project-title">'+p.title+'</h3><p class="project-desc">'+p.desc+'</p><div class="project-tags">'+p.tags.map(t=>'<span class="project-tag">'+t+'</span>').join('')+'</div><div class="project-links">'+(p.demo?'<a href="'+p.demo+'" class="project-link" target="_blank">Live Demo →</a>':'')+(p.source?'<a href="'+p.source+'" class="project-link" target="_blank">Source Code →</a>':'')+'</div></div>').join('')}catch(e){}
+  if(pd)try{const projs=JSON.parse(pd);const g=document.getElementById('projects-grid');g.innerHTML=projs.map(p=>'<div class="project-card"><div class="project-emoji">'+sanitize(p.emoji)+'</div><h3 class="project-title">'+sanitize(p.title)+'</h3><p class="project-desc">'+sanitize(p.desc)+'</p><div class="project-tags">'+p.tags.map(t=>'<span class="project-tag">'+sanitize(t)+'</span>').join('')+'</div><div class="project-links">'+(p.demo?'<a href="'+sanitize(p.demo)+'" class="project-link" target="_blank">Live Demo →</a>':'')+(p.source?'<a href="'+sanitize(p.source)+'" class="project-link" target="_blank">Source Code →</a>':'')+'</div></div>').join('')}catch(e){}
   // Certs
   const cd=localStorage.getItem('portfolio_certs');
-  if(cd)try{const certs=JSON.parse(cd);const g=document.getElementById('certs-grid');g.innerHTML=certs.map(c=>'<div class="cert-card"><img src="'+c.image+'" alt="'+c.name+'" loading="lazy"><div class="cert-info"><div class="cert-name">'+c.name+'</div><div class="cert-issuer">'+c.issuer+'</div><div class="cert-date">'+c.date+' · Credential ID: '+c.credential+'</div></div></div>').join('')}catch(e){}
+  if(cd)try{const certs=JSON.parse(cd);const g=document.getElementById('certs-grid');g.innerHTML=certs.map(c=>'<div class="cert-card"><img src="'+sanitize(c.image)+'" alt="'+sanitize(c.name)+'" loading="lazy"><div class="cert-info"><div class="cert-name">'+sanitize(c.name)+'</div><div class="cert-issuer">'+sanitize(c.issuer)+'</div><div class="cert-date">'+sanitize(c.date)+' · Credential ID: '+sanitize(c.credential)+'</div></div></div>').join('')}catch(e){}
   // Contact
   const ct=localStorage.getItem('portfolio_contact');
-  if(ct)try{const d=JSON.parse(ct);const links=document.querySelectorAll('.contact-line');if(d.email){links[0].href='mailto:'+d.email;links[0].querySelector('.contact-value').textContent=d.email}if(d.linkedin){links[1].href=d.linkedin}if(d.github){links[2].href=d.github}if(d.twitter){links[3].href=d.twitter}}catch(e){}
+  if(ct)try{const d=JSON.parse(ct);const links=document.querySelectorAll('.contact-line');if(d.email){links[0].href='mailto:'+encodeURIComponent(d.email);links[0].querySelector('.contact-value').textContent=sanitize(d.email)}if(d.linkedin){links[1].href=d.linkedin}if(d.github){links[2].href=d.github}if(d.twitter){links[3].href=d.twitter}}catch(e){}
   // Meta
   const mt=localStorage.getItem('portfolio_meta');
-  if(mt)try{const d=JSON.parse(mt);if(d.title)document.title=d.title;if(d.description)document.querySelector('meta[name="description"]').content=d.description}catch(e){}
+  if(mt)try{const d=JSON.parse(mt);if(d.title)document.title=sanitize(d.title);if(d.description)document.querySelector('meta[name="description"]').content=sanitize(d.description)}catch(e){}
 }
 applySavedContent();
 
