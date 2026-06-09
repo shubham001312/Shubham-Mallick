@@ -136,9 +136,9 @@ async function loadGithubStats(){
     const repoEl=document.getElementById('stat-repos');
     const followersEl=document.getElementById('stat-followers');
     const starsEl=document.getElementById('stat-stars');
-    if(repoEl)repoEl.textContent=u.public_repos||'23+';
-    if(followersEl)followersEl.textContent=u.followers||'2';
-    if(starsEl)starsEl.textContent=totalStars||'0';
+    if(repoEl)repoEl.textContent=u.public_repos??'—';
+    if(followersEl)followersEl.textContent=u.followers??'—';
+    if(starsEl)starsEl.textContent=totalStars??'—';
     // Build stats card if image failed
     const statsCard=document.getElementById('github-stats-card');
     if(statsCard){
