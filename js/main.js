@@ -175,9 +175,7 @@ async function loadGithubStats(){
 loadGithubStats();
 function clearGithubCache(){
   try{localStorage.removeItem(GH_CACHE_KEY)}catch(e){}
-  renderStats({public_repos:'—',followers:'—',public_gists:'—'},'—');
-  renderLangs([]);
-  loadGithubStats().then(()=>alert('GitHub stats refreshed!'));
+  loadGithubStats();
 }
 
 // Close modals on overlay click

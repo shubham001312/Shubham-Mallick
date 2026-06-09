@@ -136,8 +136,8 @@
   <section id="stats" class="fade-in">
     <div class="section-header"><span class="section-label">Activity</span><h2 class="section-title">GitHub Stats</h2></div>
     <div class="stats-grid" id="github-stats-grid"><div class="stat-card"><div class="stat-value" id="stat-repos">—</div><div class="stat-label">Public Repos</div></div><div class="stat-card"><div class="stat-value" id="stat-followers">—</div><div class="stat-label">Followers</div></div><div class="stat-card"><div class="stat-value" id="stat-stars">—</div><div class="stat-label">Total Stars</div></div></div>
-    <div class="github-embed"><img src="https://github-readme-stats.vercel.app/api?username=shubham001312&show_icons=true&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&icon_color=4f46e5&text_color=0f172a" alt="GitHub Stats" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'github-api-stats\' id=\'github-stats-card\'></div>'"></div>
-    <div class="github-embed" style="margin-top:12px"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shubham001312&layout=compact&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&text_color=0f172a" alt="Top Languages" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'github-api-langs\' id=\'github-langs-card\'></div>'"></div>
+    <div class="github-embed"><img src="https://github-readme-stats.vercel.app/api?username=shubham001312&show_icons=true&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&icon_color=4f46e5&text_color=0f172a" alt="GitHub Stats" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'github-api-stats\' id=\'github-stats-card\'><div class=\'skeleton skeleton-line long\'></div><div class=\'skeleton skeleton-line medium\'></div><div class=\'skeleton skeleton-line short\'></div></div>'"></div>
+    <div class="github-embed" style="margin-top:12px"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shubham001312&layout=compact&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&text_color=0f172a" alt="Top Languages" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'github-api-langs\' id=\'github-langs-card\'><div class=\'skeleton skeleton-bar\'></div><div class=\'skeleton skeleton-bar\'></div><div class=\'skeleton skeleton-bar\'></div><div class=\'skeleton skeleton-bar\'></div></div>'"></div>
     <div class="github-embed" style="margin-top:12px"><img src="https://github-readme-streak-stats.herokuapp.com/?user=shubham001312&theme=default&hide_border=true&background=f8fafc&stroke=4f46e5&ring=4f46e5&fire=4f46e5&currStreakLabel=4f46e5" alt="GitHub Streak" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
   </section>
 
@@ -204,7 +204,7 @@
     <button class="modal-btn" onclick="saveSectionData()">💾 Save Changes</button>
     <button class="modal-btn cancel" onclick="closeEditPanel()">Cancel</button>
     <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0">
-    <button class="admin-tab" onclick="clearGithubCache()" style="width:100%;padding:10px;text-align:center">🔄 Refresh GitHub Stats</button>
+    <button class="modal-btn cancel" onclick="clearGithubCache()">🔄 Refresh GitHub Stats</button>
   </div>
 </div>
 
