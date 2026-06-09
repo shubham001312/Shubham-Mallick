@@ -128,41 +128,47 @@ applySavedContent();
 
 // ===== LIVE GITHUB STATS (fallback when image service is down) =====
 const GITHUB_USER='shubham001312';
+const GH_CACHE_KEY='gh_stats_cache';
+const GH_CACHE_TTL=3600000; // 1 hour in ms
+function getLangColors(){return{Python:'#3572A5',JavaScript:'#f1e05a',C:'#555555','C++':'#f34b7d',TypeScript:'#3178c6',Dart:'#00B4AB',HTML:'#e34c26',CSS:'#563d7c',Java:'#b07219',Shell:'#89e051'}}
+function renderStats(u,totalStars){
+  const repoEl=document.getElementById('stat-repos');
+  const followersEl=document.getElementById('stat-followers');
+  const starsEl=document.getElementById('stat-stars');
+  if(repoEl)repoEl.textContent=u.public_repos??'—';
+  if(followersEl)followersEl.textContent=u.followers??'—';
+  if(starsEl)starsEl.textContent=totalStars??'—';
+  const statsCard=document.getElementById('github-stats-card');
+  if(statsCard){statsCard.innerHTML='<div style="padding:1.5rem;background:var(--surface);border-radius:8px;"><h3 style=\'font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)\'>GitHub Overview</h3><div style=\'display:flex;gap:24px;flex-wrap:wrap;font-size:14px;\'><div>📦 <strong>'+(u.public_repos??0)+'</strong> Repos</div><div>👥 <strong>'+(u.followers??0)+'</strong> Followers</div><div>⭐ <strong>'+totalStars+'</strong> Stars</div><div>🔀 <strong>'+(u.public_gists??0)+'</strong> Gists</div></div></div>'}
+}
+function renderLangs(repos){
+  const langsCard=document.getElementById('github-langs-card');
+  if(!langsCard)return;
+  const langMap={};repos.forEach(r=>{if(r.language){langMap[r.language]=(langMap[r.language]||0)+1}});
+  const sorted=Object.entries(langMap).sort((a,b)=>b[1]-a[1]).slice(0,7);
+  const total=sorted.reduce((s,l)=>s+l[1],0);
+  const colors=getLangColors();
+  const barsHtml=sorted.map(([lang,count])=>{
+    const pct=Math.round(count/total*100);const c=colors[lang]||'#6e7681';
+    return '<div style=\'margin-bottom:8px;\'>'+'<div style=\'display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;color:var(--muted)\'>'+'<span>'+lang+'</span><span>'+pct+'%</span></div>'+'<div style=\'height:6px;background:var(--border);border-radius:3px;overflow:hidden;\'>'+'<div style=\'height:100%;width:'+pct+'%;background:'+c+';border-radius:3px;\'></div></div></div>';
+  }).join('');
+  langsCard.innerHTML='<div style="padding:1.5rem;background:var(--surface);border-radius:8px;"><h3 style=\'font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)\'>Top Languages</h3>'+barsHtml+'</div>';
+}
 async function loadGithubStats(){
   try{
+    // Check cache first
+    let cached=null;
+    try{cached=JSON.parse(localStorage.getItem(GH_CACHE_KEY))}catch(e){}
+    if(cached&&Date.now()-cached.ts<GH_CACHE_TTL){
+      renderStats(cached.user,cached.totalStars);renderLangs(cached.repos);return;
+    }
+    // Fetch fresh data
     const u=await fetch('https://api.github.com/users/'+GITHUB_USER).then(r=>r.json());
     const repos=await fetch('https://api.github.com/users/'+GITHUB_USER+'/repos?per_page=100').then(r=>r.json());
     const totalStars=repos.reduce((s,r)=>s+(r.stargazers_count||0),0);
-    const repoEl=document.getElementById('stat-repos');
-    const followersEl=document.getElementById('stat-followers');
-    const starsEl=document.getElementById('stat-stars');
-    if(repoEl)repoEl.textContent=u.public_repos??'—';
-    if(followersEl)followersEl.textContent=u.followers??'—';
-    if(starsEl)starsEl.textContent=totalStars??'—';
-    // Build stats card if image failed
-    const statsCard=document.getElementById('github-stats-card');
-    if(statsCard){
-      statsCard.innerHTML='<div style="padding:1.5rem;background:var(--surface);border-radius:8px;"><h3 style=\'font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)\'>GitHub Overview</h3><div style=\'display:flex;gap:24px;flex-wrap:wrap;font-size:14px;\'><div>📦 <strong>'+(u.public_repos||0)+'</strong> Repos</div><div>👥 <strong>'+(u.followers||0)+'</strong> Followers</div><div>⭐ <strong>'+totalStars+'</strong> Stars</div><div>🔀 <strong>'+(u.public_gists||0)+'</strong> Gists</div></div></div>';
-    }
-    // Build languages card if image failed
-    const langsCard=document.getElementById('github-langs-card');
-    if(langsCard){
-      const langMap={};
-      repos.forEach(r=>{if(r.language){langMap[r.language]=(langMap[r.language]||0)+1}});
-      const sorted=Object.entries(langMap).sort((a,b)=>b[1]-a[1]).slice(0,7);
-      const total=sorted.reduce((s,l)=>s+l[1],0);
-      const colors={Python:'#3572A5',JavaScript:'#f1e05a',C:'#555555','C++':'#f34b7d',TypeScript:'#3178c6',Dart:'#00B4AB',HTML:'#e34c26',CSS:'#563d7c',Java:'#b07219',Shell:'#89e051'};
-      let barsHtml=sorted.map(([lang,count])=>{
-        const pct=Math.round(count/total*100);
-        const c=colors[lang]||'#6e7681';
-        return '<div style=\'margin-bottom:8px;\'>'+
-          '<div style=\'display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;color:var(--muted)\'>'+
-          '<span>'+lang+'</span><span>'+pct+'%</span></div>'+
-          '<div style=\'height:6px;background:var(--border);border-radius:3px;overflow:hidden;\'>'+
-          '<div style=\'height:100%;width:'+pct+'%;background:'+c+';border-radius:3px;\'></div></div></div>';
-      }).join('');
-      langsCard.innerHTML='<div style="padding:1.5rem;background:var(--surface);border-radius:8px;"><h3 style=\'font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)\'>Top Languages</h3>'+barsHtml+'</div>';
-    }
+    // Cache the response
+    try{localStorage.setItem(GH_CACHE_KEY,JSON.stringify({user:u,repos:repos,totalStars:totalStars,ts:Date.now()}))}catch(e){}
+    renderStats(u,totalStars);renderLangs(repos);
   }catch(e){console.log('GitHub API fallback failed:',e)}
 }
 loadGithubStats();
