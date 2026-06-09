@@ -1,0 +1,21 @@
+# Robots.txt for Shubham Mallick Portfolio
+# https://shubham001312.github.io/Shubham-Mallick/
+
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://shubham001312.github.io/Shubham-Mallick/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
