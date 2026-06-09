@@ -160,14 +160,15 @@ async function loadGithubStats(){
     let cached=null;
     try{cached=JSON.parse(localStorage.getItem(GH_CACHE_KEY))}catch(e){}
     if(cached&&Date.now()-cached.ts<GH_CACHE_TTL){
-      renderStats(cached.user,cached.totalStars);renderLangs(cached.repos);return;
+      try{renderStats(cached.user,cached.totalStars);renderLangs(cached.repos);return}catch(e){}
     }
     // Fetch fresh data
     const u=await fetch('https://api.github.com/users/'+GITHUB_USER).then(r=>r.json());
     const repos=await fetch('https://api.github.com/users/'+GITHUB_USER+'/repos?per_page=100').then(r=>r.json());
+    if(!Array.isArray(repos)||u.public_repos===undefined)return; // don't cache errors
     const totalStars=repos.reduce((s,r)=>s+(r.stargazers_count||0),0);
-    // Cache the response
-    try{localStorage.setItem(GH_CACHE_KEY,JSON.stringify({user:u,repos:repos,totalStars:totalStars,ts:Date.now()}))}catch(e){}
+    const trimmed=repos.map(r=>({language:r.language,stargazers_count:r.stargazers_count||0}));
+    try{localStorage.setItem(GH_CACHE_KEY,JSON.stringify({user:u,repos:trimmed,totalStars:totalStars,ts:Date.now()}))}catch(e){}
     renderStats(u,totalStars);renderLangs(repos);
   }catch(e){console.log('GitHub API fallback failed:',e)}
 }
