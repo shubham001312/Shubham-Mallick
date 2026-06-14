@@ -109,6 +109,7 @@ nav{
   transition:color 0.2s;
 }
 .nav-logo:hover{color:var(--accent)}
+.nav-logo span{font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em}
 
 .logo-mono{
   display:inline-flex;align-items:center;justify-content:center;
@@ -211,7 +212,7 @@ main{max-width:860px;margin:0 auto;padding:0 2rem}
   background-clip:text;
 }
 
-.typing-wrapper{display:inline}
+.typing-wrapper{display:inline-block;min-width:280px}
 .typing-cursor{
   display:inline-block;width:3px;height:1em;
   background:var(--accent);margin-left:2px;
