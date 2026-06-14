@@ -829,15 +829,11 @@
   <div class="modal-overlay" id="admin-modal">
     <div class="modal">
       <h3>🔐 Admin Access</h3>
-      <p class="modal-desc">Enter your credentials to access the admin panel.</p>
-      <div class="form-group">
-        <label for="admin-email">Email / ID</label>
-        <input type="email" id="admin-email" placeholder="Enter your email" onkeydown="if(event.key==='Enter')document.getElementById('admin-password').focus()">
-      </div>
+      <p class="modal-desc">Enter your password to access the admin panel.</p>
       <div class="form-group">
         <label for="admin-password">Password</label>
         <input type="password" id="admin-password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')handleAdminLogin()">
-        <div class="modal-error" id="login-error">Incorrect email or password. Try again.</div>
+        <div class="modal-error" id="login-error">Incorrect password. Try again.</div>
       </div>
       <button class="modal-btn" onclick="handleAdminLogin()">Login</button>
       <button class="modal-btn cancel" onclick="closeAdminPanel()">Cancel</button>

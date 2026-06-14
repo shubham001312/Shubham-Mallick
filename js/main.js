@@ -656,13 +656,10 @@ function openAdminPanel() {
   const modal = document.getElementById('admin-modal');
   if (!modal) return;
   modal.classList.add('active');
-  const emailInput = document.getElementById('admin-email');
-  if (emailInput) emailInput.value = '';
   const pwInput = document.getElementById('admin-password');
-  if (pwInput) pwInput.value = '';
+  if (pwInput) { pwInput.value = ''; pwInput.focus(); }
   const err = document.getElementById('login-error');
   if (err) err.style.display = 'none';
-  if (emailInput) emailInput.focus();
 }
 
 function closeAdminPanel() {
@@ -671,13 +668,11 @@ function closeAdminPanel() {
 }
 
 async function handleAdminLogin() {
-  const email = document.getElementById('admin-email')?.value.trim();
   const pw = document.getElementById('admin-password')?.value;
-  if (!email || !pw) return;
-  const storedEmail = localStorage.getItem(ADMIN_EMAIL_KEY);
+  if (!pw) return;
   const hash = await sha256(pw);
   const storedHash = localStorage.getItem(ADMIN_HASH_KEY);
-  if (email === storedEmail && hash === storedHash) {
+  if (hash === storedHash) {
     closeAdminPanel();
     const editModal = document.getElementById('edit-modal');
     if (editModal) editModal.classList.add('active');
@@ -803,7 +798,7 @@ document.querySelectorAll('.resume-btn').forEach(btn => {
 document.querySelectorAll('.notify-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
-    window.open('mailto:gmail.shubham@gmail.com?subject=Blog%20Notification%20Request', '_blank');
+    window.location.href = 'mailto:gmail.shubham@gmail.com?subject=Blog%20Notification%20Request';
   });
 });
 
