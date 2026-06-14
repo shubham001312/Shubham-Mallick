@@ -557,6 +557,9 @@ function renderStats(user, totalStars) {
   if (repoEl) repoEl.textContent = user.public_repos ?? '—';
   if (followersEl) followersEl.textContent = user.followers ?? '—';
   if (starsEl) starsEl.textContent = totalStars ?? '—';
+  // Also update the hardcoded about-section repo count
+  const repoCountEl = document.getElementById('repo-count-num');
+  if (repoCountEl && user.public_repos) repoCountEl.textContent = user.public_repos + '+';
 }
 
 function renderLangs(repos) {
@@ -569,7 +572,7 @@ function renderLangs(repos) {
   const barsHtml = sorted.map(([lang, count]) => {
     const pct = total > 0 ? Math.round(count / total * 100) : 0;
     const c = langColorMap[lang] || '#6e7681';
-    return '<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;color:var(--text-muted)"><span>' + lang + '</span><span>' + pct + '%</span></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden"><div style="height:100%;width:' + pct + '%;background:' + c + ';border-radius:3px"></div></div></div>';
+    return '<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;color:var(--muted)"><span>' + lang + '</span><span>' + pct + '%</span></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden"><div style="height:100%;width:' + pct + '%;background:' + c + ';border-radius:3px"></div></div></div>';
   }).join('');
   langsCard.innerHTML = '<div style="padding:1.5rem;background:var(--bg-card);border-radius:12px"><h3 style="font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)">Top Languages</h3>' + barsHtml + '</div>';
 }
