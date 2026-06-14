@@ -29,7 +29,7 @@ Currently diving deep into **AI/ML Engineering** — from Python & DSA foundatio
 <td width="50%">
 
 #### 🧠 [GRBS](https://github.com/shubham001312/GRBS) `★ NEW`
-> AI/ML Learning Roadmap — 15 phases, 500+ resources, PWA
+> AI/ML Learning Roadmap — 20 phases, 600+ resources, DSA track, 55+ companies, PWA
 
 **Tech:** JavaScript · Chart.js · Service Worker
 
