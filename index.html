@@ -9,8 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0a0a12">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
   <meta name="description" content="Personal portfolio of Shubham Mallick — AI Engineer & Software Developer from Kolkata, India. Specializing in LLMs, Computer Vision, Python, and Full Stack Development.">
   <meta name="keywords" content="Shubham Mallick, AI Engineer, Machine Learning Developer, LLM, Computer Vision, Full Stack Developer, Kolkata, India">
   <meta name="author" content="Shubham Mallick">
@@ -952,19 +951,6 @@
   <!-- Scripts -->
   <script src="js/main.js?v=2.0.0"></script>
 
-  <script>
-    // Service Worker for PWA
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('./sw.js').then(function(reg) {
-          setInterval(function() {
-            reg.update().catch(function(){});
-          }, 60000);
-        }).catch(function(err) {
-          console.warn('SW registration skipped:', err.message);
-        });
-      });
-    }
-  </script>
+
 </body>
 </html>
