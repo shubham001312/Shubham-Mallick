@@ -1,316 +1,644 @@
-// ===== TYPING EFFECT =====
-const typingPhrases=["AI Engineer (LLM Specialisation)","Building Intelligent Software","Python • C • Machine Learning • LLMs","Turning Ideas Into Reality"];
-let phraseIdx=0,charIdx=0,isDeleting=false;
-const typingEl=document.getElementById('typing-text');
-function typeEffect(){const current=typingPhrases[phraseIdx];if(isDeleting){typingEl.textContent=current.substring(0,charIdx-1);charIdx--}else{typingEl.textContent=current.substring(0,charIdx+1);charIdx++}let speed=isDeleting?40:80;if(!isDeleting&&charIdx===current.length){speed=2000;isDeleting=true}else if(isDeleting&&charIdx===0){isDeleting=false;phraseIdx=(phraseIdx+1)%typingPhrases.length;speed=500}setTimeout(typeEffect,speed)}
+/* ============================================================
+   SHUBHAM MALLICK — TRANSFORMER ARCHITECTURE PORTFOLIO v2.0
+   All JavaScript: Animations, Canvas Visualizations, Interactions
+   ============================================================ */
+
+// ============================================================
+// 1. TYPING EFFECT (Hero Section)
+// ============================================================
+const typingPhrases = [
+  "AI Engineer (LLM Specialisation)",
+  "Transformer Architect",
+  "Building Intelligent Systems",
+  "Full Stack AI Developer"
+];
+let phraseIdx = 0, charIdx = 0, isDeleting = false;
+const typingEl = document.getElementById('typing-text');
+
+function typeEffect() {
+  if (!typingEl) return;
+  const current = typingPhrases[phraseIdx];
+  if (isDeleting) {
+    typingEl.textContent = current.substring(0, charIdx - 1);
+    charIdx--;
+  } else {
+    typingEl.textContent = current.substring(0, charIdx + 1);
+    charIdx++;
+  }
+  let speed = isDeleting ? 40 : 80;
+  if (!isDeleting && charIdx === current.length) {
+    speed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && charIdx === 0) {
+    isDeleting = false;
+    phraseIdx = (phraseIdx + 1) % typingPhrases.length;
+    speed = 500;
+  }
+  setTimeout(typeEffect, speed);
+}
 typeEffect();
 
-// ===== AUTO-UPDATING AGE =====
-function updateAge(){const birthDate=new Date(2006,0,1);const now=new Date();let age=now.getFullYear()-birthDate.getFullYear();const m=now.getMonth()-birthDate.getMonth();if(m<0||(m===0&&now.getDate()<birthDate.getDate()))age--;const el=document.getElementById('age-display');if(el)el.textContent=age+'-year-old '}
-updateAge();setInterval(updateAge,60000);
+// ============================================================
+// 2. AUTO-UPDATING AGE
+// ============================================================
+function updateAge() {
+  const birthDate = new Date(2006, 0, 1);
+  const now = new Date();
+  let age = now.getFullYear() - birthDate.getFullYear();
+  const m = now.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && now.getDate() < birthDate.getDate())) age--;
+  const el = document.getElementById('age-display');
+  if (el) el.textContent = age + '-year-old ';
+}
+updateAge();
+setInterval(updateAge, 60000);
 
-// ===== SCROLL PROGRESS + PARALLAX + ROBOT TRACKING (merged) =====
-var parallaxSections=document.querySelectorAll('section');
-window.addEventListener('scroll',function(){
-  var h=document.documentElement;
-  document.getElementById('scroll-progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';
+// ============================================================
+// 3. SCROLL PROGRESS BAR + NAV SHRINK + ACTIVE SECTION
+// ============================================================
+const progressBar = document.getElementById('scroll-progress');
+const posFill = document.getElementById('pos-fill');
+const posLabel = document.getElementById('pos-label');
+const navEl = document.querySelector('nav');
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function updateScrollProgress() {
+  const h = document.documentElement;
+  const scrollTop = h.scrollTop || document.documentElement.scrollTop;
+  const scrollHeight = h.scrollHeight - h.clientHeight;
+  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
   
-  // Parallax depth effect
-  parallaxSections.forEach(function(section){
-    var rect=section.getBoundingClientRect();
-    if(rect.top<window.innerHeight&&rect.bottom>0){
-      var progress=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);
-      var offset=(progress-0.5)*20;
-      section.style.transform='translateZ('+offset+'px)';
+  if (progressBar) progressBar.style.width = pct + '%';
+  if (posFill) posFill.style.width = pct + '%';
+  if (posLabel) posLabel.textContent = Math.round(pct) + '%';
+  
+  if (navEl) navEl.classList.toggle('scrolled', scrollTop > 50);
+  
+  if (navLinks.length && sections.length) {
+    let currentSection = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 150;
+      const bottom = top + section.offsetHeight;
+      if (scrollTop >= top && scrollTop < bottom) currentSection = section.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + currentSection);
+    });
+  }
+}
+
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
+updateScrollProgress();
+
+// ============================================================
+// 4. ATTENTION MATRIX CANVAS (Hero Right)
+// ============================================================
+function initAttentionCanvas() {
+  const canvas = document.getElementById('attn-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const container = canvas.parentElement;
+  let w, h, cells = 8;
+  let animId;
+
+  function resize() {
+    const rect = container.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    w = rect.width;
+    h = rect.height;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.scale(dpr, dpr);
+  }
+
+  function draw(t) {
+    const time = t / 1000;
+    ctx.clearRect(0, 0, w, h);
+    const cellW = w / cells;
+    const cellH = h / cells;
+    
+    for (let i = 0; i < cells; i++) {
+      for (let j = 0; j < cells; j++) {
+        const x = i * cellW;
+        const y = j * cellH;
+        const score = (Math.sin(i * 0.8 + time * 0.6) * Math.cos(j * 0.7 + time * 0.5) * 0.5 + 0.5);
+        const r = Math.round(79 + (6 - 79) * score);
+        const g = Math.round(70 + (182 - 70) * score);
+        const b = Math.round(229 + (212 - 229) * score);
+        const alpha = 0.15 + score * 0.6;
+        
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        ctx.beginPath();
+        // Fallback if roundRect not supported
+        if (ctx.roundRect) {
+          ctx.roundRect(x + 3, y + 3, cellW - 6, cellH - 6, 4);
+        } else {
+          ctx.rect(x + 3, y + 3, cellW - 6, cellH - 6);
+        }
+        ctx.fill();
+        
+        if (score > 0.7) {
+          ctx.strokeStyle = `rgba(129, 140, 248, ${(score - 0.7) * 0.6})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
     }
-  });
+    
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.4)';
+    ctx.font = '9px Fira Code, monospace';
+    ctx.fillText('Q', 8, h - 6);
+    ctx.fillText('K', w - 16, 14);
+    ctx.fillText('V', w - 16, h - 6);
+    
+    animId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw(0);
+  window.addEventListener('resize', resize);
+  return { destroy: () => { if (animId) cancelAnimationFrame(animId); } };
+}
+
+initAttentionCanvas();
+
+// ============================================================
+// 5. EMBEDDING SPACE CANVAS (GitHub Section)
+// ============================================================
+let embedAnimation = null;
+
+function initEmbedCanvas(repos) {
+  const canvas = document.getElementById('embed-canvas');
+  if (!canvas) return null;
   
-  // Robot scroll tracking
-  handleRobotScroll();
+  // Destroy previous animation
+  if (embedAnimation && typeof embedAnimation.destroy === 'function') {
+    embedAnimation.destroy();
+  }
+  
+  const ctx = canvas.getContext('2d');
+  const container = canvas.parentElement;
+  let w, h, particles = [];
+  let animId;
+
+  const langColors = {
+    'Python': '#3572A5', 'JavaScript': '#f1e05a', 'TypeScript': '#3178c6',
+    'HTML': '#e34c26', 'CSS': '#563d7c', 'C': '#555555', 'C++': '#f34b7d',
+    'Dart': '#00B4AB', 'Java': '#b07219', 'Shell': '#89e051',
+    'Jupyter Notebook': '#DA5B0B', 'default': '#6e7681'
+  };
+
+  function resize() {
+    const rect = container.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    w = rect.width;
+    h = rect.height;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.scale(dpr, dpr);
+  }
+
+  function createParticles() {
+    particles = [];
+    const data = repos && repos.length ? repos : [];
+    const count = Math.max(data.length, 20);
+    for (let i = 0; i < count; i++) {
+      const lang = data[i] ? (data[i].language || 'default') : 'default';
+      const stars = data[i] ? (data[i].stargazers_count || 0) : Math.floor(Math.random() * 10);
+      particles.push({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+        size: 4 + Math.min(stars, 20) * 1.5,
+        color: langColors[lang] || langColors['default'],
+        alpha: 0.3 + Math.random() * 0.4,
+        name: data[i] ? (data[i].name || '') : ''
+      });
+    }
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, w, h);
+    // Connections
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          ctx.strokeStyle = `rgba(129, 140, 248, ${(1 - dist / 100) * 0.15})`;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    // Particles
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2);
+      grad.addColorStop(0, p.color + '33');
+      grad.addColorStop(1, p.color + '00');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.3)';
+    ctx.font = '9px Fira Code, monospace';
+    ctx.fillText('t-SNE projection of repositories', 8, 16);
+    ctx.fillText('size ∝ stars · color ∝ language', 8, h - 8);
+    animId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  createParticles();
+  draw(0);
+  window.addEventListener('resize', resize);
+  
+  embedAnimation = { destroy: () => { if (animId) cancelAnimationFrame(animId); } };
+  return embedAnimation;
+}
+
+// Initial embed canvas with empty data
+initEmbedCanvas([]);
+
+// ============================================================
+// 6. DARK/LIGHT MODE TOGGLE
+// ============================================================
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  const sun = document.querySelector('.sun-icon');
+  const moon = document.querySelector('.moon-icon');
+  if (sun && moon) {
+    sun.style.display = isDark ? 'none' : 'block';
+    moon.style.display = isDark ? 'block' : 'none';
+  }
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = saved === 'dark' || (!saved && prefersDark);
+  if (isDark) {
+    document.body.classList.add('dark');
+    const moon = document.querySelector('.moon-icon');
+    const sun = document.querySelector('.sun-icon');
+    if (sun) sun.style.display = 'none';
+    if (moon) moon.style.display = 'block';
+  }
+})();
+
+// ============================================================
+// 7. MOBILE MENU TOGGLE
+// ============================================================
+function toggleMenu(show) {
+  const nav = document.getElementById('nav-links');
+  if (!nav) return;
+  if (show === false) nav.classList.remove('show');
+  else nav.classList.toggle('show');
+}
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => toggleMenu(false));
 });
 
-// ===== FADE-IN =====
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+// ============================================================
+// 8. SCROLL REVEAL (IntersectionObserver)
+// ============================================================
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// ===== MOBILE MENU =====
-function toggleMenu(show){const nav=document.getElementById('nav-links');if(show===false)nav.classList.remove('show');else nav.classList.toggle('show')}
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ===== ADMIN PANEL =====
-const ADMIN_HASH_KEY='portfolio_admin_hash';
-const ADMIN_EMAIL_KEY='portfolio_admin_email';
-let currentAdminSection='hero';
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05 });
 
-async function sha256(m){const buf=new TextEncoder().encode(m);try{const hash=await crypto.subtle.digest('SHA-256',buf);return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('')}catch(e){let h=0;for(let i=0;i<m.length;i++){h=((h<<5)-h)+m.charCodeAt(i);h|=0}return 'fallback_'+Math.abs(h).toString(16)}}
+function applyStaggerAnimations() {
+  document.querySelectorAll('.project-card, .skill-category, .cert-card, .timeline-item, .stat-card, .contact-line, .blog-preview-card, .quality-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 80) + 'ms';
+    el.classList.add('reveal');
+    staggerObserver.observe(el);
+  });
+}
 
-async function setupAdminHash(){
-  if(!localStorage.getItem(ADMIN_EMAIL_KEY))localStorage.setItem(ADMIN_EMAIL_KEY,'shubham.mallick1440@gmail.com');
-  if(!localStorage.getItem(ADMIN_HASH_KEY)){const h=await sha256('admin');localStorage.setItem(ADMIN_HASH_KEY,h)}
+setTimeout(applyStaggerAnimations, 300);
+
+// ============================================================
+// 9. TOAST NOTIFICATION SYSTEM
+// ============================================================
+function showToast(message, type) {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  if (type === 'success') toast.style.borderLeft = '3px solid #10b981';
+  if (type === 'error') toast.style.borderLeft = '3px solid #ef4444';
+  if (type === 'info') toast.style.borderLeft = '3px solid var(--accent)';
+  container.appendChild(toast);
+  setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 3000);
+}
+
+// ============================================================
+// 10. GITHUB API INTEGRATION WITH CACHING
+// ============================================================
+const GITHUB_USER = 'shubham001312';
+const GH_CACHE_KEY = 'gh_stats_cache_v2';
+const GH_CACHE_TTL = 3600000;
+
+const langColorMap = {
+  'Python': '#3572A5', 'JavaScript': '#f1e05a', 'TypeScript': '#3178c6',
+  'C': '#555555', 'C++': '#f34b7d', 'Dart': '#00B4AB',
+  'HTML': '#e34c26', 'CSS': '#563d7c', 'Java': '#b07219',
+  'Shell': '#89e051', 'Jupyter Notebook': '#DA5B0B', 'default': '#6e7681'
+};
+
+function renderStats(user, totalStars) {
+  const repoEl = document.getElementById('stat-repos');
+  const followersEl = document.getElementById('stat-followers');
+  const starsEl = document.getElementById('stat-stars');
+  if (repoEl) repoEl.textContent = user.public_repos ?? '—';
+  if (followersEl) followersEl.textContent = user.followers ?? '—';
+  if (starsEl) starsEl.textContent = totalStars ?? '—';
+}
+
+function renderLangs(repos) {
+  const langsCard = document.getElementById('github-langs-card');
+  if (!langsCard) return;
+  const langMap = {};
+  repos.forEach(r => { if (r.language) langMap[r.language] = (langMap[r.language] || 0) + 1; });
+  const sorted = Object.entries(langMap).sort((a, b) => b[1] - a[1]).slice(0, 7);
+  const total = sorted.reduce((s, l) => s + l[1], 0);
+  const barsHtml = sorted.map(([lang, count]) => {
+    const pct = total > 0 ? Math.round(count / total * 100) : 0;
+    const c = langColorMap[lang] || '#6e7681';
+    return '<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;color:var(--text-muted)"><span>' + lang + '</span><span>' + pct + '%</span></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden"><div style="height:100%;width:' + pct + '%;background:' + c + ';border-radius:3px"></div></div></div>';
+  }).join('');
+  langsCard.innerHTML = '<div style="padding:1.5rem;background:var(--bg-card);border-radius:12px"><h3 style="font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)">Top Languages</h3>' + barsHtml + '</div>';
+}
+
+async function loadGithubStats() {
+  try {
+    let cached = null;
+    try { cached = JSON.parse(localStorage.getItem(GH_CACHE_KEY)); } catch(e) {}
+    
+    if (cached && Date.now() - cached.ts < GH_CACHE_TTL) {
+      renderStats(cached.user, cached.totalStars);
+      renderLangs(cached.repos);
+      initEmbedCanvas(cached.repos);
+      return;
+    }
+    
+    const userRes = await fetch('https://api.github.com/users/' + GITHUB_USER);
+    const user = await userRes.json();
+    const reposRes = await fetch('https://api.github.com/users/' + GITHUB_USER + '/repos?per_page=100');
+    const repos = await reposRes.json();
+    if (!Array.isArray(repos) || user.public_repos === undefined) return;
+    
+    const totalStars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+    const trimmed = repos.map(r => ({ name: r.name, language: r.language, stargazers_count: r.stargazers_count || 0 }));
+    
+    try {
+      localStorage.setItem(GH_CACHE_KEY, JSON.stringify({ user, repos: trimmed, totalStars, ts: Date.now() }));
+    } catch(e) {}
+    
+    renderStats(user, totalStars);
+    renderLangs(repos);
+    initEmbedCanvas(trimmed);
+    applyStaggerAnimations();
+  } catch(e) {
+    console.log('GitHub API fallback:', e.message);
+  }
+}
+
+loadGithubStats();
+
+function clearGithubCache() {
+  try { localStorage.removeItem(GH_CACHE_KEY); } catch(e) {}
+  loadGithubStats();
+}
+
+// ============================================================
+// 11. ADMIN PANEL (SHA-256 Auth)
+// ============================================================
+const ADMIN_HASH_KEY = 'portfolio_admin_hash_v2';
+const ADMIN_EMAIL_KEY = 'portfolio_admin_email_v2';
+let currentAdminSection = 'hero';
+
+async function sha256(message) {
+  const buf = new TextEncoder().encode(message);
+  try {
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+  } catch(e) {
+    let h = 0;
+    for (let i = 0; i < message.length; i++) { h = ((h << 5) - h) + message.charCodeAt(i); h |= 0; }
+    return 'fallback_' + Math.abs(h).toString(16);
+  }
+}
+
+async function setupAdminHash() {
+  if (!localStorage.getItem(ADMIN_EMAIL_KEY)) localStorage.setItem(ADMIN_EMAIL_KEY, 'shubham.mallick1440@gmail.com');
+  if (!localStorage.getItem(ADMIN_HASH_KEY)) {
+    const h = await sha256('admin@1440');
+    localStorage.setItem(ADMIN_HASH_KEY, h);
+  }
 }
 setupAdminHash();
 
-function openAdminPanel(){document.getElementById('admin-modal').classList.add('active');document.getElementById('admin-email').value=localStorage.getItem(ADMIN_EMAIL_KEY)||'';document.getElementById('admin-password').value='';document.getElementById('login-error').style.display='none';document.getElementById('admin-email').focus()}
-function closeAdminPanel(){document.getElementById('admin-modal').classList.remove('active')}
-
-async function handleAdminLogin(){
-  const email=document.getElementById('admin-email').value.trim(),pw=document.getElementById('admin-password').value;
-  if(!email||!pw)return;
-  const storedEmail=localStorage.getItem(ADMIN_EMAIL_KEY),hash=await sha256(pw),storedHash=localStorage.getItem(ADMIN_HASH_KEY);
-  if(email===storedEmail&&hash===storedHash){closeAdminPanel();openEditPanel()}else{document.getElementById('login-error').style.display='block'}
+function openAdminPanel() {
+  const modal = document.getElementById('admin-modal');
+  if (!modal) return;
+  modal.classList.add('active');
+  const emailInput = document.getElementById('admin-email');
+  if (emailInput) emailInput.value = localStorage.getItem(ADMIN_EMAIL_KEY) || '';
+  const pwInput = document.getElementById('admin-password');
+  if (pwInput) pwInput.value = '';
+  const err = document.getElementById('login-error');
+  if (err) err.style.display = 'none';
+  if (emailInput) emailInput.focus();
 }
 
-function openEditPanel(){document.getElementById('edit-modal').classList.add('active');loadSectionData()}
-function closeEditPanel(){document.getElementById('edit-modal').classList.remove('active')}
+function closeAdminPanel() {
+  const m = document.getElementById('admin-modal');
+  if (m) m.classList.remove('active');
+}
 
-// Admin tab clicks
-document.querySelectorAll('.admin-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    currentAdminSection=tab.dataset.section;
+async function handleAdminLogin() {
+  const email = document.getElementById('admin-email')?.value.trim();
+  const pw = document.getElementById('admin-password')?.value;
+  if (!email || !pw) return;
+  const storedEmail = localStorage.getItem(ADMIN_EMAIL_KEY);
+  const hash = await sha256(pw);
+  const storedHash = localStorage.getItem(ADMIN_HASH_KEY);
+  if (email === storedEmail && hash === storedHash) {
+    closeAdminPanel();
+    const editModal = document.getElementById('edit-modal');
+    if (editModal) editModal.classList.add('active');
+    loadSectionData();
+  } else {
+    const err = document.getElementById('login-error');
+    if (err) err.style.display = 'block';
+  }
+}
+
+function closeEditPanel() {
+  const m = document.getElementById('edit-modal');
+  if (m) m.classList.remove('active');
+}
+
+document.querySelectorAll('.admin-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    currentAdminSection = this.dataset.section;
     loadSectionData();
   });
 });
 
-// Default data for each section
-const sectionDefaults={
-  hero:()=>JSON.stringify({name:'Shubham Mallick',headline:'AI Engineer & Full Stack Developer',description:'AI Engineer and developer from Kolkata, building intelligent software at the intersection of AI/ML and modern web development. Creator of GRBS roadmap (20 phases, 600+ resources) and TalkBuzz real-time chat platform. Passionate about LLMs, Computer Vision, and creating tools that make a difference.',tags:['Python','C/C++','Machine Learning','LLMs','Computer Vision','JavaScript','React','Firebase','PWA'],photoUrl:'https://avatars.githubusercontent.com/u/226120019?v=4'},null,2),
-  about:()=>JSON.stringify({text1:"I'm an AI Engineering student at Budge Budge Institute of Technology (MAKAUT), specializing in Artificial Intelligence. My journey started at Jawahar Navodaya Vidyalaya, North 24 Parganas, where I discovered my passion for technology and problem-solving.",text2:"Today, I focus on building intelligent systems — from LLM-powered applications and computer vision pipelines to modern web platforms. I believe in learning by building, and every project on this portfolio represents a step in that journey."},null,2),
-  education:()=>JSON.stringify([{date:'2025 — Present',title:'B.Tech in CSE (Artificial Intelligence)',school:'Budge Budge Institute of Technology',detail:'under MAKAUT — Currently in 1st year, specializing in AI/ML.'},{date:'2023 — 2025',title:'Higher Secondary (12th Grade)',school:'Jawahar Navodaya Vidyalaya, North 24 Parganas',detail:'Completed 12th grade in 2025.'},{date:'Earlier',title:'Secondary (10th Grade)',school:'Jawahar Navodaya Vidyalaya, North 24 Parganas',detail:'Built the foundation.'}],null,2),
-  skills:()=>JSON.stringify([{icon:'🐍',name:'Programming Languages',skills:['Python','C','C++','JavaScript','TypeScript','Dart','HTML5/CSS3']},{icon:'🤖',name:'AI / Machine Learning',skills:['PyTorch','OpenCV','YOLO','LangChain','HuggingFace','OpenAI API','LLMs']},{icon:'🌐',name:'Web Development',skills:['React','Node.js','Flask','FastAPI','REST APIs','WebSocket','PWA']},{icon:'🔧',name:'Tools & Platforms',skills:['Git / GitHub','Docker','Linux','MySQL','MongoDB','Vercel','HuggingFace Spaces','GitHub Pages']}],null,2),
-  projects:()=>JSON.stringify([{emoji:'🗺️',title:'GRBS — AI/ML Roadmap v6.4.0',desc:'Interactive AI/ML learning roadmap with 20 phases, 600+ curated resources (English + Hindi), DSA problem-solving track, 55+ company directory, study timer, progress charts, achievement badges, and PWA with auto-updates.',tags:['JavaScript','PWA','Chart.js','Web Audio API','IntersectionObserver'],demo:'https://shubham001312.github.io/GRBS/',source:'https://github.com/shubham001312/GRBS'},{emoji:'💬',title:'TalkBuzz — Real-time Chat',desc:'Real-time chat platform with Firebase. Features Google auth, read receipts, typing indicators, offline support, admin broadcast panel, room management, user presence, and mobile-first responsive design.',tags:['JavaScript','Firebase','PWA','Real-time DB','WebSocket'],demo:'https://talkbuzz-6f0e9.web.app/',source:'https://github.com/shubham001312/GRBS/tree/main/TalkBuzz'},{emoji:'🧠',title:'CUET AI Assistant',desc:'AI-powered assistant built with Python and deployed on HuggingFace Spaces. Features intelligent conversational capabilities, document processing, and smart query handling.',tags:['Python','HuggingFace','LLM','Gradio'],demo:'https://huggingface.co/spaces/shubham001312/cuet-ai',source:'https://github.com/shubham001312/cuet-ai'},{emoji:'📰',title:'NewsBuzz',desc:'Modern news aggregator fetching real-time news from multiple sources with category filtering, search functionality, and a clean responsive interface.',tags:['JavaScript','REST API','HTML/CSS','Responsive'],demo:'https://shubham001312.github.io/newsbuzz/',source:'https://github.com/shubham001312/newsbuzz'},{emoji:'📱',title:'Guzu — Android Browser',desc:'Lightweight, privacy-focused Android browser built with Flutter/Dart. Features multiple search engine support, clean UI, and secure private browsing.',tags:['Dart','Flutter','Android','WebView'],source:'https://github.com/shubham001312/guzu--ANDROID_SOURCE_CODE'},{emoji:'🌐',title:'Portfolio Website',desc:'This portfolio site itself — a dynamic, minimalistic single-page application with dark/light mode, smooth animations, admin panel, and live GitHub stats integration.',tags:['JavaScript','HTML/CSS','GitHub API','PWA'],demo:'https://shubham001312.github.io/Shubham-Mallick/',source:'https://github.com/shubham001312/Shubham-Mallick'}],null,2),
-  certs:()=>JSON.stringify([{name:'Google AI Essentials',issuer:'Google · Coursera',date:'Issued May 2026',credential:'7E70JFWK9SYF',image:'assets/cert-google-ai-essentials.png'},{name:'Google AI Professional',issuer:'Google · Coursera',date:'Issued May 2026',credential:'7L7FT1QN9CEI',image:'assets/cert-google-ai-professional.png'}],null,2),
-  contact:()=>JSON.stringify({email:'gmail.shubham@gmail.com',linkedin:'https://linkedin.com/in/shubham-mallick-061298378',github:'https://github.com/shubham001312',twitter:'https://x.com/shubham_1440'},null,2),
-  meta:()=>JSON.stringify({title:'Shubham Mallick | AI Engineer & Developer',description:'Portfolio of Shubham Mallick — AI Engineer specializing in LLMs, Computer Vision, and Full Stack Development.'},null,2),
-  credentials:()=>JSON.stringify({email:localStorage.getItem(ADMIN_EMAIL_KEY)||'',newPassword:''},null,2)
+const sectionDefaults = {
+  hero: () => JSON.stringify({ name: 'Shubham Mallick', headline: 'AI Engineer & Full Stack Developer', description: 'AI Engineer and developer from Kolkata, building intelligent software at the intersection of AI/ML and modern web development.', tags: ['Python', 'C/C++', 'Machine Learning', 'LLMs', 'Computer Vision', 'JavaScript', 'React', 'Firebase', 'PWA'], photoUrl: 'https://avatars.githubusercontent.com/u/226120019?v=4' }, null, 2),
+  about: () => JSON.stringify({ text1: "I'm an AI Engineering student at Budge Budge Institute of Technology (MAKAUT), specializing in Artificial Intelligence.", text2: "Today, I focus on building intelligent systems — from LLM-powered applications and computer vision pipelines to modern web platforms." }, null, 2),
+  education: () => JSON.stringify([{ date: '2025 — Present', title: 'B.Tech in CSE (Artificial Intelligence)', school: 'Budge Budge Institute of Technology', detail: 'under MAKAUT — Currently in 1st year.' }, { date: '2023 — 2025', title: 'Higher Secondary (12th Grade)', school: 'JNV North 24 Parganas', detail: 'Completed in 2025.' }, { date: 'Earlier', title: 'Secondary (10th Grade)', school: 'JNV North 24 Parganas', detail: 'Built the foundation.' }], null, 2),
+  skills: () => JSON.stringify([{ icon: '🐍', name: 'Programming Languages', skills: ['Python', 'C', 'C++', 'JavaScript', 'TypeScript', 'Dart', 'HTML5/CSS3'] }, { icon: '🤖', name: 'AI / Machine Learning', skills: ['PyTorch', 'OpenCV', 'YOLO', 'LangChain', 'HuggingFace', 'OpenAI API', 'LLMs'] }, { icon: '🌐', name: 'Web Development', skills: ['React', 'Node.js', 'Flask', 'FastAPI', 'REST APIs', 'WebSocket', 'PWA'] }, { icon: '🔧', name: 'Tools & Platforms', skills: ['Git / GitHub', 'Docker', 'Linux', 'MySQL', 'MongoDB', 'Vercel', 'HuggingFace Spaces', 'GitHub Pages'] }], null, 2),
+  certs: () => JSON.stringify([{ name: 'Google AI Essentials', issuer: 'Google · Coursera', date: 'Issued May 2026', credential: '7E70JFWK9SYF', image: 'assets/cert-google-ai-essentials.png' }, { name: 'Google AI Professional', issuer: 'Google · Coursera', date: 'Issued May 2026', credential: '7L7FT1QN9CEI', image: 'assets/cert-google-ai-professional.png' }], null, 2),
+  contact: () => JSON.stringify({ email: 'gmail.shubham@gmail.com', linkedin: 'https://linkedin.com/in/shubham-mallick-061298378', github: 'https://github.com/shubham001312', twitter: 'https://x.com/shubham_1440' }, null, 2),
+  meta: () => JSON.stringify({ title: 'Shubham Mallick | AI Engineer & Developer', description: 'Portfolio of Shubham Mallick — AI Engineer specializing in LLMs, Computer Vision, and Full Stack Development.' }, null, 2),
+  credentials: () => JSON.stringify({ email: localStorage.getItem(ADMIN_EMAIL_KEY) || '', newPassword: '' }, null, 2)
 };
 
-function loadSectionData(){
-  document.getElementById('edit-error').style.display='none';
-  const stored=localStorage.getItem('portfolio_'+currentAdminSection);
-  document.getElementById('edit-content').value=stored||sectionDefaults[currentAdminSection]();
+function loadSectionData() {
+  const err = document.getElementById('edit-error');
+  if (err) err.style.display = 'none';
+  const stored = localStorage.getItem('portfolio_' + currentAdminSection);
+  const content = document.getElementById('edit-content');
+  if (content) content.value = stored || (sectionDefaults[currentAdminSection] ? sectionDefaults[currentAdminSection]() : '');
 }
 
-function saveSectionData(){
-  const content=document.getElementById('edit-content').value;
-  if(currentAdminSection==='credentials'){
-    try{
-      const d=JSON.parse(content);
-      if(!d.newPassword||d.newPassword.length<4){document.getElementById('edit-error').textContent='Password must be at least 4 characters.';document.getElementById('edit-error').style.display='block';return}
-      if(d.email&&d.newPassword){
-        localStorage.setItem(ADMIN_EMAIL_KEY,d.email);
-        sha256(d.newPassword).then(hash=>{localStorage.setItem(ADMIN_HASH_KEY,hash);document.getElementById('edit-error').style.display='none';alert('Credentials updated!');closeEditPanel()});
-      }else{document.getElementById('edit-error').textContent='Provide both email and newPassword.';document.getElementById('edit-error').style.display='block'}
-    }catch(e){document.getElementById('edit-error').textContent='Invalid JSON. Example: {"email":"...","newPassword":"..."}';document.getElementById('edit-error').style.display='block'}
+function saveSectionData() {
+  const content = document.getElementById('edit-content')?.value;
+  if (!content) return;
+  
+  if (currentAdminSection === 'credentials') {
+    try {
+      const d = JSON.parse(content);
+      if (!d.newPassword || d.newPassword.length < 4) {
+        const err = document.getElementById('edit-error');
+        if (err) { err.textContent = 'Password must be at least 4 characters.'; err.style.display = 'block'; }
+        return;
+      }
+      if (d.email && d.newPassword) {
+        localStorage.setItem(ADMIN_EMAIL_KEY, d.email);
+        sha256(d.newPassword).then(hash => {
+          localStorage.setItem(ADMIN_HASH_KEY, hash);
+          const err = document.getElementById('edit-error');
+          if (err) err.style.display = 'none';
+          showToast('Credentials updated!', 'success');
+          closeEditPanel();
+        });
+      }
+    } catch(e) {
+      const err = document.getElementById('edit-error');
+      if (err) { err.textContent = 'Invalid JSON.'; err.style.display = 'block'; }
+    }
     return;
   }
-  try{
-    if(content.trim().startsWith('{')||content.trim().startsWith('['))JSON.parse(content);
-    localStorage.setItem('portfolio_'+currentAdminSection,content);
-    document.getElementById('edit-error').style.display='none';
-    alert('Saved! Refresh to see changes.');
+  
+  try {
+    if (content.trim().startsWith('{') || content.trim().startsWith('[')) JSON.parse(content);
+    localStorage.setItem('portfolio_' + currentAdminSection, content);
+    const err = document.getElementById('edit-error');
+    if (err) err.style.display = 'none';
+    showToast('Changes saved! Refresh to see updates.', 'success');
     closeEditPanel();
-  }catch(e){document.getElementById('edit-error').textContent='Invalid JSON format.';document.getElementById('edit-error').style.display='block'}
+  } catch(e) {
+    const err = document.getElementById('edit-error');
+    if (err) { err.textContent = 'Invalid JSON format.'; err.style.display = 'block'; }
+  }
 }
 
-// ===== APPLY SAVED CONTENT ON LOAD =====
-function sanitize(t){const d=document.createElement('div');d.textContent=t;return d.innerHTML}
-function applySavedContent(){
-  // Hero
-  const hd=localStorage.getItem('portfolio_hero');
-  if(hd)try{const d=JSON.parse(hd);if(d.name)document.getElementById('hero-name').textContent=sanitize(d.name);if(d.headline)typingPhrases[0]=d.headline;if(d.description){document.getElementById('hero-desc').innerHTML="I'm a <strong id=\"age-display\"></strong>"+sanitize(d.description);updateAge()}if(d.photoUrl)document.getElementById('profile-photo').src=d.photoUrl;if(d.tags){const t=document.getElementById('hero-tags');t.innerHTML=d.tags.map(tag=>'<span class="tag">'+sanitize(tag)+'</span>').join('')}}catch(e){}
-  // About
-  const ad=localStorage.getItem('portfolio_about');
-  if(ad)try{const d=JSON.parse(ad);const el=document.getElementById('about-text');if(d.text1)el.querySelector('p:first-of-type').textContent=sanitize(d.text1);if(d.text2)el.querySelectorAll('p')[1].textContent=sanitize(d.text2)}catch(e){}
-  // Education
-  const ed=localStorage.getItem('portfolio_education');
-  if(ed)try{const items=JSON.parse(ed);const t=document.getElementById('education-timeline');t.innerHTML=items.map(i=>'<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">'+sanitize(i.date)+'</div><h4>'+sanitize(i.title)+'</h4><p><strong>'+sanitize(i.school)+'</strong> '+sanitize(i.detail)+'</p></div>').join('')}catch(e){}
-  // Skills
-  const sk=localStorage.getItem('portfolio_skills');
-  if(sk)try{const cats=JSON.parse(sk);const g=document.getElementById('skills-grid');g.innerHTML=cats.map(c=>'<div class="skill-category"><h3><span class="cat-icon">'+sanitize(c.icon)+'</span> '+sanitize(c.name)+'</h3><div class="skill-tags">'+c.skills.map(s=>'<span class="skill-tag">'+sanitize(s)+'</span>').join('')+'</div></div>').join('')}catch(e){}
-  // Projects
-  const pd=localStorage.getItem('portfolio_projects');
-  if(pd)try{const projs=JSON.parse(pd);const g=document.getElementById('projects-grid');g.innerHTML=projs.map(p=>'<div class="project-card"><div class="project-emoji">'+sanitize(p.emoji)+'</div><h3 class="project-title">'+sanitize(p.title)+'</h3><p class="project-desc">'+sanitize(p.desc)+'</p><div class="project-tags">'+p.tags.map(t=>'<span class="project-tag">'+sanitize(t)+'</span>').join('')+'</div><div class="project-links">'+(p.demo?'<a href="'+sanitize(p.demo)+'" class="project-link" target="_blank">Live Demo →</a>':'')+(p.source?'<a href="'+sanitize(p.source)+'" class="project-link" target="_blank">Source Code →</a>':'')+'</div></div>').join('')}catch(e){}
-  // Certs
-  const cd=localStorage.getItem('portfolio_certs');
-  if(cd)try{const certs=JSON.parse(cd);const g=document.getElementById('certs-grid');g.innerHTML=certs.map(c=>'<div class="cert-card"><img src="'+sanitize(c.image)+'" alt="'+sanitize(c.name)+'" loading="lazy"><div class="cert-info"><div class="cert-name">'+sanitize(c.name)+'</div><div class="cert-issuer">'+sanitize(c.issuer)+'</div><div class="cert-date">'+sanitize(c.date)+' · Credential ID: '+sanitize(c.credential)+'</div></div></div>').join('')}catch(e){}
-  // Contact
-  const ct=localStorage.getItem('portfolio_contact');
-  if(ct)try{const d=JSON.parse(ct);const links=document.querySelectorAll('.contact-line');if(d.email){links[0].href='mailto:'+encodeURIComponent(d.email);links[0].querySelector('.contact-value').textContent=sanitize(d.email)}if(d.linkedin){links[1].href=d.linkedin}if(d.github){links[2].href=d.github}if(d.twitter){links[3].href=d.twitter}}catch(e){}
-  // Meta
-  const mt=localStorage.getItem('portfolio_meta');
-  if(mt)try{const d=JSON.parse(mt);if(d.title)document.title=sanitize(d.title);if(d.description)document.querySelector('meta[name="description"]').content=sanitize(d.description)}catch(e){}
-}
-applySavedContent();
+document.querySelectorAll('.modal-overlay').forEach(o => {
+  o.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+});
 
-// ===== LIVE GITHUB STATS (fallback when image service is down) =====
-const GITHUB_USER='shubham001312';
-const GH_CACHE_KEY='gh_stats_cache';
-const GH_CACHE_TTL=3600000; // 1 hour in ms
-function getLangColors(){return{Python:'#3572A5',JavaScript:'#f1e05a',C:'#555555','C++':'#f34b7d',TypeScript:'#3178c6',Dart:'#00B4AB',HTML:'#e34c26',CSS:'#563d7c',Java:'#b07219',Shell:'#89e051'}}
-function renderStats(u,totalStars){
-  const repoEl=document.getElementById('stat-repos');
-  const followersEl=document.getElementById('stat-followers');
-  const starsEl=document.getElementById('stat-stars');
-  if(repoEl)repoEl.textContent=u.public_repos??'—';
-  if(followersEl)followersEl.textContent=u.followers??'—';
-  if(starsEl)starsEl.textContent=totalStars??'—';
-  const statsCard=document.getElementById('github-stats-card');
-  if(statsCard){statsCard.innerHTML='<div style="padding:1.5rem;background:var(--surface);border-radius:8px;"><h3 style=\'font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)\'>GitHub Overview</h3><div style=\'display:flex;gap:24px;flex-wrap:wrap;font-size:14px;\'><div>📦 <strong>'+(u.public_repos??0)+'</strong> Repos</div><div>👥 <strong>'+(u.followers??0)+'</strong> Followers</div><div>⭐ <strong>'+totalStars+'</strong> Stars</div><div>🔀 <strong>'+(u.public_gists??0)+'</strong> Gists</div></div></div>'}
-}
-function renderLangs(repos){
-  const langsCard=document.getElementById('github-langs-card');
-  if(!langsCard)return;
-  const langMap={};repos.forEach(r=>{if(r.language){langMap[r.language]=(langMap[r.language]||0)+1}});
-  const sorted=Object.entries(langMap).sort((a,b)=>b[1]-a[1]).slice(0,7);
-  const total=sorted.reduce((s,l)=>s+l[1],0);
-  const colors=getLangColors();
-  const barsHtml=sorted.map(([lang,count])=>{
-    const pct=Math.round(count/total*100);const c=colors[lang]||'#6e7681';
-    return '<div style=\'margin-bottom:8px;\'>'+'<div style=\'display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;color:var(--muted)\'>'+'<span>'+lang+'</span><span>'+pct+'%</span></div>'+'<div style=\'height:6px;background:var(--border);border-radius:3px;overflow:hidden;\'>'+'<div style=\'height:100%;width:'+pct+'%;background:'+c+';border-radius:3px;\'></div></div></div>';
-  }).join('');
-  langsCard.innerHTML='<div style="padding:1.5rem;background:var(--surface);border-radius:8px;"><h3 style=\'font-family:Space Grotesk,sans-serif;font-size:16px;margin-bottom:12px;color:var(--accent)\'>Top Languages</h3>'+barsHtml+'</div>';
-}
-async function loadGithubStats(){
-  try{
-    // Check cache first
-    let cached=null;
-    try{cached=JSON.parse(localStorage.getItem(GH_CACHE_KEY))}catch(e){}
-    if(cached&&Date.now()-cached.ts<GH_CACHE_TTL){
-      try{renderStats(cached.user,cached.totalStars);renderLangs(cached.repos);return}catch(e){}
+// ============================================================
+// 12. SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
-    // Fetch fresh data
-    const u=await fetch('https://api.github.com/users/'+GITHUB_USER).then(r=>r.json());
-    const repos=await fetch('https://api.github.com/users/'+GITHUB_USER+'/repos?per_page=100').then(r=>r.json());
-    if(!Array.isArray(repos)||u.public_repos===undefined)return; // don't cache errors
-    const totalStars=repos.reduce((s,r)=>s+(r.stargazers_count||0),0);
-    const trimmed=repos.map(r=>({language:r.language,stargazers_count:r.stargazers_count||0}));
-    try{localStorage.setItem(GH_CACHE_KEY,JSON.stringify({user:u,repos:trimmed,totalStars:totalStars,ts:Date.now()}))}catch(e){}
-    renderStats(u,totalStars);renderLangs(repos);
-  }catch(e){console.log('GitHub API fallback failed:',e)}
-}
-loadGithubStats();
-function clearGithubCache(){
-  try{localStorage.removeItem(GH_CACHE_KEY)}catch(e){}
-  loadGithubStats();
-}
-
-// Close modals on overlay click
-document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('active')})});
-
-// ===== 3D TILT EFFECT ON CARDS =====
-function init3DTilt(){
-  var cards=document.querySelectorAll('.project-card,.skill-category,.cert-card,.stat-card,.contact-line');
-  cards.forEach(function(card){
-    card.addEventListener('mousemove',function(e){
-      var rect=card.getBoundingClientRect();
-      var x=e.clientX-rect.left;
-      var y=e.clientY-rect.top;
-      var centerX=rect.width/2;
-      var centerY=rect.height/2;
-      var rotateX=((y-centerY)/centerY)*-8;
-      var rotateY=((x-centerX)/centerX)*8;
-      card.style.transform='perspective(800px) rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) translateZ(10px)';
-    });
-    card.addEventListener('mouseleave',function(){
-      card.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-    });
   });
-}
-init3DTilt();
+});
 
-// ===== AI ROBOT GUIDE =====
-var robot=document.getElementById('ai-robot');
-var robotSpeech=document.getElementById('robot-speech');
-var sections=['hero','about','education','skills','projects','certs','roadmap','stats','blog','contact'];
-var sectionNames=['Hero','About','Education','Skills','Projects','Certificates','Roadmap','Stats','Blog','Contact'];
-var robotMessages=[
-  "Welcome! I'm Shubham's AI guide 🤖",
-  "Here you can learn about Shubham's background!",
-  "Check out the education timeline 📚",
-  "These are Shubham's core skills! 💡",
-  "Some amazing projects built by Shubham! 🚀",
-  "Google certifications earned! 🏆",
-  "Explore the GRBS AI roadmap! 🗺️",
-  "GitHub activity and contributions 📊",
-  "Blog coming soon! ✍️",
-  "Want to connect? Reach out! 📬"
-];
-var currentSectionIdx=-1;
-var robotSpeaking=false;
-
-function showRobotMessage(msg,duration){
-  if(!robotSpeech)return;
-  robotSpeech.textContent=msg;
-  robot.classList.add('speaking');
-  robotSpeaking=true;
-  setTimeout(function(){
-    robot.classList.remove('speaking');
-    robotSpeaking=false;
-  },duration||3000);
-}
-
-// Robot walks to current section on scroll
-var lastScrollY=0;
-var scrollTimeout;
-var NAV_HEIGHT=64;
-function handleRobotScroll(){
-  if(!robot)return;
-  var scrollY=window.pageYOffset||document.documentElement.scrollTop;
-  lastScrollY=scrollY;
-  
-  // Add walking animation (debounced)
-  if(!robot.classList.contains('walking')){
-    robot.classList.add('walking');
-  }
-  clearTimeout(scrollTimeout);
-  scrollTimeout=setTimeout(function(){
-    robot.classList.remove('walking');
-  },500);
-  
-  // Determine which section we're in
-  var foundIdx=-1;
-  for(var i=0;i<sections.length;i++){
-    var el=document.getElementById(sections[i]);
-    if(el){
-      var rect=el.getBoundingClientRect();
-      if(rect.top<=NAV_HEIGHT&&rect.bottom>NAV_HEIGHT){
-        foundIdx=i;
-        break;
-      }
+// ============================================================
+// 13. BUTTON HANDLERS (Resume, Notify)
+// ============================================================
+document.querySelectorAll('.resume-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
+      e.preventDefault();
+      showToast('Resume PDF coming soon! 📄', 'info');
     }
-  }
-  
-  // Show message when entering new section
-  if(foundIdx!==-1&&foundIdx!==currentSectionIdx&&!robotSpeaking){
-    currentSectionIdx=foundIdx;
-    showRobotMessage('📍 Now viewing: '+sectionNames[foundIdx]+' — '+robotMessages[foundIdx],2500);
-    
-    // Move robot position based on section
-    var sidePosition=(foundIdx%2===0)?'right':'left';
-    robot.style.right=(sidePosition==='right')?'20px':'auto';
-    robot.style.left=(sidePosition==='left')?'20px':'auto';
-    robot.style.bottom='20px';
-  }
-}
-
-// Robot click to show random fun fact
-var funFacts=[
-  "Did you know? Shubham built 23+ repositories! 🎉",
-  "Fun fact: This portfolio has a dark mode! 🌙",
-  "Shubham is fluent in Python, C, C++, and JavaScript! 💻",
-  "GRBS has 600+ curated AI/ML resources! 📚",
-  "Shubham studies at BBIT, MAKAUT! 🎓",
-  "This site is fully responsive! 📱",
-  "Shubham has Google AI certifications! 🏆"
-];
-if(robot){
-  robot.addEventListener('click',function(){
-    var randomFact=funFacts[Math.floor(Math.random()*funFacts.length)];
-    showRobotMessage(randomFact,4000);
   });
-  // Initial greeting after 2 seconds
-  setTimeout(function(){
-    showRobotMessage("Hi! I'm Shubham's AI guide 🤖 Click me for fun facts!",4000);
-  },2000);
-}
+});
+
+document.querySelectorAll('.notify-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = 'mailto:gmail.shubham@gmail.com?subject=Blog%20Notification%20Request';
+  });
+});
+
+// ============================================================
+// 14. SYSTEM READY INITIALIZATION
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    showToast('⚡ System Ready — Transformer v2.0', 'info');
+  }, 1500);
+});
+
+// Fix cert image loading - show placeholder on error, keeping cert-info preserved
+document.querySelectorAll('.cert-card img').forEach(img => {
+  img.addEventListener('error', function() {
+    this.outerHTML = '<div style="padding:2rem;text-align:center;background:var(--bg-card);border-bottom:1px solid var(--border)"><div style="font-size:2.5rem">🏆</div></div>';
+  });
+});
+
+console.log('%c⚡ Transformer Portfolio v2.0', 'font-size:20px;font-weight:bold;color:#818cf8');
+console.log('%cShubham Mallick — AI Engineer', 'font-size:14px;color:#94a3b8');

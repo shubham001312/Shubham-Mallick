@@ -1,286 +1,900 @@
+<!-- ============================================================
+  SHUBHAM MALLICK — TRANSFORMER ARCHITECTURE PORTFOLIO v2.0
+  Theme: Multi-Head Attention · Neural Network Inspired
+  Last Updated: June 14, 2026
+  ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shubham Mallick | AI Engineer & Software Developer Portfolio</title>
-<meta name="description" content="Personal portfolio of Shubham Mallick — AI Engineer & Software Developer from Kolkata, India. Specializing in LLMs, Computer Vision, Python, and Full Stack Development. View projects, skills, and certifications.">
-<meta name="keywords" content="Shubham Mallick, AI Engineer, Machine Learning Developer, Python Developer, LLM, Computer Vision, Full Stack Developer, Kolkata, India, B.Tech CSE AI, BBIT, portfolio, software engineer, web developer">
-<meta name="author" content="Shubham Mallick">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="googlebot" content="index, follow">
-<meta name="theme-color" content="#4f46e5">
-<link rel="canonical" href="https://shubham001312.github.io/Shubham-Mallick/">
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://shubham001312.github.io/Shubham-Mallick/">
-<meta property="og:title" content="Shubham Mallick | AI Engineer & Software Developer Portfolio">
-<meta property="og:description" content="Personal portfolio of Shubham Mallick — AI Engineer specializing in LLMs, Computer Vision, Python, and Full Stack Development. Building intelligent software from Kolkata, India.">
-<meta property="og:image" content="https://avatars.githubusercontent.com/u/226120019?v=4">
-<meta property="og:site_name" content="Shubham Mallick Portfolio">
-<meta property="og:locale" content="en_IN">
-<meta property="og:image:alt" content="Shubham Mallick — AI Engineer & Developer Portfolio">
-<link rel="alternate" hreflang="en" href="https://shubham001312.github.io/Shubham-Mallick/">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@shubham_1440">
-<meta name="twitter:creator" content="@shubham_1440">
-<meta name="twitter:title" content="Shubham Mallick | AI Engineer & Software Developer Portfolio">
-<meta name="twitter:description" content="Personal portfolio of Shubham Mallick — AI Engineer specializing in LLMs, Computer Vision, Python, and Full Stack Development.">
-<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/226120019?v=4">
-<!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Shubham Mallick",
-  "url": "https://shubham001312.github.io/Shubham-Mallick/",
-  "image": "https://avatars.githubusercontent.com/u/226120019?v=4",
-  "jobTitle": "AI Engineer & Software Developer",
-  "description": "AI Engineer and developer from Kolkata, India, specializing in LLMs, Computer Vision, and Full Stack Development.",
-  "email": "mailto:gmail.shubham@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kolkata",
-    "addressRegion": "West Bengal",
-    "addressCountry": "IN"
-  },
-  "alumniOf": {
-    "@type": "EducationalOrganization",
-    "name": "Budge Budge Institute of Technology (MAKAUT)"
-  },
-  "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Large Language Models", "Computer Vision", "Python", "JavaScript", "TypeScript", "React", "Node.js", "PyTorch", "OpenCV", "LangChain", "FastAPI", "Full Stack Development", "LLM Integration"],
-  "sameAs": [
-    "https://github.com/shubham001312",
-    "https://linkedin.com/in/shubham-mallick-061298378",
-    "https://x.com/shubham_1440"
-  ]
-}
-</script>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234f46e5'/%3E%3Ctext x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0a0a12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Personal portfolio of Shubham Mallick — AI Engineer & Software Developer from Kolkata, India. Specializing in LLMs, Computer Vision, Python, and Full Stack Development.">
+  <meta name="keywords" content="Shubham Mallick, AI Engineer, Machine Learning Developer, LLM, Computer Vision, Full Stack Developer, Kolkata, India">
+  <meta name="author" content="Shubham Mallick">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shubham001312.github.io/Shubham-Mallick/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shubham001312.github.io/Shubham-Mallick/">
+  <meta property="og:title" content="Shubham Mallick | AI Engineer & Software Developer">
+  <meta property="og:description" content="AI Engineer specializing in LLMs, Computer Vision, and Full Stack Development.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/226120019?v=4">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@shubham_1440">
+  <meta name="twitter:title" content="Shubham Mallick | AI Engineer">
+  <meta name="twitter:description" content="Building intelligent software at the intersection of AI/ML and modern web development.">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shubham Mallick",
+    "url": "https://shubham001312.github.io/Shubham-Mallick/",
+    "image": "https://avatars.githubusercontent.com/u/226120019?v=4",
+    "jobTitle": "AI Engineer & Software Developer",
+    "email": "mailto:gmail.shubham@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Kolkata", "addressRegion": "West Bengal", "addressCountry": "IN" },
+    "alumniOf": { "@type": "EducationalOrganization", "name": "Budge Budge Institute of Technology (MAKAUT)" },
+    "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Large Language Models", "Computer Vision", "Python", "JavaScript", "TypeScript", "React", "PyTorch", "OpenCV", "LangChain", "FastAPI"],
+    "sameAs": ["https://github.com/shubham001312", "https://linkedin.com/in/shubham-mallick-061298378", "https://x.com/shubham_1440"]
+  }
+  </script>
+
+  <title>Shubham Mallick | AI Engineer & Software Developer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234f46e5'/%3E%3Ctext x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=2.0.0">
 </head>
 <body>
-<div id="scroll-progress"></div>
-<div class="ambient-glow glow-1"></div>
-<div class="ambient-glow glow-2"></div>
-<div class="ambient-glow glow-3"></div>
+  <!-- Ambient Glow Orbs (Attention Heat) -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
 
-<nav>
-  <a class="nav-logo" href="#">SHUBHAM MALLICK</a>
-  <div class="nav-right">
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#about" onclick="toggleMenu(false)">About</a></li>
-      <li><a href="#education" onclick="toggleMenu(false)">Education</a></li>
-      <li><a href="#skills" onclick="toggleMenu(false)">Skills</a></li>
-      <li><a href="#projects" onclick="toggleMenu(false)">Projects</a></li>
-      <li><a href="#certs" onclick="toggleMenu(false)">Certificates</a></li>
-      <li><a href="#roadmap" onclick="toggleMenu(false)">Roadmap</a></li>
-      <li><a href="#contact" onclick="toggleMenu(false)">Contact</a></li>
-    </ul>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
-      <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-      <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    </button>
-  </div>
-</nav>
+  <!-- Scroll Progress Bar (Positional Encoding) -->
+  <div id="scroll-progress"></div>
 
-<main>
-  <!-- Hero -->
-  <div class="hero" id="hero">
-    <img src="https://avatars.githubusercontent.com/u/226120019?v=4" alt="Shubham Mallick" class="profile-photo" id="profile-photo">
-    <div class="hero-content">
-      <div class="status-badge"><span class="status-dot"></span>Open to opportunities & collaborations</div>
-      <h1>Hi, I'm <span id="hero-name">Shubham Mallick</span><br><span class="typing-wrapper"><span id="typing-text"></span><span class="typing-cursor"></span></span></h1>
-      <p class="hero-desc" id="hero-desc">I'm a <strong id="age-display"></strong>AI Engineer and developer from Kolkata, building intelligent software at the intersection of AI/ML and modern web development. Creator of <strong>GRBS</strong> (AI roadmap with 600+ resources across 20 phases) and <strong>TalkBuzz</strong> (real-time chat platform). Passionate about LLMs, Computer Vision, and creating tools that make a difference.</p>
-      <div class="hero-cta-group">
-        <a href="#projects" class="hero-cta">View My Work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a href="#contact" class="hero-cta secondary">Get In Touch</a>
-      </div>
-      <div class="tags" id="hero-tags"><span class="tag">Python</span><span class="tag">C/C++</span><span class="tag">Machine Learning</span><span class="tag">LLMs</span><span class="tag">Computer Vision</span><span class="tag">JavaScript</span><span class="tag">MySQL</span></div>
-    </div>
-  </div>
+  <!-- ============================================================
+       NAVBAR — POSITIONAL ENCODER
+       ============================================================ -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <div class="logo-mono">S</div>
+      HUBHAM
+    </a>
 
-  <!-- About -->
-  <section id="about" class="fade-in">
-    <div class="section-header"><span class="section-label">Background</span><h2 class="section-title">About Me</h2></div>
-    <div class="about-container">
-      <div class="about-terminal">
-        <div class="terminal-header"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span><span class="terminal-title">developer_profile.json</span></div>
-        <div class="terminal-body">
-          <div class="terminal-line"><span class="terminal-prompt">shubham@portfolio:~$</span> <span class="terminal-output">cat profile.json</span></div>
-          <div class="terminal-line" style="color:#f3f4f6;font-family:inherit">{<br>&nbsp;&nbsp;<span style="color:#38bdf8">"name"</span>: <span style="color:#a7f3d0">"Shubham Mallick"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"role"</span>: <span style="color:#a7f3d0">"AI Engineer (LLM Specialisation)"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"education"</span>: <span style="color:#a7f3d0">"B.Tech CSE (AI) — BBIT, MAKAUT"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"school"</span>: <span style="color:#a7f3d0">"JNV North 24 Parganas"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"location"</span>: <span style="color:#a7f3d0">"Kolkata, West Bengal"</span>,<br>&nbsp;&nbsp;<span style="color:#38bdf8">"focus"</span>: [<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"LLM Integration"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"AI/ML Systems"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Computer Vision"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Full Stack Development"</span><br>&nbsp;&nbsp;]<br>}</div>
-          <div class="terminal-line"><span class="terminal-prompt">shubham@portfolio:~$</span> <span style="background:#4f46e5;width:8px;height:15px;display:inline-block;animation:cursorBlink 1s infinite;vertical-align:middle"></span></div>
+    <div class="nav-center">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Positional Encoding Progress -->
+      <div class="pos-encoding">
+        <span class="pos-label" id="pos-label">0%</span>
+        <div class="pos-bar">
+          <div class="pos-fill" id="pos-fill"></div>
         </div>
       </div>
-      <div class="about-text" id="about-text">
-        <h3>Hello, I'm Shubham</h3>
-        <p>I'm an AI Engineering student at <strong>Budge Budge Institute of Technology</strong> (MAKAUT), specializing in Artificial Intelligence. My journey started at <strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong>, where I discovered my passion for technology and problem-solving.</p>
-        <p>Today, I focus on building intelligent systems — from LLM-powered applications and computer vision pipelines to modern web platforms. I believe in learning by building, and every project on this portfolio represents a step in that journey.</p>
-        <ul class="qualification-list">
-          <li class="qualification-item"><div class="qualification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="qualification-info"><h4>Always Learning</h4><p>Currently deepening my expertise in LLMs, AI Agents, and system design.</p></div></li>
-          <li class="qualification-item"><div class="qualification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div><div class="qualification-info"><h4>Builder at Heart</h4><p>23+ repositories on GitHub, from AI systems to web apps to low-level C projects.</p></div></li>
-        </ul>
+    </div>
+
+    <div class="nav-right">
+      <div class="status-indicator">
+        <span class="status-dot-nav"></span>
+        Open to work
+      </div>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main>
+    <!-- ============================================================
+         HERO — QUERY VECTOR + ATTENTION MATRIX
+         ============================================================ -->
+    <div class="hero" id="hero">
+      <div class="hero-left">
+        <div class="profile-photo-wrapper">
+          <img src="https://avatars.githubusercontent.com/u/226120019?v=4" alt="Shubham Mallick" class="profile-photo" id="profile-photo" loading="lazy">
+        </div>
+        <h1>Hi, I'm <span class="gradient-text">Shubham Mallick</span><br>
+          <span class="typing-wrapper">
+            <span id="typing-text"></span><span class="typing-cursor"></span>
+          </span>
+        </h1>
+        <p class="hero-desc">
+          I'm a <strong id="age-display"></strong>AI Engineer and developer from Kolkata, building intelligent software at the intersection of AI/ML and modern web development. Creator of <strong>GRBS</strong> (AI roadmap with 600+ resources) and <strong>TalkBuzz</strong> (real-time chat platform).
+        </p>
+        <div class="hero-cta-group">
+          <a href="#projects" class="hero-cta">
+            View My Work
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </a>
+          <a href="#contact" class="hero-cta secondary">Get In Touch</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag">Python</span>
+          <span class="hero-tag">C/C++</span>
+          <span class="hero-tag">Machine Learning</span>
+          <span class="hero-tag">LLMs</span>
+          <span class="hero-tag">Computer Vision</span>
+          <span class="hero-tag">JavaScript</span>
+          <span class="hero-tag">React</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="attn-canvas-wrapper">
+          <canvas id="attn-canvas"></canvas>
+        </div>
+        <div class="attn-label">Attention · QKV Matrix</div>
+        <div class="status-badge">
+          <span class="dot"></span>
+          Available for collaborations & opportunities
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Education -->
-  <section id="education" class="fade-in">
-    <div class="section-header"><span class="section-label">Journey</span><h2 class="section-title">Education</h2></div>
-    <div class="timeline" id="education-timeline">
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 — Present</div><h4>B.Tech in CSE (Artificial Intelligence)</h4><p><strong>Budge Budge Institute of Technology</strong> under MAKAUT — Currently in 1st year, specializing in AI/ML. Actively building projects and exploring LLM integrations, computer vision, and full-stack development.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2023 — 2025</div><h4>Higher Secondary (12th Grade)</h4><p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Completed 12th grade in 2025. This is where my interest in computers and technology first took shape.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Earlier</div><h4>Secondary (10th Grade)</h4><p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Built the foundation. Learned discipline, curiosity, and the joy of solving problems.</p></div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="fade-in">
-    <div class="section-header"><span class="section-label">Expertise</span><h2 class="section-title">Skills & Technologies</h2></div>
-    <div class="skills-grid" id="skills-grid">
-      <div class="skill-category"><h3><span class="cat-icon">🐍</span> Programming Languages</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Dart</span><span class="skill-tag">HTML5/CSS3</span></div></div>
-      <div class="skill-category"><h3><span class="cat-icon">🤖</span> AI / Machine Learning</h3><div class="skill-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">OpenCV</span><span class="skill-tag">YOLO</span><span class="skill-tag">LangChain</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">LLMs</span></div></div>
-      <div class="skill-category"><h3><span class="cat-icon">🌐</span> Web Development</h3><div class="skill-tags"><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">Flask</span><span class="skill-tag">FastAPI</span><span class="skill-tag">REST APIs</span><span class="skill-tag">WebSocket</span><span class="skill-tag">PWA</span></div></div>
-      <div class="skill-category"><h3><span class="cat-icon">🔧</span> Tools & Platforms</h3><div class="skill-tags"><span class="skill-tag">Git / GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">Linux</span><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Vercel</span><span class="skill-tag">HuggingFace Spaces</span><span class="skill-tag">GitHub Pages</span></div></div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="fade-in">
-    <div class="section-header"><span class="section-label">Portfolio</span><h2 class="section-title">Featured Projects</h2></div>
-    <div class="projects-grid" id="projects-grid">
-      <div class="project-card"><div class="project-emoji">🗺️</div><h3 class="project-title">GRBS — AI/ML Roadmap</h3><p class="project-desc">A comprehensive, interactive AI/ML learning roadmap tracker with 20 phases, 600+ curated resources (English + Hindi), DSA problem-solving track, 55+ company directory, progress tracking, activity heatmap, and a PWA for offline access.</p><div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">PWA</span><span class="project-tag">Chart.js</span><span class="project-tag">HTML/CSS</span></div><div class="project-links"><a href="https://shubham001312.github.io/GRBS/" class="project-link" target="_blank">Live Demo →</a><a href="https://github.com/shubham001312/GRBS" class="project-link" target="_blank">Source Code →</a></div></div>
-      <div class="project-card"><div class="project-emoji">🧠</div><h3 class="project-title">CUET AI Assistant</h3><p class="project-desc">An AI-powered assistant built with Python and deployed on HuggingFace Spaces. Features intelligent conversational capabilities, document processing, and smart query handling.</p><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">HuggingFace</span><span class="project-tag">LLM</span><span class="project-tag">Gradio</span></div><div class="project-links"><a href="https://huggingface.co/spaces/shubham001312/cuet-ai" class="project-link" target="_blank">Live Demo →</a><a href="https://github.com/shubham001312/cuet-ai" class="project-link" target="_blank">Source Code →</a></div></div>
-      <div class="project-card"><div class="project-emoji">📰</div><h3 class="project-title">NewsBuzz</h3><p class="project-desc">A modern news aggregator that fetches and displays real-time news from multiple sources with category filtering, search functionality, and a clean responsive interface.</p><div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">REST API</span><span class="project-tag">HTML/CSS</span><span class="project-tag">Responsive</span></div><div class="project-links"><a href="https://shubham001312.github.io/newsbuzz/" class="project-link" target="_blank">Live Demo →</a><a href="https://github.com/shubham001312/newsbuzz" class="project-link" target="_blank">Source Code →</a></div></div>
-      <div class="project-card"><div class="project-emoji">📱</div><h3 class="project-title">Guzu — Android Browser</h3><p class="project-desc">A lightweight, privacy-focused Android browser built with Flutter/Dart. Features multiple search engine support, clean UI, and secure private browsing.</p><div class="project-tags"><span class="project-tag">Dart</span><span class="project-tag">Flutter</span><span class="project-tag">Android</span><span class="project-tag">WebView</span></div><div class="project-links"><a href="https://github.com/shubham001312/guzu--ANDROID_SOURCE_CODE" class="project-link" target="_blank">Source Code →</a></div></div>
-    </div>
-  </section>
-
-  <!-- Certifications -->
-  <section id="certs" class="fade-in">
-    <div class="section-header"><span class="section-label">Credentials</span><h2 class="section-title">Certifications</h2></div>
-    <div class="certs-grid" id="certs-grid">
-      <div class="cert-card"><img src="assets/cert-google-ai-essentials.png" alt="Google AI Essentials Certificate" loading="lazy"><div class="cert-info"><div class="cert-name">Google AI Essentials</div><div class="cert-issuer">Google · Coursera</div><div class="cert-date">Issued May 2026 · Credential ID: 7E70JFWK9SYF</div></div></div>
-      <div class="cert-card"><img src="assets/cert-google-ai-professional.png" alt="Google AI Professional Certificate" loading="lazy"><div class="cert-info"><div class="cert-name">Google AI Professional</div><div class="cert-issuer">Google · Coursera</div><div class="cert-date">Issued May 2026 · Credential ID: 7L7FT1QN9CEI</div></div></div>
-    </div>
-  </section>
-
-  <!-- Roadmap -->
-  <section id="roadmap" class="fade-in">
-    <div class="section-header"><span class="section-label">Learning Path</span><h2 class="section-title">AI/ML Learning Roadmap</h2></div>
-    <div class="roadmap-cta">
-      <h3>🗺️ GRBS — Your AI Learning Companion</h3>
-      <p>I built an interactive roadmap that tracks your entire AI/ML learning journey — from CS fundamentals to advanced research. 20 phases, 600+ curated resources in English & Hindi, DSA track, 55+ companies, and more.</p>
-      <div class="roadmap-stats"><div class="roadmap-stat"><span class="stat-num">20</span><span class="stat-label">PHASES</span></div><div class="roadmap-stat"><span class="stat-num">600+</span><span class="stat-label">RESOURCES</span></div><div class="roadmap-stat"><span class="stat-num">100+</span><span class="stat-label">PROJECTS</span></div></div>
-      <a href="https://shubham001312.github.io/GRBS/" class="hero-cta" target="_blank">Explore the Roadmap <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-    </div>
-  </section>
-
-  <!-- GitHub Stats -->
-  <section id="stats" class="fade-in">
-    <div class="section-header"><span class="section-label">Activity</span><h2 class="section-title">GitHub Stats</h2></div>
-    <div class="stats-grid" id="github-stats-grid"><div class="stat-card"><div class="stat-value" id="stat-repos">—</div><div class="stat-label">Public Repos</div></div><div class="stat-card"><div class="stat-value" id="stat-followers">—</div><div class="stat-label">Followers</div></div><div class="stat-card"><div class="stat-value" id="stat-stars">—</div><div class="stat-label">Total Stars</div></div></div>
-    <div class="github-embed"><img src="https://github-readme-stats.vercel.app/api?username=shubham001312&show_icons=true&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&icon_color=4f46e5&text_color=0f172a" alt="GitHub Stats" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'github-api-stats\' id=\'github-stats-card\'><div class=\'skeleton skeleton-line long\'></div><div class=\'skeleton skeleton-line medium\'></div><div class=\'skeleton skeleton-line short\'></div></div>'"></div>
-    <div class="github-embed" style="margin-top:12px"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shubham001312&layout=compact&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&text_color=0f172a" alt="Top Languages" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'github-api-langs\' id=\'github-langs-card\'><div class=\'skeleton skeleton-bar\'></div><div class=\'skeleton skeleton-bar\'></div><div class=\'skeleton skeleton-bar\'></div><div class=\'skeleton skeleton-bar\'></div></div>'"></div>
-    <div class="github-embed" style="margin-top:12px"><img src="https://github-readme-streak-stats.herokuapp.com/?user=shubham001312&theme=default&hide_border=true&background=f8fafc&stroke=4f46e5&ring=4f46e5&fire=4f46e5&currStreakLabel=4f46e5" alt="GitHub Streak" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-  </section>
-
-  <!-- Blog -->
-  <section id="blog" class="fade-in">
-    <div class="section-header"><span class="section-label">Writings</span><h2 class="section-title">Blog</h2></div>
-    <div class="blog-card"><span class="coming-soon">COMING SOON</span><h3>Articles & Tutorials</h3><p>I'll be sharing insights on AI/ML, development tips, and project breakdowns. Stay tuned.</p></div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="fade-in">
-    <div class="section-header"><span class="section-label">Reach Out</span><h2 class="section-title">Get In Touch</h2></div>
-    <p style="color:var(--muted);margin-bottom:2rem;font-size:15px">Have a project idea, collaboration opportunity, or just want to connect? I'm always happy to hear from fellow developers, recruiters, and anyone passionate about technology.</p>
-    <div class="contact-links" id="contact-links">
-      <a href="mailto:gmail.shubham@gmail.com" class="contact-line"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></div><div class="contact-text"><span class="contact-label">Email</span><span class="contact-value">gmail.shubham@gmail.com</span></div></a>
-      <a href="https://linkedin.com/in/shubham-mallick-061298378" class="contact-line" target="_blank"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div class="contact-text"><span class="contact-label">LinkedIn</span><span class="contact-value">shubham-mallick →</span></div></a>
-      <a href="https://github.com/shubham001312" class="contact-line" target="_blank"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div><div class="contact-text"><span class="contact-label">GitHub</span><span class="contact-value">@shubham001312 →</span></div></a>
-      <a href="https://x.com/shubham_1440" class="contact-line" target="_blank"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></div><div class="contact-text"><span class="contact-label">Twitter / X</span><span class="contact-value">@shubham_1440 →</span></div></a>
-    </div>
-    <a href="#" class="resume-btn" onclick="alert('Resume coming soon!');return false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Download Resume (Coming Soon)</a>
-  </section>
-</main>
-
-<footer>
-  <div><span>© 2026 Shubham Mallick. Built with passion.</span></div>
-  <div class="footer-right">
-    <a href="https://github.com/shubham001312" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/shubham-mallick-061298378" target="_blank">LinkedIn</a>
-    <a href="https://x.com/shubham_1440" target="_blank">X</a>
-    <button class="login-btn" onclick="openAdminPanel()">⚙ Admin</button>
-  </div>
-</footer>
-
-<!-- Admin Login Modal -->
-<div class="modal-overlay" id="admin-modal">
-  <div class="modal">
-    <h3>🔐 Admin Login</h3>
-    <p class="modal-desc">Enter your credentials to access the admin panel.</p>
-    <div class="form-group"><label for="admin-email">Email / ID</label><input type="email" id="admin-email" placeholder="Enter your email" onkeydown="if(event.key==='Enter')document.getElementById('admin-password').focus()"></div>
-    <div class="form-group"><label for="admin-password">Password</label><input type="password" id="admin-password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')handleAdminLogin()"><div class="modal-error" id="login-error">Incorrect email or password. Try again.</div></div>
-    <button class="modal-btn" onclick="handleAdminLogin()">Login</button>
-    <button class="modal-btn cancel" onclick="closeAdminPanel()">Cancel</button>
-  </div>
-</div>
-
-<!-- Full Admin Dashboard -->
-<div class="modal-overlay" id="edit-modal">
-  <div class="modal" style="max-width:700px">
-    <h3>⚙️ Admin Dashboard</h3>
-    <p class="modal-desc">Edit any section of your portfolio. Changes save to localStorage and apply on refresh.</p>
-    <div class="admin-section-tabs" id="admin-tabs">
-      <button class="admin-tab active" data-section="hero">Hero</button>
-      <button class="admin-tab" data-section="about">About</button>
-      <button class="admin-tab" data-section="education">Education</button>
-      <button class="admin-tab" data-section="skills">Skills</button>
-      <button class="admin-tab" data-section="projects">Projects</button>
-      <button class="admin-tab" data-section="certs">Certificates</button>
-      <button class="admin-tab" data-section="contact">Contact</button>
-      <button class="admin-tab" data-section="meta">Meta</button>
-      <button class="admin-tab" data-section="credentials">🔑 Password</button>
-    </div>
-    <div class="form-group"><label for="edit-content">Content (JSON)</label><textarea id="edit-content" placeholder="Edit content here..."></textarea></div>
-    <div class="modal-error" id="edit-error">Invalid JSON format.</div>
-    <button class="modal-btn" onclick="saveSectionData()">💾 Save Changes</button>
-    <button class="modal-btn cancel" onclick="closeEditPanel()">Cancel</button>
-    <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0">
-    <button class="modal-btn cancel" onclick="clearGithubCache()">🔄 Refresh GitHub Stats</button>
-  </div>
-</div>
-
-<!-- AI Robot Guide -->
-<div id="ai-robot" class="ai-robot" title="Hi! I'm your AI guide">
-  <div class="robot-body">
-    <div class="robot-head">
-      <div class="robot-antenna"><div class="robot-antenna-tip"></div></div>
-      <div class="robot-face">
-        <div class="robot-eye left"></div>
-        <div class="robot-eye right"></div>
-        <div class="robot-mouth"></div>
+    <!-- ============================================================
+         ABOUT — SELF-ATTENTION ENCODER
+         ============================================================ -->
+    <section id="about" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Encoder Layer 1: Self-Attention
+        </div>
+        <h2 class="section-title">About Me</h2>
       </div>
-    </div>
-    <div class="robot-torso">
-      <div class="robot-heart"></div>
-    </div>
-    <div class="robot-arm left"></div>
-    <div class="robot-arm right"></div>
-    <div class="robot-leg left"></div>
-    <div class="robot-leg right"></div>
-  </div>
-  <div class="robot-speech" id="robot-speech">Hi! I'm your AI guide 🤖</div>
-</div>
 
-<script src="js/main.js"></script>
+      <div class="about-container">
+        <!-- Terminal (left column) -->
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="terminal-title">developer_profile.json</span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="terminal-prompt">shubham@portfolio:~$</span>
+              <span class="terminal-output"> cat profile.json</span>
+            </div>
+            <div class="terminal-line" style="color:#e2e8f0;font-family:inherit">{<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8">"name"</span>: <span style="color:#a7f3d0">"Shubham Mallick"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8">"role"</span>: <span style="color:#a7f3d0">"AI Engineer (LLM Specialisation)"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8">"education"</span>: <span style="color:#a7f3d0">"B.Tech CSE (AI) — BBIT, MAKAUT"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8">"school"</span>: <span style="color:#a7f3d0">"JNV North 24 Parganas"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8">"location"</span>: <span style="color:#a7f3d0">"Kolkata, West Bengal"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8">"focus"</span>: [<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"LLM Integration"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"AI/ML Systems"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Computer Vision"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a7f3d0">"Full Stack Development"</span><br>
+              &nbsp;&nbsp;]<br>
+            }</div>
+            <div class="terminal-line">
+              <span class="terminal-prompt">shubham@portfolio:~$</span>
+              <span class="terminal-cursor"></span>
+            </div>
+          </div>
+          <div class="terminal-orbit">
+            <span class="orbit-icon" style="top:10%;left:5%">🐍</span>
+            <span class="orbit-icon" style="top:75%;left:10%">⚡</span>
+            <span class="orbit-icon" style="top:15%;left:85%">🧠</span>
+            <span class="orbit-icon" style="top:80%;right:5%">🔧</span>
+          </div>
+        </div>
+
+        <!-- About text (right column) -->
+        <div class="about-text" id="about-text">
+          <h3>Hello, I'm Shubham</h3>
+          <p>I'm an AI Engineering student at <strong>Budge Budge Institute of Technology</strong> (MAKAUT), specializing in Artificial Intelligence. My journey started at <strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong>, where I discovered my passion for technology and problem-solving.</p>
+          <p>Today, I focus on building intelligent systems — from LLM-powered applications and computer vision pipelines to modern web platforms. I believe in learning by building, and every project on this portfolio represents a step in that journey.</p>
+
+          <!-- Philosophy Cards -->
+          <div class="qualities">
+            <div class="quality-item">
+              <div class="quality-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <div class="quality-info">
+                <h4>Always Learning</h4>
+                <p>Currently deepening my expertise in LLMs, AI Agents, and system design.</p>
+              </div>
+            </div>
+            <div class="quality-item">
+              <div class="quality-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                </svg>
+              </div>
+              <div class="quality-info">
+                <h4>Builder at Heart</h4>
+                <p>23+ repositories on GitHub, from AI systems to web apps to low-level C projects.</p>
+              </div>
+            </div>
+            <div class="quality-item">
+              <div class="quality-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="quality-info">
+                <h4>Open Source Advocate</h4>
+                <p>Believer in community-driven development and knowledge sharing.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="stat-num" id="repo-count-num">23+</span>
+              <span class="stat-label">Repositories</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-num">2</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-num">600+</span>
+              <span class="stat-label">Curated Resources</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EDUCATION — TEMPORAL ENCODING TIMELINE
+         ============================================================ -->
+    <section id="education" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Positional Encoding
+        </div>
+        <h2 class="section-title">Education Timeline</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="pos-wave">~ sin(π·t/4) · cos(π·t/3) ~</div>
+          <div class="timeline-date">2025 — Present</div>
+          <h4>B.Tech in CSE (Artificial Intelligence)</h4>
+          <p><strong>Budge Budge Institute of Technology</strong> under MAKAUT — Currently in 1st year, specializing in AI/ML. Actively building projects and exploring LLM integrations, computer vision, and full-stack development.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="pos-wave">~ sin(π·t/3) · cos(π·t/2) ~</div>
+          <div class="timeline-date">2023 — 2025</div>
+          <h4>Higher Secondary (12th Grade)</h4>
+          <p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Completed 12th grade in 2025. This is where my interest in computers and technology first took shape.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="pos-wave">~ sin(π·t/2) · cos(π·t) ~</div>
+          <div class="timeline-date">Earlier</div>
+          <h4>Secondary (10th Grade)</h4>
+          <p><strong>Jawahar Navodaya Vidyalaya, North 24 Parganas</strong> — Built the foundation. Learned discipline, curiosity, and the joy of solving problems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SKILLS — MULTI-HEAD ATTENTION BANK
+         ============================================================ -->
+    <section id="skills" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Multi-Head Attention · 4 Heads
+        </div>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="head-label">Head 1: Syntax Representation</div>
+          <h3><span class="cat-icon">🐍</span> Programming Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Dart</span>
+            <span class="skill-tag">HTML5/CSS3</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="head-label">Head 2: Mathematics &amp; Reasoning</div>
+          <h3><span class="cat-icon">🤖</span> AI / Machine Learning</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">YOLO</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">HuggingFace</span>
+            <span class="skill-tag">OpenAI API</span>
+            <span class="skill-tag">LLMs</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="head-label">Head 3: Interface Projection</div>
+          <h3><span class="cat-icon">🌐</span> Web Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">WebSocket</span>
+            <span class="skill-tag">PWA</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="head-label">Head 4: Infrastructure &amp; Deployment</div>
+          <h3><span class="cat-icon">🔧</span> Tools &amp; Platforms</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">HuggingFace Spaces</span>
+            <span class="skill-tag">GitHub Pages</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS — FEED-FORWARD NETWORK OUTPUT
+         ============================================================ -->
+    <section id="projects" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Feed-Forward Network · Output Tokens
+        </div>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- GRBS -->
+        <div class="project-card">
+          <div class="project-emoji">🗺️</div>
+          <h3 class="project-title">GRBS — AI/ML Roadmap</h3>
+          <p class="project-desc">A comprehensive, interactive AI/ML learning roadmap tracker with 20 phases, 600+ curated resources (English + Hindi), DSA problem-solving track, 55+ company directory, and PWA support.</p>
+          <div class="project-attn-score">
+            <span class="attn-score-label">Complexity</span>
+            <div class="attn-score-bar"><div class="attn-score-fill" style="width:100%"></div></div>
+            <span class="attn-score-val">5/5</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">PWA</span>
+            <span class="project-tag">Chart.js</span>
+            <span class="project-tag">HTML/CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://shubham001312.github.io/GRBS/" class="project-link" target="_blank">Live Demo →</a>
+            <a href="https://github.com/shubham001312/GRBS" class="project-link" target="_blank">Source Code →</a>
+          </div>
+        </div>
+
+        <!-- TalkBuzz -->
+        <div class="project-card">
+          <div class="project-emoji">💬</div>
+          <h3 class="project-title">TalkBuzz — Real-time Chat</h3>
+          <p class="project-desc">Real-time chat platform with Firebase Realtime Database. Features Google authentication, read receipts, typing indicators, offline support, and admin broadcast panel.</p>
+          <div class="project-attn-score">
+            <span class="attn-score-label">Complexity</span>
+            <div class="attn-score-bar"><div class="attn-score-fill" style="width:80%"></div></div>
+            <span class="attn-score-val">4/5</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">PWA</span>
+            <span class="project-tag">Real-time DB</span>
+          </div>
+          <div class="project-links">
+            <a href="https://talkbuzz-6f0e9.web.app/" class="project-link" target="_blank">Live Demo →</a>
+            <a href="https://github.com/shubham001312/GRBS/tree/main/TalkBuzz" class="project-link" target="_blank">Source Code →</a>
+          </div>
+        </div>
+
+        <!-- CUET AI -->
+        <div class="project-card">
+          <div class="project-emoji">🧠</div>
+          <h3 class="project-title">CUET AI Assistant</h3>
+          <p class="project-desc">An AI-powered assistant built with Python and deployed on HuggingFace Spaces. Features intelligent conversational capabilities, document processing, and smart query handling.</p>
+          <div class="project-attn-score">
+            <span class="attn-score-label">Complexity</span>
+            <div class="attn-score-bar"><div class="attn-score-fill" style="width:80%"></div></div>
+            <span class="attn-score-val">4/5</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">HuggingFace</span>
+            <span class="project-tag">LLM</span>
+            <span class="project-tag">Gradio</span>
+          </div>
+          <div class="project-links">
+            <a href="https://huggingface.co/spaces/shubham001312/cuet-ai" class="project-link" target="_blank">Live Demo →</a>
+            <a href="https://github.com/shubham001312/cuet-ai" class="project-link" target="_blank">Source Code →</a>
+          </div>
+        </div>
+
+        <!-- NewsBuzz -->
+        <div class="project-card">
+          <div class="project-emoji">📰</div>
+          <h3 class="project-title">NewsBuzz</h3>
+          <p class="project-desc">A modern news aggregator that fetches and displays real-time news from multiple sources with category filtering, search functionality, and a clean responsive interface.</p>
+          <div class="project-attn-score">
+            <span class="attn-score-label">Complexity</span>
+            <div class="attn-score-bar"><div class="attn-score-fill" style="width:60%"></div></div>
+            <span class="attn-score-val">3/5</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">REST API</span>
+            <span class="project-tag">HTML/CSS</span>
+            <span class="project-tag">Responsive</span>
+          </div>
+          <div class="project-links">
+            <a href="https://shubham001312.github.io/newsbuzz/" class="project-link" target="_blank">Live Demo →</a>
+            <a href="https://github.com/shubham001312/newsbuzz" class="project-link" target="_blank">Source Code →</a>
+          </div>
+        </div>
+
+        <!-- Guzu -->
+        <div class="project-card">
+          <div class="project-emoji">📱</div>
+          <h3 class="project-title">Guzu — Android Browser</h3>
+          <p class="project-desc">A lightweight, privacy-focused Android browser built with Flutter/Dart. Features multiple search engine support, clean UI, and secure private browsing.</p>
+          <div class="project-attn-score">
+            <span class="attn-score-label">Complexity</span>
+            <div class="attn-score-bar"><div class="attn-score-fill" style="width:80%"></div></div>
+            <span class="attn-score-val">4/5</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Android</span>
+            <span class="project-tag">WebView</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/shubham001312/guzu--ANDROID_SOURCE_CODE" class="project-link" target="_blank">Source Code →</a>
+          </div>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="project-card">
+          <div class="project-emoji">🌐</div>
+          <h3 class="project-title">Portfolio Website v2.0</h3>
+          <p class="project-desc">This portfolio — a transformer-architecture themed single-page application with Canvas visualizations, live GitHub stats integration, and a full admin panel with SHA-256 auth.</p>
+          <div class="project-attn-score">
+            <span class="attn-score-label">Complexity</span>
+            <div class="attn-score-bar"><div class="attn-score-fill" style="width:60%"></div></div>
+            <span class="attn-score-val">3/5</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">HTML/CSS</span>
+            <span class="project-tag">Canvas API</span>
+            <span class="project-tag">PWA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://shubham001312.github.io/Shubham-Mallick/" class="project-link" target="_blank">Live Demo →</a>
+            <a href="https://github.com/shubham001312/Shubham-Mallick" class="project-link" target="_blank">Source Code →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CERTIFICATIONS — VALIDATION LAYER
+         ============================================================ -->
+    <section id="certs" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Validation Layer · Verified Weights
+        </div>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+
+      <div class="certs-grid">
+        <div class="cert-card">
+          <img src="assets/cert-google-ai-essentials.png" alt="Google AI Essentials Certificate" loading="lazy">
+          <div class="cert-info">
+            <div class="cert-name">Google AI Essentials</div>
+            <div class="cert-issuer">Google · Coursera</div>
+            <div class="cert-date">Issued May 2026 · 7E70JFWK9SYF</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <img src="assets/cert-google-ai-professional.png" alt="Google AI Professional Certificate" loading="lazy">
+          <div class="cert-info">
+            <div class="cert-name">Google AI Professional</div>
+            <div class="cert-issuer">Google · Coursera</div>
+            <div class="cert-date">Issued May 2026 · 7L7FT1QN9CEI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GITHUB ECOSYSTEM — LOSS LANDSCAPE + EMBEDDING SPACE
+         ============================================================ -->
+    <section id="stats" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Loss Landscape · Embedding Space
+        </div>
+        <h2 class="section-title">GitHub Ecosystem</h2>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📦</div>
+          <div class="stat-value" id="stat-repos">—</div>
+          <div class="stat-label">Public Repos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value" id="stat-followers">—</div>
+          <div class="stat-label">Followers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value" id="stat-stars">—</div>
+          <div class="stat-label">Total Stars</div>
+        </div>
+      </div>
+
+      <!-- Embedding Space Canvas -->
+      <div class="embed-wrapper">
+        <canvas id="embed-canvas"></canvas>
+      </div>
+      <div class="embed-label">t-SNE Projection of Repository Embeddings · size ∝ stars · color ∝ language</div>
+
+      <!-- Language Stats -->
+      <div id="github-langs-card"></div>
+
+      <!-- GitHub Stats Images (fallback) -->
+      <div class="github-embed" style="margin-top:1rem">
+        <img src="https://github-readme-stats.vercel.app/api?username=shubham001312&show_icons=true&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&icon_color=4f46e5&text_color=0f172a" alt="GitHub Stats" loading="lazy">
+      </div>
+      <div class="github-embed" style="margin-top:12px">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shubham001312&layout=compact&theme=default&hide_border=true&bg_color=f8fafc&title_color=4f46e5&text_color=0f172a" alt="Top Languages" loading="lazy">
+      </div>
+      <div class="github-embed" style="margin-top:12px">
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=shubham001312&theme=default&hide_border=true&background=f8fafc&stroke=4f46e5&ring=4f46e5&fire=4f46e5&currStreakLabel=4f46e5" alt="GitHub Streak" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ROADMAP CTA — BREAKTHROUGH LAYER
+         ============================================================ -->
+    <section id="roadmap" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Breakthrough Layer · Attention Is All You Need
+        </div>
+        <h2 class="section-title">AI/ML Learning Roadmap</h2>
+      </div>
+
+      <div class="roadmap-cta">
+        <h3>🗺️ GRBS — Your AI Learning Companion</h3>
+        <p>I built an interactive roadmap that tracks your entire AI/ML learning journey — from CS fundamentals to advanced research. 20 phases, 600+ curated resources in English &amp; Hindi, DSA track, 55+ company directory, and more.</p>
+        <div class="roadmap-stats">
+          <div class="roadmap-stat">
+            <span class="stat-num">20</span>
+            <span class="stat-label">PHASES</span>
+          </div>
+          <div class="roadmap-stat">
+            <span class="stat-num">600+</span>
+            <span class="stat-label">RESOURCES</span>
+          </div>
+          <div class="roadmap-stat">
+            <span class="stat-num">100+</span>
+            <span class="stat-label">PROJECTS</span>
+          </div>
+        </div>
+        <a href="https://shubham001312.github.io/GRBS/" class="hero-cta" target="_blank">
+          Explore the Roadmap
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BLOG — FUTURE LAYER
+         ============================================================ -->
+    <section id="blog" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Future Layer · Pre-training in Progress
+        </div>
+        <h2 class="section-title">Blog</h2>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-header">
+          <span class="writing-animation">
+            Writing in progress
+            <span class="write-cursor"></span>
+          </span>
+        </div>
+        <h3>Articles &amp; Tutorials</h3>
+        <p>I'm documenting my AI/ML journey. Subscribe to be notified when I publish my first article.</p>
+
+        <!-- Preview Cards -->
+        <div class="blog-preview">
+          <div class="blog-preview-card">
+            <span class="badge">Coming Soon</span>
+            <h4>Building GPT from Scratch</h4>
+            <p>A step-by-step guide to implementing nanoGPT</p>
+            <div class="meta">12 min read · June 2026</div>
+          </div>
+          <div class="blog-preview-card">
+            <span class="badge">Coming Soon</span>
+            <h4>Fine-Tuning LLMs on RTX 3050</h4>
+            <p>QLoRA, quantization, and practical tips for limited hardware</p>
+            <div class="meta">15 min read · July 2026</div>
+          </div>
+          <div class="blog-preview-card">
+            <span class="badge">Coming Soon</span>
+            <h4>RAG Systems from Scratch</h4>
+            <p>Building production-grade retrieval-augmented generation</p>
+            <div class="meta">10 min read · July 2026</div>
+          </div>
+        </div>
+
+        <a href="#" class="notify-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+          Notify Me When Published
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT — OUTPUT PROJECTION LAYER
+         ============================================================ -->
+    <section id="contact" class="section reveal">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="head-icon"></span> Output Projection · Final Softmax
+        </div>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+
+      <p style="color:var(--text-muted);margin-bottom:2rem;font-size:15px;max-width:500px">
+        Have a project idea, collaboration opportunity, or just want to connect? I'm always happy to hear from fellow developers, recruiters, and anyone passionate about technology.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:gmail.shubham@gmail.com" class="contact-line">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/>
+            </svg>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">gmail.shubham@gmail.com</span>
+          </div>
+          <div class="contact-prob">
+            <div class="prob-bar"><div class="prob-fill" style="width:95%"></div></div>
+            95%
+          </div>
+        </a>
+
+        <a href="https://linkedin.com/in/shubham-mallick-061298378" class="contact-line" target="_blank">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">shubham-mallick →</span>
+          </div>
+          <div class="contact-prob">
+            <div class="prob-bar"><div class="prob-fill" style="width:85%"></div></div>
+            85%
+          </div>
+        </a>
+
+        <a href="https://github.com/shubham001312" class="contact-line" target="_blank">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">@shubham001312 →</span>
+          </div>
+          <div class="contact-prob">
+            <div class="prob-bar"><div class="prob-fill" style="width:90%"></div></div>
+            90%
+          </div>
+        </a>
+
+        <a href="https://x.com/shubham_1440" class="contact-line" target="_blank">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>
+            </svg>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">Twitter / X</span>
+            <span class="contact-value">@shubham_1440 →</span>
+          </div>
+          <div class="contact-prob">
+            <div class="prob-bar"><div class="prob-fill" style="width:70%"></div></div>
+            70%
+          </div>
+        </a>
+      </div>
+
+      <div class="contact-actions">
+        <a href="https://docs.google.com/document/d/1o4yrS42JSG1K2JCM2yP2VD53oZ-ZPBchrgx5t6vsxV8/edit?usp=sharing" target="_blank" class="hero-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Download Resume
+        </a>
+        <a href="mailto:gmail.shubham@gmail.com" class="hero-cta secondary">
+          Send Email
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — LAYER NORMALIZATION
+       ============================================================ -->
+  <footer>
+    <div>
+      <span>© 2026 Shubham Mallick</span>
+      <span class="footer-quote">· "Build. Learn. Ship. Repeat."</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://github.com/shubham001312" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/shubham-mallick-061298378" target="_blank">LinkedIn</a>
+      <a href="https://x.com/shubham_1440" target="_blank">X</a>
+      <button class="login-btn" onclick="openAdminPanel()">⚙ Admin</button>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       ADMIN MODALS
+       ============================================================ -->
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="admin-modal">
+    <div class="modal">
+      <h3>🔐 Admin Access</h3>
+      <p class="modal-desc">Enter your credentials to access the admin panel.</p>
+      <div class="form-group">
+        <label for="admin-email">Email / ID</label>
+        <input type="email" id="admin-email" placeholder="Enter your email" onkeydown="if(event.key==='Enter')document.getElementById('admin-password').focus()">
+      </div>
+      <div class="form-group">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')handleAdminLogin()">
+        <div class="modal-error" id="login-error">Incorrect email or password. Try again.</div>
+      </div>
+      <button class="modal-btn" onclick="handleAdminLogin()">Login</button>
+      <button class="modal-btn cancel" onclick="closeAdminPanel()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-overlay" id="edit-modal">
+    <div class="modal" style="max-width:700px">
+      <h3>⚙️ Admin Dashboard</h3>
+      <p class="modal-desc">Edit any section of your portfolio. Changes save to localStorage and apply on refresh.</p>
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-section="hero">Hero</button>
+        <button class="admin-tab" data-section="about">About</button>
+        <button class="admin-tab" data-section="education">Education</button>
+        <button class="admin-tab" data-section="skills">Skills</button>
+        <button class="admin-tab" data-section="projects">Projects</button>
+        <button class="admin-tab" data-section="certs">Certificates</button>
+        <button class="admin-tab" data-section="contact">Contact</button>
+        <button class="admin-tab" data-section="meta">Meta</button>
+        <button class="admin-tab" data-section="credentials">🔑 Password</button>
+      </div>
+      <div class="form-group">
+        <label for="edit-content">Content (JSON)</label>
+        <textarea id="edit-content" placeholder="Edit content here..."></textarea>
+      </div>
+      <div class="modal-error" id="edit-error">Invalid JSON format.</div>
+      <button class="modal-btn" onclick="saveSectionData()">💾 Save Changes</button>
+      <button class="modal-btn cancel" onclick="closeEditPanel()">Cancel</button>
+      <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0">
+      <button class="modal-btn cancel" onclick="clearGithubCache()">🔄 Refresh GitHub Stats</button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Update Banner -->
+  <div id="update-banner" class="update-banner hidden">⚡ New version available — updating...</div>
+
+  <!-- Scripts -->
+  <script src="js/main.js?v=2.0.0"></script>
+
+  <script>
+    // Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./sw.js').then(function(reg) {
+          setInterval(function() {
+            reg.update().catch(function(){});
+          }, 60000);
+        }).catch(function(err) {
+          console.warn('SW registration skipped:', err.message);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
