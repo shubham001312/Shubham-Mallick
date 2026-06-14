@@ -868,7 +868,10 @@
       <button class="modal-btn" onclick="saveSectionData()">💾 Save Changes</button>
       <button class="modal-btn cancel" onclick="closeEditPanel()">Cancel</button>
       <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0">
-      <button class="modal-btn cancel" onclick="clearGithubCache()">🔄 Refresh GitHub Stats</button>
+      <div style="display:flex;gap:8px">
+        <button class="modal-btn cancel" onclick="clearGithubCache()" style="flex:1">🔄 Refresh GitHub Stats</button>
+        <button class="modal-btn cancel" onclick="handleAdminLogout()" style="flex:1;border-color:#ef4444;color:#ef4444">🚪 Logout</button>
+      </div>
     </div>
   </div>
 

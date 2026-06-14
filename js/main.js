@@ -693,6 +693,11 @@ function closeEditPanel() {
   if (m) m.classList.remove('active');
 }
 
+function handleAdminLogout() {
+  closeEditPanel();
+  showToast('🔒 Logged out of admin panel.', 'info');
+}
+
 document.querySelectorAll('.admin-tab').forEach(tab => {
   tab.addEventListener('click', function() {
     document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
