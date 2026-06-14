@@ -657,7 +657,7 @@ function openAdminPanel() {
   if (!modal) return;
   modal.classList.add('active');
   const emailInput = document.getElementById('admin-email');
-  if (emailInput) emailInput.value = localStorage.getItem(ADMIN_EMAIL_KEY) || '';
+  if (emailInput) emailInput.value = '';
   const pwInput = document.getElementById('admin-password');
   if (pwInput) pwInput.value = '';
   const err = document.getElementById('login-error');
@@ -715,7 +715,7 @@ const sectionDefaults = {
   certs: () => JSON.stringify([{ name: 'Google AI Essentials', issuer: 'Google · Coursera', date: 'Issued May 2026', credential: '7E70JFWK9SYF', image: 'assets/cert-google-ai-essentials.png' }, { name: 'Google AI Professional', issuer: 'Google · Coursera', date: 'Issued May 2026', credential: '7L7FT1QN9CEI', image: 'assets/cert-google-ai-professional.png' }], null, 2),
   contact: () => JSON.stringify({ email: 'gmail.shubham@gmail.com', linkedin: 'https://linkedin.com/in/shubham-mallick-061298378', github: 'https://github.com/shubham001312', twitter: 'https://x.com/shubham_1440' }, null, 2),
   meta: () => JSON.stringify({ title: 'Shubham Mallick | AI Engineer & Developer', description: 'Portfolio of Shubham Mallick — AI Engineer specializing in LLMs, Computer Vision, and Full Stack Development.' }, null, 2),
-  credentials: () => JSON.stringify({ email: localStorage.getItem(ADMIN_EMAIL_KEY) || '', newPassword: '' }, null, 2)
+  credentials: () => JSON.stringify({ email: '', newPassword: '' }, null, 2)
 };
 
 function loadSectionData() {
@@ -803,7 +803,7 @@ document.querySelectorAll('.resume-btn').forEach(btn => {
 document.querySelectorAll('.notify-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
-    window.location.href = 'mailto:gmail.shubham@gmail.com?subject=Blog%20Notification%20Request';
+    window.open('mailto:gmail.shubham@gmail.com?subject=Blog%20Notification%20Request', '_blank');
   });
 });
 
