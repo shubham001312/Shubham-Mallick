@@ -183,6 +183,9 @@ function initEmbedCanvas(repos) {
   const container = canvas.parentElement;
   let w, h, particles = [];
   let animId;
+  let mouseX = -9999, mouseY = -9999;
+  let hoveredParticle = null;
+  let legendLanguages = [];
 
   const langColors = {
     'Python': '#3572A5', 'JavaScript': '#f1e05a', 'TypeScript': '#3178c6',
@@ -190,6 +193,20 @@ function initEmbedCanvas(repos) {
     'Dart': '#00B4AB', 'Java': '#b07219', 'Shell': '#89e051',
     'Jupyter Notebook': '#DA5B0B', 'default': '#6e7681'
   };
+
+  // Mouse tracking for hover tooltips
+  function onMouseMove(e) {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  }
+  function onMouseLeave() {
+    mouseX = -9999;
+    mouseY = -9999;
+    hoveredParticle = null;
+  }
+  canvas.addEventListener('mousemove', onMouseMove);
+  canvas.addEventListener('mouseleave', onMouseLeave);
 
   function resize() {
     const rect = container.getBoundingClientRect();
@@ -207,22 +224,122 @@ function initEmbedCanvas(repos) {
     particles = [];
     const data = repos && repos.length ? repos : [];
     const count = Math.max(data.length, 20);
+    const langSet = new Set();
     for (let i = 0; i < count; i++) {
       const lang = data[i] ? (data[i].language || 'default') : 'default';
       const stars = data[i] ? (data[i].stargazers_count || 0) : Math.floor(Math.random() * 10);
+      if (lang) langSet.add(lang);
       particles.push({
         x: Math.random() * w, y: Math.random() * h,
         vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
         size: 4 + Math.min(stars, 20) * 1.5,
         color: langColors[lang] || langColors['default'],
         alpha: 0.3 + Math.random() * 0.4,
-        name: data[i] ? (data[i].name || '') : ''
+        name: data[i] ? (data[i].name || '') : '',
+        language: lang,
+        stars: stars
       });
     }
+    legendLanguages = Array.from(langSet).sort();
+  }
+
+  function drawLegend() {
+    if (legendLanguages.length === 0) return;
+    
+    const langList = legendLanguages;
+    const itemH = 16;
+    ctx.font = '8px Fira Code, monospace';
+    const titleW = ctx.measureText('Languages').width;
+    const maxLangW = Math.max(...langList.map(l => ctx.measureText(l).width));
+    const boxW = Math.max(titleW, maxLangW) + 36;
+    const boxH = langList.length * itemH + 14;
+    
+    // Position in top-right corner
+    const legendX = w - boxW - 12;
+    const legendY = 26;
+    
+    // Background
+    ctx.fillStyle = 'rgba(10, 10, 18, 0.75)';
+    ctx.beginPath();
+    if (ctx.roundRect) {
+      ctx.roundRect(legendX, legendY, boxW, boxH, 6);
+    } else {
+      ctx.rect(legendX, legendY, boxW, boxH);
+    }
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.15)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    
+    // Title
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.7)';
+    ctx.textAlign = 'left';
+    ctx.fillText('Languages', legendX + 8, legendY + 11);
+    
+    // Items
+    langList.forEach((lang, i) => {
+      const y = legendY + 22 + i * itemH;
+      const color = langColors[lang] || langColors['default'];
+      // Circle
+      ctx.fillStyle = color;
+      ctx.globalAlpha = 0.9;
+      ctx.beginPath();
+      ctx.arc(legendX + 12, y - 3, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      // Label
+      ctx.fillStyle = 'rgba(226, 232, 240, 0.8)';
+      ctx.fillText(lang, legendX + 22, y + 1);
+    });
+  }
+
+  function drawTooltip() {
+    if (!hoveredParticle) return;
+    const p = hoveredParticle;
+    
+    const lines = [
+      p.name || 'unknown',
+      'Language: ' + (p.language || 'unknown'),
+      'Stars: ' + (p.stars || 0)
+    ];
+    const maxW = Math.max(100, ...lines.map(l => ctx.measureText(l).width));
+    const lineH = 14;
+    const padX = 10, padY = 8;
+    const boxW = maxW + padX * 2;
+    const boxH = lines.length * lineH + padY * 2;
+    
+    let tx = p.x + 12;
+    let ty = p.y - 10;
+    // Clamp to stay within canvas
+    if (tx + boxW > w - 10) tx = p.x - boxW - 12;
+    if (ty + boxH > h - 10) ty = h - boxH - 10;
+    if (ty < 10) ty = 10;
+    
+    // Background
+    ctx.fillStyle = 'rgba(10, 10, 18, 0.85)';
+    ctx.beginPath();
+    if (ctx.roundRect) {
+      ctx.roundRect(tx, ty, boxW, boxH, 6);
+    } else {
+      ctx.rect(tx, ty, boxW, boxH);
+    }
+    ctx.fill();
+    ctx.strokeStyle = p.color + '66';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    
+    // Lines
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '10px Fira Code, monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText(lines[0], tx + padX, ty + padY + 10);
+    ctx.fillStyle = p.color;
+    ctx.fillText(lines[1], tx + padX, ty + padY + 10 + lineH);
   }
 
   function draw(t) {
     ctx.clearRect(0, 0, w, h);
+    
     // Connections
     ctx.lineWidth = 0.5;
     for (let i = 0; i < particles.length; i++) {
@@ -239,29 +356,74 @@ function initEmbedCanvas(repos) {
         }
       }
     }
+    
+    // Find hovered particle
+    hoveredParticle = null;
+    if (mouseX > 0 && mouseY > 0) {
+      let minDist = 20;
+      particles.forEach(p => {
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < minDist) {
+          minDist = dist;
+          hoveredParticle = p;
+        }
+      });
+    }
+    
     // Particles
     particles.forEach(p => {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0 || p.x > w) p.vx *= -1;
       if (p.y < 0 || p.y > h) p.vy *= -1;
-      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2);
-      grad.addColorStop(0, p.color + '33');
+      
+      // Highlight hovered particle
+      const isHovered = p === hoveredParticle;
+      const glowMult = isHovered ? 4 : 2;
+      const alphaMult = isHovered ? 1 : 1;
+      
+      // Glow
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * glowMult);
+      grad.addColorStop(0, p.color + (isHovered ? '55' : '33'));
       grad.addColorStop(1, p.color + '00');
       ctx.fillStyle = grad;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.size * glowMult, 0, Math.PI * 2);
       ctx.fill();
+      
+      // Core
       ctx.fillStyle = p.color;
-      ctx.globalAlpha = p.alpha;
+      ctx.globalAlpha = isHovered ? 1 : p.alpha;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, isHovered ? p.size * 1.3 : p.size, 0, Math.PI * 2);
       ctx.fill();
       ctx.globalAlpha = 1;
+      
+      // Hovered ring
+      if (isHovered) {
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 1.6, 0, Math.PI * 2);
+        ctx.stroke();
+      }
     });
+    
+    // Static labels
     ctx.fillStyle = 'rgba(148, 163, 184, 0.3)';
     ctx.font = '9px Fira Code, monospace';
+    ctx.textAlign = 'left';
     ctx.fillText('t-SNE projection of repositories', 8, 16);
-    ctx.fillText('size ∝ stars · color ∝ language', 8, h - 8);
+    ctx.textAlign = 'right';
+    ctx.fillText('size ∝ stars · color ∝ language', w - 8, h - 8);
+    
+    // Draw legend (with top label offset)
+    drawLegend();
+    
+    // Draw tooltip on top of everything
+    drawTooltip();
+    
     animId = requestAnimationFrame(draw);
   }
 
@@ -270,7 +432,13 @@ function initEmbedCanvas(repos) {
   draw(0);
   window.addEventListener('resize', resize);
   
-  embedAnimation = { destroy: () => { if (animId) cancelAnimationFrame(animId); } };
+  embedAnimation = { 
+    destroy: () => { 
+      if (animId) cancelAnimationFrame(animId);
+      canvas.removeEventListener('mousemove', onMouseMove);
+      canvas.removeEventListener('mouseleave', onMouseLeave);
+    }
+  };
   return embedAnimation;
 }
 
