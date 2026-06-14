@@ -967,10 +967,14 @@ setTimeout(function() {
   showToast('⚡ System Ready — Transformer v2.0', 'info');
 }, 1500);
 
-// Fix cert image loading - show placeholder on error, keeping cert-info preserved
+// Fix cert image loading - show placeholder on error, preserving parent structure
 document.querySelectorAll('.cert-card img').forEach(img => {
   img.addEventListener('error', function() {
-    this.outerHTML = '<div style="padding:2rem;text-align:center;background:var(--bg-card);border-bottom:1px solid var(--border)"><div style="font-size:2.5rem">🏆</div></div>';
+    var placeholder = document.createElement('div');
+    placeholder.style.cssText = 'padding:2rem;text-align:center;background:var(--surface-hover);border-bottom:1px solid var(--border)';
+    placeholder.innerHTML = '<div style="font-size:2.5rem">🏆</div>';
+    this.parentNode.insertBefore(placeholder, this);
+    this.remove();
   });
 });
 
