@@ -635,10 +635,16 @@ async function sha256(message) {
 }
 
 async function setupAdminHash() {
+  const ADMIN_VERSION_KEY = 'portfolio_admin_version_v3';
+  const CURRENT_VERSION = '3';
+
   if (!localStorage.getItem(ADMIN_EMAIL_KEY)) localStorage.setItem(ADMIN_EMAIL_KEY, 'shubham.mallick1440@gmail.com');
-  if (!localStorage.getItem(ADMIN_HASH_KEY)) {
-    const h = await sha256('admin@1440');
+
+  // Migrate: if version changed or no hash exists, reset to new default password
+  if (!localStorage.getItem(ADMIN_HASH_KEY) || localStorage.getItem(ADMIN_VERSION_KEY) !== CURRENT_VERSION) {
+    const h = await sha256('Shubham@admin');
     localStorage.setItem(ADMIN_HASH_KEY, h);
+    localStorage.setItem(ADMIN_VERSION_KEY, CURRENT_VERSION);
   }
 }
 setupAdminHash();
