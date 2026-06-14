@@ -169,6 +169,7 @@ footer{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-con
   .hero-cta-group{flex-direction:column;align-items:stretch}
   footer{flex-direction:column;gap:1.5rem;text-align:center}
   .ai-robot{bottom:10px;right:10px;transform:scale(0.85)!important}
+  .robot-speech{max-width:200px;white-space:normal;font-size:11px}
 }
 
 /* === 3D ILLUSION EFFECTS === */
