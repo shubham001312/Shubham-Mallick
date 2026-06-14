@@ -9,8 +9,25 @@ typeEffect();
 function updateAge(){const birthDate=new Date(2006,0,1);const now=new Date();let age=now.getFullYear()-birthDate.getFullYear();const m=now.getMonth()-birthDate.getMonth();if(m<0||(m===0&&now.getDate()<birthDate.getDate()))age--;const el=document.getElementById('age-display');if(el)el.textContent=age+'-year-old '}
 updateAge();setInterval(updateAge,60000);
 
-// ===== SCROLL PROGRESS =====
-window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('scroll-progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+// ===== SCROLL PROGRESS + PARALLAX + ROBOT TRACKING (merged) =====
+var parallaxSections=document.querySelectorAll('section');
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  document.getElementById('scroll-progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';
+  
+  // Parallax depth effect
+  parallaxSections.forEach(function(section){
+    var rect=section.getBoundingClientRect();
+    if(rect.top<window.innerHeight&&rect.bottom>0){
+      var progress=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);
+      var offset=(progress-0.5)*20;
+      section.style.transform='translateZ('+offset+'px)';
+    }
+  });
+  
+  // Robot scroll tracking
+  handleRobotScroll();
+});
 
 // ===== FADE-IN =====
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1});
@@ -180,3 +197,120 @@ function clearGithubCache(){
 
 // Close modals on overlay click
 document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('active')})});
+
+// ===== 3D TILT EFFECT ON CARDS =====
+function init3DTilt(){
+  var cards=document.querySelectorAll('.project-card,.skill-category,.cert-card,.stat-card,.contact-line');
+  cards.forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var rect=card.getBoundingClientRect();
+      var x=e.clientX-rect.left;
+      var y=e.clientY-rect.top;
+      var centerX=rect.width/2;
+      var centerY=rect.height/2;
+      var rotateX=((y-centerY)/centerY)*-8;
+      var rotateY=((x-centerX)/centerX)*8;
+      card.style.transform='perspective(800px) rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) translateZ(10px)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    });
+  });
+}
+init3DTilt();
+
+// ===== AI ROBOT GUIDE =====
+var robot=document.getElementById('ai-robot');
+var robotSpeech=document.getElementById('robot-speech');
+var sections=['hero','about','education','skills','projects','certs','roadmap','stats','blog','contact'];
+var sectionNames=['Hero','About','Education','Skills','Projects','Certificates','Roadmap','Stats','Blog','Contact'];
+var robotMessages=[
+  "Welcome! I'm Shubham's AI guide 🤖",
+  "Here you can learn about Shubham's background!",
+  "Check out the education timeline 📚",
+  "These are Shubham's core skills! 💡",
+  "Some amazing projects built by Shubham! 🚀",
+  "Google certifications earned! 🏆",
+  "Explore the GRBS AI roadmap! 🗺️",
+  "GitHub activity and contributions 📊",
+  "Blog coming soon! ✍️",
+  "Want to connect? Reach out! 📬"
+];
+var currentSectionIdx=-1;
+var robotSpeaking=false;
+
+function showRobotMessage(msg,duration){
+  if(!robotSpeech)return;
+  robotSpeech.textContent=msg;
+  robot.classList.add('speaking');
+  robotSpeaking=true;
+  setTimeout(function(){
+    robot.classList.remove('speaking');
+    robotSpeaking=false;
+  },duration||3000);
+}
+
+// Robot walks to current section on scroll
+var lastScrollY=0;
+var scrollTimeout;
+var NAV_HEIGHT=64;
+function handleRobotScroll(){
+  if(!robot)return;
+  var scrollY=window.pageYOffset||document.documentElement.scrollTop;
+  lastScrollY=scrollY;
+  
+  // Add walking animation (debounced)
+  if(!robot.classList.contains('walking')){
+    robot.classList.add('walking');
+  }
+  clearTimeout(scrollTimeout);
+  scrollTimeout=setTimeout(function(){
+    robot.classList.remove('walking');
+  },500);
+  
+  // Determine which section we're in
+  var foundIdx=-1;
+  for(var i=0;i<sections.length;i++){
+    var el=document.getElementById(sections[i]);
+    if(el){
+      var rect=el.getBoundingClientRect();
+      if(rect.top<=NAV_HEIGHT&&rect.bottom>NAV_HEIGHT){
+        foundIdx=i;
+        break;
+      }
+    }
+  }
+  
+  // Show message when entering new section
+  if(foundIdx!==-1&&foundIdx!==currentSectionIdx&&!robotSpeaking){
+    currentSectionIdx=foundIdx;
+    showRobotMessage('📍 Now viewing: '+sectionNames[foundIdx]+' — '+robotMessages[foundIdx],2500);
+    
+    // Move robot position based on section
+    var sidePosition=(foundIdx%2===0)?'right':'left';
+    robot.style.right=(sidePosition==='right')?'20px':'auto';
+    robot.style.left=(sidePosition==='left')?'20px':'auto';
+    robot.style.bottom='20px';
+  }
+}
+
+// Robot click to show random fun fact
+var funFacts=[
+  "Did you know? Shubham built 23+ repositories! 🎉",
+  "Fun fact: This portfolio has a dark mode! 🌙",
+  "Shubham is fluent in Python, C, C++, and JavaScript! 💻",
+  "GRBS has 600+ curated AI/ML resources! 📚",
+  "Shubham studies at BBIT, MAKAUT! 🎓",
+  "This site is fully responsive! 📱",
+  "Shubham has Google AI certifications! 🏆"
+];
+if(robot){
+  robot.addEventListener('click',function(){
+    var randomFact=funFacts[Math.floor(Math.random()*funFacts.length)];
+    showRobotMessage(randomFact,4000);
+  });
+  // Initial greeting after 2 seconds
+  setTimeout(function(){
+    showRobotMessage("Hi! I'm Shubham's AI guide 🤖 Click me for fun facts!",4000);
+  },2000);
+}
