@@ -677,19 +677,19 @@
 
         <!-- Preview Cards -->
         <div class="blog-preview">
-          <div class="blog-preview-card">
+          <div class="blog-preview-card" onclick="openBlogModal(0)">
             <span class="badge">Coming Soon</span>
             <h4>Building GPT from Scratch</h4>
             <p>A step-by-step guide to implementing nanoGPT</p>
             <div class="meta">12 min read · June 2026</div>
           </div>
-          <div class="blog-preview-card">
+          <div class="blog-preview-card" onclick="openBlogModal(1)">
             <span class="badge">Coming Soon</span>
             <h4>Fine-Tuning LLMs on RTX 3050</h4>
             <p>QLoRA, quantization, and practical tips for limited hardware</p>
             <div class="meta">15 min read · July 2026</div>
           </div>
-          <div class="blog-preview-card">
+          <div class="blog-preview-card" onclick="openBlogModal(2)">
             <span class="badge">Coming Soon</span>
             <h4>RAG Systems from Scratch</h4>
             <p>Building production-grade retrieval-augmented generation</p>
@@ -870,6 +870,76 @@
       <button class="modal-btn cancel" onclick="closeEditPanel()">Cancel</button>
       <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0">
       <button class="modal-btn cancel" onclick="clearGithubCache()">🔄 Refresh GitHub Stats</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BLOG MODAL — Coming Soon Detail + Subscribe
+       ============================================================ -->
+  <div class="modal-overlay" id="blog-modal">
+    <div class="modal blog-modal">
+      <button class="blog-modal-close" onclick="closeBlogModal()" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="blog-modal-content">
+        <!-- Article header -->
+        <div class="blog-modal-badge">
+          <span class="blog-modal-badge-text">Pre-training in Progress</span>
+          <span class="blog-modal-eta">Coming Soon</span>
+        </div>
+        <h3 class="blog-modal-title" id="blog-modal-title">Article Title</h3>
+        <div class="blog-modal-meta">
+          <span class="blog-modal-reading-time" id="blog-modal-reading-time">—</span>
+          <span class="blog-modal-date" id="blog-modal-date">—</span>
+        </div>
+
+        <!-- Illustration area -->
+        <div class="blog-modal-illustration">
+          <div class="blog-modal-anim">
+            <canvas id="blog-modal-canvas"></canvas>
+            <div class="blog-modal-anim-label">~ token prediction in progress ~</div>
+          </div>
+        </div>
+
+        <!-- Coming soon message -->
+        <div class="blog-modal-coming-soon">
+          <div class="blog-modal-coming-soon-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h4>This article is being written</h4>
+          <p id="blog-modal-desc">I'm working on this piece and will publish it soon. Leave your email below and I'll notify you the moment it goes live.</p>
+        </div>
+
+        <!-- Subscribe form -->
+        <div class="blog-modal-subscribe">
+          <div class="blog-modal-subscribe-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+            <span>Get notified when published</span>
+          </div>
+          <form class="blog-modal-form" id="blog-subscribe-form">
+            <div class="blog-modal-form-row">
+              <input type="text" id="subscribe-name" placeholder="Your Name" required class="blog-modal-input">
+              <input type="email" id="subscribe-email" placeholder="you@email.com" required class="blog-modal-input">
+            </div>
+            <button type="submit" class="blog-modal-submit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+              </svg>
+              Subscribe & Get Notified
+            </button>
+          </form>
+          <p class="blog-modal-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+      </div>
     </div>
   </div>
 

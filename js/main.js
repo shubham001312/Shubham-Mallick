@@ -625,13 +625,178 @@ document.querySelectorAll('.notify-btn').forEach(btn => {
 });
 
 // ============================================================
-// 14. SYSTEM READY INITIALIZATION
+// 14. BLOG MODAL — Coming Soon Detail + Subscribe
 // ============================================================
+const blogArticles = [
+  {
+    title: 'Building GPT from Scratch',
+    readingTime: '12 min read',
+    date: 'June 2026',
+    desc: "I'm working on this piece and will publish it soon. Leave your email below and I'll notify you the moment it goes live.",
+    emoji: '🧠'
+  },
+  {
+    title: 'Fine-Tuning LLMs on RTX 3050',
+    readingTime: '15 min read',
+    date: 'July 2026',
+    desc: "This guide covers QLoRA, quantization, and practical tips for training LLMs on limited consumer hardware. Subscribe to get notified when it's ready.",
+    emoji: '⚡'
+  },
+  {
+    title: 'RAG Systems from Scratch',
+    readingTime: '10 min read',
+    date: 'July 2026',
+    desc: "A deep dive into building production-grade retrieval-augmented generation pipelines. Drop your email below and I'll ping you when the article goes live.",
+    emoji: '🔍'
+  }
+];
+
+let blogCanvasAnim = null;
+
+function openBlogModal(index) {
+  const article = blogArticles[index];
+  if (!article) return;
+  
+  const modal = document.getElementById('blog-modal');
+  if (!modal) return;
+  
+  // Populate content
+  const titleEl = document.getElementById('blog-modal-title');
+  const readingEl = document.getElementById('blog-modal-reading-time');
+  const dateEl = document.getElementById('blog-modal-date');
+  const descEl = document.getElementById('blog-modal-desc');
+  
+  if (titleEl) titleEl.textContent = article.emoji + ' ' + article.title;
+  if (readingEl) readingEl.textContent = article.readingTime;
+  if (dateEl) dateEl.textContent = 'Expected ' + article.date;
+  if (descEl) descEl.textContent = article.desc;
+  
+  // Show modal
+  modal.classList.add('active');
+  
+  // Init canvas animation
+  initBlogModalCanvas();
+  
+  // Clear form
+  const form = document.getElementById('blog-subscribe-form');
+  if (form) form.reset();
+}
+
+function closeBlogModal() {
+  const modal = document.getElementById('blog-modal');
+  if (modal) modal.classList.remove('active');
+  
+  // Destroy canvas animation
+  if (blogCanvasAnim && typeof blogCanvasAnim.destroy === 'function') {
+    blogCanvasAnim.destroy();
+    blogCanvasAnim = null;
+  }
+}
+
+function initBlogModalCanvas() {
+  const canvas = document.getElementById('blog-modal-canvas');
+  if (!canvas) return;
+  
+  // Destroy previous
+  if (blogCanvasAnim && typeof blogCanvasAnim.destroy === 'function') {
+    blogCanvasAnim.destroy();
+  }
+  
+  const ctx = canvas.getContext('2d');
+  let w = canvas.parentElement.clientWidth || 400;
+  let h = 100;
+  let animId;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+  ctx.scale(dpr, dpr);
+  
+  const tokens = [];
+  const tokenStrs = ['<BOS>', 'Build', 'ing', 'GPT', 'from', 'Scratch', '<EOS>', '<PAD>'];
+  for (let i = 0; i < tokenStrs.length; i++) {
+    tokens.push({
+      x: (i + 0.5) * (w / tokenStrs.length),
+      y: h / 2 + (Math.random() - 0.5) * 30,
+      text: tokenStrs[i],
+      phase: Math.random() * Math.PI * 2
+    });
+  }
+  
+  function draw(t) {
+    const time = t / 1000;
+    ctx.clearRect(0, 0, w, h);
+    
+    // Draw attention lines between tokens
+    ctx.lineWidth = 1;
+    for (let i = 0; i < tokens.length; i++) {
+      for (let j = i + 1; j < tokens.length; j++) {
+        const alpha = (Math.sin(time * 0.5 + i * 0.3 + j * 0.7) * 0.3 + 0.3);
+        ctx.strokeStyle = 'rgba(129, 140, 248, ' + alpha.toFixed(2) + ')';
+        ctx.beginPath();
+        ctx.moveTo(tokens[i].x, tokens[i].y);
+        ctx.lineTo(tokens[j].x, tokens[j].y);
+        ctx.stroke();
+      }
+    }
+    
+    // Draw tokens
+    tokens.forEach((token, idx) => {
+      const yOff = Math.sin(time * 1.2 + token.phase) * 8;
+      ctx.fillStyle = '#818cf8';
+      ctx.font = '10px Fira Code, monospace';
+      ctx.textAlign = 'center';
+      ctx.globalAlpha = 0.6 + Math.sin(time * 0.8 + idx * 0.5) * 0.3;
+      ctx.fillText(token.text, token.x, token.y + yOff + 4);
+      ctx.globalAlpha = 1;
+    });
+    
+    animId = requestAnimationFrame(draw);
+  }
+  
+  draw(0);
+  blogCanvasAnim = { destroy: function() { if (animId) cancelAnimationFrame(animId); } };
+}
+
+// Subscribe form handler
 document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(function() {
-    showToast('⚡ System Ready — Transformer v2.0', 'info');
-  }, 1500);
+  const form = document.getElementById('blog-subscribe-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('subscribe-name')?.value.trim();
+      const email = document.getElementById('subscribe-email')?.value.trim();
+      if (!name || !email) return;
+      
+      // Store subscriber in localStorage
+      const subscribers = JSON.parse(localStorage.getItem('blog_subscribers') || '[]');
+      const exists = subscribers.some(s => s.email === email);
+      if (!exists) {
+        subscribers.push({ name: name, email: email, subscribedAt: new Date().toISOString(), articles: [] });
+        try { localStorage.setItem('blog_subscribers', JSON.stringify(subscribers)); } catch(e) {}
+      }
+      
+      showToast('🎉 You\'re subscribed! I\'ll notify you when the article is published.', 'success');
+      closeBlogModal();
+    });
+  }
+  
+  // Close blog modal on overlay click
+  const blogModal = document.getElementById('blog-modal');
+  if (blogModal) {
+    blogModal.addEventListener('click', function(e) {
+      if (e.target === this) closeBlogModal();
+    });
+  }
 });
+
+// ============================================================
+// 15. SYSTEM READY INITIALIZATION
+// ============================================================
+setTimeout(function() {
+  showToast('⚡ System Ready — Transformer v2.0', 'info');
+}, 1500);
 
 // Fix cert image loading - show placeholder on error, keeping cert-info preserved
 document.querySelectorAll('.cert-card img').forEach(img => {
