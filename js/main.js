@@ -312,6 +312,7 @@ function initEmbedCanvas(repos) {
     let ty = p.y - 10;
     // Clamp to stay within canvas
     if (tx + boxW > w - 10) tx = p.x - boxW - 12;
+    if (tx < 6) tx = 6;
     if (ty + boxH > h - 10) ty = h - boxH - 10;
     if (ty < 10) ty = 10;
     
