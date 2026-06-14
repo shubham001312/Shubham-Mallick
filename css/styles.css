@@ -212,7 +212,7 @@ main{max-width:860px;margin:0 auto;padding:0 2rem}
   background-clip:text;
 }
 
-.typing-wrapper{display:inline-block;min-width:280px}
+.typing-wrapper{display:inline-block;white-space:nowrap}
 .typing-cursor{
   display:inline-block;width:3px;height:1em;
   background:var(--accent);margin-left:2px;
