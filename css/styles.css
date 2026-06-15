@@ -122,14 +122,14 @@ nav{
   transition:color 0.2s;
 }
 .nav-logo:hover{color:var(--accent)}
-.nav-logo span{font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em}
+.nav-logo span{font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;font-size:15px}
 
 .logo-mono{
   display:inline-flex;align-items:center;justify-content:center;
-  width:28px;height:28px;
-  background:var(--accent-gradient);border-radius:6px;
-  color:white;font-weight:700;font-size:14px;
-  font-family:'Space Grotesk',sans-serif;
+  width:32px;height:32px;
+  background:var(--accent-gradient);border-radius:8px;
+  color:white;font-weight:700;font-size:12px;
+  font-family:'Fira Code',monospace;letter-spacing:0.02em;
 }
 
 .nav-center{display:flex;align-items:center;gap:2rem;flex:1;justify-content:center}
