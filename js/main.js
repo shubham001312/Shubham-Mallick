@@ -4,6 +4,58 @@
    ============================================================ */
 
 // ============================================================
+// 0. GRADIENT MESH BACKGROUND (Hero Section)
+// ============================================================
+function initGradientMesh() {
+  const canvas = document.getElementById('mesh-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, animId;
+  const dpr = window.devicePixelRatio || 1;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = rect.width;
+    h = rect.height;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  const blobs = [
+    { x: 0.2, y: 0.3, r: 0.35, color: [79, 70, 229], speed: 0.0003, phase: 0 },
+    { x: 0.7, y: 0.5, r: 0.3, color: [139, 92, 246], speed: 0.0004, phase: 2 },
+    { x: 0.5, y: 0.7, r: 0.25, color: [99, 102, 241], speed: 0.00025, phase: 4 },
+    { x: 0.85, y: 0.2, r: 0.2, color: [168, 85, 247], speed: 0.00035, phase: 1 },
+  ];
+
+  function draw(t) {
+    ctx.clearRect(0, 0, w, h);
+    blobs.forEach(b => {
+      const cx = (b.x + Math.sin(t * b.speed + b.phase) * 0.08) * w;
+      const cy = (b.y + Math.cos(t * b.speed * 0.7 + b.phase) * 0.06) * h;
+      const rad = b.r * Math.min(w, h);
+      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+      grad.addColorStop(0, 'rgba(' + b.color.join(',') + ', 0.18)');
+      grad.addColorStop(0.5, 'rgba(' + b.color.join(',') + ', 0.06)');
+      grad.addColorStop(1, 'rgba(' + b.color.join(',') + ', 0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    animId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw(0);
+  window.addEventListener('resize', resize);
+}
+document.addEventListener('DOMContentLoaded', initGradientMesh);
+
+// ============================================================
 // 1. TYPING EFFECT (Hero Section)
 // ============================================================
 const typingPhrases = [
