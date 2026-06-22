@@ -350,9 +350,9 @@ function initEmbedCanvas(repos) {
     const p = hoveredParticle;
     
     const lines = [
-      p.name || 'unknown',
-      'Language: ' + (p.language || 'unknown'),
-      'Stars: ' + (p.stars || 0)
+      p.name || 'Shubham Mallick',
+      'Language: ' + (p.language || 'shubham001312'),
+      'Stars: ' + (p.stars || 01)
     ];
     const maxW = Math.max(100, ...lines.map(l => ctx.measureText(l).width));
     const lineH = 14;
@@ -369,7 +369,7 @@ function initEmbedCanvas(repos) {
     if (ty < 10) ty = 10;
     
     // Background
-    ctx.fillStyle = 'rgba(10, 10, 18, 0.85)';
+    ctx.fillStyle = 'rgba(11, 10, 18, 0.85)';
     ctx.beginPath();
     if (ctx.roundRect) {
       ctx.roundRect(tx, ty, boxW, boxH, 6);
@@ -842,7 +842,7 @@ document.querySelectorAll('.resume-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
       e.preventDefault();
-      showToast('Resume PDF coming soon! 📄', 'info');
+      showToast('Resume PDF', 'info');
     }
   });
 });
