@@ -115,7 +115,6 @@ Currently diving deep into **AI/ML Engineering** — from Python & DSA foundatio
 - [ ] Build and deploy **5+ production-grade AI projects**
 - [ ] Fine-tune and publish a model on **Hugging Face**
 - [ ] Contribute to **open-source AI** projects
-- [ ] Reach **1000+ GitHub contributions**
 
 ---
 
