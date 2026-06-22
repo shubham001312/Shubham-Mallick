@@ -14,7 +14,7 @@
 ### 🧠 What I'm Working On
 
 ```
-AI Engineer Path:  Phase 0 ████░░░░░░ Phase 14
+AI Engineer Path:  Phase 0 ████░░░░░░ Phase 20
                    Building → Learning → Shipping
 ```
 
