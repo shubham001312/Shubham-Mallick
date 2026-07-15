@@ -1,123 +1,66 @@
-# Shubham Mallick's Portfolio
+# Shubham Mallick — Portfolio
 
-A modern, responsive portfolio website showcasing skills, projects, and professional experience.
+A multi-page personal portfolio for **Shubham Mallick**, Python Backend & Applied AI Developer.
+Built as clean, dependency-free static HTML/CSS/JS — no frameworks, no build step.
 
-## 🌐 Live Demo
+Live: https://shubham001312.github.io/Shubham-Mallick/
 
-[View the live portfolio](https://shubhammallick-portfolio.netlify.app) *(example URL)*
+## Pages
 
-## 📱 Features
+| File             | Purpose                                                        |
+| ---------------- | -------------------------------------------------------------- |
+| `index.html`     | Home — hero, focus areas, featured projects, at-a-glance stats |
+| `about.html`     | Bio, education timeline, strengths, learning style, career goal |
+| `projects.html`  | All 11 projects grouped by status + a status-distribution chart |
+| `skills.html`    | Skill areas with proficiency meters + an AI/Backend radar chart |
+| `experience.html`| Internships, memberships, certifications, target roles         |
+| `contact.html`   | Email, LinkedIn, GitHub, location + a client-side contact form  |
 
-- **Fully Responsive** - Looks great on all devices from mobile to desktop
-- **Modern Design** - Clean, professional aesthetic with smooth animations
-- **Interactive Elements** - Engaging user experience with hover effects and animations
-- **Contact Form** - Functional contact form with client-side validation
-- **Project Showcase** - Highlight your best work with detailed descriptions
-- **Skills Section** - Organized display of technical proficiencies
-- **SEO Optimized** - Proper meta tags and structure for search engines
-- **Fast Loading** - Optimized for performance
+Shared layout (header nav, footer, theme) lives in `assets/`.
 
-## 🛠️ Technologies Used
-
-- **HTML5** - Semantic markup structure
-- **CSS3** - Modern styling with CSS Grid and Flexbox
-- **JavaScript** - Vanilla JS for interactivity (no frameworks)
-- **Google Fonts** - Inter typography for clean readability
-- **SVG Icons** - Scalable vector graphics for crisp display
-
-## 📁 Project Structure
+## Project structure
 
 ```
 portfolio/
-├── index.html          # Main HTML structure
-├── styles.css          # All styling and responsive design
-├── script.js           # Interactive functionality
-└── README.md           # This file
+├── index.html
+├── about.html
+├── projects.html
+├── skills.html
+├── experience.html
+├── contact.html
+└── assets/
+    ├── css/styles.css   # design tokens + all component styles
+    └── js/main.js       # mobile nav, scroll reveal, form validation
 ```
 
-## 🚀 How to Use
+## Design
 
-1. **Clone or download** this repository
-2. **Open** `index.html` in your browser to view locally
-3. **Customize** the content with your own information:
-   - Update personal details in the HTML
-   - Replace placeholder images with your own
-   - Modify project descriptions in the projects section
-   - Update skills to match your expertise
-   - Change contact information
-4. **Deploy** to your preferred hosting service (Netlify, Vercel, GitHub Pages, etc.)
+- **Theme:** the original blue-accent identity (Montserrat display + Inter body, gradient hero) is preserved and extended into a consistent multi-page system.
+- **Charts** (`projects.html`, `skills.html`) are hand-built inline SVG — offline-friendly for GitHub Pages, colorblind-checked, and paired with data tables for accessibility.
+- **Accessibility:** visible keyboard focus, `prefers-reduced-motion` respected, ARIA labels on icon links and charts.
+- **Responsive:** down to mobile, with a hamburger nav under 720px.
 
-## 🎨 Customization Options
+## Privacy
 
-### Colors
-Edit the CSS variables in `styles.css` to change the color scheme:
-```css
-:root {
-    --primary-color: #3b82f6;    /* Blue */
-    --secondary-color: #8b5cf6;  /* Purple */
-    --dark-color: #1f2937;       /* Dark gray */
-    --light-color: #f8fafc;      /* Light gray */
-}
+This site publishes **only** email, LinkedIn, GitHub, and general location.
+No home address, phone number, or financial details are included.
+
+## Run locally
+
+```bash
+cd portfolio
+python -m http.server 8000
+# open http://localhost:8000
 ```
 
-### Content Sections
-- **About**: Update your bio, experience, and statistics
-- **Projects**: Replace placeholder projects with your actual work
-- **Skills**: Modify the skill tags to match your technologies
-- **Contact**: Update your contact information and form endpoint
+## Deploy (GitHub Pages)
 
-## 🔧 Development
+Push the `portfolio/` contents to the `Shubham-Mallick` repository (root).
+GitHub Pages serves `index.html` as the entry point; relative links handle the rest.
 
-To make changes to this portfolio:
+## Verify before publishing
 
-1. Install a local development server (optional but recommended):
-   ```bash
-   # Using Python
-   python -m http.server 8000
-
-   # Using Node.js
-   npx serve
-   ```
-
-2. Make your changes to the HTML, CSS, or JavaScript files
-3. Refresh the browser to see your updates
-4. Once satisfied, deploy to your hosting platform
-
-## 📱 Responsive Breakpoints
-
-The design adapts to different screen sizes:
-- **Mobile**: < 480px - Single column layout
-- **Tablet**: 480px - 768px - Adjusted spacing and stacking
-- **Desktop**: > 768px - Full multi-column layout
-
-## 🌐 Browser Support
-
-This portfolio is compatible with all modern browsers:
-- Chrome ✓
-- Firefox ✓
-- Safari ✓
-- Edge ✓
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👤 Author
-
-**Shubham Mallick**
-- Software Developer
-- [Your Portfolio URL]
-- [Your Email]
-- [Your LinkedIn]
-
-## 🙏 Acknowledgments
-
-- Inspiration from modern portfolio designs
-- Google Fonts for the beautiful Inter typeface
-- Open source community for continuous inspiration
-
----
-
-⭐ If you like this portfolio template, consider giving it a star!
-
-Built with ❤�ll replace with your info] by Shubham Mallick
+A few bio-data fields are flagged for verification — kept honest in the UI:
+- Exact B.Tech dates and CGPA.
+- GitHub username (`shubham001312` used; `shubham001440` noted as alternate).
+- Certification titles marked **Verify** on the Experience page.
