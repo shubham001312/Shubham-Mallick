@@ -32,7 +32,11 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
-  /* Contact form (client-side only — no backend) */
+  /* Contact form → delivers to your inbox.
+     Default: opens the visitor's email (Gmail compose) pre-filled to you.
+     Optional direct delivery: set FORM_ENDPOINT to a Formspree/Formspark URL
+     and messages arrive in your inbox with no action needed from the visitor. */
+  var FORM_ENDPOINT = 'https://formspree.io/f/xrenepnd'; // Formspree → delivers messages straight to your inbox
   var form = document.getElementById('contactForm');
   var status = document.getElementById('formStatus');
   if (form && status) {
@@ -43,11 +47,19 @@
         setTimeout(function () { status.className = 'form-status'; }, 6000);
       }
     }
+    function gmailCompose(name, email, message) {
+      var to = 'shubham.mallick1440@gmail.com';
+      var subj = 'Portfolio message from ' + name;
+      var body = message + '\n\n— ' + name + '\nReply to: ' + email;
+      return 'https://mail.google.com/mail/?view=cm&fs=1&to=' +
+        encodeURIComponent(to) + '&su=' + encodeURIComponent(subj) +
+        '&body=' + encodeURIComponent(body);
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = form.name.value.trim();
-      var email = form.email.value.trim();
-      var message = form.message.value.trim();
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var message = document.getElementById('message').value.trim();
       if (!name || !email || !message) {
         setStatus('Please fill in every field before sending.', 'error');
         return;
@@ -56,8 +68,24 @@
         setStatus('That email address does not look valid.', 'error');
         return;
       }
-      setStatus('Thanks, ' + name + ' — your message is ready to send. Connect via the email or LinkedIn links above.', 'success');
-      form.reset();
+      if (FORM_ENDPOINT) {
+        fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name: name, email: email, message: message, _subject: 'Portfolio message from ' + name })
+        }).then(function (r) {
+          if (r.ok) {
+            setStatus('Thanks, ' + name + ' — your message is on its way to my inbox.', 'success');
+            form.reset();
+          } else { throw new Error(); }
+        }).catch(function () {
+          setStatus('Sending failed. Please email me directly using the link above.', 'error');
+        });
+      } else {
+        window.open(gmailCompose(name, email, message), '_blank');
+        setStatus('Your email opened, pre-filled to me. Press Send to deliver your message.', 'success');
+        form.reset();
+      }
     });
   }
 })();

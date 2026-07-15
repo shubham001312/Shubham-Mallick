@@ -33,6 +33,26 @@ portfolio/
     └── js/main.js       # mobile nav, scroll reveal, form validation
 ```
 
+## Editing content
+
+All written text lives in **`content.md`** — a single, human-readable "personal guide"
+organized by page and field, with a `Location:` note for every entry telling you
+exactly where it sits in the HTML. The site is static, so to publish a change you
+edit the matching spot in the HTML file noted there (or ask for a global replace of
+shared details like email / GitHub / LinkedIn). Nothing is auto-generated.
+
+## Contact form delivery
+
+The contact form has no backend. By default it opens the visitor's email
+(Gmail compose) pre-filled to `shubham.mallick1440@gmail.com`, so the message
+lands in the inbox when they press Send. Email links (footer + contact page) also
+open Gmail compose so they work even without a desktop mail app.
+
+For **direct delivery** (message arrives in the inbox with no action from the
+visitor), set `FORM_ENDPOINT` in `assets/js/main.js` to a
+[Formspree](https://formspree.io) (or Formspark) endpoint. Leave it `''` to keep
+the email fallback. No data is stored on the site.
+
 ## Design
 
 - **Theme:** the original blue-accent identity (Montserrat display + Inter body, gradient hero) is preserved and extended into a consistent multi-page system.
