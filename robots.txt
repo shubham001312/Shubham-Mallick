@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shubham001312.github.io/Shubham-Mallick/sitemap.xml
