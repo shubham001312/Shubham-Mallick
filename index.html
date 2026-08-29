@@ -39,7 +39,10 @@
   <section class="hero">
     <div class="container">
       <div class="hero-photo">
-        <img src="assets/img/profile.jpg" alt="Shubham Mallick" width="124" height="124">
+        <div class="avatar avatar--round">
+          <img class="avatar-img" src="assets/img/profile.jpg" alt="Shubham Mallick" onerror="this.classList.add('failed')">
+          <span class="avatar-mono" aria-hidden="true">SM</span>
+        </div>
       </div>
       <p class="hero-eyebrow">Python Backend &amp; Applied AI Developer</p>
       <h1>Building AI products with FastAPI, Machine Learning, RAG, and LLM systems.</h1>

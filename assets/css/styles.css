@@ -6,33 +6,38 @@
 
 /* Design tokens */
 :root {
-  --accent: #3498db;
-  --accent-dark: #2980b9;
-  --accent-deep: #1f6391;
-  --accent-soft: #e8f0f7;
-  --accent-wash: #f5f8fc;
+  --accent: #4f46e5;
+  --accent-dark: #4338ca;
+  --accent-deep: #7c3aed;
+  --accent-soft: #eef2ff;
+  --accent-wash: #f5f3ff;
 
-  --ink: #1a1f2e;          /* headings */
-  --text: #2c3e55;         /* body */
-  --muted: #5a6b7d;        /* secondary text */
-  --faint: #8a9ba8;        /* captions */
+  --ink: #0f172a;          /* headings */
+  --text: #334155;         /* body */
+  --muted: #64748b;        /* secondary text */
+  --faint: #94a3b8;        /* captions */
 
-  --line: #e6ecf2;         /* borders */
-  --line-strong: #cbd5e0;
+  --line: #e7ebf3;         /* borders */
+  --line-strong: #cdd5e3;
 
-  --bg: #fafbfd;
+  --bg: #f6f7fb;
   --surface: #ffffff;
 
   /* status (categorical, CVD-validated) */
-  --status-built: #3498db;
-  --status-progress: #e0a93b;
-  --status-planned: #9aa7b3;
+  --status-built: #4f46e5;
+  --status-progress: #f59e0b;
+  --status-planned: #94a3b8;
 
-  --radius: 10px;
-  --radius-sm: 6px;
-  --shadow-sm: 0 1px 2px rgba(26, 31, 46, 0.04), 0 4px 12px rgba(26, 31, 46, 0.05);
-  --shadow-md: 0 6px 24px rgba(26, 31, 46, 0.08);
-  --maxw: 1080px;
+  --gradient: linear-gradient(120deg, #6366f1 0%, #06b6d4 52%, #a855f7 100%);
+  --gradient-soft: linear-gradient(120deg, rgba(99,102,241,.16), rgba(6,182,212,.16) 52%, rgba(168,85,247,.16));
+  --gradient-text: linear-gradient(120deg, #4f46e5, #06b6d4 55%, #a855f7);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 2px rgba(15,23,42,0.05), 0 6px 16px rgba(15,23,42,0.06);
+  --shadow-md: 0 14px 40px rgba(15,23,42,0.10);
+  --shadow-lg: 0 26px 60px rgba(79,70,229,0.18);
+  --maxw: 1100px;
   --header-h: 68px;
 
   --font-display: 'Montserrat', 'Segoe UI', sans-serif;
@@ -588,13 +593,173 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); line-heigh
   .reveal { opacity: 1; transform: none; }
 }
 
-/* Visitor counter (backend: countapi.xyz) */
-.visitor-count { display: block; margin: 8px 0 0; font-family: var(--font-body); font-size: 0.85rem; color: var(--muted); }
-.visitor-count strong { color: var(--accent); }
+/* ============================================================
+   Redesign layer — Aurora depth theme
+   (overrides earlier rules; loaded last so it wins)
+   ============================================================ */
 
-/* Profile photo — homepage hero */
-.hero-photo { width: 124px; height: 124px; margin: 0 auto 22px; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); box-shadow: var(--shadow-sm); }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Hero — layered gradient + floating 3D orbs */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 600px at 82% -12%, rgba(168,85,247,0.12), transparent 60%),
+    radial-gradient(1000px 520px at -8% 8%, rgba(6,182,212,0.14), transparent 55%),
+    linear-gradient(180deg, #eef2ff 0%, #f6f7fb 58%, #f6f7fb 100%);
+  padding: 88px 0 74px;
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero::before {
+  width: 460px; height: 460px;
+  background: radial-gradient(circle at 30% 30%, rgba(129,140,248,0.55), transparent 70%);
+  top: -150px; left: -90px;
+  animation: orbFloat 16s ease-in-out infinite;
+}
+.hero::after {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle at 70% 70%, rgba(34,211,238,0.48), transparent 70%);
+  bottom: -160px; right: -70px;
+  animation: orbFloat 20s ease-in-out infinite reverse;
+}
+.hero .container { position: relative; z-index: 2; }
+
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 480px at 86% -20%, rgba(168,85,247,0.12), transparent 60%),
+    linear-gradient(180deg, #eef2ff 0%, #f6f7fb 100%);
+}
+
+/* Eyebrow chip */
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid var(--line);
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Gradient headline */
+.hero h1 {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  letter-spacing: -0.02em;
+}
+
+/* Avatar — photo with monogram fallback (shows photo if assets/img/profile.jpg exists) */
+.hero-photo {
+  width: 132px; height: 132px;
+  padding: 4px;
+  background: var(--gradient);
+  border-radius: 50%;
+  margin: 0 auto 22px;
+  box-shadow: 0 20px 44px rgba(79,70,229,0.35);
+  animation: float 6s ease-in-out infinite;
+}
+.avatar { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.avatar--round { border-radius: 50%; }
+.avatar-img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar-img.failed { display: none; }
+.avatar-mono {
+  position: absolute; inset: 0; z-index: 0;
+  display: grid; place-items: center;
+  background: var(--gradient);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+.hero-photo .avatar-mono { border-radius: 50%; font-size: 2.6rem; }
+.about-photo { width: 100%; max-width: 300px; margin: 0 0 18px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
+.about-photo .avatar-mono { font-size: 3.2rem; }
+
+/* Buttons */
+.btn-primary { background: var(--gradient); color: #fff; border: none; box-shadow: 0 12px 26px rgba(79,70,229,0.30); }
+.btn-primary:hover { background: var(--gradient); filter: brightness(1.07); transform: translateY(-2px); }
+.btn-secondary { border-color: var(--line-strong); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.btn-ghost { color: var(--accent); font-weight: 600; }
+
+/* Cards — glass + lift */
+.card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99,102,241,0.45);
+  box-shadow: 0 24px 52px rgba(79,70,229,0.16);
+}
+
+/* Pills */
+.pill--built { background: var(--accent-soft); color: var(--accent-dark); }
+.pill--progress { background: #fef3c7; color: #b45309; }
+.pill--planned { background: #f1f5f9; color: #475569; }
+
+/* Tech tags */
+.tech-tags span { background: var(--accent-soft); color: var(--accent-dark); border: 1px solid rgba(99,102,241,0.18); }
+.tech-tags.neutral span { background: #f1f5f9; color: #475569; border-color: var(--line); }
+
+/* Section eyebrow */
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: 0.08em; }
+
+/* Nav active underline */
+.nav-link.active::after { background: var(--gradient); height: 3px; }
+
+/* Footer — dark aurora strip */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #0f172a 0%, #1e1b4b 55%, #0b1220 100%);
+  color: #cbd5e1;
+}
+.site-footer a { color: #a5b4fc; }
+.site-footer a:hover { color: #67e8f9; text-decoration: none; }
+.footer-note { color: #94a3b8; }
+.visitor-count { color: #94a3b8; }
+.visitor-count strong { color: #67e8f9; }
 
 /* About portrait */
-.about-photo { width: 100%; max-width: 300px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-md); margin: 0 0 18px; display: block; }
+.about-photo { border-radius: var(--radius); box-shadow: var(--shadow-md); }
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(24px, 28px) scale(1.06); }
+}
+
+/* Visitor counter (backend: countapi.xyz) */
+.visitor-count { display: block; margin: 8px 0 0; font-family: var(--font-body); font-size: 0.85rem; }
+.visitor-count strong { color: var(--accent); }
+
+/* Profile photo — homepage hero (base) */
+.hero-photo { margin: 0 auto 22px; border-radius: 50%; overflow: hidden; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* About portrait (base) */
+.about-photo { width: 100%; max-width: 300px; margin: 0 0 18px; display: block; }
