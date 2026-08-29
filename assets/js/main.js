@@ -88,4 +88,18 @@
       }
     });
   }
+
+  /* Visitor counter (backend: countapi.xyz — serverless, no auth, no PII).
+     Updates every element with class .vc; shows a placeholder on failure. */
+  var vcEls = document.querySelectorAll('.vc');
+  if (vcEls.length) {
+    fetch('https://api.countapi.xyz/hit/shubham-mallick-portfolio/visits')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && typeof d.value === 'number') {
+          vcEls.forEach(function (el) { el.textContent = d.value.toLocaleString(); });
+        }
+      })
+      .catch(function () { /* keep placeholder on failure */ });
+  }
 })();

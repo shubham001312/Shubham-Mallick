@@ -49,37 +49,37 @@
       <div class="card chart-card reveal">
         <div class="chart-head">
           <h3>Project status at a glance</h3>
-          <span class="hint">11 projects · categorical by status</span>
+          <span class="hint">12 projects · categorical by status</span>
         </div>
         <div class="chart-grid">
-          <svg viewBox="0 0 42 42" role="img" aria-label="Donut chart: of 11 projects, 1 is built, 2 are in progress, 8 are planned." style="max-width:220px; margin:auto; width:100%">
+          <svg viewBox="0 0 42 42" role="img" aria-label="Donut chart: of 12 projects, 6 are built, 2 are in progress, 4 are planned." style="max-width:220px; margin:auto; width:100%">
             <circle cx="21" cy="21" r="15.9155" fill="none" stroke="var(--line)" stroke-width="4"></circle>
             <g transform="rotate(-90 21 21)" stroke-width="4" fill="none">
-              <circle cx="21" cy="21" r="15.9155" stroke="var(--status-built)" stroke-dasharray="9.1 90.9" stroke-dashoffset="25">
-                <title>Built: 1 project (9%)</title></circle>
-              <circle cx="21" cy="21" r="15.9155" stroke="var(--status-progress)" stroke-dasharray="18.2 81.8" stroke-dashoffset="15.9">
-                <title>In Progress: 2 projects (18%)</title></circle>
-              <circle cx="21" cy="21" r="15.9155" stroke="var(--status-planned)" stroke-dasharray="72.7 27.3" stroke-dashoffset="-2.3">
-                <title>Planned: 8 projects (73%)</title></circle>
+              <circle cx="21" cy="21" r="15.9155" stroke="var(--status-built)" stroke-dasharray="50 50" stroke-dashoffset="25">
+                <title>Built: 6 projects (50%)</title></circle>
+              <circle cx="21" cy="21" r="15.9155" stroke="var(--status-progress)" stroke-dasharray="16.67 83.33" stroke-dashoffset="-25">
+                <title>In Progress: 2 projects (17%)</title></circle>
+              <circle cx="21" cy="21" r="15.9155" stroke="var(--status-planned)" stroke-dasharray="33.33 66.67" stroke-dashoffset="-41.67">
+                <title>Planned: 4 projects (33%)</title></circle>
             </g>
-            <text x="21" y="20" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="5" font-weight="700" fill="var(--ink)">11</text>
+             <text x="21" y="20" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="5" font-weight="700" fill="var(--ink)">12</text>
             <text x="21" y="25" text-anchor="middle" font-family="Inter, sans-serif" font-size="2.6" fill="var(--muted)">projects</text>
           </svg>
           <div>
             <ul class="legend">
-              <li><span class="sw" style="background:var(--status-built)"></span> Built / Live <strong style="margin-left:auto; color:var(--ink)">1</strong></li>
+              <li><span class="sw" style="background:var(--status-built)"></span> Built / Live <strong style="margin-left:auto; color:var(--ink)">6</strong></li>
               <li><span class="sw" style="background:var(--status-progress)"></span> In Progress <strong style="margin-left:auto; color:var(--ink)">2</strong></li>
-              <li><span class="sw" style="background:var(--status-planned)"></span> Planned <strong style="margin-left:auto; color:var(--ink)">8</strong></li>
+              <li><span class="sw" style="background:var(--status-planned)"></span> Planned <strong style="margin-left:auto; color:var(--ink)">4</strong></li>
             </ul>
             <table class="data-table" style="margin-top:18px">
               <caption>Projects by status (full list below)</caption>
               <thead><tr><th scope="col">Status</th><th scope="col" style="text-align:right">Count</th><th scope="col" style="text-align:right">Share</th></tr></thead>
               <tbody>
-                <tr><td>Built / Live</td><td class="num">1</td><td class="num">9%</td></tr>
-                <tr><td>In Progress</td><td class="num">2</td><td class="num">18%</td></tr>
-                <tr><td>Planned</td><td class="num">8</td><td class="num">73%</td></tr>
+                <tr><td>Built / Live</td><td class="num">6</td><td class="num">50%</td></tr>
+                <tr><td>In Progress</td><td class="num">2</td><td class="num">17%</td></tr>
+                <tr><td>Planned</td><td class="num">4</td><td class="num">33%</td></tr>
               </tbody>
-              <tfoot><tr><td>Total</td><td class="num">11</td><td class="num">100%</td></tr></tfoot>
+              <tfoot><tr><td>Total</td><td class="num">12</td><td class="num">100%</td></tr></tfoot>
             </table>
           </div>
         </div>
@@ -104,16 +104,60 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></p>
         </article>
 
+        <article class="card project-card reveal" id="learnify">
+          <div class="pc-top"><h3 style="margin:0">Learnify</h3><span class="pill pill--built">Built</span></div>
+          <p>An AI study companion: a Next.js (React, Tailwind, shadcn/ui) frontend with a Python FastAPI backend. Uses OpenRouter LLMs, Supabase auth/DB, and Razorpay payments.</p>
+          <div class="tech-tags"><span>Next.js</span><span>FastAPI</span><span>OpenRouter</span><span>Supabase</span><span>Razorpay</span></div>
+          <p style="margin-top:16px"><a class="btn-ghost" href="https://github.com/shubham001312/learnify" target="_blank" rel="noopener">Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
+        </article>
+
+        <article class="card project-card reveal" id="talkbuzz">
+          <div class="pc-top"><h3 style="margin:0">TalkBuzz</h3><span class="pill pill--built">Built</span></div>
+          <p>A discussion and community web app exploring feeds, threads, and real-time interaction.</p>
+          <div class="tech-tags"><span>Web</span><span>Realtime</span><span>UI</span></div>
+          <p style="margin-top:16px"><a class="btn-ghost" href="https://github.com/shubham001312/TalkBuzz" target="_blank" rel="noopener">Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
+        </article>
+
+        <article class="card project-card reveal" id="cuet-ai">
+          <div class="pc-top"><h3 style="margin:0">CUET AI Assistant</h3><span class="pill pill--built">Built</span></div>
+          <p>An AI assistant for CUET exam preparation — Q&amp;A and study help over course material.</p>
+          <div class="tech-tags"><span>AI</span><span>RAG</span><span>LLM</span></div>
+          <p style="margin-top:16px"><a class="btn-ghost" href="https://github.com/shubham001312/CUET-AI" target="_blank" rel="noopener">Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
+        </article>
+
+        <article class="card project-card reveal" id="guzu">
+          <div class="pc-top"><h3 style="margin:0">Guzu</h3><span class="pill pill--built">Built</span></div>
+          <p>An Android expense tracker for logging and visualizing daily spending.</p>
+          <div class="tech-tags"><span>Android</span><span>Mobile</span><span>SQLite</span></div>
+          <p style="margin-top:16px"><a class="btn-ghost" href="https://github.com/shubham001312/guzu" target="_blank" rel="noopener">Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
+        </article>
+
+        <article class="card project-card reveal" id="heirloom">
+          <div class="pc-top"><h3 style="margin:0">Heirloom Scents</h3><span class="pill pill--built">Client</span></div>
+          <p>A client project — a Next.js 16 luxury perfume-bar product site (POC) with elegant product browsing.</p>
+          <div class="tech-tags"><span>Next.js</span><span>TypeScript</span><span>UI</span></div>
+          <p style="margin-top:16px"><a class="btn-ghost" href="https://github.com/shubham001312/heirloom-scents" target="_blank" rel="noopener">Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
+        </article>
+
         <article class="card project-card reveal" id="newsbuzz">
           <div class="pc-top"><h3 style="margin:0">NewsBuzz</h3><span class="pill pill--progress">In Progress</span></div>
           <p>An AI-powered news website concept with an auto-publishing pipeline and a manual release workflow for controlled rollout.</p>
           <div class="tech-tags"><span>AI</span><span>Content</span><span>Automation</span><span>Publishing</span></div>
+          <p style="margin-top:16px"><a class="btn-ghost" href="https://github.com/shubham001312/NewsBuzz" target="_blank" rel="noopener">Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
         </article>
 
-        <article class="card project-card reveal" id="veda">
-          <div class="pc-top"><h3 style="margin:0">Project VEDA</h3><span class="pill pill--progress">Flagship</span></div>
-          <p>A personal AI system combining local LLMs, external model APIs, vector memory, RAG, summarization, chat, agents, and web deployment.</p>
-          <div class="tech-tags"><span>LLM</span><span>RAG</span><span>Vector Memory</span><span>Agents</span><span>Summarization</span></div>
+        <article class="card project-card reveal" id="reciprocity">
+          <div class="pc-top"><h3 style="margin:0">Reciprocity</h3><span class="pill pill--progress">In Progress</span></div>
+          <p>A new project started in 2026 — currently in active development.</p>
+          <div class="tech-tags"><span>2026</span><span>WIP</span></div>
+          <p style="margin-top:16px"><a class="btn-ghost" href="https://github.com/shubham001312/reciprocity" target="_blank" rel="noopener">Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
         </article>
       </div>
     </div>
@@ -129,6 +173,11 @@
         <div class="rule"></div>
       </div>
       <div class="project-grid">
+        <article class="card project-card reveal" id="veda">
+          <div class="pc-top"><h3 style="margin:0">Project VEDA</h3><span class="pill pill--planned">Flagship (planned)</span></div>
+          <p>A personal AI system combining local LLMs, external model APIs, vector memory, RAG, summarization, chat, agents, and web deployment.</p>
+          <div class="tech-tags neutral"><span>LLM</span><span>RAG</span><span>Vector Memory</span><span>Agents</span><span>Summarization</span></div>
+        </article>
         <article class="card project-card reveal">
           <div class="pc-top"><h3 style="margin:0">Student Productivity API</h3><span class="pill pill--planned">Planned</span></div>
           <p>Backend API with authentication, database, testing, Docker, and deployment.</p>
@@ -140,34 +189,9 @@
           <div class="tech-tags neutral"><span>Python</span><span>CLI</span><span>Persistence</span></div>
         </article>
         <article class="card project-card reveal">
-          <div class="pc-top"><h3 style="margin:0">CLI AI Assistant</h3><span class="pill pill--planned">Planned</span></div>
-          <p>Terminal-based assistant using APIs / local models for productivity automation.</p>
-          <div class="tech-tags neutral"><span>Python</span><span>CLI</span><span>LLM API</span></div>
-        </article>
-        <article class="card project-card reveal">
           <div class="pc-top"><h3 style="margin:0">RAG Demo App</h3><span class="pill pill--planned">Planned</span></div>
           <p>Document Q&amp;A system using embeddings, a vector database, and LLM responses.</p>
           <div class="tech-tags neutral"><span>Embeddings</span><span>Vector DB</span><span>LLM</span></div>
-        </article>
-        <article class="card project-card reveal">
-          <div class="pc-top"><h3 style="margin:0">Agent Demo</h3><span class="pill pill--planned">Planned</span></div>
-          <p>Tool-using AI agent with memory and structured tasks.</p>
-          <div class="tech-tags neutral"><span>AI Agent</span><span>Memory</span><span>Tools</span></div>
-        </article>
-        <article class="card project-card reveal">
-          <div class="pc-top"><h3 style="margin:0">Mini DB Engine</h3><span class="pill pill--planned">Planned</span></div>
-          <p>Low-level systems project to understand storage, indexing, and query behavior.</p>
-          <div class="tech-tags neutral"><span>Systems</span><span>Storage</span><span>Indexing</span></div>
-        </article>
-        <article class="card project-card reveal">
-          <div class="pc-top"><h3 style="margin:0">PCA From Scratch</h3><span class="pill pill--planned">Planned</span></div>
-          <p>ML / math project implementing Principal Component Analysis manually.</p>
-          <div class="tech-tags neutral"><span>NumPy</span><span>Math</span><span>ML</span></div>
-        </article>
-        <article class="card project-card reveal">
-          <div class="pc-top"><h3 style="margin:0">Visual Backprop</h3><span class="pill pill--planned">Planned</span></div>
-          <p>Deep learning visualization project to make training behavior observable.</p>
-          <div class="tech-tags neutral"><span>Deep Learning</span><span>Visualization</span></div>
         </article>
       </div>
     </div>
@@ -187,6 +211,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a></li>
         </ul>
       </div>
+      <p class="footer-note visitor-count">Visitors: <strong class="vc">—</strong></p>
       <p class="footer-note">&copy; 2026 Shubham Mallick. Built with HTML, CSS &amp; vanilla JS. No private data published.</p>
     </div>
   </footer>
