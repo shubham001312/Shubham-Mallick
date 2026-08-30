@@ -411,7 +411,7 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 .logo-init{position:relative;z-index:0;font-family:var(--fm);font-weight:700;color:#F3EEE3;font-size:.95rem;letter-spacing:.02em}
 
 /* ══════════════════════════ SASY CHARACTER ══════════════════════════ */
-.sasy{position:fixed;right:26px;bottom:26px;width:98px;height:98px;z-index:120;cursor:grab;touch-action:none;user-select:none;will-change:left,top;contain:layout style}
+.sasy{position:fixed;right:26px;bottom:26px;width:98px;height:98px;z-index:203;cursor:grab;touch-action:none;user-select:none;will-change:left,top;contain:layout style}
 .sasy.drag{cursor:grabbing;will-change:left,top}
 .sasy-body{position:relative;width:100%;height:100%;border-radius:46% 46% 44% 44%/54% 54% 46% 46%;
   background:radial-gradient(circle at 38% 30%,#fff,#FBF8F1 58%,#F0E6D4);border:2px solid var(--mar);

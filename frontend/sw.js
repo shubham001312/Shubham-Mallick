@@ -1,4 +1,4 @@
-﻿const CACHE='sasy-v28';
+﻿const CACHE='sasy-v29';
 self.addEventListener('install', e=>self.skipWaiting());
 self.addEventListener('activate', e=>e.waitUntil((async()=>{
   const keys=await caches.keys();
