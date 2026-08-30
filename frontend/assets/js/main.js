@@ -959,10 +959,11 @@ function esc(s){
     chat.hidden=false; chat.classList.add('open'); play('pop');
     if(canKokoro && !_kokoro && !_kokoroLoading) getKokoro();
     fab.classList.add('m-wave'); setTimeout(()=>fab.classList.remove('m-wave'),600);
+    fab.classList.add('chat-open');
     if(!msgs.children.length){ const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help! 😊"; addMsg('b',g); speak(g,'happy'); }
     setTimeout(()=>text.focus(),200);
   }
-  function closeChat(){ chat.classList.remove('open'); setTimeout(()=>{ if(!chat.classList.contains('open')) chat.hidden=true; },300); }
+  function closeChat(){ chat.classList.remove('open'); fab.classList.remove('chat-open'); setTimeout(()=>{ if(!chat.classList.contains('open')) chat.hidden=true; },300); }
 
   form.addEventListener('submit',e=>{
     e.preventDefault(); const v=text.value.trim(); if(!v) return;
