@@ -816,7 +816,7 @@ function esc(s){
   let cmdHist=[], hi=-1, _chatBusy=false, _chatQueue=[];
   function handleSlash(raw){
     const c=(raw.split(' ')[0]||'').toLowerCase();
-    if(c==='/clear'){ msgs.innerHTML=''; return; }
+    if(c==='/clear'){ msgs.innerHTML=''; history=[]; _saveHistory(); return; }
     if(c==='/help'){ addMsg('b','commands: /projects /skills /resume /contact /clear — or just ask anything'); return; }
     const q=PRESETS[c]; if(q){ sendUser(q); } else { addMsg('b',"unknown command: "+c+"   (try /help)"); }
   }
@@ -835,7 +835,7 @@ function esc(s){
       t.classList.remove('typing');
       typeOut(t.querySelector('.c'), reply, ()=>{
         bubbleSay(reply);
-        _chatBusy=false;
+        _chatBusy=false; text.disabled=false; text.focus();
         if(_chatQueue.length){ const next=_chatQueue.shift(); _processChat(next); }
       });
     });
@@ -856,26 +856,27 @@ function esc(s){
     chat.hidden=false; chat.classList.add('open'); play('pop');
     fab.classList.add('m-wave'); setTimeout(()=>fab.classList.remove('m-wave'),600);
     fab.classList.add('chat-open');
-    if(!msgs.children.length){
-      // Restore previous messages from history
-      if(history.length>0){
-        history.forEach(h=>{
-          if(h.role==='user') addMsg('u',h.content);
-          else if(h.role==='assistant') addMsg('b',h.content);
-        });
-      } else {
-        const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g);
-      }
+    // Always restore messages from localStorage history
+    if(!msgs.children.length && history.length>0){
+      history.forEach(h=>{
+        if(h.role==='user') addMsg('u',h.content);
+        else if(h.role==='assistant') addMsg('b',h.content);
+      });
+      msgs.scrollTop=msgs.scrollHeight;
+    } else if(!msgs.children.length){
+      const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g);
     }
     setTimeout(()=>text.focus(),200);
   }
   function closeChat(){ chat.classList.remove('open'); fab.classList.remove('chat-open'); setTimeout(()=>{ if(!chat.classList.contains('open')) chat.hidden=true; },300); }
+  function toggleChat(){ if(chat.classList.contains('open')) closeChat(); else openChat(); }
 
   form.addEventListener('submit',e=>{
-    e.preventDefault(); const v=text.value.trim(); if(!v) return;
-    cmdHist.push(v); hi=cmdHist.length; sendUser(v); text.value='';
+    e.preventDefault(); const v=text.value.trim(); if(!v||_chatBusy) return;
+    cmdHist.push(v); hi=cmdHist.length; sendUser(v); text.value=''; text.disabled=true;
   });
   text.addEventListener('keydown',e=>{
+    if(_chatBusy) return;
     if(!cmdHist.length) return;
     if(e.key==='ArrowUp'){ hi=Math.max(0,hi-1); text.value=cmdHist[hi]; e.preventDefault(); }
     else if(e.key==='ArrowDown'){ hi=Math.min(cmdHist.length-1,hi+1); text.value=cmdHist[hi]; e.preventDefault(); }
@@ -885,7 +886,7 @@ function esc(s){
   });
 
   closeBtn.addEventListener('click',()=>{ closeChat(); play('click'); });
-  fab.addEventListener('click',()=>{ if(!dragged){ ac(); play('pop'); openChat(); } });
+  fab.addEventListener('click',()=>{ if(!dragged){ ac(); play('pop'); toggleChat(); } });
   if(micBtn) micBtn.addEventListener('click',()=>{
     ac(); play('hear'); micBtn.classList.add('live');
     listen((tr,err)=>{ micBtn.classList.remove('live'); if(err){ bubbleSay('Mic not available in this browser.'); } else if(tr){ cmdHist.push(tr); hi=cmdHist.length; sendUser(tr); } });
