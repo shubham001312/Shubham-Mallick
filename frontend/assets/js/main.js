@@ -864,7 +864,7 @@ function esc(s){
       });
       msgs.scrollTop=msgs.scrollHeight;
     } else if(!msgs.children.length){
-      const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g);
+      const g="SASY here, how can I help you?"; addMsg('b',g);
     }
     setTimeout(()=>text.focus(),200);
   }

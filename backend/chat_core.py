@@ -18,6 +18,7 @@ GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 # Tuned for fast, snappy replies.
+MAX_TOKENS = 600
 TEMPERATURE = 0.5
 TIMEOUT = 8
 
@@ -69,7 +70,8 @@ SASY_SYSTEM = (
     "expert in a technology just because he has used it. Do NOT invent employers, projects, certifications, "
     "achievements, rankings, or personal information. If asked for something not in this profile, say the profile "
     "does not provide that. "
-    "STYLE: Be warm, friendly, and concise. No tables, no bullets, no lists. Just natural conversational replies."
+    "STYLE: Be warm, friendly, and concise. No tables, no bullets, no lists. Just natural conversational replies. "
+    "Deliver the core answer as briefly and warmly as possible, keeping it polite and friendly like a helpful personal assistant, but completely free of filler or chit-chat, but try to answer as short as possible."
     "If you lack information, say so briefly and point to shubham.mallick1440@gmail.com."
 )
 
@@ -231,6 +233,7 @@ async def call_groq(message, history, ctx):
                     "model": GROQ_MODEL,
                     "messages": messages,
                     "temperature": TEMPERATURE,
+                    "max_tokens": MAX_TOKENS,
                 },
             )
             r.raise_for_status()
