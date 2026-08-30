@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B0A0A"/>
+      <stop offset="50%" style="stop-color:#1A0F12"/>
+      <stop offset="100%" style="stop-color:#0B0A0A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7A1F2B"/>
+      <stop offset="100%" style="stop-color:#C8102E"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7A1F2B;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Grid lines -->
+  <g opacity="0.06" stroke="#7A1F2B" stroke-width="1">
+    <line x1="0" y1="0" x2="1200" y2="630"/>
+    <line x1="1200" y1="0" x2="0" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+  </g>
+  
+  <!-- Accent glow -->
+  <circle cx="900" cy="200" r="300" fill="url(#glow)" opacity="0.4"/>
+  <circle cx="200" cy="500" r="200" fill="url(#glow)" opacity="0.2"/>
+  
+  <!-- Top accent line -->
+  <rect x="80" y="120" width="120" height="3" fill="url(#accent)" rx="1.5"/>
+  
+  <!-- Name -->
+  <text x="80" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="700" fill="#F3EEE3" letter-spacing="-1">Shubham Mallick</text>
+  
+  <!-- Title -->
+  <text x="80" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="#9A8C84" letter-spacing="2">PYTHON BACKEND &amp; APPLIED AI DEVELOPER</text>
+  
+  <!-- Description -->
+  <text x="80" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#B5444F" opacity="0.9">
+    <tspan x="80" dy="0">B.Tech CSE (AI) student building</tspan>
+    <tspan x="80" dy="32">production-grade FastAPI services,</tspan>
+    <tspan x="80" dy="32">RAG pipelines and LLM products.</tspan>
+  </text>
+  
+  <!-- Tech pills -->
+  <g transform="translate(80, 430)">
+    <rect x="0" y="0" width="90" height="32" rx="6" fill="#7A1F2B" opacity="0.8"/>
+    <text x="45" y="21" font-family="system-ui, sans-serif" font-size="13" fill="#F3EEE3" text-anchor="middle" font-weight="500">FastAPI</text>
+    
+    <rect x="100" y="0" width="60" height="32" rx="6" fill="#7A1F2B" opacity="0.8"/>
+    <text x="130" y="21" font-family="system-ui, sans-serif" font-size="13" fill="#F3EEE3" text-anchor="middle" font-weight="500">RAG</text>
+    
+    <rect x="170" y="0" width="70" height="32" rx="6" fill="#7A1F2B" opacity="0.8"/>
+    <text x="205" y="21" font-family="system-ui, sans-serif" font-size="13" fill="#F3EEE3" text-anchor="middle" font-weight="500">LLMs</text>
+    
+    <rect x="250" y="0" width="100" height="32" rx="6" fill="#7A1F2B" opacity="0.8"/>
+    <text x="300" y="21" font-family="system-ui, sans-serif" font-size="13" fill="#F3EEE3" text-anchor="middle" font-weight="500">PostgreSQL</text>
+    
+    <rect x="360" y="0" width="70" height="32" rx="6" fill="#7A1F2B" opacity="0.8"/>
+    <text x="395" y="21" font-family="system-ui, sans-serif" font-size="13" fill="#F3EEE3" text-anchor="middle" font-weight="500">Docker</text>
+    
+    <rect x="440" y="0" width="80" height="32" rx="6" fill="#7A1F2B" opacity="0.8"/>
+    <text x="480" y="21" font-family="system-ui, sans-serif" font-size="13" fill="#F3EEE3" text-anchor="middle" font-weight="500">Python</text>
+  </g>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="#7A1F2B" opacity="0.15"/>
+  <text x="80" y="612" font-family="monospace, monospace" font-size="14" fill="#9A8C84" letter-spacing="1">shubhammallickengineer.hosteler.shop</text>
+  <text x="1120" y="612" font-family="monospace, monospace" font-size="14" fill="#9A8C84" text-anchor="end" letter-spacing="1">Open to Internships 2025/26</text>
+  
+  <!-- Decorative corners -->
+  <rect x="80" y="80" width="40" height="2" fill="#C8102E" opacity="0.6"/>
+  <rect x="80" y="80" width="2" height="40" fill="#C8102E" opacity="0.6"/>
+  
+  <rect x="1080" y="548" width="40" height="2" fill="#C8102E" opacity="0.6"/>
+  <rect x="1118" y="510" width="2" height="40" fill="#C8102E" opacity="0.6"/>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "name": "Shubham Mallick — Python Backend & Applied AI Developer",
+  "short_name": "Shubham Mallick",
+  "description": "Portfolio of Shubham Mallick — B.Tech CSE (AI) student building production-grade FastAPI services, RAG pipelines, and LLM products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0A0A",
+  "theme_color": "#7A1F2B",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["technology", "portfolio", "developer"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "/",
+  "prefer_related_applications": false
+}
