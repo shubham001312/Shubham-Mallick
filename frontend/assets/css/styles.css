@@ -601,7 +601,7 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 
 /* Mobile responsiveness */
 @media (max-width:480px){
-  .chat{width:calc(100vw - 16px) !important;left:8px !important;right:8px !important;bottom:70px !important;height:calc(100vh - 120px) !important;max-height:calc(100vh - 120px) !important;border-radius:14px}
+  .chat{width:calc(100vw - 16px) !important;left:8px !important;right:8px !important;bottom:70px !important;height:min(420px,calc(100vh - 160px)) !important;max-height:min(420px,calc(100vh - 160px)) !important;border-radius:14px}
   .chat-msgs .tl{max-width:92%}
   .chat-msgs .tl.u .bubble,.chat-msgs .tl.b .bubble{border-radius:12px}
   .chat-form{padding:10px 12px}
@@ -610,6 +610,10 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
   .chat-id b{font-size:.92rem}
   .chat-id small{font-size:.5rem}
   .chat-ava{width:30px;height:30px}
+  .term-title{display:none}
+  .chat-msgs{padding:10px 12px;font-size:.72rem}
+  .chat-bar{padding:8px 10px}
+  .chat-bar .term-title{display:none}
 }
 
 .chat-form button:hover{background:#9c2a38}
