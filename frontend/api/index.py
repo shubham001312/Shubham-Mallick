@@ -27,7 +27,7 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 # llama-3.1-8b-instant is NOT available on this key (returns 404), so the working
 # fast models are used. Override GROQ_MODEL if you later get llama access.
 FALLBACK_MODELS = ["groq/compound-mini", "qwen/qwen3.6-27b"]
-MAX_TOKENS = 600
+MAX_TOKENS = 120
 TEMPERATURE = 0.5
 TIMEOUT = 8
 
@@ -79,8 +79,7 @@ SASY_SYSTEM = (
     "expert in a technology just because he has used it. Do NOT invent employers, projects, certifications, "
     "achievements, rankings, or personal information. If asked for something not in this profile, say the profile "
     "does not provide that. "
-    "STYLE: Keep every reply to 1-2 short sentences. Be warm and natural, like a friendly quick chat. "
-    "No tables, no bullet lists, no numbered lists. Just a quick, helpful sentence or two. "
+    "STYLE: ABSOLUTELY NEVER write more than 2 sentences. Every reply must be exactly 1-2 short sentences maximum. No exceptions. Be warm and friendly but extremely concise. No tables, no bullets, no lists, no paragraphs. Just one or two quick sentences."
     "If you lack information, say so briefly and point to shubham.mallick1440@gmail.com."
 )
 SHUBHAM_BIO = (
