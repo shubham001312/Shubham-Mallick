@@ -587,6 +587,7 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 .chat-msgs .tl.u .p{color:var(--blue);text-align:right}
 .chat-msgs .tl.b .p{color:var(--mar)}
 .chat-msgs .tl .c{color:inherit}
+.chat-msgs .tl .c code{background:rgba(255,255,255,.12);padding:1px 5px;border-radius:3px;font-size:.88em}
 
 /* Typing indicator */
 .chat-msgs .tl.typing .bubble{background:var(--grn-dim);color:var(--mar);border:1px solid var(--grn-md)}

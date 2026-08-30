@@ -722,7 +722,7 @@ function esc(s){
   const soundBtn=document.getElementById('chatSound');
 
   /* ---- synthesized sound (no external files) ---- */
-  let AC=null, soundOn=true, voiceOn=true;
+  let AC=null, soundOn=true;
   function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return AC; }
   function tone(freq,dur,type,vol,when){
     const c=ac(); if(!c) return;
@@ -747,67 +747,7 @@ function esc(s){
   };
   function play(name){ if(soundOn && sfx[name]) sfx[name](); }
 
-  /* ---- speech: browser SpeechSynthesis only (lightweight) ---- */
-  let _voices=[];
-  function refreshVoices(){ try{ _voices=speechSynthesis.getVoices()||[]; }catch(e){ _voices=[]; } }
-  if('speechSynthesis' in window){ refreshVoices(); speechSynthesis.onvoiceschanged=refreshVoices; }
-  function unlockAudio(){
-    if('speechSynthesis' in window){ try{ speechSynthesis.getVoices(); if(speechSynthesis.state==='paused') speechSynthesis.resume(); }catch(e){} }
-  }
-  function pickVoice(){
-    const en=_voices.filter(v=>/^en/i.test(v.lang||''));
-    const pool=en.length?en:_voices; if(!pool.length) return null;
-    const female=/(female|woman|girl|samantha|aria|zira|serena|karen|victoria|susan|jenny|tessa|libby|allison|google us|natural|neural|siri|meera|heera|aditi|swarali|lekha|english \(india\)|english \(united states\)|english \(uk\))/i;
-    const male=/(male|man|boy|daniel|david|george|ravi|raj|fred|tom|alex|microsoft david|microsoft mark|english \(united kingdom\))/i;
-    let best=null,bestScore=-1;
-    for(const v of pool){
-      const n=v.name||'';
-      if(male.test(n)) continue;
-      if(!female.test(n)) continue;
-      let s=0;
-      if(/neural|natural/i.test(n)) s+=2;
-      if(/en-in/i.test(v.lang||'')) s+=3;
-      else if(/en-(us|uk)/i.test(v.lang||'')) s+=1;
-      if(s>bestScore){ bestScore=s; best=v; }
-    }
-    return best;
-  }
-  const EMOTE={
-    happy:{pitch:1.12,rate:1.0,vol:1.0}, excited:{pitch:1.2,rate:1.12,vol:1.0},
-    angry:{pitch:0.85,rate:1.22,vol:1.0}, sad:{pitch:0.92,rate:0.85,vol:0.85},
-    calm:{pitch:0.96,rate:0.95,vol:0.95}, think:{pitch:0.96,rate:0.92,vol:0.9},
-    talk:{pitch:1.04,rate:0.98,vol:1.0}, wave:{pitch:1.1,rate:1.0,vol:1.0},
-    love:{pitch:1.12,rate:0.98,vol:1.0}, laugh:{pitch:1.2,rate:1.15,vol:1.0}
-  };
 
-  function normalizeTTS(t){
-    if(!t) return '';
-    t = String(t).replace(/[*`_#>]/g,'').replace(/\[([^\]]+)\]\([^)]*\)/g,'$1');
-    t = t.replace(/\bSASY\b/gi,'Sassy');
-    t = t.replace(/\bAI\/ML\b/g,'A I slash M L').replace(/\bAI\b/g,'A I').replace(/\bML\b/g,'M L');
-    t = t.replace(/\bLLMs?\b/g,'L L M').replace(/\bRAG\b/g,'R A G').replace(/\bNLP\b/g,'N L P');
-    t = t.replace(/\bAPIs?\b/g,'A P I').replace(/\bSQL\b/g,'S Q L');
-    t = t.replace(/\bMAKAUT\b/g,'Makaut').replace(/\bFastAPI\b/g,'Fast A P I');
-    t = t.replace(/\bPostgreSQL\b/g,'Postgres Q L').replace(/\bNext\.js\b/g,'Next dot J S');
-    t = t.replace(/\bC\+\+\b/g,'C plus plus');
-    t = t.replace(/[\u00D7\u2022\u25E6\u2605\u2606\u25C6\u25BA\u25C4\u25BC\u25B2\u25A0\u25CF\u2192\u2190\u2194\u2197\u2193\u2191\u2713\u2714\u2717\u2013\u2014\u2026]/g,' ');
-    t = t.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu,' ');
-    return t.replace(/\s+/g,' ').trim();
-  }
-
-  function speak(txt, mood){
-    if(!voiceOn) return;
-    if(!('speechSynthesis' in window)) return;
-    unlockAudio();
-    const e=EMOTE[mood||curMood||'calm']||{pitch:1.08,rate:1.0,vol:0.98};
-    const text=normalizeTTS(txt); if(!text) return;
-    try{
-      const u=new SpeechSynthesisUtterance(text.slice(0,200));
-      u.pitch=Math.max(0.55,(e.pitch||1)*0.82); u.rate=(e.rate||1)*1.0; u.volume=e.vol||1;
-      const v=pickVoice(); if(v) u.voice=v;
-      speechSynthesis.cancel(); speechSynthesis.speak(u);
-    }catch(e){}
-  }
   function listen(cb){
     const R=window.SpeechRecognition||window.webkitSpeechRecognition;
     if(!R){ cb(null,true); return; }
@@ -855,12 +795,20 @@ function esc(s){
   }
 
   /* ---- chat panel ---- */
+  function renderMd(s){
+    s=s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+    s=s.replace(/\*(.+?)\*/g,'<i>$1</i>');
+    s=s.replace(/`(.+?)`/g,'<code>$1</code>');
+    s=s.replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+    s=s.replace(/\n/g,'<br>');
+    return s;
+  }
   function addMsg(who,txt,typing){
     const d=document.createElement('div');
     d.className='tl '+(who==='u'?'u':'b')+(typing?' typing':'');
     const p=document.createElement('span'); p.className='p';
     p.textContent = who==='u' ? 'visitor@~$' : 'sasy@~$';
-    const c=document.createElement('span'); c.className='c'; c.textContent=txt;
+    const c=document.createElement('span'); c.className='c'; c.innerHTML=renderMd(txt);
     d.appendChild(p); d.appendChild(document.createTextNode(' ')); d.appendChild(c);
     msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d;
   }
@@ -869,8 +817,7 @@ function esc(s){
   function handleSlash(raw){
     const c=(raw.split(' ')[0]||'').toLowerCase();
     if(c==='/clear'){ msgs.innerHTML=''; return; }
-    if(c==='/help'){ addMsg('b','commands: /projects /skills /resume /contact /voice /clear — or just ask anything'); return; }
-    if(c==='/voice'){ if(soundBtn) soundBtn.click(); return; }
+    if(c==='/help'){ addMsg('b','commands: /projects /skills /resume /contact /clear — or just ask anything'); return; }
     const q=PRESETS[c]; if(q){ sendUser(q); } else { addMsg('b',"unknown command: "+c+"   (try /help)"); }
   }
   function sendUser(v){
@@ -886,7 +833,6 @@ function esc(s){
     askSASY(v).then(reply=>{
       const m=moodOf(reply,v); setMood(m);
       t.classList.remove('typing');
-      speak(reply,m);
       typeOut(t.querySelector('.c'), reply, ()=>{
         bubbleSay(reply);
         _chatBusy=false;
@@ -903,7 +849,7 @@ function esc(s){
     el.textContent='';
     (function tick(){
       if(i<=len){ el.textContent=txt.slice(0,i); i++; msgs.scrollTop=msgs.scrollHeight; setTimeout(tick, step); }
-      else { wrap.classList.remove('typing'); if(done) done(); }
+      else { wrap.classList.remove('typing'); el.innerHTML=renderMd(txt); if(done) done(); }
     })();
   }
   function openChat(){
@@ -918,7 +864,7 @@ function esc(s){
           else if(h.role==='assistant') addMsg('b',h.content);
         });
       } else {
-        const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g); if(voiceOn) speak(g,'happy');
+        const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g);
       }
     }
     setTimeout(()=>text.focus(),200);
@@ -944,7 +890,7 @@ function esc(s){
     ac(); play('hear'); micBtn.classList.add('live');
     listen((tr,err)=>{ micBtn.classList.remove('live'); if(err){ bubbleSay('Mic not available in this browser.'); } else if(tr){ cmdHist.push(tr); hi=cmdHist.length; sendUser(tr); } });
   });
-  if(soundBtn) soundBtn.addEventListener('click',()=>{ soundOn=!soundOn; voiceOn=soundOn; const volIcon=soundBtn.querySelector('.icon-vol'); const muteIcon=soundBtn.querySelector('.icon-mute'); if(volIcon) volIcon.style.display=soundOn?'':'none'; if(muteIcon) muteIcon.style.display=soundOn?'none':''; play('click'); });
+  if(soundBtn) soundBtn.addEventListener('click',()=>{ soundOn=!soundOn; const volIcon=soundBtn.querySelector('.icon-vol'); const muteIcon=soundBtn.querySelector('.icon-mute'); if(volIcon) volIcon.style.display=soundOn?'':'none'; if(muteIcon) muteIcon.style.display=soundOn?'none':''; play('click'); });
 
   /* ---- drag (you can move it) ---- */
   const _small=window.matchMedia && window.matchMedia('(max-width:860px)').matches;
