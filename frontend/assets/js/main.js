@@ -830,6 +830,7 @@ function esc(s){
   function _processChat(v){
     _chatBusy=true;
     const t=addMsg('b','',true);
+    t.querySelector('.c').innerHTML='<div class="typing-dots"><span></span><span></span><span></span></div>';
     askSASY(v).then(reply=>{
       const m=moodOf(reply,v); setMood(m);
       t.classList.remove('typing');

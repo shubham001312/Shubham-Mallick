@@ -592,24 +592,26 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 /* Typing indicator */
 .chat-msgs .tl.typing .bubble{background:var(--grn-dim);color:var(--mar);border:1px solid var(--grn-md)}
 .chat-msgs .tl.typing .c{color:var(--mar)}
-.typing-indicator{display:inline-flex;gap:3px;padding:2px 0}
-.typing-indicator span{width:6px;height:6px;background:var(--mar);border-radius:50%;animation:typingBounce 1.4s ease-in-out infinite}
-.typing-indicator span:nth-child(2){animation-delay:.2s}
-.typing-indicator span:nth-child(3){animation-delay:.4s}
-@keyframes typingBounce{0%,80%,100%{transform:scale(1);opacity:.5}40%{transform:scale(1.3);opacity:1}}
+.typing-dots{display:inline-flex;gap:5px;padding:4px 0;align-items:center}
+.typing-dots span{width:7px;height:7px;background:var(--mar);border-radius:50%;animation:typingDot 1.2s ease-in-out infinite}
+.typing-dots span:nth-child(1){animation-delay:0s}
+.typing-dots span:nth-child(2){animation-delay:.2s}
+.typing-dots span:nth-child(3){animation-delay:.4s}
+@keyframes typingDot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-8px);opacity:1}}
 
 /* Mobile responsiveness */
 @media (max-width:480px){
-  .chat{width:calc(100vw - 20px) !important;right:10px !important;bottom:80px !important;height:calc(100vh - 130px) !important;max-height:calc(100vh - 130px) !important}
+  .chat{width:calc(100vw - 16px) !important;left:8px !important;right:8px !important;bottom:70px !important;height:calc(100vh - 120px) !important;max-height:calc(100vh - 120px) !important;border-radius:14px}
   .chat-msgs .tl{max-width:92%}
   .chat-msgs .tl.u .bubble,.chat-msgs .tl.b .bubble{border-radius:12px}
   .chat-form{padding:10px 12px}
   .chat-quick{padding:8px 12px}
   .chat-quick button{font-size:.56rem;padding:4px 8px}
+  .chat-id b{font-size:.92rem}
+  .chat-id small{font-size:.5rem}
+  .chat-ava{width:30px;height:30px}
 }
 
-.tl.typing .c::after{content:'\258C';margin-left:1px;color:var(--mar);font-weight:700;animation:blink 1s steps(1) infinite}
-@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 .chat-form button:hover{background:#9c2a38}
 
 /* ══════════════════════════ OPEN_TO_WORK MODAL ══════════════════════════ */
