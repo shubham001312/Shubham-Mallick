@@ -1,0 +1,107 @@
+- generic [active] [ref=f12e1]:
+  - link "Skip to content" [ref=f12e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f12e3]:
+    - generic [ref=f12e4]:
+      - link "SM Shubham Mallick Backend & AI Dev" [ref=f12e5] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f12e6]: SM
+        - generic [ref=f12e7]: Shubham MallickBackend & AI Dev
+      - navigation "Primary" [ref=f12e8]:
+        - link "Home" [ref=f12e9] [cursor=pointer]:
+          - /url: index.html
+        - link "About" [ref=f12e10] [cursor=pointer]:
+          - /url: about.html
+        - link "Projects" [ref=f12e11] [cursor=pointer]:
+          - /url: projects.html
+        - link "Skills" [ref=f12e12] [cursor=pointer]:
+          - /url: skills.html
+        - link "Experience" [ref=f12e13] [cursor=pointer]:
+          - /url: experience.html
+        - link "Contact" [ref=f12e14] [cursor=pointer]:
+          - /url: contact.html
+      - generic [ref=f12e15]:
+        - link "GitHub" [ref=f12e16] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - button "Toggle theme" [ref=f12e19] [cursor=pointer]
+  - main [ref=f12e23]:
+    - generic [ref=f12e25]:
+      - generic [ref=f12e26]:
+        - generic [ref=f12e27]: Stack
+        - heading "Skills" [level=2] [ref=f12e29]
+        - paragraph [ref=f12e30]: Where I am today — proficiency is served live from the backend and animates on view.
+      - generic [ref=f12e31]:
+        - heading "Languages" [level=3] [ref=f12e32]
+        - generic [ref=f12e33]:
+          - generic [ref=f12e35]:
+            - generic [ref=f12e36]: Python
+            - generic [ref=f12e37]: 90%
+          - generic [ref=f12e41]:
+            - generic [ref=f12e42]: JavaScript / TypeScript
+            - generic [ref=f12e43]: 62%
+          - generic [ref=f12e47]:
+            - generic [ref=f12e48]: SQL
+            - generic [ref=f12e49]: 70%
+        - heading "Backend" [level=3] [ref=f12e52]
+        - generic [ref=f12e53]:
+          - generic [ref=f12e55]:
+            - generic [ref=f12e56]: FastAPI
+            - generic [ref=f12e57]: 85%
+          - generic [ref=f12e61]:
+            - generic [ref=f12e62]: Flask
+            - generic [ref=f12e63]: 70%
+          - generic [ref=f12e67]:
+            - generic [ref=f12e68]: REST APIs
+            - generic [ref=f12e69]: 88%
+          - generic [ref=f12e73]:
+            - generic [ref=f12e74]: WebSockets
+            - generic [ref=f12e75]: 65%
+        - heading "AI / ML" [level=3] [ref=f12e78]
+        - generic [ref=f12e79]:
+          - generic [ref=f12e81]:
+            - generic [ref=f12e82]: LLMs & Prompting
+            - generic [ref=f12e83]: 80%
+          - generic [ref=f12e87]:
+            - generic [ref=f12e88]: RAG
+            - generic [ref=f12e89]: 75%
+          - generic [ref=f12e93]:
+            - generic [ref=f12e94]: Agents
+            - generic [ref=f12e95]: 68%
+          - generic [ref=f12e99]:
+            - generic [ref=f12e100]: scikit-learn
+            - generic [ref=f12e101]: 66%
+        - heading "Data & Infra" [level=3] [ref=f12e104]
+        - generic [ref=f12e105]:
+          - generic [ref=f12e107]:
+            - generic [ref=f12e108]: PostgreSQL
+            - generic [ref=f12e109]: 72%
+          - generic [ref=f12e113]:
+            - generic [ref=f12e114]: SQLite
+            - generic [ref=f12e115]: 80%
+          - generic [ref=f12e119]:
+            - generic [ref=f12e120]: Docker
+            - generic [ref=f12e121]: 55%
+          - generic [ref=f12e125]:
+            - generic [ref=f12e126]: Deployment
+            - generic [ref=f12e127]: 60%
+        - heading "Frontend" [level=3] [ref=f12e130]
+        - generic [ref=f12e131]:
+          - generic [ref=f12e133]:
+            - generic [ref=f12e134]: HTML / CSS
+            - generic [ref=f12e135]: 82%
+          - generic [ref=f12e139]:
+            - generic [ref=f12e140]: Next.js
+            - generic [ref=f12e141]: 60%
+          - generic [ref=f12e145]:
+            - generic [ref=f12e146]: Vanilla JS
+            - generic [ref=f12e147]: 78%
+    - generic [ref=f12e151]:
+      - generic [ref=f12e152]:
+        - generic [ref=f12e153]:
+          - text: Shubham Mallick
+          - generic [ref=f12e154]: Python Backend & Applied AI Developer · North 24 Parganas, WB, India
+        - list [ref=f12e155]:
+          - listitem [ref=f12e156]:
+            - link "GitHub" [ref=f12e157] [cursor=pointer]:
+              - /url: https://github.com/shubham001312
+      - paragraph [ref=f12e160]: © 2026 Shubham Mallick. Light, vanilla HTML/CSS/JS + a FastAPI backend. No private data published.

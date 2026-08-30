@@ -1,0 +1,10 @@
+[      32ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8137/assets/img/profile.jpg:0
+[     841ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://api.countapi.xyz/hit/shubham-mallick-portfolio/visits:0
+[  331953ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8137/assets/img/profile.jpg:0
+[  332451ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8137/assets/img/profile.jpg:0
+[  332803ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://api.countapi.xyz/hit/shubham-mallick-portfolio/visits:0
+[  332943ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8137/assets/img/profile.jpg:0
+[  332988ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://api.countapi.xyz/hit/shubham-mallick-portfolio/visits:0
+[  333106ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8137/assets/img/profile.jpg:0
+[  333132ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://api.countapi.xyz/hit/shubham-mallick-portfolio/visits:0
+[  333624ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://api.countapi.xyz/hit/shubham-mallick-portfolio/visits:0

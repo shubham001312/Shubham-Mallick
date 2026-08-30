@@ -1,0 +1,100 @@
+- generic [active] [ref=f12e1]:
+  - navigation [ref=f12e2]:
+    - link "SM Shubham Mallick Python · Backend · AI" [ref=f12e3] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f12e4]: SM
+      - generic [ref=f12e6]:
+        - text: Shubham Mallick
+        - generic [ref=f12e7]: Python · Backend · AI
+    - list [ref=f12e8]:
+      - listitem [ref=f12e9]:
+        - link "Home" [ref=f12e10] [cursor=pointer]:
+          - /url: index.html
+      - listitem [ref=f12e11]:
+        - link "About" [ref=f12e12] [cursor=pointer]:
+          - /url: about.html
+      - listitem [ref=f12e13]:
+        - link "Work" [ref=f12e14] [cursor=pointer]:
+          - /url: projects.html
+      - listitem [ref=f12e15]:
+        - link "Stack" [ref=f12e16] [cursor=pointer]:
+          - /url: skills.html
+      - listitem [ref=f12e17]:
+        - link "Path" [ref=f12e18] [cursor=pointer]:
+          - /url: experience.html
+      - listitem [ref=f12e19]:
+        - link "Contact" [ref=f12e20] [cursor=pointer]:
+          - /url: contact.html
+    - link "OPEN_TO_WORK" [ref=f12e21] [cursor=pointer]:
+      - /url: mailto:shubham.mallick1440@gmail.com
+  - generic [ref=f12e23]:
+    - generic [ref=f12e24]:
+      - generic [ref=f12e25]:
+        - generic [ref=f12e26]: // 02 // about
+        - heading "The operator behind the builds" [level=2] [ref=f12e27]
+      - generic [ref=f12e28]: "ID: shubham_mallickROLE: backend × ai"
+    - generic [ref=f12e29]:
+      - generic [ref=f12e30]:
+        - generic [ref=f12e31]: Building in public — West Bengal, IN
+        - paragraph [ref=f12e33]: I’m not learning AI only from a theoretical angle — I’m building toward real engineering ability. My focus is backend systems, APIs, databases, machine learning, LLM applications, RAG, agents, and deployment.
+        - paragraph [ref=f12e34]:
+          - text: "The goal is clear: become a strong"
+          - strong [ref=f12e35]: backend engineer for AI products
+          - text: first, then grow into AI Platform / ML Infrastructure engineering. I care about code that is observable, testable, and shipped — not just notebooks.
+        - paragraph [ref=f12e36]: Most of what I ship is open source so the work speaks for itself. Shipped, not just built.
+        - generic [ref=f12e37]:
+          - article [ref=f12e38]:
+            - generic [ref=f12e39]: VAL.01
+            - heading "Depth over buzzwords" [level=3] [ref=f12e41]
+            - paragraph [ref=f12e42]: Understand the system under the abstraction — APIs, data, latency, failure modes.
+          - article [ref=f12e45]:
+            - generic [ref=f12e46]: VAL.02
+            - heading "Pragmatic AI" [level=3] [ref=f12e48]
+            - paragraph [ref=f12e49]: Use LLMs where they help; keep deterministic logic where it must be correct.
+          - article [ref=f12e52]:
+            - generic [ref=f12e53]: VAL.03
+            - heading "Own the pipeline" [level=3] [ref=f12e55]
+            - paragraph [ref=f12e56]: From the endpoint to the database to the deploy — I want the whole path.
+      - complementary [ref=f12e59]:
+        - generic [ref=f12e60]: SM
+        - generic [ref=f12e62]:
+          - generic [ref=f12e63]:
+            - generic [ref=f12e64]: Handle
+            - generic [ref=f12e65]: shubham_mallick
+          - generic [ref=f12e66]:
+            - generic [ref=f12e67]: Degree
+            - generic [ref=f12e68]: B.Tech CSE (AI) · MAKAUT
+          - generic [ref=f12e69]:
+            - generic [ref=f12e70]: Stage
+            - generic [ref=f12e71]: Semester 3
+          - generic [ref=f12e72]:
+            - generic [ref=f12e73]: Base
+            - generic [ref=f12e74]: North 24 Parganas, WB
+          - generic [ref=f12e75]:
+            - generic [ref=f12e76]: Local Time
+            - generic [ref=f12e77]: "--:--:--"
+          - generic [ref=f12e78]:
+            - generic [ref=f12e79]: Status
+            - generic [ref=f12e80]: Open to internships
+          - generic [ref=f12e81]:
+            - generic [ref=f12e82]: GitHub
+            - link "@shubham001312" [ref=f12e83] [cursor=pointer]:
+              - /url: https://github.com/shubham001312
+          - generic [ref=f12e84]:
+            - generic [ref=f12e85]: LinkedIn
+            - link "/in/shubham-mallick" [ref=f12e86] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+  - contentinfo [ref=f12e87]:
+    - generic [ref=f12e88]: ABOUT·ME
+    - generic [ref=f12e89]:
+      - generic [ref=f12e90]: © 2026 — ENGINEERED BY HAND, NO TEMPLATE
+      - generic [ref=f12e91]:
+        - link "GITHUB" [ref=f12e92] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - link "LINKEDIN" [ref=f12e93] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+        - link "EMAIL" [ref=f12e94] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+      - button "↑ TOP" [ref=f12e95] [cursor=pointer]
+  - button "Chat with SASY" [ref=f12e96]:
+    - img "SASY" [ref=f12e97]

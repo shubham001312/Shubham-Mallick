@@ -1,0 +1,65 @@
+[
+  {
+    "cat": "Programming Languages",
+    "items": [
+      { "name": "Python", "note": "primary language" },
+      { "name": "C++", "note": "used for DSA" },
+      { "name": "C" },
+      { "name": "JavaScript" }
+    ]
+  },
+  {
+    "cat": "Backend & Web",
+    "items": [
+      { "name": "FastAPI" },
+      { "name": "Flask" },
+      { "name": "REST APIs" },
+      { "name": "SQL" },
+      { "name": "PostgreSQL" },
+      { "name": "SQLite" },
+      { "name": "React" },
+      { "name": "Next.js" },
+      { "name": "MERN stack concepts" }
+    ]
+  },
+  {
+    "cat": "Developer Tools & Infra",
+    "items": [
+      { "name": "Git" },
+      { "name": "GitHub" },
+      { "name": "Linux" },
+      { "name": "VS Code" },
+      { "name": "Docker", "note": "learning" },
+      { "name": "CI/CD", "note": "learning" },
+      { "name": "Cloud deployment", "note": "learning" }
+    ]
+  },
+  {
+    "cat": "AI / Machine Learning",
+    "items": [
+      { "name": "Machine Learning" },
+      { "name": "Deep Learning" },
+      { "name": "NLP" },
+      { "name": "Large Language Models (LLMs)" },
+      { "name": "AI Agents" },
+      { "name": "Agentic AI systems" },
+      { "name": "RAG systems" },
+      { "name": "Embeddings" },
+      { "name": "Vector Databases" },
+      { "name": "AI Memory systems" },
+      { "name": "Tool calling" },
+      { "name": "Multi-model systems" }
+    ]
+  },
+  {
+    "cat": "Core CS Fundamentals",
+    "items": [
+      { "name": "Data Structures & Algorithms", "note": "practiced in C++" },
+      { "name": "Object-Oriented Programming" },
+      { "name": "DBMS" },
+      { "name": "Operating Systems" },
+      { "name": "Computer Networks" },
+      { "name": "System Design" }
+    ]
+  }
+]

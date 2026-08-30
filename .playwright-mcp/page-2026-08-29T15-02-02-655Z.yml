@@ -1,0 +1,108 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - img "Learnify" [ref=e4]
+      - generic [ref=e5]: Learnify
+    - textbox "Search colleges, careers, companies…" [ref=e10]
+    - generic [ref=e11]:
+      - button "2" [ref=e12] [cursor=pointer]
+      - button "Account" [ref=e17] [cursor=pointer]
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - heading "Good evening 🌆, Student 👋" [level=2] [ref=e24]: Good evening 🌆,Student 👋
+        - paragraph [ref=e25]: A little focused study now goes a long way. Tell Veda your goals for sharper, personal help.
+        - generic [ref=e26]:
+          - button [ref=e27] [cursor=pointer]
+          - button [ref=e32] [cursor=pointer]
+          - button [ref=e37] [cursor=pointer]
+          - button [ref=e43] [cursor=pointer]
+      - generic [ref=e47]: For You ✨ AI
+      - generic [ref=e48]: Veda is preparing your personalized suggestions…
+      - generic [ref=e50]: Quick Tools
+      - generic [ref=e51]:
+        - button "Writing Enhancer" [ref=e52] [cursor=pointer]
+        - button "College Search" [ref=e57] [cursor=pointer]
+        - button "Calculator" [ref=e63] [cursor=pointer]
+        - button "Resume Builder" [ref=e74] [cursor=pointer]
+        - button "Study Planner" [ref=e80] [cursor=pointer]
+        - button "Scholarships" [ref=e86] [cursor=pointer]
+      - generic [ref=e92]: Study Tools
+      - generic [ref=e93]:
+        - button "Quiz Generator" [ref=e94] [cursor=pointer]
+        - button "Study Timer" [ref=e101] [cursor=pointer]
+        - button "Quick Notes" [ref=e107] [cursor=pointer]
+        - button "Summarizer" [ref=e113] [cursor=pointer]
+      - generic [ref=e122]:
+        - text: Pro Tools
+        - generic [ref=e123]: PRO
+      - generic [ref=e124]:
+        - button "Unlimited Quiz 🔒" [ref=e125] [cursor=pointer]:
+          - generic [ref=e129]: Unlimited Quiz
+          - text: 🔒
+        - button "AI Roadmap Pro 🔒" [ref=e130] [cursor=pointer]:
+          - generic [ref=e135]: AI Roadmap Pro
+          - text: 🔒
+        - button "Smart Scholarship Match 🔒" [ref=e136] [cursor=pointer]:
+          - generic [ref=e141]: Smart Scholarship Match
+          - text: 🔒
+      - generic [ref=e142]: Featured
+      - generic [ref=e143]:
+        - generic [ref=e144] [cursor=pointer]:
+          - generic [ref=e145]: 🧠
+          - heading "Ask Veda AI" [level=3] [ref=e146]
+          - paragraph [ref=e147]: Your personal study companion, available 24/7
+        - generic [ref=e148] [cursor=pointer]:
+          - generic [ref=e149]: 🎯
+          - heading "Explore Careers" [level=3] [ref=e150]
+          - paragraph [ref=e151]: Colleges, placements, scholarships & more
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - img "Learnify" [ref=e156]
+            - generic [ref=e157]: Learnify
+          - paragraph [ref=e158]: Your AI-powered study companion for college discovery, career guidance & scholarships — built for Indian students.
+        - generic [ref=e159]:
+          - heading "Platform" [level=4] [ref=e160]
+          - link "Veda AI" [ref=e161] [cursor=pointer]:
+            - /url: "#"
+          - link "College Search" [ref=e162] [cursor=pointer]:
+            - /url: "#"
+          - link "Career Paths" [ref=e163] [cursor=pointer]:
+            - /url: "#"
+          - link "Scholarships" [ref=e164] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e165]:
+          - heading "Tools" [level=4] [ref=e166]
+          - link "Resume Builder" [ref=e167] [cursor=pointer]:
+            - /url: "#"
+          - link "Calculator" [ref=e168] [cursor=pointer]:
+            - /url: "#"
+          - link "Writing Enhancer" [ref=e169] [cursor=pointer]:
+            - /url: "#"
+          - link "Study Planner" [ref=e170] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e171]:
+          - heading "Company" [level=4] [ref=e172]
+          - link "About" [ref=e173] [cursor=pointer]:
+            - /url: "#about"
+          - link "Blog" [ref=e174] [cursor=pointer]:
+            - /url: "#blog"
+          - link "Privacy" [ref=e175] [cursor=pointer]:
+            - /url: "#privacy"
+          - link "Terms" [ref=e176] [cursor=pointer]:
+            - /url: "#terms"
+      - generic [ref=e177]:
+        - paragraph [ref=e178]: © 2026 Learnify. Made with ♥ for Indian students.
+        - generic [ref=e179]:
+          - button "English" [ref=e180] [cursor=pointer]
+          - button "हिंदी" [ref=e181] [cursor=pointer]
+          - button "বাংলা" [ref=e182] [cursor=pointer]
+          - button "தமிழ்" [ref=e183] [cursor=pointer]
+  - navigation [ref=e184]:
+    - button "Home" [ref=e185] [cursor=pointer]
+    - button "Veda" [ref=e191] [cursor=pointer]
+    - button "College" [ref=e196] [cursor=pointer]
+    - button "Career" [ref=e201] [cursor=pointer]
+    - button "Profile" [ref=e206] [cursor=pointer]

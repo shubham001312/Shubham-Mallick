@@ -1,0 +1,219 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e4]:
+    - generic [ref=f3e5]: SM://PORTFOLIO — V3.0_REBUILT
+    - generic [ref=f3e6]: 00%
+  - navigation [ref=f3e7]:
+    - link "SM Shubham Mallick Python · Backend · AI" [ref=f3e8] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f3e9]: SM
+      - generic [ref=f3e10]:
+        - text: Shubham Mallick
+        - generic [ref=f3e11]: Python · Backend · AI
+    - list [ref=f3e12]:
+      - listitem [ref=f3e13]:
+        - link [ref=f3e14] [cursor=pointer]:
+          - /url: index.html
+          - superscript [ref=f3e15]: "01"
+          - text: Home
+      - listitem [ref=f3e16]:
+        - link [ref=f3e17] [cursor=pointer]:
+          - /url: about.html
+          - superscript [ref=f3e18]: "02"
+          - text: About
+      - listitem [ref=f3e19]:
+        - link [ref=f3e20] [cursor=pointer]:
+          - /url: projects.html
+          - superscript [ref=f3e21]: "03"
+          - text: Work
+      - listitem [ref=f3e22]:
+        - link [ref=f3e23] [cursor=pointer]:
+          - /url: skills.html
+          - superscript [ref=f3e24]: "04"
+          - text: Stack
+      - listitem [ref=f3e25]:
+        - link [ref=f3e26] [cursor=pointer]:
+          - /url: experience.html
+          - superscript [ref=f3e27]: "05"
+          - text: Path
+      - listitem [ref=f3e28]:
+        - link [ref=f3e29] [cursor=pointer]:
+          - /url: contact.html
+          - superscript [ref=f3e30]: "06"
+          - text: Contact
+    - link "OPEN_TO_WORK" [ref=f3e31] [cursor=pointer]:
+      - /url: mailto:shubham.mallick1440@gmail.com
+  - generic [ref=f3e33]:
+    - generic [ref=f3e34]:
+      - generic [ref=f3e35]:
+        - generic [ref=f3e36]: // 03 // selected_work
+        - heading "Things I've built & shipped" [level=2] [ref=f3e37]
+      - generic [ref=f3e38]: CAROUSEL DISABLED —ONLY WHAT'S REAL · LIVE FROM API
+    - generic [ref=f3e39]:
+      - link "/01" [ref=f3e40] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e42]:
+        - link "Learnify Flagship AI study companion — Next.js frontend with a Python FastAPI backend (OpenRouter, Supabase, Razorpay)." [ref=f3e43] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e44]:
+            - text: Learnify
+            - generic [ref=f3e45]: Flagship
+          - paragraph [ref=f3e46]: AI study companion — Next.js frontend with a Python FastAPI backend (OpenRouter, Supabase, Razorpay).
+        - generic [ref=f3e47]:
+          - link "Next.js FastAPI RAG OpenRouter" [ref=f3e48] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e49]: Next.js
+            - generic [ref=f3e50]: FastAPI
+            - generic [ref=f3e51]: RAG
+            - generic [ref=f3e52]: OpenRouter
+          - link "GitHub →" [ref=f3e53] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e54]: SIGNAL.LIVE
+      - generic [ref=f3e56]: Live
+      - text: ↗
+      - link "/02" [ref=f3e58] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e60]:
+        - link "GRBS Flagship Grievance & record backend system with role-based access control." [ref=f3e61] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e62]:
+            - text: GRBS
+            - generic [ref=f3e63]: Flagship
+          - paragraph [ref=f3e64]: Grievance & record backend system with role-based access control.
+        - generic [ref=f3e65]:
+          - link "FastAPI PostgreSQL Auth" [ref=f3e66] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e67]: FastAPI
+            - generic [ref=f3e68]: PostgreSQL
+            - generic [ref=f3e69]: Auth
+          - link "GitHub →" [ref=f3e70] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e71]: SIGNAL.LIVE
+      - generic [ref=f3e73]: Live
+      - text: ↗
+      - link "/03" [ref=f3e75] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e77]:
+        - link "TalkBuzz Real-time chat and community backend built on WebSockets." [ref=f3e78] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e79]: TalkBuzz
+          - paragraph [ref=f3e80]: Real-time chat and community backend built on WebSockets.
+        - generic [ref=f3e81]:
+          - link "WebSockets FastAPI" [ref=f3e82] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e83]: WebSockets
+            - generic [ref=f3e84]: FastAPI
+          - link "GitHub →" [ref=f3e85] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e86]: SIGNAL.LIVE
+      - generic [ref=f3e88]: Live
+      - text: ↗
+      - link "/04" [ref=f3e90] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e92]:
+        - link "CUET AI Exam-prep assistant with LLM question generation." [ref=f3e93] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e94]: CUET AI
+          - paragraph [ref=f3e95]: Exam-prep assistant with LLM question generation.
+        - generic [ref=f3e96]:
+          - link "LLM Python" [ref=f3e97] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e98]: LLM
+            - generic [ref=f3e99]: Python
+          - link "GitHub →" [ref=f3e100] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e101]: SIGNAL.LIVE
+      - generic [ref=f3e103]: Live
+      - text: ↗
+      - link "/05" [ref=f3e105] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e107]:
+        - link "Guzu Content discovery / aggregator service." [ref=f3e108] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e109]: Guzu
+          - paragraph [ref=f3e110]: Content discovery / aggregator service.
+        - generic [ref=f3e111]:
+          - link "Python API" [ref=f3e112] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e113]: Python
+            - generic [ref=f3e114]: API
+          - link "GitHub →" [ref=f3e115] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e116]: SIGNAL.LIVE
+      - generic [ref=f3e118]: Live
+      - text: ↗
+      - link "/06" [ref=f3e120] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e122]:
+        - link "Heirloom Scents Luxury perfume-bar product site (Next.js 16 proof-of-concept)." [ref=f3e123] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e124]: Heirloom Scents
+          - paragraph [ref=f3e125]: Luxury perfume-bar product site (Next.js 16 proof-of-concept).
+        - generic [ref=f3e126]:
+          - link "Next.js Client" [ref=f3e127] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e128]: Next.js
+            - generic [ref=f3e129]: Client
+          - link "Site →" [ref=f3e130] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e131]: SIGNAL.LIVE
+      - generic [ref=f3e133]: Client
+      - text: ↗
+      - link "/07" [ref=f3e135] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e137]:
+        - link "NewsBuzz News aggregation with ML-based ranking." [ref=f3e138] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e139]: NewsBuzz
+          - paragraph [ref=f3e140]: News aggregation with ML-based ranking.
+        - generic [ref=f3e141]:
+          - link "Python ML" [ref=f3e142] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e143]: Python
+            - generic [ref=f3e144]: ML
+          - link "GitHub →" [ref=f3e145] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e146]: SIGNAL.LIVE
+      - generic [ref=f3e148]: Live
+      - text: ↗
+      - link "/08" [ref=f3e150] [cursor=pointer]:
+        - /url: https://github.com/shubham001312
+      - generic [ref=f3e152]:
+        - link "Reciprocity Peer-to-peer skill exchange platform (in progress)." [ref=f3e153] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+          - generic [ref=f3e154]: Reciprocity
+          - paragraph [ref=f3e155]: Peer-to-peer skill exchange platform (in progress).
+        - generic [ref=f3e156]:
+          - link "FastAPI React" [ref=f3e157] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+            - generic [ref=f3e158]: FastAPI
+            - generic [ref=f3e159]: React
+          - link "GitHub →" [ref=f3e160] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+      - generic [ref=f3e161]: SIGNAL.LIVE
+      - generic [ref=f3e163]: In Dev
+      - text: ↗
+      - link "/09 Project VEDA Planned AI platform — RAG + agents over private documents. RAG Agents Planned SIGNAL.LIVE Planned ↗" [ref=f3e165] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=f3e166]: /09
+        - generic [ref=f3e167]:
+          - generic [ref=f3e168]: Project VEDA
+          - paragraph [ref=f3e169]: Planned AI platform — RAG + agents over private documents.
+          - generic [ref=f3e170]:
+            - generic [ref=f3e171]: RAG
+            - generic [ref=f3e172]: Agents
+            - generic [ref=f3e173]: Planned
+        - generic [ref=f3e174]: SIGNAL.LIVE
+        - generic [ref=f3e176]: Planned
+        - generic [ref=f3e178]: ↗
+  - contentinfo [ref=f3e179]:
+    - generic [ref=f3e180]: MY·WORK
+    - generic [ref=f3e181]:
+      - generic [ref=f3e182]: © 2026 — ENGINEERED BY HAND, NO TEMPLATE
+      - generic [ref=f3e183]:
+        - link "GITHUB" [ref=f3e184] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - link "LINKEDIN" [ref=f3e185] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+        - link "EMAIL" [ref=f3e186] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+      - button "↑ TOP" [ref=f3e187] [cursor=pointer]

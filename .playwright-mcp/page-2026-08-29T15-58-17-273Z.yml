@@ -1,0 +1,91 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: SM://PORTFOLIO — V3.0_REBUILT
+    - generic [ref=e6]: 04%
+  - navigation [ref=e8]:
+    - link "SM Shubham Mallick Python · Backend · AI" [ref=e9] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=e10]: SM
+      - generic [ref=e11]:
+        - text: Shubham Mallick
+        - generic [ref=e12]: Python · Backend · AI
+    - list [ref=e13]:
+      - listitem [ref=e14]:
+        - link [ref=e15] [cursor=pointer]:
+          - /url: index.html
+          - superscript [ref=e16]: "01"
+          - text: Home
+      - listitem [ref=e17]:
+        - link [ref=e18] [cursor=pointer]:
+          - /url: about.html
+          - superscript [ref=e19]: "02"
+          - text: About
+      - listitem [ref=e20]:
+        - link [ref=e21] [cursor=pointer]:
+          - /url: projects.html
+          - superscript [ref=e22]: "03"
+          - text: Work
+      - listitem [ref=e23]:
+        - link [ref=e24] [cursor=pointer]:
+          - /url: skills.html
+          - superscript [ref=e25]: "04"
+          - text: Stack
+      - listitem [ref=e26]:
+        - link [ref=e27] [cursor=pointer]:
+          - /url: experience.html
+          - superscript [ref=e28]: "05"
+          - text: Path
+      - listitem [ref=e29]:
+        - link [ref=e30] [cursor=pointer]:
+          - /url: contact.html
+          - superscript [ref=e31]: "06"
+          - text: Contact
+    - link "OPEN_TO_WORK" [ref=e32] [cursor=pointer]:
+      - /url: mailto:shubham.mallick1440@gmail.com
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]: // 06 // contact
+        - heading "Open a channel" [level=2] [ref=e38]
+      - generic [ref=e39]: "RESPONSE TIME: < 24HTIMEZONE: UTC+05:30"
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - heading "Internship-ready. Production-hungry." [level=2] [ref=e42]: Internship-ready.Production-hungry.
+        - paragraph [ref=e43]: I'm targeting Python Developer, Backend, and AI/ML roles for 2025–2026. I learn by shipping — if your team builds real things, I want to build them with you.
+        - link "shubham.mallick1440@gmail.com →" [ref=e44] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+          - text: shubham.mallick1440@gmail.com
+          - generic [ref=e45]: →
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: Location
+            - generic [ref=e49]: North 24 Parganas, WB — India
+          - generic [ref=e50]:
+            - generic [ref=e51]: Local Time
+            - generic [ref=e52]: "--:--:--"
+          - generic [ref=e53]:
+            - generic [ref=e54]: GitHub
+            - link "github.com/shubham001312" [ref=e55] [cursor=pointer]:
+              - /url: https://github.com/shubham001312
+          - generic [ref=e56]:
+            - generic [ref=e57]: LinkedIn
+            - link "/in/shubham-mallick" [ref=e58] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+      - generic [ref=e59]:
+        - generic [ref=e60]: guest@shubham.dev — zsh
+        - generic [ref=e65]: ➜ ~ w
+        - generic [ref=e67]:
+          - generic [ref=e68]: ➜ ~
+          - 'textbox "type a command… (try: help)" [ref=e69]'
+  - contentinfo [ref=e70]:
+    - generic [ref=e71]: SAY·HI
+    - generic [ref=e72]:
+      - generic [ref=e73]: © 2026 — ENGINEERED BY HAND, NO TEMPLATE
+      - generic [ref=e74]:
+        - link "GITHUB" [ref=e75] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - link "LINKEDIN" [ref=e76] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+        - link "EMAIL" [ref=e77] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+      - button "↑ TOP" [ref=e78] [cursor=pointer]

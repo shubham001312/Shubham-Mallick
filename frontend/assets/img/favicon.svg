@@ -1,0 +1,31 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SASY favicon">
+  <defs>
+    <radialGradient id="fav-bg" cx="0.5" cy="0.38" r="0.65">
+      <stop offset="0" stop-color="#F3EEE3"/><stop offset="1" stop-color="#EDE5D6"/>
+    </radialGradient>
+    <filter id="fav-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Blue back shadow -->
+  <circle cx="32" cy="32" r="28" fill="#1E40AF" opacity="0.12" filter="url(#fav-glow)"/>
+  <!-- Egg-shaped body -->
+  <ellipse cx="32" cy="34" rx="24" ry="26" fill="url(#fav-bg)" stroke="#7A1F2B" stroke-width="1.5"/>
+  <!-- Antennae -->
+  <path d="M22 10 Q20 4 24 4" stroke="#7A1F2B" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M42 10 Q44 4 40 4" stroke="#7A1F2B" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Eyes -->
+  <circle cx="24" cy="28" r="5" fill="#fff" stroke="#7A1F2B" stroke-width="1.2"/>
+  <circle cx="40" cy="28" r="5" fill="#fff" stroke="#7A1F2B" stroke-width="1.2"/>
+  <circle cx="24" cy="28.5" r="2.2" fill="#2B1418"/>
+  <circle cx="40" cy="28.5" r="2.2" fill="#2B1418"/>
+  <!-- Brows -->
+  <path d="M20 22 Q24 20 28 22" stroke="#7A1F2B" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <path d="M44 22 Q40 20 36 22" stroke="#7A1F2B" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <!-- Mouth -->
+  <path d="M27 42 Q32 46 37 42" stroke="#7A1F2B" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <ellipse cx="21" cy="37" rx="3" ry="2" fill="rgba(200,16,46,0.22)"/>
+  <ellipse cx="43" cy="37" rx="3" ry="2" fill="rgba(200,16,46,0.22)"/>
+</svg>

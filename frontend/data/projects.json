@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Hosteler",
+    "status": "built",
+    "role": "Creator / Full-stack Developer",
+    "summary": "E-commerce platform for hostel students",
+    "desc": "An online shop built around hostel-student needs — essentials, wishlist, cart, student discounts and free delivery across India, plus web solutions for small businesses.",
+    "detail": "Hosteler is a live e-commerce platform tailored for hostel and student life. It offers a product catalogue (essentials, snacks, dorm gear), cart and wishlist, student-discount pricing, and free pan-India delivery, alongside a 'Web Solutions' arm that builds sites for small businesses. Shubham designed the data model, checkout/REST flows and deployment.",
+    "stack": ["Next.js", "React", "Node.js", "REST APIs", "PostgreSQL", "Vercel"],
+    "highlights": ["Hostel-essentials catalogue", "Cart + wishlist + student discounts", "Free pan-India delivery", "Web Solutions for small businesses"],
+    "link": "https://www.hosteler.shop/"
+  },
+  {
+    "title": "ChhayaTaru Cafe",
+    "status": "built",
+    "role": "Developer",
+    "summary": "Cafe website for a Howrah coffee house",
+    "desc": "A warm, bilingual cafe site for ChhayaTaru (Shibpur, Howrah) — menu, gallery, about, and table booking, tuned for local discovery.",
+    "detail": "ChhayaTaru Cafe's website showcases the cafe's menu, interiors and story, with online table-booking and directions. Built as a fast Next.js site with server-rendered images, bilingual (Bengali/English) copy and a booking flow, it helps a local Howrah cafe get discovered online.",
+    "stack": ["Next.js", "React", "Vercel", "Tailwind CSS"],
+    "highlights": ["Bilingual (Bengali / English)", "Online menu + gallery", "Table booking & directions", "4.7★ Google · 500+ reviews"],
+    "link": "https://chhayataru.vercel.app/"
+  },
+  {
+    "title": "Learnify",
+    "status": "built",
+    "role": "Founder / Lead Developer",
+    "flag": "Flagship",
+    "summary": "AI study companion for Indian students",
+    "desc": "Learnify brings college discovery, career guidance and scholarships to every Indian student, with multilingual AI (Veda) answering real questions in Hindi, English, Bengali & Tamil.",
+    "detail": "Learnify is Shubham's flagship AI product: an AI study companion for Indian students. It indexes 100+ colleges, tracks 40+ scholarships, and offers tools (quiz generator, resume builder, study planner, summarizer, SGPA tracker) — all powered by Veda, a multilingual LLM assistant with vector memory and RAG. Backend in FastAPI, auth/DB on Supabase, payments via Razorpay, frontend in Next.js.",
+    "stack": ["Next.js", "FastAPI", "Supabase", "OpenRouter LLMs", "RAG", "Vector DB", "Razorpay", "Multilingual AI"],
+    "highlights": ["100+ colleges · 40+ scholarships indexed", "Veda AI: Hindi / English / Bengali / Tamil", "Quiz, resume, planner & summarizer tools", "Supabase auth + Razorpay payments"],
+    "link": "https://learnify.hosteler.shop/"
+  },
+  {
+    "title": "Veda AI",
+    "status": "built",
+    "role": "AI Engineer",
+    "flag": "Flagship",
+    "summary": "Multilingual AI study companion (inside Learnify)",
+    "desc": "Veda is the AI behind Learnify — a 24/7 study companion that answers college, career and scholarship questions in Hindi, English, Bengali & Tamil, with the student's own marks and goals in context.",
+    "detail": "Veda AI is the conversational brain inside Learnify. It uses LLMs with RAG and vector memory to give personalised, multilingual guidance on colleges, careers, scholarships and study planning, respecting each student's marks and goals. Built with FastAPI + OpenRouter models + embeddings; free core with a Pro tier.",
+    "stack": ["FastAPI", "LLMs", "RAG", "Embeddings", "Vector Memory", "Multilingual AI"],
+    "highlights": ["24/7 personalised study help", "RAG + vector memory", "Hindi / English / Bengali / Tamil", "Free core + Pro tier"],
+    "link": "https://learnify.hosteler.shop/#veda"
+  },
+  {
+    "title": "Reciprocity",
+    "status": "built",
+    "role": "Developer",
+    "summary": "Academic accountability register",
+    "desc": "An academic accountability register that helps students commit to and track goals publicly with peers — turning intent into measured progress.",
+    "detail": "Reciprocity is an Academic Accountability Register: a web app where students log commitments and track follow-through, adding a light social/peer layer of accountability to studying. Deployed live on Render.",
+    "stack": ["Flask", "Python", "SQLite", "Render", "HTML / CSS / JS"],
+    "highlights": ["Commitment & goal logging", "Peer accountability layer", "Live on Render"],
+    "link": "https://reciprocity-live.onrender.com/"
+  },
+  {
+    "title": "GRBS",
+    "status": "built",
+    "role": "Creator",
+    "summary": "GPT Roadmap tracker by Shubham",
+    "desc": "GRBS (GPT Roadmap By Shubham) is a personal roadmap & progress tracker — dashboard, roadmap, projects, progress, goals, DSA track and company prep, saved locally.",
+    "detail": "GRBS is a self-contained roadmap and progress tracker. It gives a Dashboard plus Roadmap, Projects, Progress, Goals, DSA Track and Companies sections to plan and measure prep, persisting everything offline in the browser. Built as a lightweight web app.",
+    "stack": ["JavaScript", "HTML / CSS", "LocalStorage", "Web App"],
+    "highlights": ["Dashboard + Roadmap + Progress", "DSA Track & Companies prep", "Offline local persistence", "Lightweight, no backend"],
+    "link": "https://shubham001312.github.io/GRBS/"
+  }
+]

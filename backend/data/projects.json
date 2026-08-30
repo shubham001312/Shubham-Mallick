@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Learnify",
+    "status": "built",
+    "desc": "AI study companion — Next.js frontend with a Python FastAPI backend (OpenRouter, Supabase, Razorpay).",
+    "tags": ["Next.js", "FastAPI", "RAG", "OpenRouter"],
+    "links": [{ "label": "GitHub", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "GRBS",
+    "status": "built",
+    "desc": "Grievance & record backend system with role-based access control.",
+    "tags": ["FastAPI", "PostgreSQL", "Auth"],
+    "links": [{ "label": "GitHub", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "TalkBuzz",
+    "status": "built",
+    "desc": "Real-time chat and community backend built on WebSockets.",
+    "tags": ["WebSockets", "FastAPI"],
+    "links": [{ "label": "GitHub", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "CUET AI",
+    "status": "built",
+    "desc": "Exam-prep assistant with LLM question generation.",
+    "tags": ["LLM", "Python"],
+    "links": [{ "label": "GitHub", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "Guzu",
+    "status": "built",
+    "desc": "Content discovery / aggregator service.",
+    "tags": ["Python", "API"],
+    "links": [{ "label": "GitHub", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "Heirloom Scents",
+    "status": "client",
+    "desc": "Luxury perfume-bar product site (Next.js 16 proof-of-concept).",
+    "tags": ["Next.js", "Client"],
+    "links": [{ "label": "Site", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "NewsBuzz",
+    "status": "built",
+    "desc": "News aggregation with ML-based ranking.",
+    "tags": ["Python", "ML"],
+    "links": [{ "label": "GitHub", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "Reciprocity",
+    "status": "progress",
+    "desc": "Peer-to-peer skill exchange platform (in progress).",
+    "tags": ["FastAPI", "React"],
+    "links": [{ "label": "GitHub", "url": "https://github.com/shubham001312" }]
+  },
+  {
+    "title": "Project VEDA",
+    "status": "planned",
+    "desc": "Planned AI platform — RAG + agents over private documents.",
+    "tags": ["RAG", "Agents", "Planned"],
+    "links": []
+  }
+]

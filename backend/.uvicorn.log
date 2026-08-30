@@ -1,0 +1,490 @@
+INFO:     127.0.0.1:50832 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59634 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59634 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57699 - "GET /contact.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57699 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56262 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57699 - "GET /assets/js/main.js?v=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50288 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54128 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54128 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57899 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54128 - "GET /assets/js/three.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57899 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52576 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52576 - "GET /contact.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52576 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61680 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52576 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64316 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49264 - "GET /contact.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60199 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49264 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63694 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62984 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62984 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62984 - "GET /contact.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50578 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62984 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54661 - "GET /contact.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54661 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58291 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54661 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54661 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58291 - "GET /assets/js/three.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54661 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54661 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55015 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55015 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55015 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55015 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55015 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55015 - "GET /about.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55015 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55015 - "GET /projects.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55015 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55015 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54315 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+      INFO:     127.0.0.1:61166 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61166 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60008 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61166 - "GET /assets/js/three.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60008 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59965 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59965 - "GET /about.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59965 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59965 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51377 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51377 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53129 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53129 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+  INFO:     127.0.0.1:58019 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58019 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58019 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58019 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62211 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62211 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55071 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62211 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59626 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59626 - "GET /about.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59626 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59626 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59626 - "GET /contact.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59626 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59626 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59450 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+ INFO:     127.0.0.1:58337 - "GET /assets/js/main.js?v=3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60647 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60647 - "GET /assets/css/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58169 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60647 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58169 - "GET /assets/js/main.js?v=6 HTTP/1.1" 200 OK
+ INFO:     127.0.0.1:61959 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+ INFO:     127.0.0.1:62673 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62673 - "GET /assets/css/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62673 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62673 - "GET /assets/js/three.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62673 - "GET /assets/js/main.js?v=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50238 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64599 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64599 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54888 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58086 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61181 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61181 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50416 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61181 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60525 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60525 - "GET /assets/css/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60525 - "GET /assets/img/sasy.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62800 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62800 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56278 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63578 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57899 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61824 - "GET /assets/img/sasy.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56666 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54245 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54245 - "GET /assets/img/favicon.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54530 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62522 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62522 - "GET /assets/css/styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62522 - "GET /assets/img/sasy.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55255 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55255 - "GET /assets/js/main.js?v=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55255 - "GET /assets/img/favicon.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61313 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63866 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50216 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50270 - "GET /assets/img/sasy.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61838 - "GET /assets/js/main.js?v=6 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60510 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60510 - "GET /assets/img/favicon.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53345 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57163 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57163 - "GET /assets/css/styles.css?v=7 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57163 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57163 - "GET /assets/img/sasy.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57163 - "GET /assets/js/main.js?v=7 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51233 - "GET /about.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51233 - "GET /assets/css/styles.css?v=7 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61032 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51932 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51932 - "GET /assets/css/styles.css?v=7 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51932 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51932 - "GET /assets/img/sasy.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51932 - "GET /assets/js/main.js?v=7 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52670 - "GET /assets/img/favicon.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60384 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60384 - "GET /assets/css/styles.css?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51856 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60384 - "GET /assets/js/three.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51856 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60384 - "GET /assets/js/main.js?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60384 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58261 - "GET /assets/js/main.js?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50790 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50790 - "GET /assets/img/favicon.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50790 - "GET /about.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59177 - "GET /assets/js/main.js?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50790 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50790 - "GET /assets/js/main.js?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59177 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57560 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57560 - "GET /assets/css/styles.css?v=9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52321 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50151 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52321 - "GET /assets/js/main.js?v=9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52321 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52935 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52935 - "GET /assets/css/styles.css?v=9 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52935 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52935 - "GET /about.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61632 - "GET /assets/js/main.js?v=9 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52935 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52935 - "GET /projects.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61632 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52935 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52935 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52935 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61632 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52935 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52935 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52935 - "GET /assets/css/styles.css?v=9 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61632 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61632 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56806 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56806 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56806 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63432 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56806 - "GET /assets/js/main.js?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56806 - "GET /assets/js/three.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56806 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63432 - "GET /sw.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63432 - "GET /about.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63432 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63432 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63432 - "GET /projects.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56721 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63432 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63432 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56721 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63432 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63432 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63432 - "GET /skills.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63432 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56721 - "GET /api/skills HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56721 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56721 - "GET /contact.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56721 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56721 - "GET /experience.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56721 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56721 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56721 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56721 - "GET /about.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56721 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56721 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56721 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63432 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56721 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56721 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54288 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /assets/js/main.js?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /about.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54288 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56332 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56332 - "GET /skills.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56332 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54288 - "GET /api/skills HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54288 - "GET /experience.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54288 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54288 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55732 - "GET /experience.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55732 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55732 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55732 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55732 - "GET /assets/js/main.js?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55732 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55732 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59698 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54322 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /about.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54322 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54322 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59698 - "GET /skills.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54322 - "GET /api/skills HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54322 - "GET /experience.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54322 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59698 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59698 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62166 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62166 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62166 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63030 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51501 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /assets/js/main.js?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /about.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63030 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51501 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63030 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63030 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63030 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63030 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63030 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51501 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63030 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51148 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51148 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51148 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51501 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63030 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63030 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51501 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63030 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51148 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51148 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51148 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51148 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51148 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50948 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51148 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51148 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51148 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51148 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /assets/js/main.js?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62640 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50948 - "GET /assets/js/main.js?v=11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50948 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52902 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52902 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50948 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52902 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52902 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52902 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50948 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50948 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50948 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50948 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50948 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64743 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50948 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64743 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64743 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64743 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64743 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50959 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50959 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50959 - "GET /assets/css/styles.css?v=11 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50959 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62682 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62682 - "GET /assets/css/styles.css?v=12 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55390 - "GET /assets/js/main.js?v=13 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /sw.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62073 - "GET /projects.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62073 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62073 - "GET /assets/js/main.js?v=13 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62073 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62073 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62073 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63506 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62073 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63506 - "GET /assets/css/styles.css?v=12 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63506 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63218 - "GET /experience.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63218 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63218 - "GET /assets/js/main.js?v=13 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63218 - "GET /skills.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63218 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63533 - "GET /api/skills HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63533 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63533 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63218 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63533 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63533 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53859 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49853 - "GET /assets/css/styles.css?v=12 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50441 - "GET /assets/js/main.js?v=13 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53859 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53859 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53859 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56714 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56714 - "GET /assets/css/styles.css?v=12 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56714 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51032 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56714 - "GET /assets/js/main.js?v=13 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56714 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51032 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51032 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57699 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57699 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57699 - "GET /about.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57699 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57699 - "GET /projects.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57699 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50774 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50774 - "GET /assets/img/profile.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57699 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57699 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49247 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /assets/css/styles.css?v=19 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62767 - "GET /assets/img/profile.jpg?v=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62767 - "GET /assets/js/main.js?v=18 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62767 - "GET /assets/js/three.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62767 - "GET /sw.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62767 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62767 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52023 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52023 - "GET /assets/css/styles.css?v=19 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63797 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52023 - "GET /assets/js/main.js?v=18 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52023 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52023 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52023 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52023 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52023 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61785 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61785 - "GET /assets/img/sasy.svg?v=8 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61785 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55512 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55512 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53196 - "GET /assets/js/main.js?v=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53196 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50558 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53106 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53106 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51933 - "GET /assets/img/profile.jpg?v=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51933 - "GET /assets/js/main.js?v=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51933 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51933 - "GET /assets/img/favicon.svg?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58021 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58021 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58021 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58021 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58021 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59760 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59760 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55941 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55941 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62366 - "GET /assets/js/main.js?v=20 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62366 - "GET /assets/img/favicon.svg?v=9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62366 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59080 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59080 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59080 - "GET /assets/img/profile.jpg?v=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59080 - "GET /assets/js/main.js?v=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59080 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59080 - "GET /assets/img/favicon.svg?v=9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50445 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50445 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53357 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53357 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53357 - "GET /assets/img/profile.jpg?v=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53357 - "GET /assets/js/main.js?v=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53357 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53357 - "GET /assets/img/favicon.svg?v=9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53357 - "GET /sw.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51410 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51410 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51410 - "GET /assets/img/profile.jpg?v=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51410 - "GET /assets/js/main.js?v=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51410 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51410 - "GET /assets/img/favicon.svg?v=9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64086 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64086 - "GET /assets/css/styles.css?v=21 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64086 - "GET /assets/img/profile.jpg?v=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64086 - "GET /assets/js/main.js?v=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64086 - "GET /assets/js/three.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64086 - "GET /assets/img/favicon.svg?v=9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49672 - "POST /api/chat HTTP/1.1" 200 OK

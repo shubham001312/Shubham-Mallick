@@ -1,0 +1,163 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: SM://PORTFOLIO — V3.0_REBUILT
+    - generic [ref=e6]: 06%
+  - navigation [ref=e8]:
+    - link "SM Shubham Mallick Python · Backend · AI" [ref=e9] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=e10]: SM
+      - generic [ref=e11]:
+        - text: Shubham Mallick
+        - generic [ref=e12]: Python · Backend · AI
+    - link "OPEN_TO_WORK" [ref=e13] [cursor=pointer]:
+      - /url: mailto:shubham.mallick1440@gmail.com
+  - banner [ref=e15]:
+    - generic: "LOCAL: --:--:-- ISTSTATUS: ONLINE"
+    - generic [ref=e17]:
+      - generic [ref=e18]: Available — Internships 2025 / 26
+      - heading "Python backend × applied intelligence, shipped — not just built" [level=1] [ref=e20]
+      - paragraph [ref=e22]:
+        - text: B.Tech CSE (AI) student engineering
+        - strong [ref=e23]: production-grade
+        - text: FastAPI services, RAG pipelines and LLM products that survive real users. West Bengal, India — working worldwide.
+      - generic [ref=e24]:
+        - link "./view_work →" [ref=e25] [cursor=pointer]:
+          - /url: projects.html
+          - text: ./view_work
+          - generic [ref=e26]: →
+        - link "shubham.mallick1440@gmail.com" [ref=e27] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+    - generic [ref=e28]: Scroll
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - text: "0"
+        - emphasis [ref=e33]: +
+      - generic [ref=e34]: Projects Engineered
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - text: "0"
+        - emphasis [ref=e37]: /12
+      - generic [ref=e38]: Deployed & Live
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - emphasis [ref=e41]: "'"
+        - text: 0–
+        - emphasis [ref=e42]: "'"
+        - text: "29"
+      - generic [ref=e43]: B.Tech CSE (AI)
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - text: "0"
+        - emphasis [ref=e46]: "%"
+      - generic [ref=e47]: Shipped, Not Shelved
+  - generic [ref=e48]:
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e51]: // 01 // capabilities
+        - heading "Three ways I create value" [level=2] [ref=e52]
+      - generic [ref=e53]: BACKEND-FIRSTAI-NATIVE · PRODUCTION-MINDED
+    - generic [ref=e54]:
+      - article [ref=e55]:
+        - generic [ref=e56]: CAP.001
+        - heading "Backend Engineering" [level=3] [ref=e61]
+        - paragraph [ref=e62]: FastAPI services with clean architecture — auth, ORM, migrations, async workers, tests. The plumbing that makes AI features actually usable by real people.
+        - generic [ref=e63]:
+          - generic [ref=e64]: FastAPI
+          - generic [ref=e65]: PostgreSQL
+          - generic [ref=e66]: SQLAlchemy
+          - generic [ref=e67]: REST
+          - generic [ref=e68]: pytest
+      - article [ref=e71]:
+        - generic [ref=e72]: CAP.002
+        - heading "Applied AI & LLM Systems" [level=3] [ref=e78]
+        - paragraph [ref=e79]: RAG pipelines, embeddings, vector stores, agents and eval loops. Models treated as engineered systems with latency budgets — not demo notebooks.
+        - generic [ref=e80]:
+          - generic [ref=e81]: RAG
+          - generic [ref=e82]: LLMs
+          - generic [ref=e83]: Embeddings
+          - generic [ref=e84]: LangChain
+          - generic [ref=e85]: Agents
+      - article [ref=e88]:
+        - generic [ref=e89]: CAP.003
+        - heading "Ship-to-Production Mindset" [level=3] [ref=e94]
+        - paragraph [ref=e95]: Docker, CI, deployment, monitoring and docs. I optimize for "someone else can run this" — projects that leave my machine and stay alive.
+        - generic [ref=e96]:
+          - generic [ref=e97]: Docker
+          - generic [ref=e98]: CI/CD
+          - generic [ref=e99]: Supabase
+          - generic [ref=e100]: Vercel
+          - generic [ref=e101]: Git
+  - generic [ref=e105]:
+    - generic [ref=e106]:
+      - text: PYTHON
+      - generic [ref=e107]: ◆
+    - generic [ref=e108]:
+      - text: FASTAPI
+      - generic [ref=e109]: ◆
+    - generic [ref=e110]:
+      - text: RAG PIPELINES
+      - generic [ref=e111]: ◆
+    - generic [ref=e112]:
+      - text: POSTGRESQL
+      - generic [ref=e113]: ◆
+    - generic [ref=e114]:
+      - text: LLM AGENTS
+      - generic [ref=e115]: ◆
+    - generic [ref=e116]:
+      - text: NEXT.JS
+      - generic [ref=e117]: ◆
+    - generic [ref=e118]:
+      - text: DOCKER
+      - generic [ref=e119]: ◆
+    - generic [ref=e120]:
+      - text: LANGCHAIN
+      - generic [ref=e121]: ◆
+    - generic [ref=e122]:
+      - text: SUPABASE
+      - generic [ref=e123]: ◆
+    - generic [ref=e124]:
+      - text: EMBEDDINGS
+      - generic [ref=e125]: ◆
+    - generic [ref=e126]:
+      - text: PYTHON
+      - generic [ref=e127]: ◆
+    - generic [ref=e128]:
+      - text: FASTAPI
+      - generic [ref=e129]: ◆
+    - generic [ref=e130]:
+      - text: RAG PIPELINES
+      - generic [ref=e131]: ◆
+    - generic [ref=e132]:
+      - text: POSTGRESQL
+      - generic [ref=e133]: ◆
+    - generic [ref=e134]:
+      - text: LLM AGENTS
+      - generic [ref=e135]: ◆
+    - generic [ref=e136]:
+      - text: NEXT.JS
+      - generic [ref=e137]: ◆
+    - generic [ref=e138]:
+      - text: DOCKER
+      - generic [ref=e139]: ◆
+    - generic [ref=e140]:
+      - text: LANGCHAIN
+      - generic [ref=e141]: ◆
+    - generic [ref=e142]:
+      - text: SUPABASE
+      - generic [ref=e143]: ◆
+    - generic [ref=e144]:
+      - text: EMBEDDINGS
+      - generic [ref=e145]: ◆
+  - contentinfo [ref=e146]:
+    - generic [ref=e147]: SHUBHAM·MALLICK
+    - generic [ref=e148]:
+      - generic [ref=e149]: © 2026 — ENGINEERED BY HAND, NO TEMPLATE
+      - generic [ref=e150]:
+        - link "GITHUB" [ref=e151] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - link "LINKEDIN" [ref=e152] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+        - link "EMAIL" [ref=e153] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+      - button "↑ TOP" [ref=e154] [cursor=pointer]

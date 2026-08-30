@@ -1,0 +1,7 @@
+[     327ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8000/assets/img/profile.jpg:0
+[     413ms] Unexpected token ')'
+[   67571ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8000/assets/img/profile.jpg:0
+[   76972ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8000/assets/js/main.js?v=4:630
+[   76972ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8000/assets/js/main.js?v=4:630
+[   76972ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8000/assets/js/main.js?v=4:630
+[   78379ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8000/assets/img/profile.jpg:0

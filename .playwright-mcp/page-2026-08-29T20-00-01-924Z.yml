@@ -1,0 +1,197 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: "> initializing core renderer [OK]"
+      - generic [ref=e5]: "> mounting /projects — 4 entries [OK]"
+      - generic [ref=e6]: "> loading neural_core.obj — 2400 pts [OK]"
+      - generic [ref=e7]: "> auth: guest session granted [OK]"
+    - generic [ref=e8]:
+      - generic [ref=e9]: SM://PORTFOLIO — V3.0_REBUILT
+      - generic [ref=e10]: 74%
+  - navigation [ref=e12]:
+    - link "SM Shubham Mallick Python · Backend · AI" [ref=e13] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=e14]: SM
+      - generic [ref=e16]:
+        - text: Shubham Mallick
+        - generic [ref=e17]: Python · Backend · AI
+    - list [ref=e18]:
+      - listitem [ref=e19]:
+        - link "Home" [ref=e20] [cursor=pointer]:
+          - /url: index.html
+      - listitem [ref=e21]:
+        - link "About" [ref=e22] [cursor=pointer]:
+          - /url: about.html
+      - listitem [ref=e23]:
+        - link "Work" [ref=e24] [cursor=pointer]:
+          - /url: projects.html
+      - listitem [ref=e25]:
+        - link "Stack" [ref=e26] [cursor=pointer]:
+          - /url: skills.html
+      - listitem [ref=e27]:
+        - link "Path" [ref=e28] [cursor=pointer]:
+          - /url: experience.html
+      - listitem [ref=e29]:
+        - link "Contact" [ref=e30] [cursor=pointer]:
+          - /url: contact.html
+    - link "OPEN_TO_WORK" [ref=e31] [cursor=pointer]:
+      - /url: mailto:shubham.mallick1440@gmail.com
+  - banner [ref=e33]:
+    - generic: "LOCAL: --:--:-- ISTSTATUS: ONLINE"
+    - generic [ref=e35]:
+      - generic [ref=e36]: Available — Internships 2025 / 26
+      - heading "Python backend × applied intelligence, shipped — not just built" [level=1] [ref=e38]
+      - paragraph [ref=e40]:
+        - text: B.Tech CSE (AI) student engineering
+        - strong [ref=e41]: production-grade
+        - text: FastAPI services, RAG pipelines and LLM products that survive real users. West Bengal, India — working worldwide.
+      - generic [ref=e42]:
+        - link "./view_work →" [ref=e43] [cursor=pointer]:
+          - /url: projects.html
+          - text: ./view_work
+          - generic [ref=e44]: →
+        - link "shubham.mallick1440@gmail.com" [ref=e45] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+    - generic [ref=e46]: Scroll
+  - generic [ref=e48]:
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - text: "0"
+        - emphasis [ref=e51]: +
+      - generic [ref=e52]: Projects Engineered
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - text: "0"
+        - emphasis [ref=e55]: /12
+      - generic [ref=e56]: Deployed & Live
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - emphasis [ref=e59]: "'"
+        - text: 0–
+        - emphasis [ref=e60]: "'"
+        - text: "29"
+      - generic [ref=e61]: B.Tech CSE (AI)
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - text: "0"
+        - emphasis [ref=e64]: "%"
+      - generic [ref=e65]: Shipped, Not Shelved
+  - generic [ref=e66]:
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e69]: // 01 // capabilities
+        - heading "Three ways I create value" [level=2] [ref=e70]
+      - generic [ref=e71]: BACKEND-FIRSTAI-NATIVE · PRODUCTION-MINDED
+    - generic [ref=e72]:
+      - article [ref=e73]:
+        - generic [ref=e74]: CAP.001
+        - heading "Backend Engineering" [level=3] [ref=e79]
+        - paragraph [ref=e80]: FastAPI services with clean architecture — auth, ORM, migrations, async workers, tests. The plumbing that makes AI features actually usable by real people.
+        - generic [ref=e81]:
+          - generic [ref=e82]: FastAPI
+          - generic [ref=e83]: PostgreSQL
+          - generic [ref=e84]: SQLAlchemy
+          - generic [ref=e85]: REST
+          - generic [ref=e86]: pytest
+      - article [ref=e89]:
+        - generic [ref=e90]: CAP.002
+        - heading "Applied AI & LLM Systems" [level=3] [ref=e96]
+        - paragraph [ref=e97]: RAG pipelines, embeddings, vector stores, agents and eval loops. Models treated as engineered systems with latency budgets — not demo notebooks.
+        - generic [ref=e98]:
+          - generic [ref=e99]: RAG
+          - generic [ref=e100]: LLMs
+          - generic [ref=e101]: Embeddings
+          - generic [ref=e102]: LangChain
+          - generic [ref=e103]: Agents
+      - article [ref=e106]:
+        - generic [ref=e107]: CAP.003
+        - heading "Ship-to-Production Mindset" [level=3] [ref=e112]
+        - paragraph [ref=e113]: Docker, CI, deployment, monitoring and docs. I optimize for "someone else can run this" — projects that leave my machine and stay alive.
+        - generic [ref=e114]:
+          - generic [ref=e115]: Docker
+          - generic [ref=e116]: CI/CD
+          - generic [ref=e117]: Supabase
+          - generic [ref=e118]: Vercel
+          - generic [ref=e119]: Git
+  - generic [ref=e122]:
+    - generic [ref=e123]:
+      - generic [ref=e124]:
+        - generic [ref=e125]: // 02 // selected_work
+        - heading "Things I've built & shipped" [level=2] [ref=e126]
+      - generic [ref=e127]: LIVE FROM API ·CLICK A CARD FOR DETAILS
+    - paragraph [ref=e129]: Projects are taking a breather — check back soon.
+  - generic [ref=e131]:
+    - generic [ref=e132]:
+      - text: PYTHON
+      - generic [ref=e133]: ◆
+    - generic [ref=e134]:
+      - text: FASTAPI
+      - generic [ref=e135]: ◆
+    - generic [ref=e136]:
+      - text: RAG PIPELINES
+      - generic [ref=e137]: ◆
+    - generic [ref=e138]:
+      - text: POSTGRESQL
+      - generic [ref=e139]: ◆
+    - generic [ref=e140]:
+      - text: LLM AGENTS
+      - generic [ref=e141]: ◆
+    - generic [ref=e142]:
+      - text: NEXT.JS
+      - generic [ref=e143]: ◆
+    - generic [ref=e144]:
+      - text: DOCKER
+      - generic [ref=e145]: ◆
+    - generic [ref=e146]:
+      - text: LANGCHAIN
+      - generic [ref=e147]: ◆
+    - generic [ref=e148]:
+      - text: SUPABASE
+      - generic [ref=e149]: ◆
+    - generic [ref=e150]:
+      - text: EMBEDDINGS
+      - generic [ref=e151]: ◆
+    - generic [ref=e152]:
+      - text: PYTHON
+      - generic [ref=e153]: ◆
+    - generic [ref=e154]:
+      - text: FASTAPI
+      - generic [ref=e155]: ◆
+    - generic [ref=e156]:
+      - text: RAG PIPELINES
+      - generic [ref=e157]: ◆
+    - generic [ref=e158]:
+      - text: POSTGRESQL
+      - generic [ref=e159]: ◆
+    - generic [ref=e160]:
+      - text: LLM AGENTS
+      - generic [ref=e161]: ◆
+    - generic [ref=e162]:
+      - text: NEXT.JS
+      - generic [ref=e163]: ◆
+    - generic [ref=e164]:
+      - text: DOCKER
+      - generic [ref=e165]: ◆
+    - generic [ref=e166]:
+      - text: LANGCHAIN
+      - generic [ref=e167]: ◆
+    - generic [ref=e168]:
+      - text: SUPABASE
+      - generic [ref=e169]: ◆
+    - generic [ref=e170]:
+      - text: EMBEDDINGS
+      - generic [ref=e171]: ◆
+  - contentinfo [ref=e172]:
+    - generic [ref=e173]: SHUBHAM·MALLICK
+    - generic [ref=e174]:
+      - generic [ref=e175]: © 2026 — ENGINEERED BY HAND, NO TEMPLATE
+      - generic [ref=e176]:
+        - link "GITHUB" [ref=e177] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - link "LINKEDIN" [ref=e178] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+        - link "EMAIL" [ref=e179] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+      - button "↑ TOP" [ref=e180] [cursor=pointer]
+  - button "Chat with SASY" [ref=e181]:
+    - img "SASY" [ref=e182]

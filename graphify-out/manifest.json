@@ -1,0 +1,74 @@
+{
+  "backend/chat_core.py": {
+    "mtime": 1788023823.0857704,
+    "seen": 1788028979.1038342,
+    "ast_hash": "b991a2b498232bfcfb86706b984e8b62",
+    "semantic_hash": "b991a2b498232bfcfb86706b984e8b62"
+  },
+  "backend/data/projects.json": {
+    "mtime": 1788015629.079672,
+    "seen": 1788028979.1038394,
+    "ast_hash": "1d4db2e95db2ec1d4e9ebb8e24557e73",
+    "semantic_hash": "1d4db2e95db2ec1d4e9ebb8e24557e73"
+  },
+  "backend/data/skills.json": {
+    "mtime": 1788015637.2434444,
+    "seen": 1788028979.103842,
+    "ast_hash": "1504c8f97fad31affc37b8b9aefd382a",
+    "semantic_hash": "1504c8f97fad31affc37b8b9aefd382a"
+  },
+  "backend/db.py": {
+    "mtime": 1788022629.6489594,
+    "seen": 1788028979.1038437,
+    "ast_hash": "c3d88430b2d428749bc2717429c83e7c",
+    "semantic_hash": "c3d88430b2d428749bc2717429c83e7c"
+  },
+  "backend/main.py": {
+    "mtime": 1788022375.6305783,
+    "seen": 1788028979.1038451,
+    "ast_hash": "74e7b25496b6bab6e77c3225c9f69aa7",
+    "semantic_hash": "74e7b25496b6bab6e77c3225c9f69aa7"
+  },
+  "backend/rag.py": {
+    "mtime": 1788022614.2474732,
+    "seen": 1788028979.1038465,
+    "ast_hash": "10da10d6abee7fc81badeb0a0a6b8e2e",
+    "semantic_hash": "10da10d6abee7fc81badeb0a0a6b8e2e"
+  },
+  "frontend/api/index.py": {
+    "mtime": 1788027309.8987336,
+    "seen": 1788028979.1038485,
+    "ast_hash": "1f0768d27cb47879385dbcd03df72679",
+    "semantic_hash": "1f0768d27cb47879385dbcd03df72679"
+  },
+  "frontend/assets/js/main.js": {
+    "mtime": 1788028369.18934,
+    "seen": 1788028979.1038494,
+    "ast_hash": "af477db48e1a9f238534e7b6d1f9a52a",
+    "semantic_hash": "af477db48e1a9f238534e7b6d1f9a52a"
+  },
+  "frontend/assets/js/three.min.js": {
+    "mtime": 1788018432.047489,
+    "seen": 1788028979.103851,
+    "ast_hash": "d1ffa1b39a104e31f94556806938780f",
+    "semantic_hash": "d1ffa1b39a104e31f94556806938780f"
+  },
+  "frontend/data/projects.json": {
+    "mtime": 1788027221.0967004,
+    "seen": 1788028979.1038525,
+    "ast_hash": "7bc281c9e5cd50b688f2024f9ce47684",
+    "semantic_hash": "7bc281c9e5cd50b688f2024f9ce47684"
+  },
+  "frontend/data/skills.json": {
+    "mtime": 1788027276.6116192,
+    "seen": 1788028979.103854,
+    "ast_hash": "535fff8e3e64392d16b7d4f665a06aee",
+    "semantic_hash": "535fff8e3e64392d16b7d4f665a06aee"
+  },
+  "src/assets/js/main.js": {
+    "mtime": 1788013054.2792099,
+    "seen": 1788028979.1038556,
+    "ast_hash": "0725ae346220a709a9d862466002d6c3",
+    "semantic_hash": "0725ae346220a709a9d862466002d6c3"
+  }
+}

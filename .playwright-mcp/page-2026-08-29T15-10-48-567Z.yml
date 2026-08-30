@@ -1,0 +1,154 @@
+- generic [active] [ref=f11e1]:
+  - link "Skip to content" [ref=f11e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f11e3]:
+    - generic [ref=f11e4]:
+      - link "SM Shubham Mallick Backend & AI Dev" [ref=f11e5] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f11e6]: SM
+        - generic [ref=f11e7]: Shubham MallickBackend & AI Dev
+      - navigation "Primary" [ref=f11e8]:
+        - link "Home" [ref=f11e9] [cursor=pointer]:
+          - /url: index.html
+        - link "About" [ref=f11e10] [cursor=pointer]:
+          - /url: about.html
+        - link "Projects" [ref=f11e11] [cursor=pointer]:
+          - /url: projects.html
+        - link "Skills" [ref=f11e12] [cursor=pointer]:
+          - /url: skills.html
+        - link "Experience" [ref=f11e13] [cursor=pointer]:
+          - /url: experience.html
+        - link "Contact" [ref=f11e14] [cursor=pointer]:
+          - /url: contact.html
+      - generic [ref=f11e15]:
+        - link "GitHub" [ref=f11e16] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - button "Toggle theme" [ref=f11e19] [cursor=pointer]
+  - main [ref=f11e23]:
+    - generic [ref=f11e25]:
+      - generic [ref=f11e26]:
+        - generic [ref=f11e27]: Work
+        - heading "Projects" [level=2] [ref=f11e29]
+        - paragraph [ref=f11e30]: Backend, AI and full-stack builds. Filter by status — data is served live from the FastAPI backend.
+      - generic [ref=f11e31]:
+        - generic [ref=f11e32]:
+          - generic [ref=f11e33]: "9"
+          - generic [ref=f11e34]: Total
+        - generic [ref=f11e35]:
+          - generic [ref=f11e36]: "6"
+          - generic [ref=f11e37]: Built
+        - generic [ref=f11e38]:
+          - generic [ref=f11e39]: "1"
+          - generic [ref=f11e40]: In Progress
+        - generic [ref=f11e41]:
+          - generic [ref=f11e42]: "1"
+          - generic [ref=f11e43]: Planned
+      - tablist "Filter projects" [ref=f11e44]:
+        - button "All" [ref=f11e45] [cursor=pointer]
+        - button "Built" [ref=f11e46] [cursor=pointer]
+        - button "In Progress" [ref=f11e47] [cursor=pointer]
+        - button "Planned" [ref=f11e48] [cursor=pointer]
+        - button "Client" [ref=f11e49] [cursor=pointer]
+      - generic [ref=f11e50]:
+        - article [ref=f11e51]:
+          - generic [ref=f11e52]:
+            - heading "Learnify" [level=3] [ref=f11e53]
+            - generic [ref=f11e54]: Built
+          - paragraph [ref=f11e55]: AI study companion — Next.js frontend with a Python FastAPI backend (OpenRouter, Supabase, Razorpay).
+          - generic [ref=f11e56]:
+            - generic [ref=f11e57]: Next.js
+            - generic [ref=f11e58]: FastAPI
+            - generic [ref=f11e59]: RAG
+            - generic [ref=f11e60]: OpenRouter
+          - link "GitHub →" [ref=f11e62] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e63]:
+          - generic [ref=f11e64]:
+            - heading "GRBS" [level=3] [ref=f11e65]
+            - generic [ref=f11e66]: Built
+          - paragraph [ref=f11e67]: Grievance & record backend system with role-based access control.
+          - generic [ref=f11e68]:
+            - generic [ref=f11e69]: FastAPI
+            - generic [ref=f11e70]: PostgreSQL
+            - generic [ref=f11e71]: Auth
+          - link "GitHub →" [ref=f11e73] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e74]:
+          - generic [ref=f11e75]:
+            - heading "TalkBuzz" [level=3] [ref=f11e76]
+            - generic [ref=f11e77]: Built
+          - paragraph [ref=f11e78]: Real-time chat and community backend built on WebSockets.
+          - generic [ref=f11e79]:
+            - generic [ref=f11e80]: WebSockets
+            - generic [ref=f11e81]: FastAPI
+          - link "GitHub →" [ref=f11e83] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e84]:
+          - generic [ref=f11e85]:
+            - heading "CUET AI" [level=3] [ref=f11e86]
+            - generic [ref=f11e87]: Built
+          - paragraph [ref=f11e88]: Exam-prep assistant with LLM question generation.
+          - generic [ref=f11e89]:
+            - generic [ref=f11e90]: LLM
+            - generic [ref=f11e91]: Python
+          - link "GitHub →" [ref=f11e93] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e94]:
+          - generic [ref=f11e95]:
+            - heading "Guzu" [level=3] [ref=f11e96]
+            - generic [ref=f11e97]: Built
+          - paragraph [ref=f11e98]: Content discovery / aggregator service.
+          - generic [ref=f11e99]:
+            - generic [ref=f11e100]: Python
+            - generic [ref=f11e101]: API
+          - link "GitHub →" [ref=f11e103] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e104]:
+          - generic [ref=f11e105]:
+            - heading "Heirloom Scents" [level=3] [ref=f11e106]
+            - generic [ref=f11e107]: Client
+          - paragraph [ref=f11e108]: Luxury perfume-bar product site (Next.js 16 proof-of-concept).
+          - generic [ref=f11e109]:
+            - generic [ref=f11e110]: Next.js
+            - generic [ref=f11e111]: Client
+          - link "Site →" [ref=f11e113] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e114]:
+          - generic [ref=f11e115]:
+            - heading "NewsBuzz" [level=3] [ref=f11e116]
+            - generic [ref=f11e117]: Built
+          - paragraph [ref=f11e118]: News aggregation with ML-based ranking.
+          - generic [ref=f11e119]:
+            - generic [ref=f11e120]: Python
+            - generic [ref=f11e121]: ML
+          - link "GitHub →" [ref=f11e123] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e124]:
+          - generic [ref=f11e125]:
+            - heading "Reciprocity" [level=3] [ref=f11e126]
+            - generic [ref=f11e127]: In Progress
+          - paragraph [ref=f11e128]: Peer-to-peer skill exchange platform (in progress).
+          - generic [ref=f11e129]:
+            - generic [ref=f11e130]: FastAPI
+            - generic [ref=f11e131]: React
+          - link "GitHub →" [ref=f11e133] [cursor=pointer]:
+            - /url: https://github.com/shubham001312
+        - article [ref=f11e134]:
+          - generic [ref=f11e135]:
+            - heading "Project VEDA" [level=3] [ref=f11e136]
+            - generic [ref=f11e137]: Planned
+          - paragraph [ref=f11e138]: Planned AI platform — RAG + agents over private documents.
+          - generic [ref=f11e139]:
+            - generic [ref=f11e140]: RAG
+            - generic [ref=f11e141]: Agents
+            - generic [ref=f11e142]: Planned
+    - generic [ref=f11e144]:
+      - generic [ref=f11e145]:
+        - generic [ref=f11e146]:
+          - text: Shubham Mallick
+          - generic [ref=f11e147]: Python Backend & Applied AI Developer · North 24 Parganas, WB, India
+        - list [ref=f11e148]:
+          - listitem [ref=f11e149]:
+            - link "GitHub" [ref=f11e150] [cursor=pointer]:
+              - /url: https://github.com/shubham001312
+      - paragraph [ref=f11e153]: © 2026 Shubham Mallick. Light, vanilla HTML/CSS/JS + a FastAPI backend. No private data published.

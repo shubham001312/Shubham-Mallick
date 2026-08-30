@@ -1,0 +1,20 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SASY — maroon/cream theme with blue back shadow">
+  <!-- Blue back shadow circle -->
+  <circle cx="256" cy="256" r="240" fill="rgba(30,64,175,.15)"/>
+  <!-- Main maroon egg shape -->
+  <path d="M256 56 C220 56 176 80 176 112 C176 176 220 220 256 220 C292 220 336 176 336 112 C336 80 292 56 256 56 Z" fill="#7A1F2B"/>
+  <!-- Cream face highlight -->
+  <ellipse cx="256" cy="210" rx="80" ry="40" fill="#F3EEE3"/>
+  <!-- Maroon eyes -->
+  <circle cx="210" cy="190" r="18" fill="#7A1F2B"/>
+  <circle cx="302" cy="190" r="18" fill="#7A1F2B"/>
+  <!-- Maroon eye pupils -->
+  <circle cx="210" cy="192" r="8" fill="#F3EEE3"/>
+  <circle cx="302" cy="192" r="8" fill="#F3EEE3"/>
+  <!-- Cream smile -->
+  <path d="M230 250 Q256 280 280 250" fill="none" stroke="#F3EEE3" stroke-width="4" stroke-linecap="round"/>
+  <!-- SASY text -->
+  <text x="256" y="370" text-anchor="middle" font-size="32" fill="#7A1F2B" letter-spacing="6" font-family="Baloo 2, sans-serif">SASY</text>
+  <!-- Blue back shadow glow -->
+  <circle cx="256" cy="256" r="260" fill="none" stroke="rgba(30,64,175,.4)" stroke-width="1"/>
+</svg>

@@ -1,0 +1,193 @@
+- generic [active] [ref=f17e1]:
+  - generic [ref=f17e2]:
+    - generic [ref=f17e3]:
+      - generic [ref=f17e180]: "> initializing core renderer [OK]"
+      - generic [ref=f17e181]: "> mounting /projects — 4 entries [OK]"
+      - generic [ref=f17e182]: "> loading neural_core.obj — 2400 pts [OK]"
+      - generic [ref=f17e183]: "> auth: guest session granted [OK]"
+      - generic [ref=f17e184]: "> welcome, visitor [—]"
+    - generic [ref=f17e4]:
+      - generic [ref=f17e5]: SM://PORTFOLIO — V3.0_REBUILT
+      - generic [ref=f17e6]: 100%
+  - navigation [ref=f17e7]:
+    - link "SM Shubham Mallick Python · Backend · AI" [ref=f17e8] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f17e9]: SM
+      - generic [ref=f17e10]:
+        - text: Shubham Mallick
+        - generic [ref=f17e11]: Python · Backend · AI
+    - list [ref=f17e12]:
+      - listitem [ref=f17e13]:
+        - link [ref=f17e14] [cursor=pointer]:
+          - /url: index.html
+          - superscript [ref=f17e15]: "01"
+          - text: Home
+      - listitem [ref=f17e16]:
+        - link [ref=f17e17] [cursor=pointer]:
+          - /url: about.html
+          - superscript [ref=f17e18]: "02"
+          - text: About
+      - listitem [ref=f17e19]:
+        - link [ref=f17e20] [cursor=pointer]:
+          - /url: projects.html
+          - superscript [ref=f17e21]: "03"
+          - text: Work
+      - listitem [ref=f17e22]:
+        - link [ref=f17e23] [cursor=pointer]:
+          - /url: skills.html
+          - superscript [ref=f17e24]: "04"
+          - text: Stack
+      - listitem [ref=f17e25]:
+        - link [ref=f17e26] [cursor=pointer]:
+          - /url: experience.html
+          - superscript [ref=f17e27]: "05"
+          - text: Path
+      - listitem [ref=f17e28]:
+        - link [ref=f17e29] [cursor=pointer]:
+          - /url: contact.html
+          - superscript [ref=f17e30]: "06"
+          - text: Contact
+    - link "OPEN_TO_WORK" [ref=f17e31] [cursor=pointer]:
+      - /url: mailto:shubham.mallick1440@gmail.com
+  - generic [ref=f17e33]:
+    - generic [ref=f17e34]:
+      - generic [ref=f17e35]:
+        - generic [ref=f17e36]: // 03 // selected_work
+        - heading "Things I've built & shipped" [level=2] [ref=f17e37]
+      - generic [ref=f17e38]: CAROUSEL DISABLED —ONLY WHAT'S REAL · LIVE FROM API
+    - generic [ref=f17e39]:
+      - article [ref=f17e40] [cursor=pointer]:
+        - generic [ref=f17e41]: /01
+        - generic [ref=f17e42]:
+          - generic [ref=f17e43]:
+            - text: Learnify
+            - generic [ref=f17e44]: Flagship
+          - paragraph [ref=f17e45]: AI study companion — Next.js frontend with a Python FastAPI backend (OpenRouter, Supabase, Razorpay).
+          - generic [ref=f17e46]:
+            - generic [ref=f17e47]: Next.js
+            - generic [ref=f17e48]: FastAPI
+            - generic [ref=f17e49]: RAG
+            - generic [ref=f17e50]: OpenRouter
+            - link "GitHub →" [ref=f17e51]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e52]: SIGNAL.LIVE
+        - generic [ref=f17e54]: Live
+        - generic [ref=f17e56]: ↗
+      - article [ref=f17e57] [cursor=pointer]:
+        - generic [ref=f17e58]: /02
+        - generic [ref=f17e59]:
+          - generic [ref=f17e60]:
+            - text: GRBS
+            - generic [ref=f17e61]: Flagship
+          - paragraph [ref=f17e62]: Grievance & record backend system with role-based access control.
+          - generic [ref=f17e63]:
+            - generic [ref=f17e64]: FastAPI
+            - generic [ref=f17e65]: PostgreSQL
+            - generic [ref=f17e66]: Auth
+            - link "GitHub →" [ref=f17e67]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e68]: SIGNAL.LIVE
+        - generic [ref=f17e70]: Live
+        - generic [ref=f17e72]: ↗
+      - article [ref=f17e73] [cursor=pointer]:
+        - generic [ref=f17e74]: /03
+        - generic [ref=f17e75]:
+          - generic [ref=f17e76]: TalkBuzz
+          - paragraph [ref=f17e77]: Real-time chat and community backend built on WebSockets.
+          - generic [ref=f17e78]:
+            - generic [ref=f17e79]: WebSockets
+            - generic [ref=f17e80]: FastAPI
+            - link "GitHub →" [ref=f17e81]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e82]: SIGNAL.LIVE
+        - generic [ref=f17e84]: Live
+        - generic [ref=f17e86]: ↗
+      - article [ref=f17e87] [cursor=pointer]:
+        - generic [ref=f17e88]: /04
+        - generic [ref=f17e89]:
+          - generic [ref=f17e90]: CUET AI
+          - paragraph [ref=f17e91]: Exam-prep assistant with LLM question generation.
+          - generic [ref=f17e92]:
+            - generic [ref=f17e93]: LLM
+            - generic [ref=f17e94]: Python
+            - link "GitHub →" [ref=f17e95]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e96]: SIGNAL.LIVE
+        - generic [ref=f17e98]: Live
+        - generic [ref=f17e100]: ↗
+      - article [ref=f17e101] [cursor=pointer]:
+        - generic [ref=f17e102]: /05
+        - generic [ref=f17e103]:
+          - generic [ref=f17e104]: Guzu
+          - paragraph [ref=f17e105]: Content discovery / aggregator service.
+          - generic [ref=f17e106]:
+            - generic [ref=f17e107]: Python
+            - generic [ref=f17e108]: API
+            - link "GitHub →" [ref=f17e109]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e110]: SIGNAL.LIVE
+        - generic [ref=f17e112]: Live
+        - generic [ref=f17e114]: ↗
+      - article [ref=f17e115] [cursor=pointer]:
+        - generic [ref=f17e116]: /06
+        - generic [ref=f17e117]:
+          - generic [ref=f17e118]: Heirloom Scents
+          - paragraph [ref=f17e119]: Luxury perfume-bar product site (Next.js 16 proof-of-concept).
+          - generic [ref=f17e120]:
+            - generic [ref=f17e121]: Next.js
+            - generic [ref=f17e122]: Client
+            - link "Site →" [ref=f17e123]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e124]: SIGNAL.LIVE
+        - generic [ref=f17e126]: Client
+        - generic [ref=f17e128]: ↗
+      - article [ref=f17e129] [cursor=pointer]:
+        - generic [ref=f17e130]: /07
+        - generic [ref=f17e131]:
+          - generic [ref=f17e132]: NewsBuzz
+          - paragraph [ref=f17e133]: News aggregation with ML-based ranking.
+          - generic [ref=f17e134]:
+            - generic [ref=f17e135]: Python
+            - generic [ref=f17e136]: ML
+            - link "GitHub →" [ref=f17e137]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e138]: SIGNAL.LIVE
+        - generic [ref=f17e140]: Live
+        - generic [ref=f17e142]: ↗
+      - article [ref=f17e143] [cursor=pointer]:
+        - generic [ref=f17e144]: /08
+        - generic [ref=f17e145]:
+          - generic [ref=f17e146]: Reciprocity
+          - paragraph [ref=f17e147]: Peer-to-peer skill exchange platform (in progress).
+          - generic [ref=f17e148]:
+            - generic [ref=f17e149]: FastAPI
+            - generic [ref=f17e150]: React
+            - link "GitHub →" [ref=f17e151]:
+              - /url: https://github.com/shubham001312
+        - generic [ref=f17e152]: SIGNAL.LIVE
+        - generic [ref=f17e154]: In Dev
+        - generic [ref=f17e156]: ↗
+      - article [ref=f17e157] [cursor=pointer]:
+        - generic [ref=f17e158]: /09
+        - generic [ref=f17e159]:
+          - generic [ref=f17e160]: Project VEDA
+          - paragraph [ref=f17e161]: Planned AI platform — RAG + agents over private documents.
+          - generic [ref=f17e162]:
+            - generic [ref=f17e163]: RAG
+            - generic [ref=f17e164]: Agents
+            - generic [ref=f17e165]: Planned
+        - generic [ref=f17e166]: SIGNAL.LIVE
+        - generic [ref=f17e168]: Planned
+        - generic [ref=f17e170]: ↗
+  - contentinfo [ref=f17e171]:
+    - generic [ref=f17e172]: MY·WORK
+    - generic [ref=f17e173]:
+      - generic [ref=f17e174]: © 2026 — ENGINEERED BY HAND, NO TEMPLATE
+      - generic [ref=f17e175]:
+        - link "GITHUB" [ref=f17e176] [cursor=pointer]:
+          - /url: https://github.com/shubham001312
+        - link "LINKEDIN" [ref=f17e177] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shubham-mallick-061298378
+        - link "EMAIL" [ref=f17e178] [cursor=pointer]:
+          - /url: mailto:shubham.mallick1440@gmail.com
+      - button "↑ TOP" [ref=f17e179] [cursor=pointer]

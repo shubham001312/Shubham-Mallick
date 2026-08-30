@@ -1,0 +1,313 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - banner [ref=f4e3]:
+      - generic [ref=f4e4]:
+        - link "Hosteler home" [ref=f4e5] [cursor=pointer]:
+          - /url: /
+          - img "Hosteler logo"
+        - navigation "Main navigation" [ref=f4e6]:
+          - link "Home" [ref=f4e7] [cursor=pointer]:
+            - /url: /
+          - link "Shop" [ref=f4e8] [cursor=pointer]:
+            - /url: /shop
+          - link "Websites" [ref=f4e9] [cursor=pointer]:
+            - /url: /web-solutions
+          - link "Student Discount" [ref=f4e10] [cursor=pointer]:
+            - /url: /student
+        - searchbox "Search products" [ref=f4e17]
+        - generic [ref=f4e18]:
+          - button "Notifications — log in to view" [ref=f4e20] [cursor=pointer]
+          - link "Log in" [ref=f4e25] [cursor=pointer]:
+            - /url: /login
+          - link "View wishlist" [ref=f4e26] [cursor=pointer]:
+            - /url: /wishlist
+          - link "View cart" [ref=f4e29] [cursor=pointer]:
+            - /url: /cart
+    - main [ref=f4e33]:
+      - generic [ref=f4e36]:
+        - generic [ref=f4e37]:
+          - img "Monsoon Sell 30%off" [ref=f4e38]
+          - generic [ref=f4e40]:
+            - generic [ref=f4e41]:
+              - heading "Monsoon Sell 30%off" [level=2] [ref=f4e42]
+              - paragraph [ref=f4e43]: SMELL
+            - link "Shop now" [ref=f4e44] [cursor=pointer]:
+              - /url: https://www.hosteler.shop/p/majestic-rose-7e7a11
+              - text: Shop Now
+        - tablist "Banner slides" [ref=f4e47]:
+          - tab "Slide 1" [selected] [ref=f4e48] [cursor=pointer]
+          - tab "Slide 2" [ref=f4e49] [cursor=pointer]
+      - generic [ref=f4e52]:
+        - generic [ref=f4e53]:
+          - generic [ref=f4e54]: One store, every corner of your room
+          - heading "Your room, sorted." [level=1] [ref=f4e57]
+          - paragraph [ref=f4e58]: Clothes, bedding, storage, kitchen gear, study essentials, personal care — picked for hostel life, priced for student life.
+          - generic [ref=f4e59]:
+            - link "Shop All Essentials" [ref=f4e60] [cursor=pointer]:
+              - /url: /shop
+            - link "Our Story" [ref=f4e61] [cursor=pointer]:
+              - /url: /about
+          - generic [ref=f4e62]:
+            - generic [ref=f4e63]:
+              - strong [ref=f4e64]: "6"
+              - generic [ref=f4e65]: Room Zones
+            - generic [ref=f4e66]:
+              - strong [ref=f4e67]: 50k+
+              - generic [ref=f4e68]: Hostelers Served
+            - generic [ref=f4e69]:
+              - strong [ref=f4e70]: 24hr
+              - generic [ref=f4e71]: Avg. Dispatch
+        - generic [ref=f4e73]:
+          - text: +
+          - generic [ref=f4e74]:
+            - generic [ref=f4e75]: Shop by room zone
+            - generic [ref=f4e76]: 06 zones
+          - generic [ref=f4e77]:
+            - link "Clothing 40+ items" [ref=f4e78] [cursor=pointer]:
+              - /url: /shop?cat=clothing
+              - strong [ref=f4e83]: Clothing
+              - generic [ref=f4e84]: 40+ items
+            - link "Bedding 25+ items" [ref=f4e85] [cursor=pointer]:
+              - /url: /shop?cat=bedding
+              - strong [ref=f4e90]: Bedding
+              - generic [ref=f4e91]: 25+ items
+            - link "Storage 30+ items" [ref=f4e92] [cursor=pointer]:
+              - /url: /shop?cat=storage
+              - strong [ref=f4e97]: Storage
+              - generic [ref=f4e98]: 30+ items
+            - link "Kitchen 35+ items" [ref=f4e99] [cursor=pointer]:
+              - /url: /shop?cat=kitchen
+              - strong [ref=f4e105]: Kitchen
+              - generic [ref=f4e106]: 35+ items
+            - link "Study & Tech 28+ items" [ref=f4e107] [cursor=pointer]:
+              - /url: /shop?cat=study
+              - strong [ref=f4e111]: Study & Tech
+              - generic [ref=f4e112]: 28+ items
+            - link "Personal Care 20+ items" [ref=f4e113] [cursor=pointer]:
+              - /url: /shop?cat=care
+              - strong [ref=f4e117]: Personal Care
+              - generic [ref=f4e118]: 20+ items
+          - text: +
+      - generic [ref=f4e120]:
+        - generic [ref=f4e127]:
+          - strong [ref=f4e128]: Free delivery over ₹999
+          - text: Straight to your hostel gate
+        - generic [ref=f4e132]:
+          - strong [ref=f4e133]: Checked for hostel life
+          - text: Durability-tested, not showroom-tested
+        - generic [ref=f4e138]:
+          - strong [ref=f4e139]: 7-day easy returns
+          - text: No questions asked
+        - generic [ref=f4e143]:
+          - strong [ref=f4e144]: 50,000+ hostelers
+          - text: Trust us for move-in day
+      - generic [ref=f4e146]:
+        - generic [ref=f4e147]:
+          - generic [ref=f4e148]: The Collection
+          - heading "Picked for real hostel rooms" [level=2] [ref=f4e149]
+          - paragraph [ref=f4e150]: One from every zone — durable, space-smart, and priced so restocking doesn't hurt.
+        - generic [ref=f4e151]:
+          - article [ref=f4e152]:
+            - link "Majestic Rose":
+              - /url: /product/majestic-rose-7e7a11
+            - generic [ref=f4e153]:
+              - generic [ref=f4e154]: Grooming
+              - generic [ref=f4e155]: Bestseller
+            - generic [ref=f4e156]:
+              - img "Majestic Rose" [ref=f4e158]
+              - button "Add to wishlist" [ref=f4e159] [cursor=pointer]
+              - button "Quick view Majestic Rose" [ref=f4e162] [cursor=pointer]: Quick View
+            - heading "Majestic Rose" [level=3] [ref=f4e166]
+            - paragraph [ref=f4e167]: A timeless blend of elegant roses and soft floral notes, Majestic Rose captures the essence of a blooming rose garden. Delicate, romantic, and refined, it leaves a graceful fragrance that lingers beautifully throughout the day
+            - generic [ref=f4e168]: Perfume, 250ml, Glass Bottle,
+            - generic [ref=f4e170]:
+              - generic [ref=f4e171]: ₹399
+              - generic [ref=f4e172]: ₹799
+            - generic [ref=f4e173]:
+              - button "Add Majestic Rose to cart" [ref=f4e174] [cursor=pointer]: Add to Cart
+              - button "Buy Majestic Rose now" [ref=f4e175] [cursor=pointer]: Buy Now
+          - article [ref=f4e176]:
+            - link "REFFERAL":
+              - /url: /product/refferal-9055ed
+            - generic [ref=f4e177]: Electronics
+            - generic [ref=f4e179]:
+              - img "REFFERAL" [ref=f4e181]
+              - button "Add to wishlist" [ref=f4e182] [cursor=pointer]
+              - button "Quick view REFFERAL" [ref=f4e185] [cursor=pointer]: Quick View
+            - heading "REFFERAL" [level=3] [ref=f4e189]
+            - generic [ref=f4e190]:
+              - generic "4 out of 5 stars" [ref=f4e191]
+              - generic [ref=f4e215]: "4"
+            - paragraph [ref=f4e216]: Its a test data
+            - generic [ref=f4e218]:
+              - generic [ref=f4e219]: ₹999
+              - generic [ref=f4e220]: ₹3,999
+            - generic [ref=f4e221]:
+              - button "Add REFFERAL to cart" [ref=f4e222] [cursor=pointer]: Add to Cart
+              - button "Buy REFFERAL now" [ref=f4e223] [cursor=pointer]: Buy Now
+        - link "View All Products" [ref=f4e225] [cursor=pointer]:
+          - /url: /shop
+      - generic [ref=f4e228]:
+        - generic [ref=f4e229]:
+          - generic [ref=f4e230]: Why Hosteler
+          - heading "We've lived in hostels too." [level=2] [ref=f4e231]
+          - paragraph [ref=f4e232]: Hosteler started because we were tired of buying a mattress protector from one shop, a study lamp from another, and a kettle from a sketchy stall near the gate — half of it breaking within a semester.
+          - paragraph [ref=f4e233]: "So we built one place that actually gets what a hostel room needs: gear that survives being packed for the holidays, unpacked at 11pm, and used every single day in between."
+          - text: — Team Hosteler
+          - link "Read the Full Story" [ref=f4e235] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f4e236]:
+          - generic [ref=f4e237]:
+            - strong [ref=f4e238]: "2024"
+            - generic [ref=f4e239]: Founded by ex-hostel students who got tired of makeshift setups
+          - generic [ref=f4e240]:
+            - strong [ref=f4e241]: 500+
+            - generic [ref=f4e242]: Colleges and PGs we've delivered to across India
+          - generic [ref=f4e243]:
+            - strong [ref=f4e244]: 4.8★
+            - generic [ref=f4e245]: Average rating across 3,200+ verified orders
+      - generic [ref=f4e247]:
+        - generic [ref=f4e252]:
+          - strong [ref=f4e253]: Still have your student ID? You get 10% off. Always.
+          - paragraph [ref=f4e254]: Verify once, save on every order — hoodies to kettles.
+        - link "Verify Student ID" [ref=f4e255] [cursor=pointer]:
+          - /url: /student
+      - generic [ref=f4e257]:
+        - generic [ref=f4e258]:
+          - generic [ref=f4e259]: From Real Rooms
+          - heading "What other hostelers are saying" [level=2] [ref=f4e260]
+        - generic [ref=f4e261]:
+          - generic [ref=f4e262]:
+            - generic [ref=f4e263]: ★★★★★
+            - paragraph [ref=f4e264]: The kettle and lamp combo got me through exam season. Ordered on a Tuesday, had it before my next class.
+            - generic [ref=f4e265]:
+              - generic [ref=f4e266]: AS
+              - generic [ref=f4e267]:
+                - strong [ref=f4e268]: Ananya S.
+                - text: 2nd year, Delhi
+              - generic [ref=f4e269]: Verified
+          - generic [ref=f4e272]:
+            - generic [ref=f4e273]: ★★★★★
+            - paragraph [ref=f4e274]: My room is 9x10 feet. The under-bed organizer alone gave me back a third of my floor space.
+            - generic [ref=f4e275]:
+              - generic [ref=f4e276]: RK
+              - generic [ref=f4e277]:
+                - strong [ref=f4e278]: Rohan K.
+                - text: Final year, Pune
+              - generic [ref=f4e279]: Verified
+          - generic [ref=f4e282]:
+            - generic [ref=f4e283]: ★★★★★
+            - paragraph [ref=f4e284]: The mattress protector and hoodie both survived my washing machine disasters. Actually good quality for the price.
+            - generic [ref=f4e285]:
+              - generic [ref=f4e286]: MT
+              - generic [ref=f4e287]:
+                - strong [ref=f4e288]: Meera T.
+                - text: 1st year, Bengaluru
+              - generic [ref=f4e289]: Verified
+      - generic [ref=f4e293]:
+        - heading "Get ₹100 off your first order" [level=2] [ref=f4e294]
+        - paragraph [ref=f4e295]: Create your account and the coupon FIRST100 is yours — ₹100 off your first purchase. No spam, promise.
+        - generic [ref=f4e296]:
+          - generic [ref=f4e297]: Email address
+          - textbox "Email address" [ref=f4e298]:
+            - /placeholder: you@college.edu
+          - button "Claim My ₹100" [ref=f4e299] [cursor=pointer]
+    - contentinfo [ref=f4e300]:
+      - generic [ref=f4e301]:
+        - generic [ref=f4e302]:
+          - generic [ref=f4e303]:
+            - generic [ref=f4e304]: Hosteler
+            - paragraph [ref=f4e305]: Everything your hostel room needs — picked for hostel life, priced for student life.
+            - generic [ref=f4e306]:
+              - link "Instagram" [ref=f4e307] [cursor=pointer]:
+                - /url: https://www.instagram.com/hostelerindia
+              - link "X (Twitter)" [ref=f4e312] [cursor=pointer]:
+                - /url: https://x.com/Hosteler_X
+              - link "YouTube" [ref=f4e315] [cursor=pointer]:
+                - /url: https://youtube.com/@hosteler-india
+              - link "LinkedIn" [ref=f4e319] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/hosteler-india
+          - generic [ref=f4e323]:
+            - heading "Shop" [level=4] [ref=f4e324]
+            - list [ref=f4e325]:
+              - listitem [ref=f4e326]:
+                - link "Clothing" [ref=f4e327] [cursor=pointer]:
+                  - /url: /shop?cat=clothing
+              - listitem [ref=f4e328]:
+                - link "Bedding & Comfort" [ref=f4e329] [cursor=pointer]:
+                  - /url: /shop?cat=bedding
+              - listitem [ref=f4e330]:
+                - link "Storage & Organization" [ref=f4e331] [cursor=pointer]:
+                  - /url: /shop?cat=storage
+              - listitem [ref=f4e332]:
+                - link "Kitchen & Appliances" [ref=f4e333] [cursor=pointer]:
+                  - /url: /shop?cat=kitchen
+              - listitem [ref=f4e334]:
+                - link "Study & Tech" [ref=f4e335] [cursor=pointer]:
+                  - /url: /shop?cat=study
+              - listitem [ref=f4e336]:
+                - link "Personal Care" [ref=f4e337] [cursor=pointer]:
+                  - /url: /shop?cat=care
+              - listitem [ref=f4e338]:
+                - link "Gifts" [ref=f4e339] [cursor=pointer]:
+                  - /url: /gifts
+          - generic [ref=f4e340]:
+            - heading "Help" [level=4] [ref=f4e341]
+            - list [ref=f4e342]:
+              - listitem [ref=f4e343]:
+                - link "Shipping & Delivery" [ref=f4e344] [cursor=pointer]:
+                  - /url: /shipping
+              - listitem [ref=f4e345]:
+                - link "Track My Order" [ref=f4e346] [cursor=pointer]:
+                  - /url: /shipping#track
+              - listitem [ref=f4e347]:
+                - link "Returns & Exchanges" [ref=f4e348] [cursor=pointer]:
+                  - /url: /returns
+              - listitem [ref=f4e349]:
+                - link "Size Guide" [ref=f4e350] [cursor=pointer]:
+                  - /url: /size-guide
+              - listitem [ref=f4e351]:
+                - link "Contact Us" [ref=f4e352] [cursor=pointer]:
+                  - /url: /contact
+          - generic [ref=f4e353]:
+            - heading "Company" [level=4] [ref=f4e354]
+            - list [ref=f4e355]:
+              - listitem [ref=f4e356]:
+                - link "Web Solutions" [ref=f4e357] [cursor=pointer]:
+                  - /url: /web-solutions
+              - listitem [ref=f4e358]:
+                - link "Our Story" [ref=f4e359] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=f4e360]:
+                - link "Student Discount" [ref=f4e361] [cursor=pointer]:
+                  - /url: /student
+              - listitem [ref=f4e362]:
+                - link "My Account" [ref=f4e363] [cursor=pointer]:
+                  - /url: /login
+              - listitem [ref=f4e364]:
+                - link "My Orders" [ref=f4e365] [cursor=pointer]:
+                  - /url: /orders
+              - listitem [ref=f4e366]:
+                - link "Reviews" [ref=f4e367] [cursor=pointer]:
+                  - /url: /#reviews
+              - listitem [ref=f4e368]:
+                - link "Contact Us" [ref=f4e369] [cursor=pointer]:
+                  - /url: /contact
+        - generic [ref=f4e370]:
+          - generic [ref=f4e371]: © 2026 Hosteler. Built for the hostel life.
+          - generic [ref=f4e372]:
+            - link "Shipping" [ref=f4e373] [cursor=pointer]:
+              - /url: /shipping
+            - text: ·
+            - link "Returns" [ref=f4e374] [cursor=pointer]:
+              - /url: /returns
+            - text: ·
+            - link "Size Guide" [ref=f4e375] [cursor=pointer]:
+              - /url: /size-guide
+            - text: ·
+            - link "Privacy" [ref=f4e376] [cursor=pointer]:
+              - /url: /privacy
+            - text: ·
+            - link "Terms" [ref=f4e377] [cursor=pointer]:
+              - /url: /terms
+  - alert [ref=f4e378]
