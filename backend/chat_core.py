@@ -18,9 +18,9 @@ GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 # Tuned for fast, snappy replies.
-MAX_TOKENS = 160
+MAX_TOKENS = 120
 TEMPERATURE = 0.5
-TIMEOUT = 15
+TIMEOUT = 8
 
 SASY_SYSTEM = (
     "You are SASY, a friendly, playful AI assistant on Shubham Mallick's portfolio. "
@@ -164,7 +164,7 @@ async def call_groq(message, history, ctx):
         return None
     system = SASY_SYSTEM + "\n\nCONTEXT YOU CAN USE:\n" + ctx
     messages = [{"role": "system", "content": system}]
-    for h in (history or [])[-8:]:
+    for h in (history or [])[-6:]:
         if (
             isinstance(h, dict)
             and h.get("role") in ("user", "assistant")

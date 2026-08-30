@@ -27,7 +27,7 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 # llama-3.1-8b-instant is NOT available on this key (returns 404), so the working
 # fast models are used. Override GROQ_MODEL if you later get llama access.
 FALLBACK_MODELS = ["groq/compound-mini", "qwen/qwen3.6-27b"]
-MAX_TOKENS = 160
+MAX_TOKENS = 120
 TEMPERATURE = 0.5
 TIMEOUT = 8
 
@@ -370,7 +370,7 @@ async def call_groq(message, history, ctx):
         return None
     system = SASY_SYSTEM + "\n\nRELEVANT INFO ABOUT SHUBHAM:\n" + ctx
     messages = [{"role": "system", "content": system}]
-    for h in (history or [])[-8:]:
+    for h in (history or [])[-6:]:
         if (
             isinstance(h, dict)
             and h.get("role") in ("user", "assistant")

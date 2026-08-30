@@ -256,8 +256,8 @@ function startHero3D(){
     const grp=new THREE.Group();
     grp.rotation.x=tilt;
     const ringPts=[];
-    for(let i=0;i<=128;i++){
-      const a=i/128*Math.PI*2;
+    for(let i=0;i<=64;i++){
+      const a=i/64*Math.PI*2;
       ringPts.push(new THREE.Vector3(Math.cos(a)*radius,0,Math.sin(a)*radius));
     }
     const ring=new THREE.Line(
@@ -276,13 +276,13 @@ function startHero3D(){
     world.add(grp);
     rings.push({grp,lines,dir:spd>0?1:-1});
   }
-  makeOrbit(2.35,.42,7,0,.7,.3);
-  makeOrbit(2.75,-.55,5,2.1,-.45,.16);
-  makeOrbit(2.05,1.25,3,4,1.1,.1);
+  makeOrbit(2.35,.42,4,0,.7,.3);
+  makeOrbit(2.75,-.55,3,2.1,-.45,.16);
+  makeOrbit(2.05,1.25,2,4,1.1,.1);
 
   function gauss(){let u=0,v=0;while(u===0)u=Math.random();while(v===0)v=Math.random();
     return Math.sqrt(-2*Math.log(u))*Math.cos(6.28318*v);}
-  const N = touch?1200:2400;
+  const N = touch?600:1200;
   const hudPts=document.getElementById('hudPts'); if(hudPts) hudPts.textContent=N;
   const ptsPos=new Float32Array(N*3);
   for(let i=0;i<N;i++){
@@ -300,8 +300,8 @@ function startHero3D(){
   world.add(shell);
 
   const starGeo=new THREE.BufferGeometry();
-  const sp=new Float32Array(700*3);
-  for(let i=0;i<700;i++){
+  const sp=new Float32Array(300*3);
+  for(let i=0;i<300;i++){
     const v=new THREE.Vector3().randomDirection().multiplyScalar(9+Math.random()*9);
     sp[i*3]=v.x;sp[i*3+1]=v.y;sp[i*3+2]=v.z;
   }
@@ -339,6 +339,8 @@ function startHero3D(){
   const clock=new THREE.Clock();
   let pulseT=0;
   let heroInView=true, heroVisible=true, heroPaused=true, heroRunning=false;
+  let _lastHeroFrame=0;
+  const _heroFrameMs=33; // cap at ~30fps
   function updateHeroPause(){
     heroPaused = !heroVisible || !heroInView;
     if(!heroPaused && !heroRunning){ heroRunning=true; requestAnimationFrame(tick); }
@@ -347,8 +349,10 @@ function startHero3D(){
   if('IntersectionObserver' in window){
     new IntersectionObserver(es=>{ heroInView=es[0].isIntersecting; updateHeroPause(); },{threshold:0}).observe(canvas);
   }
-  function tick(){
+  function tick(ts){
     if(heroPaused){ heroRunning=false; return; }
+    if(ts-_lastHeroFrame<_heroFrameMs){ requestAnimationFrame(tick); return; }
+    _lastHeroFrame=ts;
     const dt=Math.min(clock.getDelta(),.05);
     const t=clock.elapsedTime;
 
@@ -743,18 +747,13 @@ function esc(s){
   };
   function play(name){ if(soundOn && sfx[name]) sfx[name](); }
 
-  /* ---- speech: out (Kokoro TTS, high-quality) + in (mic) ---- */
+  /* ---- speech: browser SpeechSynthesis only (lightweight) ---- */
   let _voices=[];
   function refreshVoices(){ try{ _voices=speechSynthesis.getVoices()||[]; }catch(e){ _voices=[]; } }
   if('speechSynthesis' in window){ refreshVoices(); speechSynthesis.onvoiceschanged=refreshVoices; }
-  let audioCtx=null;
   function unlockAudio(){
     if('speechSynthesis' in window){ try{ speechSynthesis.getVoices(); if(speechSynthesis.state==='paused') speechSynthesis.resume(); }catch(e){} }
-    if(!audioCtx){ try{ audioCtx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ audioCtx=null; } }
-    if(audioCtx && audioCtx.state==='suspended') audioCtx.resume().catch(()=>{});
   }
-  const canKokoro = window.matchMedia && window.matchMedia('(hover:hover)').matches && !('ontouchstart' in window);
-  function primeTTS(){ if(canKokoro){ unlockAudio(); if(!_kokoro && !_kokoroLoading) getKokoro(); } }
   function pickVoice(){
     const en=_voices.filter(v=>/^en/i.test(v.lang||''));
     const pool=en.length?en:_voices; if(!pool.length) return null;
@@ -781,101 +780,33 @@ function esc(s){
     love:{pitch:1.12,rate:0.98,vol:1.0}, laugh:{pitch:1.2,rate:1.15,vol:1.0}
   };
 
-  /* Pronunciation normalizer — strip markup, spell out acronyms so Kokoro reads them clearly */
   function normalizeTTS(t){
     if(!t) return '';
-    t = String(t).replace(/[*`_#>]/g,'')
-                 .replace(/\[([^\]]+)\]\([^)]*\)/g,'$1');
-    const map=[
-      [/\bSASY\b/gi,'Sassy'],
-      [/\be\.g\.\s?/gi,' for example '], [/\bi\.e\.\s?/gi,' that is '], [/\betc\.\s?/gi,' etcetera '],
-      [/\bAI\/ML\b/g,'A I slash M L'], [/\bAI\b/g,'A I'], [/\bML\b/g,'M L'],
-      [/\bLLM(s)?\b/g,'L L M'], [/\bRAG\b/g,'R A G'], [/\bNLP\b/g,'N L P'],
-      [/\bAPI(s)?\b/g,'A P I'], [/\bCI\/CD\b/g,'C I slash C D'], [/\bSQL\b/g,'S Q L'],
-      [/\bDB\b/g,'database'], [/\bREST\b/g,'R E S T'], [/\bUI\b/g,'U I'], [/\bUX\b/g,'U X'],
-      [/\bOS\b/g,'operating system'], [/\bDBMS\b/g,'D B M S'], [/\bDSA\b/g,'D S A'],
-      [/\bMAKAUT\b/g,'Makaut'], [/\bFastAPI\b/g,'Fast A P I'], [/\bPostgreSQL\b/g,'Postgres Q L'],
-      [/\bNext\.js\b/g,'Next dot J S'], [/\bNode\.js\b/g,'Node dot J S'],
-      [/\bC\+\+\b/g,'C plus plus'], [/\bMERN\b/g,'M E R N'], [/\bLLMs\b/g,'L L Ms'],
-      [/\s×\s/g,' and '], [/\s·\s/g,' ']
-    ];
-    for(const [re,rep] of map) t=t.replace(re,rep);
-    t = t.replace(/[×\u00D7·•◦★☆◆►◄▼▲▶■●→←↔↗↓↑✓✔✗–—…“”‘’]/g,' ');
-    t = t.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2190}-\u{21FF}\u{2300}-\u{23FF}\u{25A0}-\u{25FF}\u{FE0F}\u{200D}]/gu,' ');
+    t = String(t).replace(/[*`_#>]/g,'').replace(/\[([^\]]+)\]\([^)]*\)/g,'$1');
+    t = t.replace(/\bSASY\b/gi,'Sassy');
+    t = t.replace(/\bAI\/ML\b/g,'A I slash M L').replace(/\bAI\b/g,'A I').replace(/\bML\b/g,'M L');
+    t = t.replace(/\bLLMs?\b/g,'L L M').replace(/\bRAG\b/g,'R A G').replace(/\bNLP\b/g,'N L P');
+    t = t.replace(/\bAPIs?\b/g,'A P I').replace(/\bSQL\b/g,'S Q L');
+    t = t.replace(/\bMAKAUT\b/g,'Makaut').replace(/\bFastAPI\b/g,'Fast A P I');
+    t = t.replace(/\bPostgreSQL\b/g,'Postgres Q L').replace(/\bNext\.js\b/g,'Next dot J S');
+    t = t.replace(/\bC\+\+\b/g,'C plus plus');
+    t = t.replace(/[\u00D7\u2022\u25E6\u2605\u2606\u25C6\u25BA\u25C4\u25BC\u25B2\u25A0\u25CF\u2192\u2190\u2194\u2197\u2193\u2191\u2713\u2714\u2717\u2013\u2014\u2026]/g,' ');
+    t = t.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu,' ');
     return t.replace(/\s+/g,' ').trim();
   }
 
-  /* Kokoro TTS (client-side, open-source, warm female voice) */
-  let _kokoro=null, _kokoroLoading=null, _audioEl=null;
-  const KOKORO_VOICE='af_sarah';                 // warm, deeper, grown-up female voice
-  const KOKORO_RATE=0.9;                         // slow slightly to deepen + warm the tone
-  const KOKORO_MODEL='onnx-community/Kokoro-82M-v1.0-ONNX';
-  async function getKokoro(){
-    if(_kokoro) return _kokoro;
-    if(_kokoroLoading) return _kokoroLoading;
-    _kokoroLoading=(async()=>{
-      const cdns=[
-        'https://cdn.jsdelivr.net/npm/kokoro-js/+esm',
-        'https://esm.sh/kokoro-js',
-        'https://unpkg.com/kokoro-js/+esm'
-      ];
-      for(const url of cdns){
-        try{
-          const k=await import(url);
-          return await k.KokoroTTS.from_pretrained(KOKORO_MODEL,{dtype:'fp16'});
-        }catch(e){ console.warn('Kokoro load failed from',url,e); }
-      }
-      return null;
-    })();
-    _kokoro=await _kokoroLoading; return _kokoro;
-  }
-  function floatToWav(samples, sampleRate){
-    const bps=2, dataSize=samples.length*bps, buf=new ArrayBuffer(44+dataSize), view=new DataView(buf);
-    const ws=(o,s)=>{ for(let i=0;i<s.length;i++) view.setUint8(o+i,s.charCodeAt(i)); };
-    ws(0,'RIFF'); view.setUint32(4,36+dataSize,true); ws(8,'WAVE'); ws(12,'fmt ');
-    view.setUint32(16,16,true); view.setUint16(20,1,true); view.setUint16(22,1,true);
-    view.setUint32(24,sampleRate,true); view.setUint32(28,sampleRate*bps,true);
-    view.setUint16(32,bps,true); view.setUint16(34,16,true); ws(36,'data'); view.setUint32(40,dataSize,true);
-    let off=44;
-    for(let i=0;i<samples.length;i++){ let s=Math.max(-1,Math.min(1,samples[i])); view.setInt16(off, s<0?s*0x8000:s*0x7FFF, true); off+=2; }
-    return new Blob([buf],{type:'audio/wav'});
-  }
-  async function speakKokoro(text, speed){
-    const tts=await getKokoro(); if(!tts) return false;
-    try{
-       const sp=(speed||1.0)*KOKORO_RATE;
-       const audio=await tts.generate(text.slice(0,400),{voice:KOKORO_VOICE,speed:sp});
-      const blob=floatToWav(audio.audio,audio.samplerate);
-      if(audioCtx && audioCtx.state==='running'){
-        const buf=await blob.arrayBuffer();
-        const decoded=await audioCtx.decodeAudioData(buf);
-        const src=audioCtx.createBufferSource(); src.buffer=decoded; src.connect(audioCtx.destination);
-        await new Promise(res=>{ src.onended=res; src.start(0); });
-        return true;
-      }
-      if(!_audioEl) _audioEl=new Audio();
-      try{ _audioEl.pause(); }catch(e){}
-      if(_audioEl.src && _audioEl.src.startsWith('blob:')) URL.revokeObjectURL(_audioEl.src);
-      _audioEl.src=URL.createObjectURL(blob);
-      try{ await _audioEl.play(); return true; }catch(err){ return false; }
-    }catch(e){ return false; }
-  }
-  function speakFallback(text, e){
-    if(!('speechSynthesis' in window)) return;
-    try{
-      const u=new SpeechSynthesisUtterance(text.slice(0,180));
-      u.pitch=Math.max(0.55,(e.pitch||1)*0.82); u.rate=(e.rate||1)*0.98; u.volume=e.vol||1;
-      const v=pickVoice(); if(v) u.voice=v;
-      speechSynthesis.cancel(); speechSynthesis.speak(u);
-    }catch(err){}
-  }
   function speak(txt, mood){
     if(!voiceOn) return;
+    if(!('speechSynthesis' in window)) return;
     unlockAudio();
     const e=EMOTE[mood||curMood||'calm']||{pitch:1.08,rate:1.0,vol:0.98};
     const text=normalizeTTS(txt); if(!text) return;
-    if(_kokoro){ speakKokoro(text, e.rate).then(ok=>{ if(!ok) speakFallback(text,e); }).catch(()=>speakFallback(text,e)); }
-    else { speakFallback(text,e); if(canKokoro && !_kokoro && !_kokoroLoading) getKokoro(); }
+    try{
+      const u=new SpeechSynthesisUtterance(text.slice(0,200));
+      u.pitch=Math.max(0.55,(e.pitch||1)*0.82); u.rate=(e.rate||1)*1.0; u.volume=e.vol||1;
+      const v=pickVoice(); if(v) u.voice=v;
+      speechSynthesis.cancel(); speechSynthesis.speak(u);
+    }catch(e){}
   }
   function listen(cb){
     const R=window.SpeechRecognition||window.webkitSpeechRecognition;
