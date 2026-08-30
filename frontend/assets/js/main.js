@@ -894,11 +894,13 @@ function esc(s){
 
   /* ---- drag (you can move it) ---- */
   const _small=window.matchMedia && window.matchMedia('(max-width:860px)').matches;
-  const _sasyH=_small?56:88, _navReserve=_small?94:0;
+  const _isTiny=window.matchMedia && window.matchMedia('(max-width:480px)').matches;
+  const _sasyH=_isTiny?60:(_small?72:88), _navReserve=_small?94:0;
   let x=_small?window.innerWidth-_sasyH-12:window.innerWidth-130;
   let y=_small?window.innerHeight-_navReserve-_sasyH-14:window.innerHeight-100;
   let tx=x, ty=y, dragging=false, dragged=false, hovering=false, ox=0, oy=0;
   function place(){ fab.style.left=x+'px'; fab.style.top=y+'px'; }
+  if(_small){ fab.style.right='auto'; }
   place();
   fab.addEventListener('pointerenter',()=>{ hovering=true; });
   fab.addEventListener('pointerleave',()=>{ hovering=false; });
