@@ -7,6 +7,7 @@
 [![Portfolio](https://img.shields.io/badge/🌐_Live_Site-shubhammallickengineer.hosteler.shop-7A1F2B?style=for-the-badge&logo=vercel&logoColor=white)](https://shubhammallickengineer.hosteler.shop/)
 [![GitHub](https://img.shields.io/badge/GitHub-@shubham001312-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shubham001312)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-/in/shubham--mallick-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubham-mallick-061298378)
+[![Google Scholar](https://img.shields.io/badge/Google_Scholar-vMPlCOcAAAAJ-4285F4?style=for-the-badge&logo=googlescholar&logoColor=white)](https://scholar.google.com/citations?user=vMPlCOcAAAAJ)
 [![Email](https://img.shields.io/badge/Email-shubham.mallick1440@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shubham.mallick1440@gmail.com)
 
 **B.Tech CSE (AI) student building production-grade FastAPI services, RAG pipelines, and LLM products that survive real users.**
