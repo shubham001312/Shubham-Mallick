@@ -27,7 +27,7 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 # llama-3.1-8b-instant is NOT available on this key (returns 404), so the working
 # fast models are used. Override GROQ_MODEL if you later get llama access.
 FALLBACK_MODELS = ["groq/compound-mini", "qwen/qwen3.6-27b"]
-MAX_TOKENS = 600
+MAX_TOKENS = 160
 TEMPERATURE = 0.5
 TIMEOUT = 8
 

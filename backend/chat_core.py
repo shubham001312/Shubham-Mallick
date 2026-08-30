@@ -39,6 +39,8 @@ SHUBHAM_BIO = (
     "Email: shubham.mallick1440@gmail.com."
 )
 
+_corpus_cache = None
+
 
 def load_json(name):
     path = DATA_DIR / name
@@ -195,15 +197,17 @@ async def chat_reply(message, history=None):
     msg = (message or "").strip()
     if not msg:
         return "Say something and I'll help! :)"
-    # RAG: pull the most relevant passages about Shubham from MongoDB (or build
-    # the corpus in memory when Mongo is unavailable) and ground the answer.
-    corpus = await db_get_chunks()
+    global _corpus_cache
+    corpus = _corpus_cache
     if corpus is None:
-        corpus = build_corpus()
-        try:
-            await db_ingest_chunks(corpus)
-        except Exception:
-            pass
+        corpus = await db_get_chunks()
+        if corpus is None:
+            corpus = build_corpus()
+            try:
+                await db_ingest_chunks(corpus)
+            except Exception:
+                pass
+        _corpus_cache = corpus
     hits = retrieve(msg, corpus)
     context = (
         "\n\n".join(f"[{h['meta']}]\n{h['text']}" for h in hits)

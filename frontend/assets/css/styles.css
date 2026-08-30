@@ -48,7 +48,7 @@ body::after{
 .muted{color:var(--mute)}
 
 /* ══════════════════════════ CURSOR ══════════════════════════ */
-.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);will-change:transform;contain:layout style}
 .cur-dot{width:5px;height:5px;background:var(--mar)}
 .cur-ring{width:34px;height:34px;border:1px solid var(--grn-md);transition:width .25s,height .25s,border-color .25s,background .25s}
 body.cur-hover .cur-ring{width:56px;height:56px;border-color:var(--mar);background:rgba(122,31,43,0.06)}
@@ -411,12 +411,12 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 .logo-init{position:relative;z-index:0;font-family:var(--fm);font-weight:700;color:#F3EEE3;font-size:.95rem;letter-spacing:.02em}
 
 /* ══════════════════════════ SASY CHARACTER ══════════════════════════ */
-.sasy{position:fixed;right:26px;bottom:26px;width:98px;height:98px;z-index:120;cursor:grab;touch-action:none;user-select:none;will-change:left,top}
-.sasy.drag{cursor:grabbing}
+.sasy{position:fixed;right:26px;bottom:26px;width:98px;height:98px;z-index:120;cursor:grab;touch-action:none;user-select:none;will-change:left,top;contain:layout style}
+.sasy.drag{cursor:grabbing;will-change:left,top}
 .sasy-body{position:relative;width:100%;height:100%;border-radius:46% 46% 44% 44%/54% 54% 46% 46%;
   background:radial-gradient(circle at 38% 30%,#fff,#FBF8F1 58%,#F0E6D4);border:2px solid var(--mar);
   box-shadow:0 14px 26px -10px rgba(122,31,43,.55),inset 0 -6px 10px rgba(122,31,43,.12);overflow:hidden;
-  animation:sasyFloat 3.4s ease-in-out infinite;transition:box-shadow .3s,filter .3s}
+  animation:sasyFloat 3.4s ease-in-out infinite;transition:box-shadow .3s,filter .3s;will-change:transform,filter}
 
 /* Responsive SASY sizing */
 @media (max-width:860px){
@@ -430,6 +430,7 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 .sasy.chat-open{
   transform:translateX(-120%);
   transition:transform .35s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
 }
 @media (max-width:480px){
   .sasy.chat-open{transform:translateX(-160%)}
@@ -504,7 +505,7 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 .chat{position:fixed;right:26px;bottom:104px;width:min(372px,calc(100vw - 34px));height:540px;max-height:calc(100vh - 150px);
   background:var(--panel);border:1px solid var(--line-hi);border-radius:16px;overflow:hidden;z-index:121;
   display:flex;flex-direction:column;box-shadow:0 40px 90px -30px rgba(122,31,43,.5);
-  transform:translateY(20px) scale(.98);opacity:0;pointer-events:none;transition:all .28s}
+  transform:translateY(20px) scale(.98);opacity:0;pointer-events:none;transition:all .28s;will-change:transform,opacity;contain:layout style}
 .chat.open{transform:none;opacity:1;pointer-events:auto}
 .chat[hidden]{display:none}
 .chat-head{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border-bottom:1px solid var(--line);
@@ -517,7 +518,7 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 .chat-tools button{background:rgba(243,238,227,.16);border:none;color:#F3EEE3;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:.92rem;transition:background .2s}
 .chat-tools button:hover{background:rgba(243,238,227,.32)}
 .chat-tools button.live{background:#C8102E;animation:sasyPulse 1s infinite}
-.chat-msgs{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:7px;font-family:var(--fm);font-size:.74rem;line-height:1.7;background:linear-gradient(180deg,var(--panel),var(--bg2));position:relative}
+.chat-msgs{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:7px;font-family:var(--fm);font-size:.74rem;line-height:1.7;background:linear-gradient(180deg,var(--panel),var(--bg2));position:relative;contain:layout style;overscroll-behavior:contain}
 .chat-msgs::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.25;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(122,31,43,.05) 2px 4px)}
 .chat-msgs::-webkit-scrollbar{width:6px}
 .chat-msgs .tl{margin:0;white-space:pre-wrap;word-break:break-word;position:relative}

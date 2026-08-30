@@ -49,11 +49,11 @@ const lerp = (a,b,t)=>a+(b-a)*t;
 /* ═══════════════════════ CUSTOM CURSOR ═══════════════════════ */
 if(!touch){
   const dot=document.querySelector('.cur-dot'), ring=document.querySelector('.cur-ring');
-  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,rafId=null;
   addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;
-    dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
+    dot.style.transform=`translate(${mx}px, ${my}px) translate(-50%,-50%)`;});
   (function cur(){rx=lerp(rx,mx,.14);ry=lerp(ry,my,.14);
-    ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(cur);})();
+    ring.style.transform=`translate(${rx}px, ${ry}px) translate(-50%,-50%)`;rafId=requestAnimationFrame(cur);})();
   document.querySelectorAll('a,button,.proj,.sk,input,.cap').forEach(el=>{
     el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));
     el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));
@@ -874,7 +874,7 @@ function esc(s){
     unlockAudio();
     const e=EMOTE[mood||curMood||'calm']||{pitch:1.08,rate:1.0,vol:0.98};
     const text=normalizeTTS(txt); if(!text) return;
-    if(canKokoro && _kokoro){ speakKokoro(text, e.rate).then(ok=>{ if(!ok) speakFallback(text,e); }).catch(()=>speakFallback(text,e)); }
+    if(_kokoro){ speakKokoro(text, e.rate).then(ok=>{ if(!ok) speakFallback(text,e); }).catch(()=>speakFallback(text,e)); }
     else { speakFallback(text,e); if(canKokoro && !_kokoro && !_kokoroLoading) getKokoro(); }
   }
   function listen(cb){
@@ -930,11 +930,11 @@ function esc(s){
     msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d;
   }
   const PRESETS={ '/projects':'What projects has Shubham built?', '/skills':"What is Shubham's tech stack and skills?", '/resume':'Give me a short summary of Shubham\'s profile.', '/contact':'How do I contact Shubham?' };
-  let cmdHist=[], hi=-1;
+  let cmdHist=[], hi=-1, _chatBusy=false, _chatQueue=[];
   function handleSlash(raw){
     const c=(raw.split(' ')[0]||'').toLowerCase();
     if(c==='/clear'){ msgs.innerHTML=''; return; }
-    if(c==='/help'){ addMsg('b','commands  >>  /projects · /skills · /resume · /contact · /voice · /clear   — or just ask anything'); return; }
+    if(c==='/help'){ addMsg('b','commands: /projects /skills /resume /contact /voice /clear — or just ask anything'); return; }
     if(c==='/voice'){ if(soundBtn) soundBtn.click(); return; }
     const q=PRESETS[c]; if(q){ sendUser(q); } else { addMsg('b',"unknown command: "+c+"   (try /help)"); }
   }
@@ -942,25 +942,40 @@ function esc(s){
     if(!v) return;
     addMsg('u',v);
     if(v.charAt(0)==='/'){ handleSlash(v); return; }
-    const t=addMsg('b','…',true);
-    askSASY(v).then(reply=>{ const m=moodOf(reply,v); setMood(m); const cc=t.querySelector('.c'); t.classList.remove('typing'); speak(reply,m); typeOut(cc, reply, ()=>{ bubbleSay(reply); }); });
+    if(_chatBusy){ _chatQueue.push(v); return; }
+    _processChat(v);
+  }
+  function _processChat(v){
+    _chatBusy=true;
+    const t=addMsg('b','',true);
+    askSASY(v).then(reply=>{
+      const m=moodOf(reply,v); setMood(m);
+      t.classList.remove('typing');
+      speak(reply,m);
+      typeOut(t.querySelector('.c'), reply, ()=>{
+        bubbleSay(reply);
+        _chatBusy=false;
+        if(_chatQueue.length){ const next=_chatQueue.shift(); _processChat(next); }
+      });
+    });
   }
   let bubT;
   function bubbleSay(txt){ if(!bubble) return; bubble.textContent=txt.slice(0,90); bubble.classList.add('show'); clearTimeout(bubT); bubT=setTimeout(()=>bubble.classList.remove('show'),3400); }
   function typeOut(el, txt, done){
     const wrap=el.parentElement; wrap.classList.add('typing');
-    let i=0; const step=Math.max(7, Math.min(26, 700/txt.length));
+    let i=0; const len=txt.length;
+    const step=Math.max(10, Math.min(30, 800/len));
+    el.textContent='';
     (function tick(){
-      if(i<=txt.length){ el.textContent=txt.slice(0,i); i++; msgs.scrollTop=msgs.scrollHeight; setTimeout(tick, step); }
+      if(i<=len){ el.textContent=txt.slice(0,i); i++; msgs.scrollTop=msgs.scrollHeight; setTimeout(tick, step); }
       else { wrap.classList.remove('typing'); if(done) done(); }
     })();
   }
   function openChat(){
     chat.hidden=false; chat.classList.add('open'); play('pop');
-    if(canKokoro && !_kokoro && !_kokoroLoading) getKokoro();
     fab.classList.add('m-wave'); setTimeout(()=>fab.classList.remove('m-wave'),600);
     fab.classList.add('chat-open');
-    if(!msgs.children.length){ const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help! 😊"; addMsg('b',g); speak(g,'happy'); }
+    if(!msgs.children.length){ const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g); if(voiceOn) speak(g,'happy'); }
     setTimeout(()=>text.focus(),200);
   }
   function closeChat(){ chat.classList.remove('open'); fab.classList.remove('chat-open'); setTimeout(()=>{ if(!chat.classList.contains('open')) chat.hidden=true; },300); }
@@ -984,7 +999,7 @@ function esc(s){
     ac(); play('hear'); micBtn.classList.add('live');
     listen((tr,err)=>{ micBtn.classList.remove('live'); if(err){ bubbleSay('Mic not available in this browser.'); } else if(tr){ cmdHist.push(tr); hi=cmdHist.length; sendUser(tr); } });
   });
-  if(soundBtn) soundBtn.addEventListener('click',()=>{ soundOn=!soundOn; voiceOn=soundOn; soundBtn.textContent=soundOn?'🔊':'🔇'; play('click'); });
+  if(soundBtn) soundBtn.addEventListener('click',()=>{ soundOn=!soundOn; voiceOn=soundOn; const volIcon=soundBtn.querySelector('.icon-vol'); const muteIcon=soundBtn.querySelector('.icon-mute'); if(volIcon) volIcon.style.display=soundOn?'':'none'; if(muteIcon) muteIcon.style.display=soundOn?'none':''; play('click'); });
 
   /* ---- drag (you can move it) ---- */
   const _small=window.matchMedia && window.matchMedia('(max-width:860px)').matches;
@@ -1027,9 +1042,11 @@ function esc(s){
   const sasy=document.getElementById('sasy');
   if(!sasy) return;
 
-  let w=0,h=0,dpr=1,rafId=null,running=false;
+  let w=0,h=0,dpr=1,rafId=null,running=false,lastFrame=0;
   const particles=[];
   const COLORS=['#7A1F2B','#F3EEE3','#C8102E','#1E40AF'];
+  const FPS=24;
+  const frameInterval=1000/FPS;
 
   function resize(){
     const rect=sasy.getBoundingClientRect();
@@ -1045,7 +1062,7 @@ function esc(s){
   function initParticles(){
     particles.length=0;
     const cx=w/dpr/2, cy=h/dpr/2;
-    const count=18;
+    const count=12;
     for(let i=0;i<count;i++){
       const angle=(i/count)*Math.PI*2 + Math.random()*0.3;
       const radius=32 + Math.random()*14;
@@ -1064,7 +1081,8 @@ function esc(s){
     if(!ctx) return;
     ctx.clearRect(0,0,w,h);
     const cx=w/dpr/2, cy=h/dpr/2;
-    particles.forEach(p=>{
+    for(let i=0;i<particles.length;i++){
+      const p=particles[i];
       p.angle+=p.speed;
       const x=cx+Math.cos(p.angle)*p.radius;
       const y=cy+Math.sin(p.angle)*p.radius;
@@ -1074,13 +1092,16 @@ function esc(s){
       ctx.arc(x,y,p.size,0,Math.PI*2);
       ctx.fillStyle=p.color;
       ctx.fill();
-    });
+    }
     ctx.globalAlpha=1;
   }
 
-  function loop(){
+  function loop(ts){
     if(!running) return;
-    draw();
+    if(ts-lastFrame>=frameInterval){
+      draw();
+      lastFrame=ts;
+    }
     rafId=requestAnimationFrame(loop);
   }
 
