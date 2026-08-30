@@ -836,7 +836,10 @@ function esc(s){
   function think(){ fab.classList.remove('m-happy','m-sad','m-angry','m-talk','m-calm','m-excited'); fab.classList.add('m-think'); }
 
   /* ---- chat via backend /api/chat ---- */
+  const _histKey='sasy_chat_history';
   let history=[];
+  try{ const saved=localStorage.getItem(_histKey); if(saved) history=JSON.parse(saved); }catch(e){}
+  function _saveHistory(){ try{ localStorage.setItem(_histKey,JSON.stringify(history)); }catch(e){} }
   async function askSASY(msg){
     think();
     try{
@@ -845,6 +848,7 @@ function esc(s){
       const reply=d.reply||"(no reply)";
       history.push({role:'user',content:msg},{role:'assistant',content:reply});
       if(history.length>20) history=history.slice(-20);
+      _saveHistory();
       setMood(moodOf(reply,msg));
       return reply;
     }catch(e){ setMood('sad'); return "I'm having trouble reaching my brain right now — try again in a moment!"; }
@@ -906,7 +910,17 @@ function esc(s){
     chat.hidden=false; chat.classList.add('open'); play('pop');
     fab.classList.add('m-wave'); setTimeout(()=>fab.classList.remove('m-wave'),600);
     fab.classList.add('chat-open');
-    if(!msgs.children.length){ const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g); if(voiceOn) speak(g,'happy'); }
+    if(!msgs.children.length){
+      // Restore previous messages from history
+      if(history.length>0){
+        history.forEach(h=>{
+          if(h.role==='user') addMsg('u',h.content);
+          else if(h.role==='assistant') addMsg('b',h.content);
+        });
+      } else {
+        const g="Hello! I'm SASY, Shubham's personal assistant. Ask me anything about him — his projects, skills, or availability. Happy to help!"; addMsg('b',g); if(voiceOn) speak(g,'happy');
+      }
+    }
     setTimeout(()=>text.focus(),200);
   }
   function closeChat(){ chat.classList.remove('open'); fab.classList.remove('chat-open'); setTimeout(()=>{ if(!chat.classList.contains('open')) chat.hidden=true; },300); }

@@ -421,9 +421,33 @@ footer{border-top:1px solid var(--line);position:relative;overflow:hidden}
 /* Responsive SASY sizing */
 @media (max-width:860px){
   .sasy{width:72px;height:72px;right:16px;bottom:16px}
+  .sasy-eye{width:16px;height:16px;top:33%}
+  .sasy-eye.l{left:20%}.sasy-eye.r{right:20%}
+  .sasy-eye span{width:7px;height:7px}
+  .sasy-brow{width:14px;height:3px;top:24%}
+  .sasy-brow.l{left:19%}.sasy-brow.r{right:19%}
+  .sasy-mouth{width:22px;height:10px;top:62%}
+  .sasy-cheek{width:7px;height:5px;top:53%}
+  .sasy-cheek.l{left:13%}.sasy-cheek.r{right:13%}
+  .sasy-ant{width:4px;height:10px;top:-6px}
+  .sasy-ant.l{left:30%}.sasy-ant.r{right:30%}
+  .sasy-shadow{width:44px;height:8px}
+  .sasy-bubble{max-width:170px;font-size:.6rem;padding:7px 10px}
 }
 @media (max-width:480px){
   .sasy{width:60px;height:60px;right:12px;bottom:12px}
+  .sasy-eye{width:14px;height:14px;top:32%}
+  .sasy-eye.l{left:18%}.sasy-eye.r{right:18%}
+  .sasy-eye span{width:6px;height:6px}
+  .sasy-brow{width:12px;height:3px;top:23%}
+  .sasy-brow.l{left:17%}.sasy-brow.r{right:17%}
+  .sasy-mouth{width:18px;height:8px;top:61%}
+  .sasy-cheek{width:6px;height:4px;top:52%}
+  .sasy-cheek.l{left:12%}.sasy-cheek.r{right:12%}
+  .sasy-ant{width:3px;height:8px;top:-5px}
+  .sasy-ant.l{left:28%}.sasy-ant.r{right:28%}
+  .sasy-shadow{width:36px;height:6px}
+  .sasy-bubble{max-width:150px;font-size:.55rem;padding:6px 8px}
 }
 
 /* Move SASY aside when chat opens */
