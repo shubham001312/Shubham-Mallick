@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/css/styles.css?v=23"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=25"/>
+  <link rel="stylesheet" href="assets/css/motion.css?v=3"/>
 <link rel="icon" href="assets/img/favicon.svg?v=9" type="image/svg+xml"/>
 <script>try{if(sessionStorage.getItem('sasy_booted'))document.documentElement.classList.add('skip-load');}catch(e){}</script>
 <link rel="canonical" href="https://shubhammallickengineer.hosteler.shop/"/>
@@ -60,6 +61,7 @@
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html">Work</a></li>
+    <li><a href="all-projects.html">All</a></li>
     <li><a href="experience.html">Path</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -76,7 +78,7 @@
   <div class="hud hud-br">LOCAL: <b class="ist-clock">--:--:--</b> IST<br/>STATUS: <b>ONLINE</b></div>
 
   <div class="hero-content">
-    <div class="hero-status"><i></i>Available — Internships 2025 / 26</div>
+    <div class="hero-status"><i></i>AI Developer — Potion Labs, Kolkata</div>
     <h1>
       Python backend <span class="op">×</span><br/>
       <span class="l2">applied intelligence</span>,<br/>
@@ -86,8 +88,9 @@
       B.Tech CSE (AI) student engineering <strong>production-grade</strong> FastAPI services, RAG pipelines and LLM products that survive real users. West Bengal, India — <span class="serif-i">working worldwide.</span>
     </p>
     <div class="hero-actions">
-      <a href="projects.html" class="btn btn-fill magnet">./view_work <span class="arr">→</span></a>
-      <a href="mailto:shubham.mallick1440@gmail.com" class="btn btn-ghost magnet">shubham.mallick1440@gmail.com</a>
+      <a href="projects.html" class="btn btn-fill magnet" data-magnet>./view_work <span class="arr">→</span></a>
+      <a href="all-projects.html" class="btn btn-ghost magnet" data-magnet>./all_projects <span class="arr">→</span></a>
+      <a href="mailto:shubham.mallick1440@gmail.com" class="btn btn-ghost magnet" data-magnet>shubham.mallick1440@gmail.com</a>
     </div>
   </div>
 
@@ -96,8 +99,8 @@
 
 <div class="statline">
   <div class="stat"><div class="stat-n"><span data-count="12">0</span><em>+</em></div><div class="stat-l">Projects Engineered</div></div>
-  <div class="stat"><div class="stat-n"><span data-count="6">0</span><em>/12</em></div><div class="stat-l">Deployed & Live</div></div>
-  <div class="stat"><div class="stat-n"><em>'</em><span data-count="25">0</span>–<em>'</em>29</div><div class="stat-l">B.Tech CSE (AI)</div></div>
+  <div class="stat"><div class="stat-n"><span data-count="9">0</span><em>/12</em></div><div class="stat-l">Deployed &amp; Live</div></div>
+  <div class="stat"><div class="stat-n"><span data-count="22">0</span><em> guides</em></div><div class="stat-l">IMURUN Docs Shipped</div></div>
   <div class="stat"><div class="stat-n"><span data-count="100">0</span><em>%</em></div><div class="stat-l">Shipped, Not Shelved</div></div>
 </div>
 
@@ -133,6 +136,59 @@
       <p>Docker, CI, deployment, monitoring and docs. I optimize for "someone else can run this" — projects that leave my machine and stay alive.</p>
       <div class="cap-tags"><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Supabase</span><span class="chip">Vercel</span><span class="chip">Git</span></div>
       <span class="corner c-tl"></span><span class="corner c-br"></span>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════════ SCROLL REEL — vertical scroll drives a horizontal film strip ══════════════ -->
+<section class="reel" id="reel" data-reel data-reel-from="api">
+  <div class="reel-sticky">
+    <div class="reel-head">
+      <div>
+        <div class="sec-idx">02 // the reel</div>
+        <h2 class="sec-title">Scroll the <span class="serif-i">film</span></h2>
+      </div>
+      <div class="sec-note">VERTICAL SCROLL → HORIZONTAL REEL<br/>LIVE FROM THE API · CLICK ANY CARD</div>
+    </div>
+    <div class="reel-viewport">
+      <div class="reel-track"></div>
+    </div>
+    <div class="reel-bar"><i></i></div>
+    <div class="reel-hint" aria-hidden="true"><span class="track"></span>Keep scrolling</div>
+  </div>
+</section>
+
+<!-- ══════════════ THE STUDIO ══════════════ -->
+<section id="studio">
+  <div class="sec-head rv">
+    <div>
+      <div class="sec-idx">03 // studio</div>
+      <h2 class="sec-title">ImuTechz — <span class="serif-i">the studio behind it</span></h2>
+    </div>
+    <div class="sec-note">INDEPENDENT SOFTWARE STUDIO<br/>CLIENT WORK FEEDS THE OPEN SOURCE</div>
+  </div>
+
+  <div class="feat-grid rv">
+    <article class="feat" data-reveal="up" data-tilt="6">
+      <span class="fn">S.01</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5 12 12l8-4.5L12 3Z"/><path d="m4 12.5 8 4.5 8-4.5M4 17l8 4.5 8-4.5"/></svg></span>
+      <h3>Agents &amp; Skills Directory</h3>
+      <p>10,631 open-source entries — 8,034 agents and 2,597 skills across 23 categories. Browse free, search in plain language, save what you like and download directly.</p>
+      <a class="ap-go" href="https://www.imutechz.in/agents" target="_blank" rel="noopener">Explore the directory →</a>
+    </article>
+    <article class="feat" data-reveal="up" data-delay="80" data-tilt="6">
+      <span class="fn">S.02</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="m7 10 3 2.5L7 15M12.5 15H17"/></svg></span>
+      <h3>IMURUN — the IMU CLI</h3>
+      <p>A local-first AI coding agent: models run on your machine and your code never leaves it. Install with npm and go from zero to agent in one sitting.</p>
+      <a class="ap-go" href="imurun.html">Open the project page →</a>
+    </article>
+    <article class="feat" data-reveal="up" data-delay="160" data-tilt="6">
+      <span class="fn">S.03</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9Z"/></svg></span>
+      <h3>imutechz-web</h3>
+      <p>This website — Next.js and Supabase, documentation compiled from markdown at build time, an animated scene on every route. Self-deployed from GitHub to Vercel.</p>
+      <a class="ap-go" href="https://www.imutechz.in" target="_blank" rel="noopener">Visit the studio →</a>
     </article>
   </div>
 </section>
@@ -214,14 +270,14 @@
   <div class="otw" id="otwModal" hidden>
     <div class="otw-card" role="dialog" aria-modal="true" aria-label="Open to work">
       <div class="otw-head">
-        <h3>Open to internships · 2025 / 2026</h3>
-        <p>PYTHON BACKEND × APPLIED AI — AVAILABLE NOW</p>
+        <h3>Open to work · Backend × AI</h3>
+        <p>PYTHON BACKEND × APPLIED AI — CURRENTLY AT POTION LABS, KOLKATA</p>
         <button class="otw-close" data-close aria-label="Close">×</button>
       </div>
       <div class="otw-body">
         <div class="otw-sec">
           <h4>Why me</h4>
-          <p>Python-first backend & applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are both real, deployed builds. Internship experience at Autom8x building AI agents and agentic workflows.</p>
+          <p>Python-first backend & applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are both real, deployed builds. Currently an AI Developer at Potion Labs AI Technologies in Kolkata, on-site — and still open to backend, Python and AI work.</p>
         </div>
         <div class="otw-sec">
           <h4>How I deal with work</h4>
@@ -247,6 +303,7 @@
       window.addEventListener('load',function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
     }
   </script>
-  <script src="assets/js/main.js?v=21" defer></script>
+  <script src="assets/js/main.js?v=23" defer></script>
+  <script src="assets/js/motion.js?v=2" defer></script>
 </body>
 </html>

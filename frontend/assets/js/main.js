@@ -13,7 +13,7 @@ const lerp = (a,b,t)=>a+(b-a)*t;
   if(loaderEl && sessionStorage.getItem('sasy_booted')){ loaderEl.classList.add('done'); document.body.style.overflow=''; return; }
   const lines=[
     ['> initializing core renderer','OK'],
-    ['> mounting /projects — 4 entries','OK'],
+    ['> mounting /projects — 9 entries','OK'],
     ['> loading neural_core.obj — 2400 pts','OK'],
     ['> auth: guest session granted','OK'],
     ['> welcome, visitor','—']
@@ -62,10 +62,11 @@ if(!touch){
 
 /* ═══════════════════════ MAGNETIC BUTTONS ═══════════════════════ */
 if(!touch){
-  document.querySelectorAll('.magnet').forEach(el=>{
+  document.querySelectorAll('.magnet,[data-magnet]').forEach(el=>{
+    const strength = parseFloat(el.getAttribute('data-magnet') || '0.25');
     el.addEventListener('mousemove',e=>{
       const r=el.getBoundingClientRect();
-      const dx=(e.clientX-r.left-r.width/2)*.25, dy=(e.clientY-r.top-r.height/2)*.35;
+      const dx=(e.clientX-r.left-r.width/2)*strength, dy=(e.clientY-r.top-r.height/2)*strength*1.35;
       el.style.transform=`translate(${dx}px,${dy}px)`;
     });
     el.addEventListener('mouseleave',()=>{el.style.transform='';});
@@ -80,7 +81,7 @@ setInterval(()=>{
 
 /* ═══════════════════════ MARQUEES ═══════════════════════ */
 (function(){
-  const words=['PYTHON','FASTAPI','RAG PIPELINES','POSTGRESQL','LLM AGENTS','NEXT.JS','DOCKER','LANGCHAIN','SUPABASE','EMBEDDINGS'];
+  const words=['PYTHON','FASTAPI','RAG PIPELINES','POSTGRESQL','LLM AGENTS','IMURUN','TYPESCRIPT','LOCAL INFERENCE','NEXT.JS','DOCKER','LANGCHAIN','SUPABASE','EMBEDDINGS','OPEN SOURCE'];
   const build=(id,ghostEvery)=>{
     const t=document.getElementById(id); if(!t) return; let html='';
     for(let r=0;r<2;r++) words.forEach((w,i)=>{
@@ -125,7 +126,7 @@ const spy=new IntersectionObserver(es=>es.forEach(e=>{
 });
 
 /* capability card spotlight */
-document.querySelectorAll('.cap').forEach(c=>{
+document.querySelectorAll('.cap,.feat').forEach(c=>{
   c.addEventListener('mousemove',e=>{
     const r=c.getBoundingClientRect();
     c.style.setProperty('--mx',(e.clientX-r.left)+'px');
@@ -433,9 +434,10 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
     const tags=(p.stack||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join('');
     const url=p.link||(p.links&&p.links[0]&&p.links[0].url)||'#';
     const flag=p.flag?`<span class="p-flag">${esc(p.flag)}</span>`:'';
-    return `<article class="proj" data-url="${esc(url)}" tabindex="0">
+    const pager=p.page?`<span class="p-page">PAGE ↗</span>`:'';
+    return `<article class="proj${p.page?' has-page':''}" data-url="${esc(url)}" tabindex="0">
       <span class="p-num">/${String(i+1).padStart(2,'0')}</span>
-      <div class="p-main"><div class="p-title">${esc(p.title)} ${flag}</div>
+      <div class="p-main"><div class="p-title">${esc(p.title)} ${flag} ${pager}</div>
         <p class="p-desc">${esc(p.desc)}</p>
         <div class="p-tags">${tags}</div></div>
       <div class="p-viz"><canvas data-viz="${VIZ[i%VIZ.length]}"></canvas></div>
@@ -452,9 +454,20 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
     const high=modal.querySelector('#projHigh'); high.innerHTML='';
     (p.highlights||[]).forEach(h=>{ const li=document.createElement('li'); li.textContent=h; high.appendChild(li); });
     const links=modal.querySelector('#projLinks'); links.innerHTML='';
-    const url=p.link||(p.links&&p.links[0]&&p.links[0].url);
-    if(url){ const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener'; a.textContent='Visit live ↗'; a.className='otw-live'; links.appendChild(a); }
-    (p.links||[]).forEach(l=>{ const a=document.createElement('a'); a.href=l.url; a.target='_blank'; a.rel='noopener'; a.textContent=l.label+' ↗'; links.appendChild(a); });
+    const mk=(href,label,primary)=>{
+      const a=document.createElement('a');
+      a.href=href; a.textContent=label;
+      if(primary) a.className='otw-live';
+      else { a.target='_blank'; a.rel='noopener'; }
+      links.appendChild(a);
+    };
+    // a project with its own page wins — clicking it lands on that page
+    if(p.page){ mk(p.page,'Open project page →',true); }
+    else { const u=p.link||(p.links&&p.links[0]&&p.links[0].url); if(u) mk(u,'Visit live ↗',true); }
+    if(p.repo) mk(p.repo,'Source code ↗');
+    if(p.docs) mk(p.docs,'Read the docs ↗');
+    if(p.video) mk(p.video,'Watch the video ↗');
+    (p.links||[]).forEach(l=>mk(l.url,l.label+' ↗'));
     modal.hidden=false; requestAnimationFrame(()=>modal.classList.add('open')); document.body.style.overflow='hidden';
   }
   function closeProject(){ if(!modal) return; modal.classList.remove('open'); setTimeout(()=>{ modal.hidden=true; },300); document.body.style.overflow=''; }
@@ -464,8 +477,17 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
     try{ if(window.activateViz) window.activateViz(); }catch(e){ /* viz is decorative — never blank the grid */ }
     document.querySelectorAll('.proj').forEach((el,i)=>{
       el.addEventListener('mouseenter',()=>{ if(window.neuralPulse) window.neuralPulse(.9+i*.15); });
-      el.addEventListener('click',e=>{ if(e.target.closest('a')) return; openProject(data[i]); });
-      el.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); openProject(data[i]); } });
+      el.addEventListener('click',e=>{
+        if(e.target.closest('a')) return;
+        const p=data[i]; if(!p) return;
+        // projects that own a page open it directly — the rest use the detail modal
+        if(p.page){ location.href=p.page; return; }
+        openProject(p);
+      });
+      el.addEventListener('keydown',e=>{
+        if(e.key==='Enter'){ e.preventDefault(); const p=data[i]; if(!p) return;
+          if(p.page){ location.href=p.page; return; } openProject(p); }
+      });
     });
   }
   if(modal){
@@ -594,9 +616,9 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
     ]),
     whoami:()=>print([
       {c:'g',t:'shubham_mallick'},
-      {t:'role      → python backend × applied ai'},
+      {t:'role      → ai developer @ potion labs, kolkata'},
       {t:'base      → north 24 parganas, west bengal, in'},
-      {t:'status    → open to internships (2025–26)'},
+      {t:'status    → open to backend / ai work'},
       {t:'motto     → "shipped, not just built."'}
     ]),
     skills:()=>print([
@@ -606,11 +628,12 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
     ]),
     projects:()=>print([
       {c:'g',t:'INDEXING…'},
-      {t:' [01] VEDA      — personal AI system · RAG · multi-agent'},
-      {t:' [02] LEARNIFY  — ai study copilot · fastapi + next.js'},
-      {t:' [03] GRBS      — roadmap builder · live in prod'},
-      {t:' [04] NEWSBUZZ  — ai news pipeline · in dev'},
-      {c:'a',t:'→ open the Projects page for live links.'}
+      {t:' [01] IMURUN   — local-first ai coding agent · mit · terminal'},
+      {t:' [02] VEDA     — personal ai system · rag · multi-agent'},
+      {t:' [03] LEARNIFY — ai study copilot · fastapi + next.js'},
+      {t:' [04] HOSTELER — e-commerce for hostel students · live'},
+      {t:' [05] GRBS     — roadmap builder · live in prod'},
+      {c:'a',t:'→ open the All Projects page for every build.'}
     ]),
     hire:()=>print([
       {c:'g',t:'PITCH.TXT LOADED ✓'},
@@ -666,7 +689,7 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
       typeIn('whoami',()=>{
         print([
           {c:'g',t:'shubham_mallick'},
-          {t:'backend × ai · west bengal, in · open to internships'},
+          {t:'ai developer @ potion labs · kolkata · open to backend / ai work'},
           {c:'a',t:'type `help` to explore this shell.'}
         ]);
       });

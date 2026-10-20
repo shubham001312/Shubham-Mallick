@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/css/styles.css?v=23"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=25"/>
+  <link rel="stylesheet" href="assets/css/motion.css?v=3"/>
 <link rel="icon" href="assets/img/favicon.svg?v=8" type="image/svg+xml"/>
 <script>try{if(sessionStorage.getItem('sasy_booted'))document.documentElement.classList.add('skip-load');}catch(e){}</script>
 <link rel="canonical" href="https://shubhammallickengineer.hosteler.shop/about.html"/>
@@ -59,6 +60,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="projects.html">Work</a></li>
+    <li><a href="all-projects.html">All</a></li>
     <li><a href="experience.html">Path</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -88,9 +90,55 @@
       </p>
 
       <div class="caps" style="margin-top:34px">
-        <article class="cap"><div class="cap-top"><span class="cap-num">VAL.01</span></div><h3>Depth over buzzwords</h3><p>Understand the system under the abstraction — APIs, data, latency, failure modes.</p><span class="corner c-tl"></span><span class="corner c-br"></span></article>
-        <article class="cap"><div class="cap-top"><span class="cap-num">VAL.02</span></div><h3>Pragmatic AI</h3><p>Use LLMs where they help; keep deterministic logic where it must be correct.</p><span class="corner c-tl"></span><span class="corner c-br"></span></article>
-        <article class="cap"><div class="cap-top"><span class="cap-num">VAL.03</span></div><h3>Own the pipeline</h3><p>From the endpoint to the database to the deploy — I want the whole path.</p><span class="corner c-tl"></span><span class="corner c-br"></span></article>
+        <article class="cap" data-reveal="up"><div class="cap-top"><span class="cap-num">VAL.01</span></div><h3>Depth over buzzwords</h3><p>Understand the system under the abstraction — APIs, data, latency, failure modes.</p><span class="corner c-tl"></span><span class="corner c-br"></span></article>
+        <article class="cap" data-reveal="up" data-delay="70"><div class="cap-top"><span class="cap-num">VAL.02</span></div><h3>Pragmatic AI</h3><p>Use LLMs where they help; keep deterministic logic where it must be correct.</p><span class="corner c-tl"></span><span class="corner c-br"></span></article>
+        <article class="cap" data-reveal="up" data-delay="140"><div class="cap-top"><span class="cap-num">VAL.03</span></div><h3>Own the pipeline</h3><p>From the endpoint to the database to the deploy — I want the whole path.</p><span class="corner c-tl"></span><span class="corner c-br"></span></article>
+      </div>
+
+      <div class="rv" style="margin-top:38px">
+        <div class="sec-idx" style="margin-bottom:14px">// the stack</div>
+        <div class="cap-tags" style="gap:8px">
+          <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span>
+          <span class="chip">SQLAlchemy</span><span class="chip">RAG</span><span class="chip">LLMs</span>
+          <span class="chip">LangChain</span><span class="chip">Agents</span><span class="chip">TypeScript</span>
+          <span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Supabase</span>
+          <span class="chip">Vercel</span><span class="chip">pytest</span>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-top:30px">
+        <div class="sec-idx" style="margin-bottom:14px">// the roles</div>
+        <div class="cap-tags" style="gap:8px">
+          <span class="chip">AI Developer — Potion Labs (current)</span>
+          <span class="chip">Founder — ImuTechz</span>
+          <span class="chip">Founder — Hosteler India</span>
+          <span class="chip">AI Intern — Autom8x (US)</span>
+          <span class="chip">GDG On Campus Kolkata</span>
+          <span class="chip">NCC — A grade</span>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-top:40px;border-left:2px solid var(--mar);padding-left:22px">
+        <p style="font-family:var(--fd);font-size:clamp(1.15rem,2.4vw,1.7rem);font-weight:600;letter-spacing:-.02em;line-height:1.4">
+          Become the backend engineer for AI products first — then grow into AI Platform / ML Infrastructure engineering.
+        </p>
+        <p style="color:var(--mute);font-size:.9rem;line-height:1.8;margin-top:14px">
+          Ship work that leaves the machine and stays alive. Keep it open, observable and testable —
+          and give away more than the industry expects.
+        </p>
+      </div>
+
+      <div class="rv" style="margin-top:34px">
+        <div class="sec-idx" style="margin-bottom:14px">// the studio</div>
+        <p style="color:var(--mute);font-size:.92rem;line-height:1.8">
+          <strong style="color:var(--ink);font-weight:500">ImuTechz</strong> is the independent software studio I run —
+          an AI-agent directory of 10,631 open-source entries, IMURUN the local-first coding CLI, and the website
+          that ships them. Client work pays the bills so the open source stays free.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
+          <a class="btn btn-ghost magnet" data-magnet href="https://www.imutechz.in" target="_blank" rel="noopener">imutechz.in ↗</a>
+          <a class="btn btn-ghost magnet" data-magnet href="imurun.html">IMURUN project page →</a>
+        </div>
       </div>
     </div>
 
@@ -105,10 +153,13 @@
         <div class="cm-row"><span class="k">Stage</span><span>Semester 3</span></div>
         <div class="cm-row"><span class="k">Base</span><span>North 24 Parganas, WB</span></div>
         <div class="cm-row"><span class="k">Local Time</span><span class="ist-clock" style="color:var(--mar)">--:--:--</span></div>
-        <div class="cm-row"><span class="k">Status</span><span style="color:var(--amb)">Open to internships</span></div>
+        <div class="cm-row"><span class="k">Status</span><span style="color:var(--mar)">AI Developer @ Potion Labs</span></div>
         <div class="cm-row"><span class="k">GitHub</span><a href="https://github.com/shubham001312" target="_blank">@shubham001312</a></div>
         <div class="cm-row"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/shubham-mallick-061298378" target="_blank">/in/shubham-mallick</a></div>
         <div class="cm-row"><span class="k">Scholar</span><a href="https://scholar.google.com/citations?user=vMPlCOcAAAAJ" target="_blank">Google Scholar</a></div>
+        <div class="cm-row"><span class="k">Studio</span><a href="https://www.imutechz.in" target="_blank">imutechz.in</a></div>
+        <div class="cm-row"><span class="k">CLI</span><a href="imurun.html">IMURUN — the IMU CLI</a></div>
+        <div class="cm-row"><span class="k">Channel</span><a href="https://www.youtube.com/@ImuTechz" target="_blank">youtube.com/@ImuTechz</a></div>
       </div>
     </aside>
   </div>
@@ -184,14 +235,14 @@
   <div class="otw" id="otwModal" hidden>
     <div class="otw-card" role="dialog" aria-modal="true" aria-label="Open to work">
       <div class="otw-head">
-        <h3>Open to internships · 2025 / 2026</h3>
-        <p>PYTHON BACKEND × APPLIED AI — AVAILABLE NOW</p>
+        <h3>Open to work · Backend × AI</h3>
+        <p>PYTHON BACKEND × APPLIED AI — CURRENTLY AT POTION LABS, KOLKATA</p>
         <button class="otw-close" data-close aria-label="Close">×</button>
       </div>
       <div class="otw-body">
         <div class="otw-sec">
           <h4>Why me</h4>
-          <p>Python-first backend &amp; applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are both real, deployed builds. Internship experience at Autom8x building AI agents and agentic workflows.</p>
+          <p>Python-first backend &amp; applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are both real, deployed builds. Currently an AI Developer at Potion Labs AI Technologies in Kolkata, on-site — and still open to backend, Python and AI work.</p>
         </div>
         <div class="otw-sec">
           <h4>How I deal with work</h4>
@@ -217,7 +268,8 @@
       window.addEventListener('load',function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
     }
   </script>
-  <script src="assets/js/main.js?v=21" defer></script>
+  <script src="assets/js/main.js?v=23" defer></script>
+  <script src="assets/js/motion.js?v=2" defer></script>
 </body>
 </html>
 

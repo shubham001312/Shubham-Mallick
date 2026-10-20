@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/docs/:path*",
@@ -13,6 +14,16 @@
     {
       "source": "/home",
       "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/all-projects",
+      "destination": "/all-projects.html",
+      "permanent": true
+    },
+    {
+      "source": "/imurun",
+      "destination": "/imurun.html",
       "permanent": true
     }
   ]

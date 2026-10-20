@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IMURUN — the IMU CLI | Local-first AI coding agent by Shubham Mallick</title>
+<meta name="description" content="IMURUN is a local-first AI coding agent for the terminal — hardware-probed model recommendations, offline inference, agents, skills, memory and RAG, with no account, no API key and no telemetry. MIT licensed and open source."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css?v=25"/>
+<link rel="stylesheet" href="assets/css/motion.css?v=3"/>
+<link rel="icon" href="assets/img/favicon.svg?v=9" type="image/svg+xml"/>
+<script>try{if(sessionStorage.getItem('sasy_booted'))document.documentElement.classList.add('skip-load');}catch(e){}</script>
+<link rel="canonical" href="https://shubhammallickengineer.hosteler.shop/imurun.html"/>
+<meta name="keywords" content="IMURUN, IMU CLI, local-first AI coding agent, local LLM, offline AI, terminal AI agent, AI agents CLI, RAG CLI, privacy AI, no telemetry AI, Shubham Mallick IMURUN, imutechz imurun, llama.cpp, local inference, open source AI CLI, MIT AI agent"/>
+<meta property="og:type" content="video.movie"/>
+<meta property="og:title" content="IMURUN — Your code. Your machine. Your model."/>
+<meta property="og:description" content="A local-first AI coding agent for the terminal. Models run on your machine and your code never leaves it — no account, no API key, no telemetry."/>
+<meta property="og:url" content="https://shubhammallickengineer.hosteler.shop/imurun.html"/>
+<meta property="og:site_name" content="Shubham Mallick — Portfolio"/>
+<meta property="og:image" content="https://i.ytimg.com/vi/bDLHWa3ybqI/maxresdefault.jpg"/>
+<meta property="og:video" content="https://www.youtube.com/embed/bDLHWa3ybqI"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="IMURUN — Your code. Your machine. Your model."/>
+<meta name="twitter:description" content="A local-first AI coding agent for the terminal. Models run on your machine and your code never leaves it."/>
+<meta name="twitter:image" content="https://i.ytimg.com/vi/bDLHWa3ybqI/maxresdefault.jpg"/>
+<link rel="apple-touch-icon" href="https://shubhammallickengineer.hosteler.shop/assets/img/favicon.svg"/>
+<meta name="msapplication-TileColor" content="#7A1F2B"/>
+<meta name="theme-color" content="#7A1F2B"/>
+<link rel="manifest" href="manifest.json"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"IMURUN","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux","description":"A local-first AI coding agent for the terminal — hardware-probed model recommendations, offline inference, agents, skills, memory and RAG.","softwareVersion":"0.1.10","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Shubham Mallick"},"codeRepository":"https://github.com/shubham001312/imurun","url":"https://www.imutechz.in/imu","featureList":["Hardware-probed model recommendations","Keyboard-first terminal TUI","Agents with working modes","Routed skill library","Offline memory and RAG","Permission gate on every tool call","No account, no API key, no telemetry"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"IMURUN — Your code. Your machine. Your model.","description":"A local-first AI coding agent for the terminal — the first-run wizard, hardware-aware model picks, the terminal agent, offline index and memory, and what happens when you close the terminal.","thumbnailUrl":["https://i.ytimg.com/vi/bDLHWa3ybqI/maxresdefault.jpg"],"uploadDate":"2026-10-01","duration":"PT2M26S","embedUrl":"https://www.youtube.com/embed/bDLHWa3ybqI","contentUrl":"https://youtu.be/bDLHWa3ybqI","publisher":{"@type":"Organization","name":"ImuTechz","url":"https://www.imutechz.in"}}</script>
+</head>
+<body>
+
+<div class="cur-dot"></div>
+<div class="cur-ring"></div>
+
+<div id="loader">
+  <div class="boot-lines" id="bootLines"></div>
+  <div class="boot-bottom">
+    <div class="boot-sig">SM://PORTFOLIO — IMURUN</div>
+    <div class="boot-pct"><span id="bootNum">00</span><span>%</span></div>
+  </div>
+  <div id="bootbar"></div>
+</div>
+
+<nav>
+  <a href="index.html" class="logo">
+    <span class="logo-mark"><img class="logo-photo" src="assets/img/profile.jpg?v=2" alt="Shubham Mallick" onerror="this.remove()"/><b class="logo-init">SM</b></span>
+    <span class="logo-txt">Shubham Mallick<small>Python · Backend · AI</small></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Work</a></li>
+    <li><a href="all-projects.html">All</a></li>
+    <li><a href="experience.html">Path</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+      <a href="mailto:shubham.mallick1440@gmail.com" class="nav-cta" id="otwOpen"><span class="blink"></span>OPEN_TO_WORK</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<header class="pp-hero">
+  <div style="position:relative;z-index:1;max-width:1360px;margin:0 auto;padding:0 4vw">
+    <span class="pp-badge" data-reveal="up"><i></i>IMU CLI · IMURUN v0.1.10 · MIT · Open source</span>
+    <h1 data-split>Your code. Your machine. <em>Your model.</em></h1>
+    <p class="pp-lede" data-reveal="up" data-delay="120">
+      IMURUN is a local-first AI coding agent for the terminal. It installs, manages and runs
+      large language models entirely on your own hardware — CPU or GPU — with no cloud dependency,
+      no telemetry and no separate runtime to configure. <strong>Local models are the default</strong>,
+      and everything IMURUN needs to run them ships with it.
+    </p>
+    <div class="pp-links" data-reveal="up" data-delay="220">
+      <a href="#film" class="btn btn-fill magnet" data-magnet>Watch the film <span class="arr">→</span></a>
+      <a href="https://github.com/shubham001312/imurun" target="_blank" rel="noopener" class="btn btn-ghost magnet" data-magnet>Repository ↗</a>
+      <a href="https://www.imutechz.in/imu/docs" target="_blank" rel="noopener" class="btn btn-ghost magnet" data-magnet>Documentation ↗</a>
+      <a href="https://www.imutechz.in/imu" target="_blank" rel="noopener" class="btn btn-ghost magnet" data-magnet>Live site ↗</a>
+    </div>
+
+    <div class="band-nums" data-reveal="up" data-delay="320" style="margin-top:52px">
+      <div class="band-num"><b><span data-count="22">0</span></b><span>Guides shipped</span><i class="bar" data-w="100%"></i></div>
+      <div class="band-num"><b><span data-count="0">0</span></b><span>Telemetry packets</span><i class="bar" data-w="4%"></i></div>
+      <div class="band-num"><b><span data-count="0">0</span></b><span>Keys required</span><i class="bar" data-w="4%"></i></div>
+      <div class="band-num"><b><span data-count="1">0</span></b><span>Command to start</span><i class="bar" data-w="62%"></i></div>
+    </div>
+  </div>
+</header>
+
+<!-- ── THE FILM — video player ──────────────────────────────────────────── -->
+<section id="film" style="padding-top:40px" class="spotlight">
+  <div class="sec-head rv sticky-head">
+    <div>
+      <div class="sec-idx">01 // the film</div>
+      <h2 class="sec-title">Two and a half minutes, <span class="serif-i">zero cloud</span></h2>
+    </div>
+    <div class="sec-note">YOUTUBE · IMUTECHZ<br/>10 CHAPTERS · 2:26</div>
+  </div>
+
+  <div class="rv" id="vp" data-video="bDLHWa3ybqI">
+    <div class="vplayer">
+      <div class="vplayer-frame">
+        <div class="vp-poster" id="vpPoster" role="button" tabindex="0" aria-label="Play the IMURUN film">
+          <img src="https://i.ytimg.com/vi/bDLHWa3ybqI/maxresdefault.jpg" alt="IMURUN — Your code. Your machine. Your model." loading="lazy"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/bDLHWa3ybqI/hqdefault.jpg'"/>
+          <div class="vp-play">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#F3EEE3"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="vp-meta">
+            <h4>IMURUN — Your code. Your machine. Your model.</h4>
+            <p>ImuTechz · Local-first AI coding agent</p>
+          </div>
+        </div>
+        <div id="vpIframe"></div>
+      </div>
+      <div class="vp-bar">
+        <button class="vp-btn" data-vp-play type="button" title="Play / pause" aria-label="Play or pause">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="vp-btn" data-vp-mute type="button" title="Mute" aria-label="Mute or unmute" style="font-size:.56rem">MUTE</button>
+        <div class="vp-track">
+          <i class="vp-buffer"></i><i class="vp-fill"></i><i class="vp-handle"></i>
+        </div>
+        <span class="vp-time">0:00 / 2:26</span>
+        <button class="vp-btn" data-vp-full type="button" title="Fullscreen" aria-label="Fullscreen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="vp-chapters" role="list" aria-label="Chapters">
+      <button class="vp-ch" data-t="0" type="button"><span class="t">00:00</span><span class="d">Cold open</span></button>
+      <button class="vp-ch" data-t="10" type="button"><span class="t">00:10</span><span class="d">The fine print</span></button>
+      <button class="vp-ch" data-t="29" type="button"><span class="t">00:29</span><span class="d">One install, one question</span></button>
+      <button class="vp-ch" data-t="41" type="button"><span class="t">00:41</span><span class="d">It reads your machine</span></button>
+      <button class="vp-ch" data-t="57" type="button"><span class="t">00:57</span><span class="d">Engine + model, verified</span></button>
+      <button class="vp-ch" data-t="73" type="button"><span class="t">01:13</span><span class="d">The agent</span></button>
+      <button class="vp-ch" data-t="88" type="button"><span class="t">01:28</span><span class="d">Context, index, memory</span></button>
+      <button class="vp-ch" data-t="107" type="button"><span class="t">01:47</span><span class="d">Skills and permissions</span></button>
+      <button class="vp-ch" data-t="123" type="button"><span class="t">02:03</span><span class="d">Offline by default</span></button>
+      <button class="vp-ch" data-t="137" type="button"><span class="t">02:17</span><span class="d">Get it</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ─────────────────────────────────────────────────────────── -->
+<section>
+  <div class="sec-head rv sticky-head">
+    <div>
+      <div class="sec-idx">02 // capabilities</div>
+      <h2 class="sec-title">Everything the <span class="serif-i">agent can do</span></h2>
+    </div>
+    <div class="sec-note">LOCAL BY DEFAULT<br/>OPEN BY DESIGN</div>
+  </div>
+
+  <div class="feat-grid rv">
+    <article class="feat" data-reveal="up" data-tilt="6">
+      <span class="fn">F.01</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg></span>
+      <h3>Models that fit your machine</h3>
+      <p>Probes your hardware, recommends models that actually run well locally, then downloads them with live progress and verified checksums.</p>
+    </article>
+    <article class="feat" data-reveal="up" data-delay="70" data-tilt="6">
+      <span class="fn">F.02</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="m7 10 3 2.5L7 15M12.5 15H17"/></svg></span>
+      <h3>A real terminal TUI</h3>
+      <p>A keyboard-first interface with a status line, mouse support and slash commands — built for the shell you already live in.</p>
+    </article>
+    <article class="feat" data-reveal="up" data-delay="140" data-tilt="6">
+      <span class="fn">F.03</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.4 3.8-5 7-5s5.8 1.6 7 5"/></svg></span>
+      <h3>Agents with working modes</h3>
+      <p>Switch the agent's prompt and toolset per job — researcher, refactorer, reviewer — or write your own in one file.</p>
+    </article>
+    <article class="feat" data-reveal="up" data-delay="210" data-tilt="6">
+      <span class="fn">F.04</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5 12 12l8-4.5L12 3Z"/><path d="m4 12.5 8 4.5 8-4.5M4 17l8 4.5 8-4.5"/></svg></span>
+      <h3>Skill library, routed</h3>
+      <p>A built-in skill library that routes your request to the right recipe — and imports packs from the Agents &amp; Skills directory.</p>
+    </article>
+    <article class="feat" data-reveal="up" data-delay="280" data-tilt="6">
+      <span class="fn">F.05</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/></svg></span>
+      <h3>Memory &amp; RAG, offline</h3>
+      <p>Durable notes, session digests and a local project index behind code_search — your code never leaves the machine.</p>
+    </article>
+    <article class="feat" data-reveal="up" data-delay="350" data-tilt="6">
+      <span class="fn">F.06</span>
+      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.4 3 8 7 9.5 4-1.5 7-5.1 7-9.5V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+      <h3>Permissions you control</h3>
+      <p>Every tool call passes a permission gate. Allow once, allow always, or deny — nothing runs behind your back.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ── INSTALL ──────────────────────────────────────────────────────────── -->
+<section style="padding-top:40px">
+  <div class="cmd-strip rv" data-reveal="up">
+    <code><span class="p">❯</span>npm install -g imurun</code>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <button class="cmd-copy" data-copy="npm install -g imurun" type="button">Copy</button>
+      <span style="font-family:var(--fm);font-size:.62rem;color:var(--dim);letter-spacing:.08em">REQUIRES BUN 1.2+ · STANDALONE BINARIES TOO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ─────────────────────────────────────────────────────── -->
+<section>
+  <div class="sec-head rv sticky-head">
+    <div>
+      <div class="sec-idx">03 // first run</div>
+      <h2 class="sec-title">Zero to agent in <span class="serif-i">four steps</span></h2>
+    </div>
+    <div class="sec-note">ONE COMMAND<br/>ONE QUESTION · LOCAL OR ONLINE</div>
+  </div>
+
+  <div class="flow4 rv">
+    <article class="flow-step" data-reveal="up">
+      <span class="flow-n">01</span>
+      <h3>Probe</h3>
+      <p>IMURUN reads your GPU, RAM, CPU and disk in seconds — then scores the machine into a tier.</p>
+      <span class="flow-when">seconds</span>
+    </article>
+    <article class="flow-step" data-reveal="up" data-delay="80">
+      <span class="flow-n">02</span>
+      <h3>Recommend</h3>
+      <p>A catalog of models ranked by what your hardware can actually run — with the speed and the disk each one needs.</p>
+      <span class="flow-when">before you commit</span>
+    </article>
+    <article class="flow-step" data-reveal="up" data-delay="160">
+      <span class="flow-n">03</span>
+      <h3>Download</h3>
+      <p>One command, live progress, checksums verified. An interrupted download resumes where it stopped.</p>
+      <span class="flow-when">one keypress</span>
+    </article>
+    <article class="flow-step" data-reveal="up" data-delay="240">
+      <span class="flow-n">04</span>
+      <h3>Run</h3>
+      <p>The local runtime drives the agent — and unloads when you close the tab. No stray server left behind.</p>
+      <span class="flow-when">warm, then gone</span>
+    </article>
+  </div>
+</section>
+
+<!-- ── PRIVACY BAND ─────────────────────────────────────────────────────── -->
+<section style="padding-top:20px">
+  <div class="rv" data-reveal="mask" style="border:1px solid var(--line-hi);border-radius:20px;padding:52px 44px;background:linear-gradient(135deg,rgba(122,31,43,.07),transparent 70%);text-align:center">
+    <h2 style="font-family:var(--fd);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.04em;margin-bottom:16px">No account. No key. No telemetry.</h2>
+    <p style="color:var(--mute);font-size:.98rem;line-height:1.8;max-width:62ch;margin:0 auto 26px">
+      Local is the default — every dependency IMURUN ships is free and open source. Add an online
+      provider only if you want one. The repository, the issues and the history are open: anyone can
+      audit what changed, when, and why.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="https://github.com/shubham001312/imurun" target="_blank" rel="noopener" class="btn btn-fill magnet" data-magnet>Clone it ↗</a>
+      <a href="https://www.imutechz.in/imu/docs/installation" target="_blank" rel="noopener" class="btn btn-ghost magnet" data-magnet>Install guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── LINKS ────────────────────────────────────────────────────────────── -->
+<section>
+  <div class="sec-head rv">
+    <div>
+      <div class="sec-idx">04 // links</div>
+      <h2 class="sec-title">Go <span class="serif-i">deeper</span></h2>
+    </div>
+    <div class="sec-note">OPEN SOURCE · MIT<br/>MAINTAINED IN THE OPEN</div>
+  </div>
+  <div class="link-rows rv">
+    <a class="link-row" href="https://github.com/shubham001312/imurun" target="_blank" rel="noopener">
+      <span class="li">GH</span>
+      <div><h3>shubham001312/imurun</h3><p>IMU CLI — the local-first AI coding agent. TypeScript, 22 guides, MIT.</p></div>
+      <span class="la">↗</span>
+    </a>
+    <a class="link-row" href="https://www.imutechz.in/imu/docs" target="_blank" rel="noopener">
+      <span class="li">DOC</span>
+      <div><h3>IMURUN documentation</h3><p>22 guides — install to RAG, every command and flag.</p></div>
+      <span class="la">↗</span>
+    </a>
+    <a class="link-row" href="https://www.imutechz.in/imu#downloads" target="_blank" rel="noopener">
+      <span class="li">DL</span>
+      <div><h3>Downloads</h3><p>Windows · macOS · npm. Standalone binaries alongside the package.</p></div>
+      <span class="la">↗</span>
+    </a>
+    <a class="link-row" href="https://youtu.be/bDLHWa3ybqI" target="_blank" rel="noopener">
+      <span class="li">▶</span>
+      <div><h3>The film</h3><p>IMURUN — Your code. Your machine. Your model. Written, animated and voiced by ImuTechz.</p></div>
+      <span class="la">↗</span>
+    </a>
+    <a class="link-row" href="projects.html">
+      <span class="li">←</span>
+      <div><h3>Back to the work</h3><p>Every project, with live links.</p></div>
+      <span class="la">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-mega">IMU·RUN</div>
+  <div class="foot-bar">
+    <span>© 2026 — ENGINEERED BY HAND, NO TEMPLATE</span>
+    <div class="foot-soc">
+      <a href="https://github.com/shubham001312" target="_blank">GITHUB</a>
+      <a href="https://www.linkedin.com/in/shubham-mallick-061298378" target="_blank">LINKEDIN</a>
+      <a href="mailto:shubham.mallick1440@gmail.com">EMAIL</a>
+    </div>
+    <button id="toTop">↑ TOP</button>
+  </div>
+</footer>
+
+  <!-- SASY character + chat -->
+  <div class="sasy" id="sasy" role="button" aria-label="Chat with SASY" title="Hi, I'm SASY — drag me around!">
+    <canvas id="sasyFx" class="sasy-fx"></canvas>
+    <div class="sasy-glow"></div>
+    <div class="sasy-body">
+      <div class="sasy-ant l"></div>
+      <div class="sasy-ant r"></div>
+      <div class="sasy-face">
+        <div class="sasy-eye l"><span></span></div>
+        <div class="sasy-eye r"><span></span></div>
+        <div class="sasy-brow l"></div>
+        <div class="sasy-brow r"></div>
+        <div class="sasy-mouth"><span></span></div>
+        <div class="sasy-cheek l"></div>
+        <div class="sasy-cheek r"></div>
+      </div>
+    </div>
+    <div class="sasy-bubble" id="sasyBubble"></div>
+  </div>
+
+  <div class="chat" id="chat" hidden>
+    <div class="term-bar chat-bar">
+      <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+      <span class="term-title">sasy@shubham: ~/assistant — SASY TERMINAL</span>
+      <span class="chat-tools">
+        <button id="chatMic" type="button" title="Talk to SASY" aria-label="Voice input">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+        </button>
+        <button id="chatSound" type="button" title="Toggle voice" aria-label="Toggle voice" class="voice-on">
+          <svg class="icon-vol" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          <svg class="icon-mute" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+        <button id="chatClose" type="button" title="Close" aria-label="Close chat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </span>
+    </div>
+    <div class="chat-msgs" id="chatMsgs"></div>
+    <div class="chat-quick" id="chatQuick">
+      <button data-q="What projects has Shubham built?">projects</button>
+      <button data-q="What is Shubham's tech stack and skills?">skills</button>
+      <button data-q="Give me a short summary of Shubham's profile.">resume</button>
+      <button data-q="How do I contact Shubham?">contact</button>
+      <button data-cmd="/voice" title="Toggle voice">voice</button>
+      <button data-cmd="/clear" title="Clear chat">clear</button>
+      <button data-cmd="/help" title="Show commands">help</button>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <span class="p">sasy:~$</span>
+      <input id="chatText" type="text" placeholder="ask, or type /help…" autocomplete="off" spellcheck="false"/>
+      <button type="submit" class="chat-send" title="Send" aria-label="Send message">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <div class="otw" id="otwModal" hidden>
+    <div class="otw-card" role="dialog" aria-modal="true" aria-label="Open to work">
+      <div class="otw-head">
+        <h3>Open to work · Backend × AI</h3>
+        <p>PYTHON BACKEND × APPLIED AI — CURRENTLY AT POTION LABS, KOLKATA</p>
+        <button class="otw-close" data-close aria-label="Close">×</button>
+      </div>
+      <div class="otw-body">
+        <div class="otw-sec">
+          <h4>Why me</h4>
+          <p>Python-first backend &amp; applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — IMURUN (the local-first AI coding agent), Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are all real, deployed builds. Currently an AI Developer at Potion Labs AI Technologies in Kolkata, on-site — and still open to backend, Python and AI work.</p>
+        </div>
+        <div class="otw-sec">
+          <h4>How I deal with work</h4>
+          <p>Discovery → architecture → ship with tests, CI and Docker → iterate from real feedback. I communicate clearly, document as I go, and treat "someone else can run this" as the definition of done. For AI work I lean on eval loops, guardrails and honest accuracy over hype.</p>
+        </div>
+        <div class="otw-sec">
+          <h4>My details &amp; enquiry</h4>
+          <p>Email me directly, connect on LinkedIn, or check my code. I usually reply within a day. Open to backend / Python / AI internships and freelance.</p>
+          <div class="otw-contact">
+            <button id="otwCopy" type="button">Copy email</button>
+            <a href="mailto:shubham.mallick1440@gmail.com">shubham.mallick1440@gmail.com</a>
+            <a href="https://github.com/shubham001312" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/shubham-mallick-061298378" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    if('serviceWorker' in navigator){
+      var _swr=false;
+      navigator.serviceWorker.addEventListener('controllerchange',function(){ if(_swr) return; _swr=true; location.reload(); });
+      window.addEventListener('load',function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
+    }
+  </script>
+  <script src="assets/js/main.js?v=23" defer></script>
+  <script src="assets/js/motion.js?v=2" defer></script>
+</body>
+</html>

@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/css/styles.css?v=23"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=25"/>
+  <link rel="stylesheet" href="assets/css/motion.css?v=3"/>
 <link rel="icon" href="assets/img/favicon.svg?v=8" type="image/svg+xml"/>
 <script>try{if(sessionStorage.getItem('sasy_booted'))document.documentElement.classList.add('skip-load');}catch(e){}</script>
 <link rel="canonical" href="https://shubhammallickengineer.hosteler.shop/projects.html"/>
@@ -59,6 +60,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html" class="active">Work</a></li>
+    <li><a href="all-projects.html">All</a></li>
     <li><a href="experience.html">Path</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -66,14 +68,18 @@
 </nav>
 
 <section id="work" style="padding-top:130px">
-  <div class="sec-head rv">
+  <div class="sec-head rv sticky-head">
     <div>
       <div class="sec-idx">03 // selected_work</div>
       <h2 class="sec-title">Things I've <span class="serif-i">built &amp; shipped</span></h2>
     </div>
-    <div class="sec-note">CAROUSEL DISABLED —<br/>ONLY WHAT'S REAL · LIVE FROM API</div>
+    <div class="sec-note">ONLY WHAT'S REAL ·<br/>LIVE FROM API</div>
   </div>
   <div class="proj-list rv" id="projList"></div>
+  <div class="rv" style="margin-top:44px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+    <a class="btn btn-fill magnet" data-magnet href="all-projects.html">./all_projects <span class="arr">→</span></a>
+    <span style="font-family:var(--fm);font-size:.68rem;color:var(--dim);letter-spacing:.1em">EVERY BUILD · FILTER · SEARCH · LIVE LINKS</span>
+  </div>
 </section>
 
 <footer>
@@ -146,14 +152,14 @@
   <div class="otw" id="otwModal" hidden>
     <div class="otw-card" role="dialog" aria-modal="true" aria-label="Open to work">
       <div class="otw-head">
-        <h3>Open to internships · 2025 / 2026</h3>
-        <p>PYTHON BACKEND × APPLIED AI — AVAILABLE NOW</p>
+        <h3>Open to work · Backend × AI</h3>
+        <p>PYTHON BACKEND × APPLIED AI — CURRENTLY AT POTION LABS, KOLKATA</p>
         <button class="otw-close" data-close aria-label="Close">×</button>
       </div>
       <div class="otw-body">
         <div class="otw-sec">
           <h4>Why me</h4>
-          <p>Python-first backend &amp; applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are both real, deployed builds. Internship experience at Autom8x building AI agents and agentic workflows.</p>
+          <p>Python-first backend &amp; applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are both real, deployed builds. Currently an AI Developer at Potion Labs AI Technologies in Kolkata, on-site — and still open to backend, Python and AI work.</p>
         </div>
         <div class="otw-sec">
           <h4>How I deal with work</h4>
@@ -194,7 +200,8 @@
       window.addEventListener('load',function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
     }
   </script>
-  <script src="assets/js/main.js?v=21" defer></script>
+  <script src="assets/js/main.js?v=23" defer></script>
+  <script src="assets/js/motion.js?v=2" defer></script>
 </body>
 </html>
 

@@ -27,9 +27,11 @@ I'm **Shubham Mallick** — a Python-first backend and applied-AI developer from
 | | |
 |---|---|
 | 🎓 **Education** | B.Tech CSE (AI) · MAKAUT, West Bengal · Semester 3 |
-| 🔧 **Focus** | Backend systems · APIs · LLM applications · RAG · Agents |
+| 💼 **Current role** | AI Developer · Potion Labs AI Technologies — Kolkata (on-site) |
+| 🏠 **Studio** | Founder · ImuTechz — an AI agent directory, IMURUN, and the site that ships them |
+| 🔧 **Focus** | Backend systems · APIs · LLM applications · RAG · Agents · Local inference |
 | 🎯 **Goal** | Backend engineer for AI products → AI Platform / ML Infrastructure |
-| 🌍 **Available** | Backend / Python / AI internships & freelance (2025–2026) |
+| 🌍 **Available** | Backend / Python / AI work & freelance |
 
 ---
 
@@ -47,9 +49,11 @@ I'm **Shubham Mallick** — a Python-first backend and applied-AI developer from
 
 | Project | Description | Stack | Status |
 |---------|-------------|-------|--------|
+| [**IMURUN**](https://www.imutechz.in/imu) | The IMU CLI — a local-first AI coding agent for the terminal: hardware-probed model picks, offline inference, agents, skills, memory & RAG, zero telemetry | TypeScript · Bun · RAG · MIT | ✅ Live |
 | [**Hosteler**](https://www.hosteler.shop/) | E-commerce for hostel students — essentials, wishlist, cart, student discounts, free pan-India delivery | Next.js · Node.js · PostgreSQL · Vercel | ✅ Live |
 | [**Learnify**](https://learnify.hosteler.shop/) | AI study companion — college discovery, career guidance, scholarships via RAG | Python · FastAPI · RAG · LLMs · Vector DB | ✅ Live |
 | [**Veda AI**](https://learnify.hosteler.shop/#veda) | Multilingual LLM assistant inside Learnify — Hindi, English, Bengali, Tamil | FastAPI · RAG · Vector Memory · Embeddings | ✅ Live |
+| [**Agents & Skills**](https://www.imutechz.in/agents) | ImuTechz directory — 10,631 open-source agents & skills, searchable and free | Next.js · Supabase · Catalog Pipeline | ✅ Live |
 | [**ChhayaTaru Cafe**](https://chhayataru.vercel.app/) | Bilingual cafe site for a Howrah coffee house — menu, gallery, table booking | Next.js · Tailwind CSS · Vercel | ✅ Live |
 | [**Reciprocity**](https://reciprocity-live.onrender.com/) | Academic accountability register | Python · FastAPI | ✅ Live |
 | [**GRBS**](https://shubham001312.github.io/GRBS/) | GPT Roadmap By Shubham — local roadmap & progress tracker | HTML · CSS · JS | ✅ Live |
@@ -59,10 +63,10 @@ I'm **Shubham Mallick** — a Python-first backend and applied-AI developer from
 ## 🛠️ Tech Stack
 
 ```
-Languages    Python · C++ · C · JavaScript
-Backend      FastAPI · Flask · REST APIs · SQL · PostgreSQL · SQLite
+Languages    Python · TypeScript · C++ · C · JavaScript
+Backend      FastAPI · Flask · Bun · REST APIs · SQL · PostgreSQL · SQLAlchemy · SQLite
 Frontend     React · Next.js · HTML · CSS · JavaScript
-AI / ML      RAG · LLMs · Embeddings · Vector DBs · AI Agents · NLP · ML · DL
+AI / ML      RAG · LLMs · Embeddings · Vector DBs · AI Agents · Local Inference · NLP · ML · DL
 Tools        Git · GitHub · Linux · VS Code · Docker · CI/CD
 Deployment   Vercel · Render · Supabase · Cloud
 ```
@@ -74,10 +78,12 @@ Deployment   Vercel · Render · Supabase · Cloud
 ```
 .
 ├── frontend/                    # Vanilla HTML + CSS + JS (no framework)
-│   ├── index.html               # Home — 3D hero, capabilities, SASY AI assistant
-│   ├── about.html               # About — values, background, portrait
+│   ├── index.html               # Home — 3D hero, capabilities, scroll reel, studio band
+│   ├── about.html               # About — values, stack, mission, portrait
 │   ├── projects.html            # Work — dynamic project cards from API
-│   ├── experience.html          # Path — timeline, education, milestones
+│   ├── all-projects.html        # All — every project in one filterable, searchable index
+│   ├── imurun.html              # IMURUN — project page with the custom video player
+│   ├── experience.html          # Path — scroll-filled timeline, education, milestones
 │   ├── contact.html             # Contact — email, shell terminal UI
 │   ├── robots.txt               # SEO — crawler directives
 │   ├── sitemap.xml              # SEO — sitemap for Google/Bing
@@ -85,8 +91,10 @@ Deployment   Vercel · Render · Supabase · Cloud
 │   ├── api/
 │   │   └── index.py             # /api/chat · /api/projects · /api/skills · /api/visits
 │   ├── assets/
-│   │   ├── css/styles.css       # Full theme (700+ lines, responsive, animations)
-│   │   └── js/main.js           # Nav, 3D hero, SASY AI chat, drag, TTS, particles
+│   │   ├── css/styles.css       # Core theme (responsive, base animations)
+│   │   ├── css/motion.css       # Motion layer — reel, scrub reveals, tilt, video player
+│   │   ├── js/main.js           # Nav, 3D hero, SASY AI chat, drag, TTS, particles
+│   │   └── js/motion.js         # Motion engine — reel, split text, player, index
 │   └── data/
 │       ├── projects.json        # Project data (dynamic rendering)
 │       └── skills.json          # Skills data (dynamic rendering)
@@ -112,6 +120,21 @@ Deployment   Vercel · Render · Supabase · Cloud
 - **Browser SpeechSynthesis** — lightweight TTS using the device's native voice
 - **Draggable character** — CSS face expressions (happy, sad, angry, think, talk, calm, excited, wave)
 - **Chat panel** — terminal-style UI with quick commands, typing indicator, themed bubbles
+
+</details>
+
+<details>
+<summary><b>🎬 Motion System</b></summary>
+<br/>
+
+- **Scroll reel** — vertical scroll drives a horizontal film strip of every project, built from the live API
+- **Split-text headlines** — word-by-word masked rise, driven by an IntersectionObserver
+- **Scrub reveals & parallax** — elements tied to their own scroll progress, not a fixed delay
+- **Sticky section headers** with a progress rail that fills as the section scrolls
+- **Timeline that fills** — the path rail draws itself as you scroll the entries
+- **3D tilt + magnetic cards** — pointer-reactive, disabled on touch devices
+- **Custom video player** — YouTube IFrame API with a facade poster, scrub bar, chapters and keyboard control
+- **Respectful by default** — full `prefers-reduced-motion` and `scripting: none` fallbacks
 
 </details>
 
@@ -143,8 +166,8 @@ Deployment   Vercel · Render · Supabase · Cloud
 <summary><b>🔍 SEO (100+ Keywords Targeted)</b></summary>
 <br/>
 
-- **Open Graph** + **Twitter Cards** on all 5 pages
-- **JSON-LD structured data** — Person, WebSite, OfferCatalog, CollectionPage, ItemList, ContactPoint
+- **Open Graph** + **Twitter Cards** on all 7 pages
+- **JSON-LD structured data** — Person, WebSite, OfferCatalog, CollectionPage, ItemList, VideoObject, ContactPoint
 - **Canonical URLs** on every page
 - **Meta keywords** — 100+ keywords per page (name, skills, projects, location, education, internship)
 - **robots.txt** + **sitemap.xml** · Sitemap submitted to Google Search Console

@@ -51,10 +51,11 @@ def build_corpus() -> List[Dict[str, str]]:
     docs.append(
         {
             "text": _join(
-                "Shubham Mallick - B.Tech CSE (AI) student, graduating 2029, GIET Gunupur,",
+                "Shubham Mallick - B.Tech CSE (AI) student, graduating 2029, MAKAUT, West Bengal,",
                 "based in North 24 Parganas, West Bengal, India. Python backend & applied-AI",
                 "developer (FastAPI, databases, RAG, LLMs, agents, production deployment).",
-                "Open to backend / Python / AI-ML internships for 2025-2026.",
+                "Currently AI Developer at Potion Labs AI Technologies, Kolkata (on-site, since Oct 2026).",
+                "Open to backend / Python / AI work.",
                 "Email shubham.mallick1440@gmail.com | GitHub github.com/shubham001312 |",
                 "LinkedIn /in/shubham-mallick.",
             ),

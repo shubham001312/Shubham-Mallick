@@ -157,7 +157,10 @@ def build_context(message: str) -> str:
         )
     ):
         parts.append(
-            "EDUCATION/PATH: B.Tech CSE(AI) 2025-2029 at GIET Gunupur; builds Learnify, Heirloom Scents, GRBS, NewsBuzz, CUET AI, Guzu, Reciprocity, Project VEDA."
+            "EDUCATION/PATH: B.Tech CSE(AI) 2025-2029 at MAKAUT, West Bengal (Semester 3); "
+            "currently AI Developer at Potion Labs AI Technologies, Kolkata (on-site, since Oct 2026). "
+            "Builds IMURUN (local-first AI coding CLI), Learnify, Hosteler, Veda AI, GRBS, Reciprocity, "
+            "ChhayaTaru Cafe and the ImuTechz Agents & Skills Directory."
         )
     return "\n".join(parts)
 
