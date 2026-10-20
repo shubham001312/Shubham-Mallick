@@ -269,9 +269,6 @@ section:has(.sticky-head){content-visibility:visible;contain-intrinsic-size:none
    ═══════════════════════════════════════════════════════════════════════════ */
 @media (max-width:860px){
 
-  /* ── nav: the "All" tab is redundant on a phone, and 6 items don't fit ── */
-  .nav-links a[href="all-projects.html"]{display:none}
-
   /* the desktop nav is translucent + blurred; without the blur it turns into
      a ghost that the headline reads straight through — so make it opaque */
   nav{
@@ -280,8 +277,10 @@ section:has(.sticky-head){content-visibility:visible;contain-intrinsic-size:none
     box-shadow:0 10px 26px -20px rgba(122,31,43,.55);
     padding:9px 4vw
   }
+
+  /* ── nav: six tabs (incl. All), evenly spread, never scrolls ───────── */
   .nav-links{
-    gap:2px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));
+    gap:2px;padding:7px 6px calc(7px + env(safe-area-inset-bottom));
     background:linear-gradient(to top,#F3EEE3,#EDE5D6);
     border-top:1px solid var(--line);
     box-shadow:0 -10px 30px -18px rgba(122,31,43,.45);
@@ -292,7 +291,7 @@ section:has(.sticky-head){content-visibility:visible;contain-intrinsic-size:none
   .nav-links li{flex:1 1 0;min-width:0;display:flex}
   .nav-links a{
     flex:1 1 0;min-width:0;text-align:center;white-space:nowrap;
-    padding:8px 4px;font-size:.62rem;letter-spacing:.03em
+    padding:8px 2px;font-size:.6rem;letter-spacing:.02em
   }
   .nav-links a sup{display:none}
   .logo-txt{font-size:.78rem;line-height:1.15;white-space:nowrap}
