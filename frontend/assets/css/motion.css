@@ -271,14 +271,38 @@ section:has(.sticky-head){content-visibility:visible;contain-intrinsic-size:none
 
   /* ── nav: the "All" tab is redundant on a phone, and 6 items don't fit ── */
   .nav-links a[href="all-projects.html"]{display:none}
-  .nav-links{gap:2px;padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
-  .nav-links a{padding:7px 10px;font-size:.62rem;letter-spacing:.04em}
+
+  /* the desktop nav is translucent + blurred; without the blur it turns into
+     a ghost that the headline reads straight through — so make it opaque */
+  nav{
+    background:var(--bg) !important;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 10px 26px -20px rgba(122,31,43,.55);
+    padding:9px 4vw
+  }
+  .nav-links{
+    gap:2px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));
+    background:linear-gradient(to top,#F3EEE3,#EDE5D6);
+    border-top:1px solid var(--line);
+    box-shadow:0 -10px 30px -18px rgba(122,31,43,.45);
+    overflow-x:hidden;justify-content:stretch
+  }
+  /* share the width evenly so the bar can never overflow or scroll
+     (the flex children are the <li>s, not the <a>s) */
+  .nav-links li{flex:1 1 0;min-width:0;display:flex}
+  .nav-links a{
+    flex:1 1 0;min-width:0;text-align:center;white-space:nowrap;
+    padding:8px 4px;font-size:.62rem;letter-spacing:.03em
+  }
   .nav-links a sup{display:none}
-  .logo-txt{font-size:.78rem;line-height:1.15}
+  .logo-txt{font-size:.78rem;line-height:1.15;white-space:nowrap}
   .logo-txt small{font-size:.5rem}
-  .logo-mark{width:32px;height:32px}
-  .nav-cta{padding:9px 13px;font-size:.6rem;letter-spacing:.06em}
+  .logo-mark{width:32px;height:32px;flex:0 0 auto}
+  .nav-cta{padding:9px 13px;font-size:.6rem;letter-spacing:.06em;white-space:nowrap;flex:0 0 auto}
   .nav-cta .blink{width:5px;height:5px}
+
+  /* ── the hero HUD was colliding with the buttons and SASY ───────────── */
+  .hud-tl,.hud-bl,.hud-br{display:none}
 
   /* ── section headers ─────────────────────────────────────────────── */
   .sec-head{gap:10px;margin-bottom:34px;padding-bottom:16px}
