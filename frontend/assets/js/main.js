@@ -114,11 +114,16 @@ const cio=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.6});
 document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 
-/* scrollspy (per-page anchors) */
+/* scrollspy (in-page anchors only)
+   The nav links point at real pages (about.html, work, ...), NOT at #ids.
+   An earlier version matched on '#'+section.id, so it stripped .active from
+   every tab and the maroon pill faded out mid-transition. Anchor links are
+   the only ones a section observer is allowed to touch. */
 const spy=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){
-    document.querySelectorAll('.nav-links a').forEach(a=>
-      a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id));
+    const hash='#'+e.target.id;
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(a=>
+      a.classList.toggle('active', a.getAttribute('href')===hash));
   }
 }),{rootMargin:'-40% 0px -55% 0px'});
 ['capabilities','work','stack','contact','experience'].forEach(id=>{

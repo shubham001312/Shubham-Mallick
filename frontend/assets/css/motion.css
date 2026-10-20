@@ -260,6 +260,16 @@ section:has(.sticky-head){content-visibility:visible;contain-intrinsic-size:none
 @media (max-width:1000px){.flow4{grid-template-columns:repeat(2,1fr)}.flow4::before{display:none}}
 @media (max-width:560px){.flow4{grid-template-columns:1fr}}
 
+/* ── nav tabs: explicit transitions so the active pill never half-tints ──── */
+.nav-links a{
+  transition:color .2s ease,background-color .2s ease,box-shadow .2s ease,transform .2s ease
+}
+.nav-links a.active{
+  background:var(--mar);color:var(--bg);
+  box-shadow:0 6px 18px -6px rgba(122,31,43,.5);
+  transition:color .2s ease,background-color .2s ease,box-shadow .2s ease
+}
+
 /* ── long strings (emails, urls) must never cross the modal frame ────────── */
 .otw-contact a,.otw-contact button{max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
 
