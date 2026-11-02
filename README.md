@@ -49,10 +49,9 @@ I'm **Shubham Mallick** — a Python-first backend and applied-AI developer from
 
 | Project | Description | Stack | Status |
 |---------|-------------|-------|--------|
-| [**IMURUN**](https://www.imutechz.in/imu) | The IMU CLI — a local-first AI coding agent for the terminal: hardware-probed model picks, offline inference, agents, skills, memory & RAG, zero telemetry | TypeScript · Bun · RAG · MIT | ✅ Live |
+| [**IMURUN**](https://www.imutechz.in/imu) | Local-first AI chat on its own C++ inference engine, FISH (GGUF on the CPU), a Python server and the Liquid Paper UI; Windows, macOS, Linux; `pip install imurun` | C++ · Python · GGUF · MIT | ✅ Live |
 | [**Hosteler**](https://www.hosteler.shop/) | E-commerce for hostel students — essentials, wishlist, cart, student discounts, free pan-India delivery | Next.js · Node.js · PostgreSQL · Vercel | ✅ Live |
-| [**Learnify**](https://learnify.hosteler.shop/) | AI study companion — college discovery, career guidance, scholarships via RAG | Python · FastAPI · RAG · LLMs · Vector DB | ✅ Live |
-| [**Veda AI**](https://learnify.hosteler.shop/#veda) | Multilingual LLM assistant inside Learnify — Hindi, English, Bengali, Tamil | FastAPI · RAG · Vector Memory · Embeddings | ✅ Live |
+| [**Learnify**](https://learnify.hosteler.shop/) | Team project for Innova 5.0 (Shubham: lead developer). Now Check & Mate, a learning-management portal: courses, assessments, competency reports. Began as an AI study companion with Veda, a multilingual assistant | Vanilla JS · FastAPI · Supabase · Groq | ✅ Live |
 | [**Agents & Skills**](https://www.imutechz.in/agents) | ImuTechz directory — 10,631 open-source agents & skills, searchable and free | Next.js · Supabase · Catalog Pipeline | ✅ Live |
 | [**ChhayaTaru Cafe**](https://chhayataru.vercel.app/) | Bilingual cafe site for a Howrah coffee house — menu, gallery, table booking | Next.js · Tailwind CSS · Vercel | ✅ Live |
 | [**Reciprocity**](https://reciprocity-live.onrender.com/) | Academic accountability register | Python · FastAPI | ✅ Live |

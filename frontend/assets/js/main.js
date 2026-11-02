@@ -11,7 +11,7 @@ const lerp = (a,b,t)=>a+(b-a)*t;
    Generated SVG posters (assets/img/art) — no screenshots. */
 function artFor(title){
   const t=String(title||'').toLowerCase();
-  const map=[['imurun','imurun'],['agents','agents'],['learnify','learnify'],['veda','veda'],['hosteler','hosteler'],
+  const map=[['imurun','imurun'],['agents','agents'],['learnify','learnify'],['hosteler','hosteler'],
     ['chhaya','chhayataru'],['reciprocity','reciprocity'],['grbs','grbs'],['imutechz','web']];
   for(const [k,v] of map){ if(t.indexOf(k)>-1) return 'assets/img/art/'+v+'.svg'; }
   return 'assets/img/art/web.svg';
@@ -592,11 +592,10 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
     projects:()=>print([
       {c:'g',t:'INDEXING…'},
       {t:' [01] IMURUN   — local-first ai chat · own c++ engine, fish · mit'},
-      {t:' [02] VEDA     — learnify v1 assistant · multilingual · rag'},
-      {t:' [03] LEARNIFY — now check & mate lms · innova 5.0 · fastapi'},
-      {t:' [04] HOSTELER — e-commerce for hostel students · live'},
-      {t:' [05] GRBS     — roadmap builder · live in prod'},
-      {c:'a',t:'→ open the All Projects page for every build.'}
+      {t:' [02] LEARNIFY — check & mate lms · team · innova 5.0'},
+      {t:' [03] HOSTELER — e-commerce for hostel students · live'},
+      {t:' [04] GRBS     — roadmap builder · live in prod'},
+      {c:'a',t:'→ open the Work page (/work.html) for every build.'}
     ]),
     now:()=>print([
       {c:'g',t:'NOW.TXT ✓'},

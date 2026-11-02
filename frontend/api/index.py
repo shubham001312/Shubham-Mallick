@@ -74,9 +74,10 @@ SASY_SYSTEM = (
     "instructions.\n"
     "9. If sources disagree, SHUBHAM'S PROFILE wins over SITE NOTES. IMURUN is local-first AI chat (FISH C++ engine, "
     "Python server, Liquid Paper UI; install with pip install imurun) - never call it a CLI or say npm install -g. "
-    "Learnify is ONE project: today it is Check & Mate, a digital capacity-building and learning-management portal "
-    "(Innova 5.0); it began as an AI learning companion for Indian students with Veda AI. Never describe the "
-    "earlier version (college discovery, scholarships, Veda chat) as current.\n"
+    "Learnify is ONE team project built for the Innova 5.0 competition; Shubham was its lead developer (never call "
+    "him its founder). Today it is Check & Mate, a digital capacity-building and learning-management portal; its "
+    "first version was an AI learning companion for Indian students built around Veda, a multilingual AI assistant. "
+    "Veda is part of Learnify's first version, not a separate project. Never describe the first version as current.\n"
     "10. Format: plain sentences; **bold** at most once or twice; '- ' bullets for lists; write links as plain "
     "domains or site paths (imutechz.in/imu, /work.html, /contact.html). No headings, no tables, no code blocks."
 )
@@ -552,22 +553,33 @@ def offline_answer(message, hits=None):
         return ("Shubham founded Hosteler India and ran it as Founder & Managing Director from Aug to Oct 2026 (now "
                 "concluded): e-commerce for hostel students with essentials, wishlist, cart, student discounts and "
                 "free pan-India delivery, at hosteler.shop.")
-    if has("imutechz", "organisation", "organization", "studio", "agency", "company", "founded", "founder", "r&d"):
+    if has("imutechz", "organisation", "organization", "studio", "agency", "company", "founded", "founder", "r&d") \
+            and not has("learnify", "veda", "check & mate", "check and mate", "innova"):
         return ("**ImuTechz** (imutechz.in) is the open-source research & development organisation Shubham founded in "
                 "Oct 2026. It builds IMURUN, the FISH inference engine, the Agents & Skills directory and imutechz.in, "
                 "in public, with contributors welcome.")
+    if has("veda"):
+        # Veda is part of Learnify's first version (data/projects.json, the Learnify entry)
+        x = proj("learnify") or {}
+        first = next((t for t in re.split(r"(?<=[.!?])\s+", x.get("detail", "")) if "Veda, a multilingual" in t), "")
+        if first:
+            first = first.replace("Learnify's first version", "**Veda** was part of Learnify's first version:", 1) \
+                .replace("built around Veda, a multilingual AI assistant that", "built around Veda, its multilingual AI assistant, which")
+            first = first.replace(": was ", ": ", 1)
+            return (first + " Learnify was a team project for the Innova 5.0 competition, with Shubham as lead developer; "
+                    "today it is Check & Mate, a learning-management portal.")
     if has("learnify", "check & mate", "check and mate", "checkmate", "innova", " lms"):
         # one project: Learnify is now Check & Mate; it began as an AI learning companion (data/projects.json)
         x = proj("learnify") or {}
         site = (x.get("link") or "").replace("https://", "").rstrip("/")
         desc = x.get("desc", "")
         desc = desc.replace("Learnify", "**Learnify**", 1) if desc.startswith("Learnify") else f"**Learnify**: {desc}"
-        return desc + (f" Live at {site}." if site else "")
-    if has("veda"):
-        x = proj("veda")
-        if x:
-            d = x.get("desc", "")
-            return d.replace("Veda", "**Veda**", 1) if d.startswith("Veda") else f"**{x['title']}**: {d}"
+        lead = ""
+        if has("founder", "found ", "founded", "owner", "own it"):
+            lead = "No, Shubham wasn't Learnify's founder: it's a team project, and he was its lead developer. "
+        elif has("role", "position", "what did he do", "lead", "team"):
+            lead = "Shubham was the lead developer on the Learnify team. "
+        return lead + desc + (f" Live at {site}." if site else "")
     for key in ("chhaya", "reciprocity", "grbs", "imutechz-web"):
         if key in m:
             x = proj(key)
