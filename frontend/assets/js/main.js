@@ -592,8 +592,8 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
     projects:()=>print([
       {c:'g',t:'INDEXING…'},
       {t:' [01] IMURUN   — local-first ai chat · own c++ engine, fish · mit'},
-      {t:' [02] VEDA     — personal ai system · rag · multi-agent'},
-      {t:' [03] LEARNIFY — check & mate lms · innova 5.0 · fastapi'},
+      {t:' [02] VEDA     — learnify v1 assistant · multilingual · rag'},
+      {t:' [03] LEARNIFY — now check & mate lms · innova 5.0 · fastapi'},
       {t:' [04] HOSTELER — e-commerce for hostel students · live'},
       {t:' [05] GRBS     — roadmap builder · live in prod'},
       {c:'a',t:'→ open the All Projects page for every build.'}

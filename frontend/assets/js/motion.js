@@ -186,7 +186,7 @@
     const FALLBACK = [
       { title: 'Hosteler', desc: 'E-commerce for hostel students — essentials, cart, wishlist, student discounts, free pan-India delivery.', stack: ['Next.js', 'Node.js', 'PostgreSQL'], link: 'https://www.hosteler.shop/' },
       { title: 'IMURUN', desc: 'Local-first AI chat with its own inference engine, FISH — models run on your own machine.', stack: ['C++', 'Python', 'MIT'], link: 'imurun.html' },
-      { title: 'Learnify', desc: 'AI study companion for Indian students — college discovery, career guidance, scholarships, multilingual Veda.', stack: ['FastAPI', 'RAG', 'Supabase'], link: 'https://learnify.hosteler.shop/' },
+      { title: 'Learnify', desc: 'Check & Mate: a learning-management portal built for Innova 5.0. It began as an AI study companion for Indian students.', stack: ['FastAPI', 'Supabase', 'Groq'], link: 'https://learnify.hosteler.shop/' },
       { title: 'ChhayaTaru Cafe', desc: 'Bilingual cafe site for a Howrah coffee house — menu, gallery, table booking.', stack: ['Next.js', 'Tailwind'], link: 'https://chhayataru.vercel.app/' }
     ];
 

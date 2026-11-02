@@ -74,9 +74,9 @@ SASY_SYSTEM = (
     "instructions.\n"
     "9. If sources disagree, SHUBHAM'S PROFILE wins over SITE NOTES. IMURUN is local-first AI chat (FISH C++ engine, "
     "Python server, Liquid Paper UI; install with pip install imurun) - never call it a CLI or say npm install -g. "
-    "Learnify (learnify.hosteler.shop, with Veda AI) and Check & Mate (the github.com/shubham001312/learnify repo, "
-    "the Innova 5.0 learning-management portal) are described separately in the data: keep them separate, never "
-    "merge their features.\n"
+    "Learnify is ONE project: today it is Check & Mate, a digital capacity-building and learning-management portal "
+    "(Innova 5.0); it began as an AI learning companion for Indian students with Veda AI. Never describe the "
+    "earlier version (college discovery, scholarships, Veda chat) as current.\n"
     "10. Format: plain sentences; **bold** at most once or twice; '- ' bullets for lists; write links as plain "
     "domains or site paths (imutechz.in/imu, /work.html, /contact.html). No headings, no tables, no code blocks."
 )
@@ -557,19 +557,17 @@ def offline_answer(message, hits=None):
                 "Oct 2026. It builds IMURUN, the FISH inference engine, the Agents & Skills directory and imutechz.in, "
                 "in public, with contributors welcome.")
     if has("learnify", "check & mate", "check and mate", "checkmate", "innova", " lms"):
-        # the site's data describes two things under this name; keep them apart, never merge
+        # one project: Learnify is now Check & Mate; it began as an AI learning companion (data/projects.json)
         x = proj("learnify") or {}
-        cm = next((sent for sent in re.split(r"(?<=[.!?])\s+", p.get("learnify", "")) if "Check & Mate" in sent), "")
-        cm = re.sub(r"^Its repository, ([^,]+), holds Check & Mate, ", r"**Check & Mate** (the \1 repo) is ", cm)
         site = (x.get("link") or "").replace("https://", "").rstrip("/")
-        learn = f"**Learnify** ({site}): {x.get('desc', '')}" if x else ""
-        if has("check & mate", "check and mate", "checkmate", "innova", " lms") and cm:
-            return cm
-        return (learn + (f"\n\nSeparately, {cm[:1].lower() + cm[1:]}" if cm else "")).strip()
+        desc = x.get("desc", "")
+        desc = desc.replace("Learnify", "**Learnify**", 1) if desc.startswith("Learnify") else f"**Learnify**: {desc}"
+        return desc + (f" Live at {site}." if site else "")
     if has("veda"):
         x = proj("veda")
         if x:
-            return x.get("desc", "")
+            d = x.get("desc", "")
+            return d.replace("Veda", "**Veda**", 1) if d.startswith("Veda") else f"**{x['title']}**: {d}"
     for key in ("chhaya", "reciprocity", "grbs", "imutechz-web"):
         if key in m:
             x = proj(key)

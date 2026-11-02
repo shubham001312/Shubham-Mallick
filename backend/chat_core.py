@@ -58,9 +58,10 @@ SASY_SYSTEM = (
     "Tools: Git, GitHub, Linux, VS Code, Docker, CI/CD, cloud deployment. "
     "Top skills: Start-up Ventures, Business Ownership, Start-up Leadership. "
     "PROJECTS: Hosteler (e-commerce, live at hosteler.shop), ChhayaTaru Cafe (Next.js cafe website for a Howrah "
-    "coffee house, live at chhayataru.vercel.app), Learnify (AI study companion for Indian students — college "
-    "discovery, career guidance, scholarships, live at learnify.hosteler.shop), Veda AI (multilingual LLM assistant "
-    "inside Learnify with RAG + vector memory, Hindi/English/Bengali/Tamil), Reciprocity (academic accountability "
+    "coffee house, live at chhayataru.vercel.app), Learnify (now Check & Mate, a digital capacity-building and "
+    "learning-management portal built for Innova 5.0, live at learnify.hosteler.shop; it began as an AI learning "
+    "companion for Indian students), Veda AI (the multilingual assistant in Learnify's first version; the name lives "
+    "on in Check & Mate's performance reports), Reciprocity (academic accountability "
     "register on Render), GRBS (GPT Roadmap By Shubham — local roadmap/progress tracker). "
     "CERTIFICATIONS: Introduction to Agent Skills, AI - Data Engineering Analyst, Statistics for Data Science with "
     "Python, Google AI Professional Certification, Data Science Fundamentals with Python and SQL. "
@@ -159,7 +160,7 @@ def build_context(message: str) -> str:
         parts.append(
             "EDUCATION/PATH: B.Tech CSE(AI) 2025-2029 at MAKAUT, West Bengal (Semester 3); "
             "currently AI Developer at Potion Labs AI Technologies, Kolkata (on-site, since Oct 2026). "
-            "Builds IMURUN (local-first AI coding CLI), Learnify, Hosteler, Veda AI, GRBS, Reciprocity, "
+            "Builds IMURUN (local-first AI chat on its own C++ engine, FISH), Learnify, Hosteler, Veda AI, GRBS, Reciprocity, "
             "ChhayaTaru Cafe and the ImuTechz Agents & Skills Directory."
         )
     return "\n".join(parts)
