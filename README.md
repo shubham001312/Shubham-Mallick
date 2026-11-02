@@ -27,11 +27,11 @@ I'm **Shubham Mallick** — a Python-first backend and applied-AI developer from
 | | |
 |---|---|
 | 🎓 **Education** | B.Tech CSE (AI) · MAKAUT, West Bengal · Semester 3 |
-| 💼 **Current role** | AI Developer · Potion Labs AI Technologies — Kolkata (on-site) |
-| 🏠 **Studio** | Founder · ImuTechz — an AI agent directory, IMURUN, and the site that ships them |
+| 💼 **Current role** | AI Developer intern · Potion Labs AI Technologies — Kolkata (on-site, Oct 2026–now) |
+| 🏠 **ImuTechz** | Founder · an open-source R&D organisation — IMURUN, the FISH engine, the Agents & Skills directory |
 | 🔧 **Focus** | Backend systems · APIs · LLM applications · RAG · Agents · Local inference |
 | 🎯 **Goal** | Backend engineer for AI products → AI Platform / ML Infrastructure |
-| 🌍 **Available** | Backend / Python / AI work & freelance |
+| 🌍 **Now** | AI Developer intern at Potion Labs AI Technologies, Kolkata — open to collaborations & open-source contributions |
 
 ---
 
@@ -91,9 +91,9 @@ Deployment   Vercel · Render · Supabase · Cloud
 │   ├── api/
 │   │   └── index.py             # /api/chat · /api/projects · /api/skills · /api/visits
 │   ├── assets/
-│   │   ├── css/styles.css       # Core theme (responsive, base animations)
-│   │   ├── css/motion.css       # Motion layer — reel, scrub reveals, tilt, video player
-│   │   ├── js/main.js           # Nav, 3D hero, SASY AI chat, drag, TTS, particles
+│   │   ├── css/site.css         # Theme (light/dark), layout, every component
+│   │   ├── js/site.js           # Theme toggle, nav, scroll-scrubbed hero/work/reel/statement/path film
+│   │   ├── js/main.js           # SASY AI chat, projects, skills, terminal, modals
 │   │   └── js/motion.js         # Motion engine — reel, split text, player, index
 │   └── data/
 │       ├── projects.json        # Project data (dynamic rendering)

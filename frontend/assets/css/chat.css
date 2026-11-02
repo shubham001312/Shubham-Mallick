@@ -1,0 +1,257 @@
+/* ============================================================
+   chat.css — SASY, Shubham's assistant (markup is injected by
+   assets/js/chat.js). Self-contained: uses the site tokens from
+   site.css (--bg, --card, --fg, --or, --grad, --line, --font…)
+   with fallbacks, works in light and dark ([data-theme]).
+
+   The avatar is an "ember orb": a glossy sphere lit from the rim,
+   film grain, a specular highlight, two pill eyes that blink and
+   glance, a breathing halo and an online dot.
+   z-index: launcher 452, window 451 (the site's nav is 500).
+   ============================================================ */
+
+.sy-root {
+  --sy-or: var(--or, #f2661a);
+  --sy-grad: var(--grad, linear-gradient(90deg, #f06a12 0%, #ea4a1a 55%, #e01e1a 100%));
+  --sy-bg: var(--bg, #f3ede2);
+  --sy-card: var(--card, #fffaf2);
+  --sy-card2: var(--card2, #f7f0e4);
+  --sy-fg: var(--fg, #16130f);
+  --sy-fg-m: var(--fg-m, rgba(22, 19, 15, 0.7));
+  --sy-fg-d: var(--fg-d, rgba(22, 19, 15, 0.48));
+  --sy-line: var(--line, rgba(22, 19, 15, 0.12));
+  --sy-line-s: var(--line-s, rgba(22, 19, 15, 0.24));
+  --sy-tint: var(--tint, rgba(242, 102, 26, 0.1));
+  --sy-ease: var(--ease, cubic-bezier(0.2, 0.8, 0.2, 1));
+  --sy-spring: cubic-bezier(0.2, 0.9, 0.25, 1.06);
+  --sy-online: #2fbf5b;
+  --sy-user-fg: #fff;
+  --sy-bot-bg: var(--sy-card2);
+  --sy-shadow: 0 40px 90px -30px rgba(60, 22, 4, 0.45), 0 12px 30px -18px rgba(60, 22, 4, 0.3);
+  --gx: 0px; --gy: 0px;
+  font-family: var(--font, "Host Grotesk", "Segoe UI", system-ui, sans-serif);
+}
+:root[data-theme="dark"] .sy-root {
+  --sy-bot-bg: #1c1a18;
+  --sy-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.sy-root *, .sy-root *::before, .sy-root *::after { box-sizing: border-box; }
+.sy-root button { font: inherit; color: inherit; }
+.sy-sr { position: absolute !important; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; padding: 0; }
+
+/* ---------- the orb (shared by launcher, header and message avatars) ---------- */
+.sy-orb { --av: 60px; position: relative; display: grid; place-items: center; width: var(--av); height: var(--av); border-radius: 50%; overflow: hidden; isolation: isolate; flex: none;
+  background: radial-gradient(circle at 50% 46%, #6e160b 0%, #c4301a 34%, #f2661a 60%, #ffae6b 84%, #ffe3c6 100%);
+  box-shadow: 0 0 4px rgba(242, 102, 26, 0.38), 0 0 18px 5px rgba(242, 102, 26, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.08); }
+.sy-orb > svg.sy-grain { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.22; mix-blend-mode: overlay; pointer-events: none; }
+.sy-orb::before { content: ""; position: absolute; inset: 0; pointer-events: none; /* specular light, top-left */
+  background: radial-gradient(at 30% 22%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.1) 46%, transparent 68%); }
+.sy-orb::after { content: ""; position: absolute; inset: 0; pointer-events: none; filter: blur(4px); /* core shade, bottom-right */
+  background: radial-gradient(circle at 64% 70%, rgba(40, 6, 0, 0.26) 0%, transparent 56%); }
+.sy-eyes { position: relative; z-index: 1; display: flex; gap: calc(var(--av) * 0.19); transform: translate(var(--gx), calc(var(--gy) - var(--av) * 0.02)); transition: transform 0.45s var(--sy-ease); }
+.sy-eyes i { display: block; width: calc(var(--av) * 0.12); height: calc(var(--av) * 0.21); border-radius: 999px;
+  background: linear-gradient(135deg, #fff 0%, #ffe8d4 100%); box-shadow: 0 0 6px rgba(255, 240, 225, 0.55);
+  transform-origin: 50% 55%; transition: transform 0.12s ease, height 0.25s var(--sy-ease); }
+.sy-blink .sy-eyes i { transform: scaleY(0.08); }
+/* happy (hover / just answered): eyes curve into a smile-squint */
+.sy-launch:hover .sy-eyes i, .sy-happy .sy-eyes i { transform: scaleY(0.62) translateY(8%); border-radius: 999px 999px 40% 40%; }
+/* thinking: eyes look up and to the side, the halo quickens */
+.sy-root[data-state="thinking"] .sy-eyes { transform: translate(calc(var(--av) * 0.06), calc(var(--av) * -0.08)); }
+.sy-root[data-state="thinking"] .sy-eyes i { animation: syThink 1.2s ease-in-out infinite; }
+.sy-root[data-state="thinking"] .sy-eyes i + i { animation-delay: 0.15s; }
+@keyframes syThink { 50% { transform: scaleY(0.75); } }
+
+/* ---------- launcher ---------- */
+.sy-launch { position: fixed; right: 24px; bottom: 24px; z-index: 452; width: 52px; height: 52px; translate: 0 calc(var(--lift, 0px) * -1); padding: 0; margin: 0; border: 0; border-radius: 50%; background: none;
+  cursor: pointer; touch-action: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+  transition: transform 0.28s var(--sy-spring), translate 0.3s var(--sy-ease), opacity 0.2s ease, visibility 0s; }
+.sy-launch .sy-orb { --av: 52px; box-shadow: 0 0 4px rgba(242, 102, 26, 0.38), 0 0 18px 5px rgba(242, 102, 26, 0.16), 0 14px 28px -12px rgba(120, 30, 5, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.08); }
+.sy-launch:hover { transform: translateY(-2px) scale(1.05); }
+.sy-launch:active { transform: scale(0.94); transition-duration: 0.08s; }
+.sy-launch:focus-visible { outline: 2px solid var(--sy-or); outline-offset: 6px; border-radius: 50%; }
+.sy-launch.is-drag { cursor: grabbing; transition: none; transform: scale(1.08); }
+.sy-launch.is-drag .sy-halo { animation-play-state: paused; }
+/* breathing halo: a thin ring of light that swells and settles every 4.8 s */
+.sy-halo { position: absolute; inset: -5px; border-radius: 50%; pointer-events: none; border: 1px solid rgba(242, 102, 26, 0.5);
+  box-shadow: 0 0 16px 1px rgba(242, 102, 26, 0.22); animation: syBreathe 4.8s ease-in-out infinite; }
+.sy-root[data-state="thinking"] .sy-halo { animation-duration: 1.4s; border-color: rgba(242, 102, 26, 0.8); }
+@keyframes syBreathe { 0%, 100% { transform: scale(0.94); opacity: 0.35; } 50% { transform: scale(1.06); opacity: 1; } }
+.sy-dot { position: absolute; right: 0; bottom: 1px; width: 13px; height: 13px; border-radius: 50%; background: var(--sy-online); border: 2px solid var(--sy-bg); z-index: 2; }
+.sy-launch .sy-dot::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--sy-online); animation: syPing 3.2s ease-out infinite; }
+@keyframes syPing { 0% { transform: scale(0.8); opacity: 0.7; } 70%, 100% { transform: scale(2); opacity: 0; } }
+.sy-badge { position: absolute; top: -4px; right: -4px; z-index: 3; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; display: grid; place-items: center;
+  background: var(--sy-fg); color: var(--sy-bg); border: 2px solid var(--sy-bg); font-size: 11px; font-weight: 600; line-height: 1;
+  transform: scale(0); transition: transform 0.35s var(--sy-spring); }
+.sy-root.has-unread .sy-badge { transform: scale(1); }
+.sy-root.is-open .sy-badge { transform: scale(0); }
+.sy-launch.is-open .sy-halo { animation: none; opacity: 0.25; transform: none; }
+.sy-launch.is-open .sy-eyes i { transform: scaleY(0.62) translateY(8%); }
+
+/* phones: tucked away while the hero fills the screen (chat.js), fades in after */
+.sy-root.sy-tucked:not(.is-open) .sy-launch { opacity: 0; transform: scale(0.6); visibility: hidden; pointer-events: none;
+  transition: transform 0.28s var(--sy-ease), opacity 0.2s ease, visibility 0s linear 0.28s; }
+
+/* the once-only "ask me" nudge */
+.sy-nudge { position: fixed; z-index: 452; display: flex; align-items: flex-start; gap: 4px; max-width: min(270px, calc(100vw - 110px));
+  padding: 6px 6px 6px 4px; border-radius: 18px 18px 6px 18px; background: var(--sy-card); color: var(--sy-fg); border: 1px solid var(--sy-line-s);
+  box-shadow: 0 18px 40px -20px rgba(40, 14, 2, 0.5); transform-origin: 100% 100%;
+  opacity: 0; transform: translateY(6px) scale(0.92); pointer-events: none; transition: opacity 0.25s ease, transform 0.35s var(--sy-spring); }
+.sy-nudge[hidden] { display: none; }
+.sy-nudge.on { opacity: 1; transform: none; pointer-events: auto; }
+.sy-nudge.flip { border-radius: 18px 18px 18px 6px; transform-origin: 0 100%; }
+.sy-nudge-txt { flex: 1; min-width: 0; text-align: left; border: 0; background: none; cursor: pointer; padding: 6px 4px 6px 10px; font-size: 14px; line-height: 1.4; }
+.sy-nudge-txt b { display: block; font-weight: 600; }
+.sy-nudge-txt span { color: var(--sy-fg-m); }
+.sy-nudge-x { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 0; background: transparent; color: var(--sy-fg-m); cursor: pointer; display: grid; place-items: center; }
+.sy-nudge-x:hover { background: var(--sy-tint); color: var(--sy-fg); }
+.sy-nudge-x svg { width: 12px; height: 12px; }
+
+/* ---------- the window ---------- */
+.sy-panel { --ox: 100%; --oy: 100%; position: fixed; right: 24px; bottom: 92px; z-index: 451; width: min(400px, calc(100vw - 32px)); height: min(620px, calc(100svh - 128px)); min-height: 360px;
+  display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: var(--sy-card); color: var(--sy-fg); border: 1px solid var(--sy-line-s);
+  box-shadow: var(--sy-shadow); transform-origin: var(--ox) var(--oy);
+  opacity: 0; transform: scale(0.35); visibility: hidden; pointer-events: none;
+  transition: transform 0.38s var(--sy-spring), opacity 0.2s ease, visibility 0s linear 0.38s; }
+.sy-panel.on { opacity: 1; transform: none; visibility: visible; pointer-events: auto; transition: transform 0.38s var(--sy-spring), opacity 0.2s ease, visibility 0s; }
+.sy-panel.closing { transition: transform 0.24s cubic-bezier(0.4, 0, 0.8, 0.4), opacity 0.2s ease 0.04s, visibility 0s linear 0.24s; }
+
+.sy-grab { display: none; }
+.sy-head { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px 12px 14px 16px; border-bottom: 1px solid var(--sy-line);
+  background: linear-gradient(180deg, var(--sy-tint), transparent 140%); }
+.sy-head .sy-orb { --av: 42px; }
+.sy-head .sy-av { position: relative; flex: none; }
+.sy-head .sy-dot { width: 12px; height: 12px; border-width: 2px; border-color: var(--sy-card); right: -1px; bottom: -1px; }
+.sy-who { flex: 1; min-width: 0; }
+.sy-who b { display: block; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+.sy-who small { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--sy-fg-m); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.4; }
+.sy-who small i { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--sy-online); }
+.sy-root[data-state="thinking"] .sy-who small i { background: var(--sy-or); animation: syPulse 1s ease-in-out infinite; }
+@keyframes syPulse { 50% { opacity: 0.3; } }
+.sy-tools { display: flex; gap: 4px; }
+.sy-ib { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 1px solid transparent; background: transparent; color: var(--sy-fg-m); cursor: pointer;
+  transition: background 0.18s, color 0.18s, border-color 0.18s; }
+.sy-ib:hover { background: var(--sy-tint); color: var(--sy-fg); border-color: var(--sy-line); }
+.sy-ib:focus-visible { outline: 2px solid var(--sy-or); outline-offset: 1px; }
+.sy-ib svg { width: 16px; height: 16px; }
+.sy-ib[aria-expanded="true"] { background: var(--sy-tint); color: var(--sy-fg); border-color: var(--sy-line); }
+/* header menu (Clear chat, with a confirm) */
+.sy-menu { position: absolute; right: 12px; top: calc(100% - 6px); z-index: 5; width: 230px; padding: 6px; border-radius: 14px; background: var(--sy-card); border: 1px solid var(--sy-line-s);
+  box-shadow: 0 18px 40px -18px rgba(30, 10, 2, 0.45); animation: syIn 0.18s var(--sy-ease) both; }
+.sy-menu[hidden], .sy-menu [hidden] { display: none; }
+.sy-mi { width: 100%; display: flex; align-items: center; gap: 10px; padding: 10px; border: 0; border-radius: 9px; background: transparent; color: #d9481e; font-size: 14px; cursor: pointer; text-align: left; }
+.sy-mi:hover, .sy-mi:focus-visible { background: rgba(217, 72, 30, 0.1); outline: 0; }
+.sy-mi svg { width: 16px; height: 16px; flex: none; }
+.sy-menu-confirm p { margin: 4px 6px 10px; font-size: 13.5px; line-height: 1.4; color: var(--sy-fg); }
+.sy-menu-row { display: flex; gap: 6px; }
+.sy-mb { flex: 1; min-height: 38px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--sy-line-s); background: transparent; color: var(--sy-fg); font-size: 13.5px; cursor: pointer; }
+.sy-mb:hover { background: var(--sy-tint); }
+.sy-mb:focus-visible { outline: 2px solid var(--sy-or); outline-offset: 1px; }
+.sy-danger { background: #d9481e; border-color: #d9481e; color: #fff; }
+.sy-danger:hover { background: #c23c15; }
+
+.sy-msgs { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 18px 14px 8px; display: flex; flex-direction: column; gap: 4px; scroll-behavior: smooth;
+  scrollbar-width: thin; scrollbar-color: var(--sy-line-s) transparent; }
+.sy-day { align-self: center; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sy-fg-d); margin: 2px 0 10px; }
+.sy-row { display: flex; align-items: flex-end; gap: 8px; max-width: 100%; animation: syIn 0.32s var(--sy-ease) both; }
+.sy-row + .sy-row.sy-u, .sy-row.sy-u + .sy-row:not(.sy-u) { margin-top: 10px; }
+@keyframes syIn { from { opacity: 0; transform: translateY(8px) scale(0.98); } }
+.sy-row .sy-orb { --av: 26px; box-shadow: none; }
+.sy-row .sy-orb .sy-eyes i { box-shadow: none; }
+.sy-row .sy-slot { width: 26px; flex: none; }
+.sy-col { display: flex; flex-direction: column; gap: 4px; min-width: 0; max-width: calc(100% - 34px); }
+.sy-b { padding: 10px 14px; border-radius: 18px; font-size: 14.5px; line-height: 1.55; overflow-wrap: anywhere; }
+.sy-b p { margin: 0; }
+.sy-b p + p, .sy-b p + ul, .sy-b ul + p, .sy-b p + ol, .sy-b ol + p { margin-top: 8px; }
+.sy-b ul, .sy-b ol { margin: 0; padding-left: 18px; }
+.sy-b li { margin: 2px 0; padding-left: 2px; }
+.sy-b li::marker { color: var(--sy-or); }
+.sy-b strong { font-weight: 600; }
+.sy-b a { color: var(--sy-or); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.sy-b a:hover { text-decoration-thickness: 2px; }
+.sy-b code { font-family: var(--mono, ui-monospace, Consolas, monospace); font-size: 0.86em; padding: 1px 6px; border-radius: 6px; background: var(--sy-tint); }
+.sy-bot .sy-b { background: var(--sy-bot-bg); border: 1px solid var(--sy-line); border-bottom-left-radius: 6px; }
+.sy-u { justify-content: flex-end; }
+.sy-u .sy-col { align-items: flex-end; max-width: 84%; }
+.sy-u .sy-b { background: var(--sy-grad); color: var(--sy-user-fg); border-bottom-right-radius: 6px; white-space: pre-wrap; }
+.sy-u .sy-b a { color: #fff; }
+.sy-meta { font-size: 11px; color: var(--sy-fg-d); padding: 0 6px; }
+.sy-err .sy-b { background: transparent; border: 1px dashed rgba(217, 72, 30, 0.6); color: var(--sy-fg); }
+.sy-retry { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--sy-line-s);
+  background: var(--sy-card); color: var(--sy-fg); font-size: 13px; cursor: pointer; transition: border-color 0.18s, background 0.18s; }
+.sy-retry:hover { border-color: var(--sy-or); background: var(--sy-tint); }
+.sy-retry svg { width: 13px; height: 13px; }
+/* typing indicator */
+.sy-typing .sy-b { display: inline-flex; gap: 5px; padding: 14px 16px; }
+.sy-typing .sy-b i { width: 7px; height: 7px; border-radius: 50%; background: var(--sy-or); opacity: 0.4; animation: syDot 1.2s ease-in-out infinite; }
+.sy-typing .sy-b i:nth-child(2) { animation-delay: 0.16s; } .sy-typing .sy-b i:nth-child(3) { animation-delay: 0.32s; }
+@keyframes syDot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-5px); opacity: 1; } }
+/* suggested questions */
+.sy-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 0 4px 34px; animation: syIn 0.4s var(--sy-ease) 0.1s both; }
+.sy-chip { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--sy-line-s); background: transparent; color: var(--sy-fg); font-size: 13px; line-height: 1.3; cursor: pointer; text-align: left;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s; }
+.sy-chip:hover { border-color: var(--sy-or); background: var(--sy-tint); }
+.sy-chip:active { transform: scale(0.97); }
+.sy-chip:focus-visible { outline: 2px solid var(--sy-or); outline-offset: 2px; }
+
+/* composer */
+.sy-form { padding: 10px 12px 12px; border-top: 1px solid var(--sy-line); }
+.sy-field { display: flex; align-items: flex-end; gap: 8px; padding: 6px 6px 6px 14px; border-radius: 22px; border: 1px solid var(--sy-line-s); background: var(--sy-bg);
+  transition: border-color 0.18s, box-shadow 0.18s; }
+.sy-field:focus-within { border-color: var(--sy-or); box-shadow: 0 0 0 4px var(--sy-tint); }
+.sy-input { flex: 1; min-width: 0; min-height: 34px; max-height: 120px; padding: 7px 0; resize: none; border: 0; outline: 0; background: transparent; color: var(--sy-fg);
+  font: inherit; font-size: 15px; line-height: 1.35; }
+.sy-input::placeholder { color: var(--sy-fg-d); }
+.sy-send { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer; background: var(--sy-grad); color: #fff;
+  transition: transform 0.18s var(--sy-spring), opacity 0.18s, filter 0.18s; }
+.sy-send:hover:not(:disabled) { transform: scale(1.06); }
+.sy-send:active:not(:disabled) { transform: scale(0.92); }
+.sy-send:disabled { opacity: 0.35; cursor: default; filter: grayscale(0.4); }
+.sy-send:focus-visible { outline: 2px solid var(--sy-or); outline-offset: 2px; }
+.sy-send svg { width: 16px; height: 16px; }
+.sy-foot { display: flex; justify-content: space-between; gap: 10px; padding: 7px 6px 0; font-size: 11.5px; color: var(--sy-fg-d); line-height: 1.35; }
+.sy-foot a { color: inherit; }
+.sy-count { flex: none; font-variant-numeric: tabular-nums; }
+.sy-count.warn { color: var(--sy-or); }
+.sy-count.over { color: #d9481e; font-weight: 600; }
+
+/* ---------- phones: a full-height bottom sheet ---------- */
+@media (max-width: 600px) {
+  .sy-launch { width: 48px; height: 48px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); }
+  .sy-launch .sy-orb { --av: 48px; }
+  /* the sheet covers the whole screen, so it sits above the site nav (500) and below modals (600) */
+  .sy-panel { z-index: 520; }
+  .sy-root.is-open .sy-launch { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease, visibility 0s linear 0.2s; }
+  /* --vvh / --vvt: the visual viewport (chat.js), so the on-screen keyboard never hides the header or input */
+  .sy-panel { left: 0; right: 0 !important; bottom: auto !important; top: calc(var(--vvt, 0px) + max(10px, env(safe-area-inset-top))) !important; width: 100%;
+    height: calc(var(--vvh, 100dvh) - max(10px, env(safe-area-inset-top))); min-height: 0; max-height: none;
+    border-radius: 22px 22px 0 0; border-width: 1px 0 0; transform-origin: 50% 100%; transform: translateY(100%); opacity: 1;
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.25, 1), visibility 0s linear 0.4s; }
+  .sy-panel.on { transform: translateY(var(--drag, 0px)); transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.25, 1), visibility 0s; }
+  .sy-panel.closing { transition: transform 0.28s cubic-bezier(0.4, 0, 0.8, 0.4), visibility 0s linear 0.28s; }
+  .sy-panel.is-drag { transition: none; }
+  .sy-grab { display: block; position: absolute; left: 50%; top: 6px; width: 38px; height: 4px; margin-left: -19px; border-radius: 4px; background: var(--sy-line-s); }
+  .sy-head { padding-top: 18px; touch-action: none; flex: none; }
+  .sy-ib { width: 44px; height: 44px; }
+  .sy-close { background: var(--sy-tint); color: var(--sy-fg); border-color: var(--sy-line); }
+  .sy-ib svg { width: 19px; height: 19px; }
+  .sy-grab { width: 44px; height: 5px; margin-left: -22px; top: 7px; }
+  .sy-grab::before { content: ""; position: absolute; inset: -14px -30px; } /* a bigger touch target for the handle */
+  .sy-form { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .sy-input { font-size: 16px; } /* no iOS zoom on focus */
+  .sy-nudge { max-width: calc(100vw - 96px); }
+}
+/* the scrim behind the sheet + scroll lock (phones only; set by chat.js) */
+.sy-scrim { position: fixed; inset: 0; z-index: 515; background: rgba(10, 6, 3, 0.45); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s linear 0.3s; }
+@media (max-width: 600px) { .sy-root.is-open .sy-scrim { opacity: 1; visibility: visible; transition: opacity 0.3s ease; } }
+html.sy-locked, html.sy-locked body { overflow: hidden !important; overscroll-behavior: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sy-halo, .sy-launch .sy-dot::after, .sy-row, .sy-chips, .sy-root[data-state="thinking"] .sy-eyes i { animation: none !important; }
+  .sy-panel, .sy-panel.on, .sy-panel.closing, .sy-launch, .sy-nudge, .sy-eyes { transition-duration: 0.01s !important; transition-delay: 0s !important; }
+  .sy-panel { transform: none !important; }
+  .sy-msgs { scroll-behavior: auto; }
+}
+@media (forced-colors: active) {
+  .sy-orb { border: 2px solid CanvasText; }
+  .sy-eyes i { background: CanvasText; }
+}

@@ -185,7 +185,7 @@
 
     const FALLBACK = [
       { title: 'Hosteler', desc: 'E-commerce for hostel students — essentials, cart, wishlist, student discounts, free pan-India delivery.', stack: ['Next.js', 'Node.js', 'PostgreSQL'], link: 'https://www.hosteler.shop/' },
-      { title: 'IMURUN', desc: 'A local-first AI coding agent for the terminal. Models run on your machine and your code never leaves it.', stack: ['TypeScript', 'Bun', 'MIT'], link: 'imurun.html' },
+      { title: 'IMURUN', desc: 'Local-first AI chat with its own inference engine, FISH — models run on your own machine.', stack: ['C++', 'Python', 'MIT'], link: 'imurun.html' },
       { title: 'Learnify', desc: 'AI study companion for Indian students — college discovery, career guidance, scholarships, multilingual Veda.', stack: ['FastAPI', 'RAG', 'Supabase'], link: 'https://learnify.hosteler.shop/' },
       { title: 'ChhayaTaru Cafe', desc: 'Bilingual cafe site for a Howrah coffee house — menu, gallery, table booking.', stack: ['Next.js', 'Tailwind'], link: 'https://chhayataru.vercel.app/' }
     ];
@@ -421,7 +421,8 @@
       const external = /^https?:/i.test(url);
       const tags = (p.stack || []).map(t => '<span class="chip">' + esc(t) + '</span>').join('');
       const cats = (p.cats || (p.cat ? String(p.cat).split(' ') : ['work'])).join(' ');
-      return '<article class="ap-card" data-reveal="up" data-spot data-title="' + esc((p.title + ' ' + (p.summary || '') + ' ' + (p.desc || '') + ' ' + (p.stack || []).join(' ')).toLowerCase()) + '" data-cat="' + esc(cats) + '" data-tilt="6">' +
+      return '<article class="ap-card" data-reveal="up" data-spot data-title="' + esc((p.title + ' ' + (p.summary || '') + ' ' + (p.desc || '') + ' ' + (p.stack || []).join(' ')).toLowerCase()) + '" data-cat="' + esc(cats) + '" data-tilt="4">' +
+        (window.artFor ? '<img class="ap-art" src="' + window.artFor(p.title) + '" alt="" loading="lazy">' : '') +
         '<div class="ap-top"><span class="ap-idx">/' + String(i + 1).padStart(2, '0') + '</span>' +
         '<span class="p-status ' + st.cls + '"><span class="st-dot"></span>' + esc(st.label) + '</span></div>' +
         '<div><h3>' + esc(p.title) + '</h3>' + (p.role ? '<div class="ap-role">' + esc(p.role) + '</div>' : '') + '</div>' +
@@ -460,7 +461,7 @@
 
     const FALLBACK = [
       { title: 'Hosteler', status: 'built', role: 'Creator / Full-stack Developer', desc: 'E-commerce platform for hostel students — essentials, cart, wishlist, student discounts, free pan-India delivery.', stack: ['Next.js', 'Node.js', 'PostgreSQL', 'Vercel'], link: 'https://www.hosteler.shop/' },
-      { title: 'IMURUN', status: 'built', role: 'Creator / Maintainer', desc: 'A local-first AI coding agent for the terminal. Models run on your machine and your code never leaves it.', stack: ['TypeScript', 'Bun', 'RAG', 'MIT'], link: 'imurun.html', page: 'imurun.html' }
+      { title: 'IMURUN', status: 'built', role: 'Creator / Maintainer', desc: 'Local-first AI chat with its own inference engine, FISH — models run on your own machine.', stack: ['C++', 'Python', 'MIT'], link: 'imurun.html', page: 'imurun.html' }
     ];
 
     fetch('/api/projects', { cache: 'no-store' })
@@ -646,7 +647,7 @@
      BOOT
      ───────────────────────────────────────────────────────────── */
   function boot() {
-    initRail();
+    /* no scroll-progress rail: removed in the redesign */
     initReveals();
     initSplit();
     initScrub();

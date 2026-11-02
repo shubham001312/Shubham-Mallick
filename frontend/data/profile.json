@@ -1,0 +1,43 @@
+{
+  "name": "Shubham Mallick",
+  "headline": "Python backend and applied-AI developer; founder of ImuTechz, an open-source research & development organisation.",
+  "now": "AI Developer intern at Potion Labs AI Technologies, Kolkata (on-site, Oct 2026 – present), and AI intern at Autom8x / SWOT Management, United States (Jul 2026 – present). He is not looking for a new role right now, but is open to collaborations and open-source contributions.",
+  "location": "North 24 Parganas, West Bengal, India (works in Kolkata).",
+  "motto": "Shipped, not just built.",
+  "about": [
+    "Shubham is building toward real engineering ability, not only theory: backend systems, APIs, databases, machine learning, LLM applications, RAG, agents and deployment.",
+    "He cares about code that is observable, testable and shipped, and most of what he ships is open source."
+  ],
+  "mission": "Become the backend engineer for AI products first, then grow into AI Platform / ML Infrastructure engineering. Career goal: AI Engineer by 2029.",
+  "values": [
+    "Depth over buzzwords: understand the system under the abstraction — APIs, data, latency, failure modes.",
+    "Pragmatic AI: use LLMs where they help; keep deterministic logic where it must be correct.",
+    "Own the pipeline: from the endpoint to the database to the deploy."
+  ],
+  "experience": [
+    { "when": "Oct 2026 – present", "role": "AI Developer (intern)", "org": "Potion Labs AI Technologies", "where": "Kolkata, on-site", "what": "On-site AI development internship in a production AI environment." },
+    { "when": "Oct 2026 – present", "role": "Founder", "org": "ImuTechz", "where": "imutechz.in", "what": "An open-source research & development organisation behind IMURUN, the FISH inference engine, the Agents & Skills directory and imutechz.in." },
+    { "when": "Jul 2026 – present", "role": "AI Intern", "org": "Autom8x / SWOT Management", "where": "United States (remote)", "what": "AI agent development, agentic workflows, the Claude API, sub-agents, CI validation, technical documentation and AI automation." },
+    { "when": "Aug 2026 – Oct 2026", "role": "Founder & Managing Director", "org": "Hosteler India", "where": "hosteler.shop", "what": "Ran Hosteler, an e-commerce platform for hostel students: essentials, wishlist, cart, student discounts and free pan-India delivery. Concluded." },
+    { "when": "Jun 2026 – present", "role": "Member", "org": "Google Developer Groups On Campus, Kolkata", "where": "Kolkata", "what": "Technical workshops, developer events and community-driven learning." },
+    { "when": "May 2022 – Dec 2023", "role": "Cadet (A-grade certificate)", "org": "National Cadet Corps, 6 Bengal Battalion", "where": "West Bengal", "what": "Disciplinary training; leadership and teamwork." }
+  ],
+  "education": [
+    { "when": "Aug 2025 – Jul 2029", "what": "B.Tech, Computer Science & Engineering (Artificial Intelligence)", "where": "MAKAUT (Maulana Abul Kalam Azad University of Technology), West Bengal", "note": "Currently in Semester 3." },
+    { "when": "Aug 2018 – Mar 2025", "what": "Senior Secondary (Computer Science), AISSCE", "where": "Jawahar Navodaya Vidyalaya, North 24 Parganas" }
+  ],
+  "imutechz": "ImuTechz (imutechz.in) is the open-source research & development organisation Shubham founded. It builds IMURUN, the FISH inference engine, the Agents & Skills directory (10,631 open-source entries: 8,034 agents and 2,597 skills across 23 categories) and the imutechz.in website, in public, with contributors welcome.",
+  "imurun": "IMURUN (v0.3.0) is ImuTechz's local-first AI chat with its own inference engine: FISH, a C++ engine that runs GGUF models on the CPU of your own machine; a Python server for sessions, tools and connectors; and the \"Liquid Paper\" UI in a native window or the browser. It runs on Windows, macOS and Linux, needs no account, API key or telemetry, and is MIT licensed. Install: pip install imurun (or npx imurun, a thin launcher). Docs: imutechz.in/imu/docs. Repo: github.com/shubham001312/imurun. Site: imutechz.in/imu. Film: youtu.be/bDLHWa3ybqI.",
+  "learnify": "Learnify (learnify.hosteler.shop) is an AI study companion for Indian students — college discovery, career guidance and scholarships, with the multilingual Veda AI (Hindi, English, Bengali, Tamil). Its repository, github.com/shubham001312/learnify, holds Check & Mate, the learning-management portal built for the Innova 5.0 project: trainers build courses, trainees sit assessments, and every attempt rolls up into competency reports.",
+  "certifications": ["Introduction to Agent Skills", "AI – Data Engineering Analyst", "Statistics for Data Science with Python", "Google AI Professional Certification", "Data Science Fundamentals with Python and SQL"],
+  "languages": ["English (professional working)", "Hindi (native or bilingual)"],
+  "contact": {
+    "email": "shubham.mallick1440@gmail.com",
+    "imutechz_email": "founder@imutechz.in",
+    "github": "github.com/shubham001312",
+    "linkedin": "linkedin.com/in/shubham-mallick-061298378",
+    "scholar": "scholar.google.com/citations?user=vMPlCOcAAAAJ",
+    "youtube": "youtube.com/@ImuTechz",
+    "site_form": "the contact page of this site"
+  }
+}

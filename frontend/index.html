@@ -1,309 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('sm-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}d.dataset.theme=t;try{if(!sessionStorage.getItem('sm-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('intro')}catch(e){}})();</script>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel=&quot;stylesheet&quot;"/><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap"/></noscript>
+<link rel="stylesheet" href="assets/css/site.css?v=14"/>
+<link rel="stylesheet" href="assets/css/chat.css?v=14"/>
 <title>Shubham Mallick — Python Backend Developer | FastAPI, RAG, LLM | AI Portfolio</title>
-<meta name="description" content="Shubham Mallick — B.Tech CSE (AI) student and Python backend developer specializing in FastAPI, RAG pipelines, LLM systems, and production deployment. Open to internships 2025/26. Based in West Bengal, India.">
+<meta name="description" content="Shubham Mallick — B.Tech CSE (AI) student and Python backend developer specializing in FastAPI, RAG pipelines, LLM systems, and production deployment. Based in West Bengal, India.">
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/css/styles.css?v=25"/>
-  <link rel="stylesheet" href="assets/css/motion.css?v=7"/>
-<link rel="icon" href="assets/img/favicon.svg?v=9" type="image/svg+xml"/>
-<script>try{if(sessionStorage.getItem('sasy_booted'))document.documentElement.classList.add('skip-load');}catch(e){}</script>
+<link rel="icon" href="favicon.ico" sizes="48x48"/>
+<link rel="icon" href="assets/img/icon.svg?v=4" type="image/svg+xml"/>
+<link rel="icon" href="assets/img/icon-32.png?v=4" sizes="32x32" type="image/png"/>
 <link rel="canonical" href="https://shubhammallickengineer.hosteler.shop/"/>
-<meta name="keywords" content="Shubham Mallick, Shubham Mallick developer, Shubham Mallick Python, Shubham Mallick portfolio, Shubham Mallick GitHub, Shubham Mallick LinkedIn, Shubham Mallick MAKAUT, Python backend developer, Python developer India, FastAPI developer, FastAPI developer India, AI developer portfolio, applied AI developer, LLM developer, RAG developer, RAG pipeline developer, backend engineer India, backend developer West Bengal, Python developer West Bengal, full stack Python developer, API developer India, PostgreSQL developer, SQL developer India, REST API developer, machine learning developer, deep learning developer, NLP developer, AI agents developer, LLM applications developer, vector database developer, embeddings developer, AI infrastructure developer, ML infrastructure engineer, backend AI engineer, Python AI developer, FastAPI backend developer, software engineer India, software developer India, tech intern India, AI engineer India, B.Tech CSE AI, B.Tech Computer Science Artificial Intelligence, MAKAUT student, open to internships, Python internship 2025, AI internship 2025, backend internship India, freelance Python developer, junior backend developer, junior Python developer, AI products developer, production deployment, CI/CD developer, Docker developer, Git developer, Linux developer, software engineering student, computer science student India, AI student India, machine learning student, Python FastAPI developer, SQLAlchemy developer, Flask developer, React developer India, Next.js developer India, JavaScript developer India, Shubham Mallick developer portfolio, Python backend engineer India, FastAPI RAG LLM developer, AI ML developer India, Shubham Mallick AI projects"/>
+<meta name="keywords" content="Shubham Mallick, Shubham Mallick developer, Shubham Mallick Python, Shubham Mallick portfolio, Shubham Mallick GitHub, Shubham Mallick LinkedIn, Shubham Mallick MAKAUT, Python backend developer, Python developer India, FastAPI developer, FastAPI developer India, AI developer portfolio, applied AI developer, LLM developer, RAG developer, RAG pipeline developer, backend engineer India, backend developer West Bengal, Python developer West Bengal, full stack Python developer, API developer India, PostgreSQL developer, SQL developer India, REST API developer, machine learning developer, deep learning developer, NLP developer, AI agents developer, LLM applications developer, vector database developer, embeddings developer, AI infrastructure developer, ML infrastructure engineer, backend AI engineer, Python AI developer, FastAPI backend developer, software engineer India, software developer India, AI engineer India, B.Tech CSE AI, B.Tech Computer Science Artificial Intelligence, MAKAUT student, junior backend developer, junior Python developer, AI products developer, production deployment, CI/CD developer, Docker developer, Git developer, Linux developer, software engineering student, computer science student India, AI student India, machine learning student, Python FastAPI developer, SQLAlchemy developer, Flask developer, React developer India, Next.js developer India, JavaScript developer India, Shubham Mallick developer portfolio, Python backend engineer India, FastAPI RAG LLM developer, AI ML developer India, Shubham Mallick AI projects"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Shubham Mallick — Python Backend Developer | FastAPI, RAG, LLM | AI Portfolio"/>
-<meta property="og:description" content="Shubham Mallick — B.Tech CSE (AI) student and Python backend developer specializing in FastAPI, RAG pipelines, LLM systems, and production deployment. Open to internships 2025/26. Based in West Bengal, India."/>
+<meta property="og:description" content="Shubham Mallick — B.Tech CSE (AI) student and Python backend developer specializing in FastAPI, RAG pipelines, LLM systems, and production deployment. Based in West Bengal, India."/>
 <meta property="og:url" content="https://shubhammallickengineer.hosteler.shop/"/>
 <meta property="og:site_name" content="Shubham Mallick — Portfolio"/>
-<meta property="og:image" content="https://shubhammallickengineer.hosteler.shop/assets/img/og-image.svg"/>
+<meta property="og:image" content="https://shubhammallickengineer.hosteler.shop/assets/img/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="Shubham Mallick — Python Backend & Applied AI Developer"/>
 <meta property="og:locale" content="en_IN"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Shubham Mallick — Python Backend Developer | FastAPI, RAG, LLM | AI Portfolio"/>
-<meta name="twitter:description" content="Shubham Mallick — B.Tech CSE (AI) student and Python backend developer specializing in FastAPI, RAG pipelines, LLM systems, and production deployment. Open to internships 2025/26. Based in West Bengal, India."/>
-<meta name="twitter:image" content="https://shubhammallickengineer.hosteler.shop/assets/img/og-image.svg"/>
+<meta name="twitter:description" content="Shubham Mallick — B.Tech CSE (AI) student and Python backend developer specializing in FastAPI, RAG pipelines, LLM systems, and production deployment. Based in West Bengal, India."/>
+<meta name="twitter:image" content="https://shubhammallickengineer.hosteler.shop/assets/img/og-image.png"/>
 <meta name="twitter:image:alt" content="Shubham Mallick — Python Backend & Applied AI Developer"/>
 <meta name="twitter:site" content="@shubham001312"/>
 <meta name="twitter:creator" content="@shubham001312"/>
-<link rel="apple-touch-icon" href="https://shubhammallickengineer.hosteler.shop/assets/img/favicon.svg"/>
-<meta name="msapplication-TileColor" content="#7A1F2B"/>
-<meta name="theme-color" content="#7A1F2B"/>
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=4"/>
+<meta name="msapplication-TileColor" content="#ea4a1a"/>
+<meta name="theme-color" content="#070707"/>
 <link rel="manifest" href="manifest.json"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Shubham Mallick", "url": "https://shubhammallickengineer.hosteler.shop", "jobTitle": "Python Backend & Applied AI Developer", "description": "B.Tech CSE (AI) student engineering production-grade FastAPI services, RAG pipelines and LLM products.", "email": "shubham.mallick1440@gmail.com", "address": {"@type": "PostalAddress", "addressRegion": "West Bengal", "addressCountry": "IN"}, "sameAs": ["https://github.com/shubham001312", "https://www.linkedin.com/in/shubham-mallick-061298378", "https://scholar.google.com/citations?user=vMPlCOcAAAAJ"], "knowsAbout": ["Python", "FastAPI", "RAG", "LLMs", "Machine Learning", "Deep Learning", "NLP", "PostgreSQL", "Docker", "CI/CD", "AI Agents", "Vector Databases", "Embeddings"], "alumniOf": {"@type": "EducationalOrganization", "name": "MAKAUT (Maulana Abul Kalam Azad University of Technology, West Bengal)"}, "nationality": {"@type": "Country", "name": "India"}, "image": "https://shubhammallickengineer.hosteler.shop/assets/img/profile.jpg", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Python Backend Development", "description": "FastAPI, Flask, REST APIs, PostgreSQL, SQLAlchemy"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI & LLM Systems", "description": "RAG pipelines, embeddings, vector stores, AI agents, LLM applications"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Production Deployment", "description": "Docker, CI/CD, Vercel, monitoring, documentation"}}]}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Shubham Mallick \u2014 Portfolio", "url": "https://shubhammallickengineer.hosteler.shop", "description": "Python backend developer and applied AI engineer. Production-grade FastAPI, RAG and LLM systems.", "author": {"@type": "Person", "name": "Shubham Mallick"}, "potentialAction": {"@type": "SearchAction", "target": "https://shubhammallickengineer.hosteler.shop/?q={search_term_string}", "query-input": "required name=search_term_string"}}</script>
 </head>
 <body>
-
-<div class="cur-dot"></div>
-<div class="cur-ring"></div>
-
-<div id="loader">
-  <div class="boot-lines" id="bootLines"></div>
-  <div class="boot-bottom">
-    <div class="boot-sig">SM://PORTFOLIO — V3.0_REBUILT</div>
-    <div class="boot-pct"><span id="bootNum">00</span><span>%</span></div>
-  </div>
-  <div id="bootbar"></div>
-</div>
-
-<nav>
-  <a href="index.html" class="logo">
-    <span class="logo-mark"><img class="logo-photo" src="assets/img/profile.jpg?v=2" alt="Shubham Mallick" onerror="this.remove()"/><b class="logo-init">SM</b></span>
-    <span class="logo-txt">Shubham Mallick<small>Python · Backend · AI</small></span>
+<div class="sm-intro" id="intro" aria-hidden="true"><canvas></canvas><span class="intro-skip">Click to skip</span></div>
+<script src="assets/js/intro.js?v=14"></script>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <a class="brand" href="index.html" aria-label="Shubham Mallick — home">
+    <span class="brand-mark"><img class="logo-photo" src="assets/img/profile.jpg?v=2" alt="Shubham Mallick" onerror="this.remove()"/><b class="logo-init">SM</b></span>
+    <span class="brand-name">Shubham <span>Mallick</span></span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Work</a></li>
-    <li><a href="all-projects.html">All</a></li>
-    <li><a href="experience.html">Path</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-        <a href="mailto:shubham.mallick1440@gmail.com" class="nav-cta" id="otwOpen"><span class="blink"></span>OPEN_TO_WORK</a>
-</nav>
-
-<header class="hero" id="top">
-  <canvas id="glcanvas"></canvas>
-  <div class="hero-vignette"></div>
-  <div class="hero-grid-lines"></div>
-
-  <div class="hud hud-tl">RENDER: WEBGL2 / <b>ACTIVE</b><br/>SCENE: NEURAL_CORE.OBJ<br/>PARTICLES: <b id="hudPts">1200</b> PTS</div>
-  <div class="hud hud-bl">SECTOR: WB / IN<br/>LAT 22.80°N — LON 88.40°E</div>
-  <div class="hud hud-br">LOCAL: <b class="ist-clock">--:--:--</b> IST<br/>STATUS: <b>ONLINE</b></div>
-
-  <div class="hero-content">
-    <div class="hero-status"><i></i>AI Developer — Potion Labs, Kolkata</div>
-    <h1>
-      Python backend <span class="op">×</span><br/>
-      <span class="l2">applied intelligence</span>,<br/>
-      shipped — not just built<span class="hero-caret"></span>
-    </h1>
-    <p class="hero-sub">
-      B.Tech CSE (AI) student engineering <strong>production-grade</strong> FastAPI services, RAG pipelines and LLM products that survive real users. West Bengal, India — <span class="serif-i">working worldwide.</span>
-    </p>
-    <div class="hero-actions">
-      <a href="projects.html" class="btn btn-fill magnet" data-magnet>./view_work <span class="arr">→</span></a>
-      <a href="all-projects.html" class="btn btn-ghost magnet" data-magnet>./all_projects <span class="arr">→</span></a>
-      <a href="mailto:shubham.mallick1440@gmail.com" class="btn btn-ghost magnet" data-magnet>shubham.mallick1440@gmail.com</a>
-    </div>
+  <nav aria-label="Primary"><ul class="nav-links"><li><a href="index.html" class="active" aria-current="page">Home</a></li><li><a href="work.html">Work</a></li><li><a href="experience.html">Path</a></li><li><a href="imurun.html">IMURUN</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+  <div class="nav-r">
+    <button class="icon-btn sound-btn" type="button" aria-label="Mute sounds" aria-pressed="true" data-sound="tick"><span class="i-on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5ZM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></span><span class="i-off"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5ZM22 9l-6 6M16 9l6 6"/></svg></span></button>
+    <button class="icon-btn theme-btn" type="button" aria-label="Toggle colour theme"><span class="i-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4V2M12 22v-2M4.9 4.9 3.5 3.5M20.5 20.5l-1.4-1.4M4 12H2M22 12h-2M4.9 19.1l-1.4 1.4M20.5 3.5l-1.4 1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg></span><span class="i-moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></span></button>
+    <button type="button" class="nav-now" data-role-dialog="potion" aria-haspopup="dialog" data-tip="Currently: AI Developer intern at Potion Labs — details" data-sound="none"><i aria-hidden="true"></i><span>Now at Potion Labs</span></button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open the menu" aria-controls="navSheet" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
   </div>
-
-  <div class="scroll-cue">Scroll<span class="track"></span></div>
 </header>
-
-<div class="statline">
-  <div class="stat"><div class="stat-n"><span data-count="12">0</span><em>+</em></div><div class="stat-l">Projects Engineered</div></div>
-  <div class="stat"><div class="stat-n"><span data-count="9">0</span><em>/12</em></div><div class="stat-l">Deployed &amp; Live</div></div>
-  <div class="stat"><div class="stat-n"><span data-count="22">0</span><em> guides</em></div><div class="stat-l">IMURUN Docs Shipped</div></div>
-  <div class="stat"><div class="stat-n"><span data-count="100">0</span><em>%</em></div><div class="stat-l">Shipped, Not Shelved</div></div>
+<div class="nav-sheet" id="navSheet" aria-hidden="true">
+  <a href="index.html" class="active">Home</a><a href="work.html">Work</a><a href="experience.html">Path</a><a href="imurun.html">IMURUN</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <div class="sheet-foot"><button type="button" class="pill pill-ink" data-role-dialog="potion" aria-haspopup="dialog" data-sound="none"><i></i>Now: AI Developer intern, Potion Labs</button><a class="pill pill-line" href="mailto:founder@imutechz.in">founder@imutechz.in</a><button class="pill pill-line sound-btn" type="button" aria-label="Mute sounds"><span class="i-on">Sound on</span><span class="i-off">Sound off</span></button></div>
 </div>
-
-<section id="capabilities">
-  <div class="sec-head rv">
-    <div>
-      <div class="sec-idx">01 // capabilities</div>
-      <h2 class="sec-title">Three ways I <span class="serif-i">create value</span></h2>
-    </div>
-    <div class="sec-note">BACKEND-FIRST<br/>AI-NATIVE · PRODUCTION-MINDED</div>
-  </div>
-  <div class="caps rv">
-    <article class="cap">
-      <div class="cap-top"><span class="cap-num">CAP.001</span>
-        <span class="cap-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17l6-6-6-6M12 19h8"/></svg></span></div>
-      <h3>Backend Engineering</h3>
-      <p>FastAPI services with clean architecture — auth, ORM, migrations, async workers, tests. The plumbing that makes AI features actually usable by real people.</p>
-      <div class="cap-tags"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy</span><span class="chip">REST</span><span class="chip">pytest</span></div>
-      <span class="corner c-tl"></span><span class="corner c-br"></span>
-    </article>
-    <article class="cap">
-      <div class="cap-top"><span class="cap-num">CAP.002</span>
-        <span class="cap-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></span></div>
-      <h3>Applied AI & LLM Systems</h3>
-      <p>RAG pipelines, embeddings, vector stores, agents and eval loops. Models treated as engineered systems with latency budgets — not demo notebooks.</p>
-      <div class="cap-tags"><span class="chip">RAG</span><span class="chip">LLMs</span><span class="chip">Embeddings</span><span class="chip">LangChain</span><span class="chip">Agents</span></div>
-      <span class="corner c-tl"></span><span class="corner c-br"></span>
-    </article>
-    <article class="cap">
-      <div class="cap-top"><span class="cap-num">CAP.003</span>
-        <span class="cap-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3l14 9-14 9V3z"/></svg></span></div>
-      <h3>Ship-to-Production Mindset</h3>
-      <p>Docker, CI, deployment, monitoring and docs. I optimize for "someone else can run this" — projects that leave my machine and stay alive.</p>
-      <div class="cap-tags"><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Supabase</span><span class="chip">Vercel</span><span class="chip">Git</span></div>
-      <span class="corner c-tl"></span><span class="corner c-br"></span>
-    </article>
-  </div>
-</section>
-
-<!-- ══════════════ SCROLL REEL — vertical scroll drives a horizontal film strip ══════════════ -->
-<section class="reel" id="reel" data-reel data-reel-from="api">
-  <div class="reel-sticky">
-    <div class="reel-head">
-      <div>
-        <div class="sec-idx">02 // the reel</div>
-        <h2 class="sec-title">Scroll the <span class="serif-i">film</span></h2>
+<main id="main">
+<section class="hx" id="hx" data-sasy-hero aria-label="Introduction">
+  <div class="hx-bg" aria-hidden="true"><i class="hx-sun"></i><svg class="hx-orbits" viewBox="0 0 600 600" aria-hidden="true" fill="none" stroke="currentColor"><circle cx="300" cy="300" r="140" stroke-opacity=".35" stroke-dasharray="2 9"/><circle cx="300" cy="300" r="210" stroke-opacity=".26" stroke-dasharray="4 12"/><circle cx="300" cy="300" r="280" stroke-opacity=".18" stroke-dasharray="6 16"/><circle cx="440" cy="300" r="6" fill="currentColor" stroke="none"/><circle cx="152" cy="152" r="4" fill="currentColor" stroke="none"/><circle cx="300" cy="580" r="5" fill="currentColor" stroke="none"/></svg><i class="hx-shade"></i></div>
+  <div class="hx-in">
+    <p class="hx-k"><span class="dot" aria-hidden="true"></span>Kolkata, India · <span class="ist-clock">--:--:--</span> IST</p>
+    <div class="hx-main">
+      <h1 class="hx-name" data-intro-target><span class="hx-line">Shubham</span><span class="hx-line">Mallick</span><span class="sr-only"> — founder of ImuTechz and AI Developer intern at Potion Labs AI Technologies</span></h1>
+      <div class="hx-roles">
+        <button type="button" class="hx-role" data-role-dialog="imutechz" aria-haspopup="dialog" data-tip="About ImuTechz and Shubham's role as founder" data-sound="none"><small>Founder · ImuTechz</small><b>ImuTechz</b><span>Open-source R&amp;D organisation</span><span class="more">Details +</span></button>
+        <button type="button" class="hx-role now" data-role-dialog="potion" aria-haspopup="dialog" data-tip="About Shubham's internship at Potion Labs" data-sound="none"><small>AI Developer Intern</small><b>Potion Labs AI Technologies</b><span>Kolkata, on-site · since Oct 2026</span><span class="more">Details +</span></button>
       </div>
-      <div class="sec-note">VERTICAL SCROLL → HORIZONTAL REEL<br/>LIVE FROM THE API · CLICK ANY CARD</div>
+      <p class="hx-lede">Python backend &amp; applied-AI developer building FastAPI services, RAG pipelines and local-first AI — in the open. <strong>Shipped, not just built.</strong></p>
+      <div class="hx-act"><a class="pill pill-ink" href="work.html"><i aria-hidden="true"></i>See the work</a><a class="pill pill-line" href="contact.html">Get in touch</a></div>
     </div>
-    <div class="reel-viewport">
-      <div class="reel-track"></div>
-    </div>
-    <div class="reel-bar"><i></i></div>
-    <div class="reel-hint" aria-hidden="true"><span class="track"></span>Keep scrolling</div>
+    <figure class="hx-fig"><img src="assets/img/profile.jpg?v=2" alt="Shubham Mallick" fetchpriority="high" width="420" height="574"/><figcaption>B.Tech CSE (AI) · MAKAUT</figcaption></figure>
+    <div class="hx-foot"><span class="cue">Scroll</span><span>Est. 2025 · West Bengal</span></div>
   </div>
 </section>
 
-<!-- ══════════════ THE STUDIO ══════════════ -->
-<section id="studio">
-  <div class="sec-head rv">
-    <div>
-      <div class="sec-idx">03 // studio</div>
-      <h2 class="sec-title">ImuTechz — <span class="serif-i">the studio behind it</span></h2>
-    </div>
-    <div class="sec-note">INDEPENDENT SOFTWARE STUDIO<br/>CLIENT WORK FEEDS THE OPEN SOURCE</div>
-  </div>
+<div class="flow">
+  <section class="ix" aria-labelledby="ix-h">
+    <div class="ix-head"><h2 id="ix-h" class="reveal">Selected work</h2><a href="work.html">Every build →</a></div>
+    <ol class="ix-list"><li><a class="ix-row" href="imurun.html" data-art="assets/img/art/imurun.svg"><span class="ix-n">01</span><img class="ix-thumb" src="assets/img/art/imurun.svg" alt="" loading="lazy" width="88" height="60"/><span class="ix-t">IMURUN</span><span class="ix-d">Local-first AI on its own C++ engine, FISH</span><span class="ix-a" aria-hidden="true">→</span></a></li><li><a class="ix-row" href="https://www.imutechz.in/agents" target="_blank" rel="noopener" data-art="assets/img/art/agents.svg"><span class="ix-n">02</span><img class="ix-thumb" src="assets/img/art/agents.svg" alt="" loading="lazy" width="88" height="60"/><span class="ix-t">Agents &amp; Skills directory</span><span class="ix-d">10,631 open-source agents and skills</span><span class="ix-a" aria-hidden="true">↗</span></a></li><li><a class="ix-row" href="https://learnify.hosteler.shop/" target="_blank" rel="noopener" data-art="assets/img/art/learnify.svg"><span class="ix-n">03</span><img class="ix-thumb" src="assets/img/art/learnify.svg" alt="" loading="lazy" width="88" height="60"/><span class="ix-t">Learnify</span><span class="ix-d">AI study companion · Check &amp; Mate LMS</span><span class="ix-a" aria-hidden="true">↗</span></a></li><li><a class="ix-row" href="https://www.hosteler.shop/" target="_blank" rel="noopener" data-art="assets/img/art/hosteler.svg"><span class="ix-n">04</span><img class="ix-thumb" src="assets/img/art/hosteler.svg" alt="" loading="lazy" width="88" height="60"/><span class="ix-t">Hosteler</span><span class="ix-d">E-commerce for hostel students · founded 2026</span><span class="ix-a" aria-hidden="true">↗</span></a></li><li><a class="ix-row" href="https://www.imutechz.in" target="_blank" rel="noopener" data-art="assets/img/art/web.svg"><span class="ix-n">05</span><img class="ix-thumb" src="assets/img/art/web.svg" alt="" loading="lazy" width="88" height="60"/><span class="ix-t">imutechz-web</span><span class="ix-d">The ImuTechz website · Next.js + Supabase</span><span class="ix-a" aria-hidden="true">↗</span></a></li></ol>
+    <img class="ix-float" alt="" aria-hidden="true"/>
+  </section>
 
-  <div class="feat-grid rv">
-    <article class="feat" data-reveal="up" data-tilt="6">
-      <span class="fn">S.01</span>
-      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5 12 12l8-4.5L12 3Z"/><path d="m4 12.5 8 4.5 8-4.5M4 17l8 4.5 8-4.5"/></svg></span>
-      <h3>Agents &amp; Skills Directory</h3>
-      <p>10,631 open-source entries — 8,034 agents and 2,597 skills across 23 categories. Browse free, search in plain language, save what you like and download directly.</p>
-      <a class="ap-go" href="https://www.imutechz.in/agents" target="_blank" rel="noopener">Explore the directory →</a>
-    </article>
-    <article class="feat" data-reveal="up" data-delay="80" data-tilt="6">
-      <span class="fn">S.02</span>
-      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="m7 10 3 2.5L7 15M12.5 15H17"/></svg></span>
-      <h3>IMURUN — the IMU CLI</h3>
-      <p>A local-first AI coding agent: models run on your machine and your code never leaves it. Install with npm and go from zero to agent in one sitting.</p>
-      <a class="ap-go" href="imurun.html">Open the project page →</a>
-    </article>
-    <article class="feat" data-reveal="up" data-delay="160" data-tilt="6">
-      <span class="fn">S.03</span>
-      <span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9Z"/></svg></span>
-      <h3>imutechz-web</h3>
-      <p>This website — Next.js and Supabase, documentation compiled from markdown at build time, an animated scene on every route. Self-deployed from GitHub to Vercel.</p>
-      <a class="ap-go" href="https://www.imutechz.in" target="_blank" rel="noopener">Visit the studio →</a>
-    </article>
-  </div>
-</section>
-
-<div class="marquee">
-  <div class="mq-track" id="mq1"></div>
+  <section class="cl" aria-label="Get in touch">
+    <h2 class="cl-line reveal">Let&rsquo;s build<br/>something <em>open.</em></h2>
+    <p class="cl-reach reveal"><a href="mailto:founder@imutechz.in">founder@imutechz.in</a><a href="mailto:shubham.mallick1440@gmail.com">shubham.mallick1440@gmail.com</a><a href="https://github.com/shubham001312" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/shubham-mallick-061298378" target="_blank" rel="noopener">LinkedIn</a><a href="contact.html">Send a message →</a></p>
+    <button class="btt" id="toTopDial" type="button" aria-label="Back to the top" data-tip="Back to the top">
+      <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="bttc" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#bttc">BACK TO TOP · BACK TO TOP · BACK TO TOP ·</textPath></text></svg>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+    </button>
+  </section>
 </div>
-
-<footer>
-  <div class="foot-mega">SHUBHAM·&#8203;MALLICK</div>
-  <div class="foot-bar">
-    <span>© 2026 — ENGINEERED BY HAND, NO TEMPLATE</span>
-    <div class="foot-soc">
-      <a href="https://github.com/shubham001312" target="_blank">GITHUB</a>
-      <a href="https://www.linkedin.com/in/shubham-mallick-061298378" target="_blank">LINKEDIN</a>
-      <a href="mailto:shubham.mallick1440@gmail.com">EMAIL</a>
-    </div>
-    <button id="toTop">↑ TOP</button>
+</main>
+<footer class="foot">
+  <div class="marquee" aria-hidden="true"><div class="mq-track" id="mq1"></div></div>
+  <div class="foot-in">
+    <div class="foot-about"><h4>Shubham Mallick</h4><p>Python backend &amp; applied-AI developer. Founder of ImuTechz, an open-source R&amp;D organisation. AI Developer at Potion Labs, Kolkata.</p></div>
+    <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><a href="experience.html">Path</a></li><li><a href="imurun.html">IMURUN</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Elsewhere</h4><ul>
+      <li><a href="https://github.com/shubham001312" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="https://www.linkedin.com/in/shubham-mallick-061298378" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      <li><a href="https://scholar.google.com/citations?user=vMPlCOcAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a></li>
+      <li><a href="https://www.youtube.com/@ImuTechz" target="_blank" rel="noopener">YouTube ↗</a></li>
+      <li><a href="https://www.imutechz.in" target="_blank" rel="noopener">imutechz.in ↗</a></li></ul></div>
   </div>
+  <p class="foot-mega" aria-hidden="true">SHUBHAM MALLICK</p>
+  <div class="foot-bar"><span>© <span id="year">2026</span> Shubham Mallick · Shipped, not just built.</span><span id="visits"></span><span hidden></span></div>
 </footer>
 
-
-  <!-- SASY character + chat -->
-  <div class="sasy" id="sasy" role="button" aria-label="Chat with SASY" title="Hi, I'm SASY — drag me around!">
-    <canvas id="sasyFx" class="sasy-fx"></canvas>
-    <div class="sasy-glow"></div>
-    <div class="sasy-body">
-      <div class="sasy-ant l"></div>
-      <div class="sasy-ant r"></div>
-      <div class="sasy-face">
-        <div class="sasy-eye l"><span></span></div>
-        <div class="sasy-eye r"><span></span></div>
-        <div class="sasy-brow l"></div>
-        <div class="sasy-brow r"></div>
-        <div class="sasy-mouth"><span></span></div>
-        <div class="sasy-cheek l"></div>
-        <div class="sasy-cheek r"></div>
-      </div>
-    </div>
-    <div class="sasy-bubble" id="sasyBubble"></div>
-  </div>
-
-  <div class="chat" id="chat" hidden>
-    <div class="term-bar chat-bar">
-      <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
-      <span class="term-title">sasy@shubham: ~/assistant — SASY TERMINAL</span>
-      <span class="chat-tools">
-        <button id="chatMic" type="button" title="Talk to SASY" aria-label="Voice input">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-        </button>
-        <button id="chatSound" type="button" title="Toggle voice" aria-label="Toggle voice" class="voice-on">
-          <svg class="icon-vol" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-          <svg class="icon-mute" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        </button>
-        <button id="chatClose" type="button" title="Close" aria-label="Close chat">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </span>
-    </div>
-    <div class="chat-msgs" id="chatMsgs"></div>
-    <div class="chat-quick" id="chatQuick">
-      <button data-q="What projects has Shubham built?">projects</button>
-      <button data-q="What is Shubham's tech stack and skills?">skills</button>
-      <button data-q="Give me a short summary of Shubham's profile.">resume</button>
-      <button data-q="How do I contact Shubham?">contact</button>
-      <button data-cmd="/voice" title="Toggle voice">voice</button>
-      <button data-cmd="/clear" title="Clear chat">clear</button>
-      <button data-cmd="/help" title="Show commands">help</button>
-    </div>
-    <form class="chat-form" id="chatForm">
-      <span class="p">sasy:~$</span>
-      <input id="chatText" type="text" placeholder="ask, or type /help…" autocomplete="off" spellcheck="false"/>
-      <button type="submit" class="chat-send" title="Send" aria-label="Send message">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      </button>
-    </form>
-  </div>
-
-  <div class="otw" id="otwModal" hidden>
-    <div class="otw-card" role="dialog" aria-modal="true" aria-label="Open to work">
-      <div class="otw-head">
-        <h3>Open to work · Backend × AI</h3>
-        <p>PYTHON BACKEND × APPLIED AI — CURRENTLY AT POTION LABS, KOLKATA</p>
-        <button class="otw-close" data-close aria-label="Close">×</button>
-      </div>
-      <div class="otw-body">
-        <div class="otw-sec">
-          <h4>Why me</h4>
-          <p>Python-first backend & applied-AI developer (B.Tech CSE AI, MAKAUT — Sem 3). I ship production-grade FastAPI services, RAG pipelines and LLM products, not just demos — Project Veda (RAG + agents + vector memory) and Hosteler (e-commerce for hostels) are both real, deployed builds. Currently an AI Developer at Potion Labs AI Technologies in Kolkata, on-site — and still open to backend, Python and AI work.</p>
-        </div>
-        <div class="otw-sec">
-          <h4>How I deal with work</h4>
-          <p>Discovery → architecture → ship with tests, CI and Docker → iterate from real feedback. I communicate clearly, document as I go, and treat "someone else can run this" as the definition of done. For AI work I lean on eval loops, guardrails and honest accuracy over hype.</p>
-        </div>
-        <div class="otw-sec">
-          <h4>My details & enquiry</h4>
-          <p>Email me directly, connect on LinkedIn, or check my code. I usually reply within a day. Open to backend / Python / AI internships and freelance.</p>
-          <div class="otw-contact">
-            <button id="otwCopy" type="button">Copy email</button>
-            <a href="mailto:shubham.mallick1440@gmail.com">shubham.mallick1440@gmail.com</a>
-            <a href="https://github.com/shubham001312" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/shubham-mallick-061298378" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
+<dialog class="rd" id="rd-imutechz" aria-labelledby="rd-imutechz-t">
+  <div class="rd-card">
+    <header class="rd-head">
+      <p class="rd-k">Founder · since Oct 2026</p>
+      <h2 class="rd-title" id="rd-imutechz-t" tabindex="-1">ImuTechz</h2>
+      <p class="rd-sub">An open-source research &amp; development organisation</p>
+      <button type="button" class="rd-x" data-rd-close aria-label="Close" data-tip="Close (Esc)" data-sound="none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </header>
+    <div class="rd-body">
+      <dl class="rd-meta"><div><dt>Role</dt><dd>Founder</dd></div><div><dt>Since</dt><dd>Oct 2026 — now</dd></div><div><dt>Where</dt><dd>imutechz.in · Kolkata</dd></div></dl>
+      <div><h3>What it is</h3><p>ImuTechz is the open-source research &amp; development organisation Shubham founded. Its tools are built in public — anyone can run, inspect and fork them, and contributors are welcome.</p></div>
+      <div><h3>What he does there</h3><ul>
+        <li>Leads IMURUN — local-first AI on ImuTechz&rsquo;s own C++ inference engine, FISH.</li>
+        <li>Runs the R&amp;D tracks behind it, in the open.</li>
+        <li>Maintains the Agents &amp; Skills directory — 10,631 open-source entries.</li>
+        <li>Builds and ships imutechz.in itself.</li></ul></div>
+      <div class="rd-act">
+        <a class="pill pill-or" href="https://imutechz.in" target="_blank" rel="noopener" data-tip="Opens imutechz.in (new tab)"><i></i>Visit imutechz.in ↗</a>
+        <a class="pill pill-line" href="https://imutechz.in/founder" target="_blank" rel="noopener" data-tip="Opens the ImuTechz founder page (new tab)">Founder page ↗</a>
+        <a class="pill pill-line" href="imurun.html">IMURUN →</a>
       </div>
     </div>
   </div>
-  <script>
-    if('serviceWorker' in navigator){
-      var _swr=false;
-      navigator.serviceWorker.addEventListener('controllerchange',function(){ if(_swr) return; _swr=true; location.reload(); });
-      window.addEventListener('load',function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
-    }
-  </script>
-  <script src="assets/js/main.js?v=24" defer></script>
-  <script src="assets/js/motion.js?v=2" defer></script>
+</dialog>
+<dialog class="rd" id="rd-potion" aria-labelledby="rd-potion-t">
+  <div class="rd-card">
+    <header class="rd-head">
+      <p class="rd-k">Current role · since Oct 2026</p>
+      <h2 class="rd-title" id="rd-potion-t" tabindex="-1">Potion Labs AI Technologies</h2>
+      <p class="rd-sub">AI Developer Intern · on-site in Kolkata</p>
+      <button type="button" class="rd-x" data-rd-close aria-label="Close" data-tip="Close (Esc)" data-sound="none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </header>
+    <div class="rd-body">
+      <dl class="rd-meta"><div><dt>Role</dt><dd>AI Developer Intern</dd></div><div><dt>Since</dt><dd>Oct 2026 — now</dd></div><div><dt>Where</dt><dd>Kolkata · on-site</dd></div></dl>
+      <div><h3>The company</h3><p>Potion Labs AI Technologies is an AI company in Kolkata, West Bengal, where Shubham works on-site in a production AI environment.</p></div>
+      <div><h3>What he does there</h3><ul>
+        <li>Builds software as part of the team, on-site.</li>
+        <li>Develops AI automations.</li></ul></div>
+      <div class="rd-act"><a class="pill pill-line" href="experience.html">See the whole path →</a></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  if('serviceWorker' in navigator){
+    // reload only when an UPDATED worker takes over — never on the first install (that reload cut the intro short)
+    var _swr=false, _had=!!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange',function(){ if(_swr||!_had) return; _swr=true; location.reload(); });
+    window.addEventListener('load',function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
+  }
+</script>
+<script src="assets/js/sound.js?v=14" defer></script>
+<script src="assets/js/main.js?v=14" defer></script>
+<script src="assets/js/motion.js?v=14" defer></script>
+<script src="assets/js/site.js?v=14" defer></script>
+<script src="assets/js/home.js?v=14" defer></script>
+<script src="assets/js/roles.js?v=14" defer></script>
+<script src="assets/js/chat.js?v=14" defer></script>
+<script src="assets/js/tips.js?v=14" defer></script>
 </body>
 </html>
