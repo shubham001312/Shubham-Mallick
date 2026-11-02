@@ -13,8 +13,8 @@ function artFor(title){
   const t=String(title||'').toLowerCase();
   const map=[['imurun','imurun'],['agents','agents'],['learnify','learnify'],['hosteler','hosteler'],
     ['chhaya','chhayataru'],['reciprocity','reciprocity'],['grbs','grbs'],['imutechz','web']];
-  for(const [k,v] of map){ if(t.indexOf(k)>-1) return 'assets/img/art/'+v+'.svg'; }
-  return 'assets/img/art/web.svg';
+  for(const [k,v] of map){ if(t.indexOf(k)>-1) return '/assets/img/art/'+v+'.svg'; }
+  return '/assets/img/art/web.svg';
 }
 window.artFor=artFor;
 
@@ -371,7 +371,7 @@ function ensureThree(cb){
   if(window.THREE){ cb(); return; }
   if(!hero3DCapable){ document.documentElement.classList.add('no-3d'); return; }
   const s=document.createElement('script');
-  s.src=API_BASE+'assets/js/three.min.js'; s.defer=true;
+  s.src=API_BASE+'/assets/js/three.min.js'; s.defer=true;
   s.onload=()=>cb();
   s.onerror=()=>{ document.documentElement.classList.add('no-3d'); };
   document.head.appendChild(s);
@@ -546,7 +546,7 @@ document.querySelectorAll('.cap').forEach((c,i)=>{
   const P='<span class="p">➜ ~</span> ';
   function line(cls,html){
     const d=document.createElement('div');
-    d.className='tl '+cls; d.innerHTML=html;
+    d.className='tl '+cls; d.textContent=html; // plain text: typed commands and replies are never parsed as HTML
     body.appendChild(d); body.scrollTop=body.scrollHeight;
   }
   function typeIn(cmd,cb){
@@ -666,7 +666,7 @@ const toTop=document.getElementById('toTop'); if(toTop) toTop.addEventListener('
   if('serviceWorker' in navigator){
     let _swReload=false; const _hadCtl=!!navigator.serviceWorker.controller;
     navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(_swReload||!_hadCtl) return; _swReload=true; location.reload(); });
-    addEventListener('load',()=>{ navigator.serviceWorker.register(API_BASE+'sw.js').catch(()=>{}); });
+    addEventListener('load',()=>{ navigator.serviceWorker.register(API_BASE+'/sw.js').catch(()=>{}); });
   }
 
 function esc(s){

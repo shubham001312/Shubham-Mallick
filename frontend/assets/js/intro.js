@@ -8,7 +8,8 @@
    the particles, pixel for pixel. On the inner pages they form the
    name in the centre. ~1.6 s in total.
 
-   • once per browser session (the <head> script sets html.intro)
+   • home page: on every full load (first visit, reload, external link);
+     inner pages: once per browser session (the <head> script sets html.intro)
    • never with prefers-reduced-motion (the head script skips it)
    • any click, key, wheel or touch skips straight to the end
    • the overlay is position:fixed: no layout shift, and the page

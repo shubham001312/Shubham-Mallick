@@ -81,7 +81,7 @@
     setOpen(false);
     menuBtn.addEventListener("click", () => setOpen(!sheet.classList.contains("open")));
     sheet.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
-    addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && sheet.classList.contains("open")) { setOpen(false); menuBtn.focus({ preventScroll: true }); } }); // focus never stays on the now-inert sheet
     const otwM = $("#otwOpenM");
     if (otwM) otwM.addEventListener("click", (e) => { e.preventDefault(); setOpen(false); const o = $("#otwOpen"); if (o) o.click(); });
   }

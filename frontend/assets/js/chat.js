@@ -194,7 +194,7 @@
       });
       let d = null;
       try { d = await r.json(); } catch (e) { /* not JSON */ }
-      if (d && d.reply && (r.ok || r.status === 413)) return { ok: true, reply: String(d.reply) };
+      if (d && d.reply && (r.ok || r.status === 413 || r.status === 429)) return { ok: true, reply: String(d.reply) };
       return { ok: false, why: r.status >= 500 ? "The server had a problem." : "I didn't get an answer." };
     } catch (e) {
       return { ok: false, why: e && e.name === "AbortError" ? "That took too long." : (navigator.onLine === false ? "You seem to be offline." : "I couldn't reach the server.") };
@@ -240,7 +240,7 @@
       const r = row("assistant", md(`${res.why} Your message wasn't answered.`), { cls: "sy-err" });
       const b = document.createElement("button");
       b.type = "button"; b.className = "sy-retry"; b.innerHTML = I.retry + "Retry";
-      b.addEventListener("click", () => { r.remove(); send(q, true); });
+      b.addEventListener("click", () => { if (busy) return; r.remove(); send(q, true); });
       r.querySelector(".sy-col").appendChild(b);
       toBottom(true);
       snd("error");

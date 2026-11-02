@@ -9,6 +9,8 @@ import hashlib
 import json
 import os
 import re
+import time
+from collections import deque
 from pathlib import Path
 
 import httpx
@@ -16,7 +18,8 @@ from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 
-app = FastAPI()
+# no public Swagger/ReDoc/OpenAPI pages: the site is the only UI
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE.parent / "data"  # frontend/data
@@ -126,6 +129,13 @@ _db = None
 _mem_visits = 0
 _mem_messages = []
 _mem_chats = []
+MEM_CAP = 500  # the in-memory fallback keeps only the newest entries (no unbounded growth)
+
+
+def _mem_add(lst, item):
+    lst.append(item)
+    if len(lst) > MEM_CAP:
+        del lst[: len(lst) - MEM_CAP]
 
 
 def _client():
@@ -172,14 +182,14 @@ async def db_save_contact(name, email, message):
             return True
         except Exception:
             pass
-    _mem_messages.append({"name": name, "email": email, "message": message})
+    _mem_add(_mem_messages, {"name": name, "email": email, "message": message})
     return False
 
 
 async def db_save_chat(user, reply, session=None):
     db = _client()
     if db is None:
-        _mem_chats.append({"user": user, "reply": reply, "session": session})
+        _mem_add(_mem_chats, {"user": user, "reply": reply, "session": session})
         return False
     try:
         from datetime import datetime, timezone
@@ -223,7 +233,7 @@ async def db_save_chat(user, reply, session=None):
             )
         return True
     except Exception:
-        _mem_chats.append({"user": user, "reply": reply, "session": session})
+        _mem_add(_mem_chats, {"user": user, "reply": reply, "session": session})
         return False
 
 
@@ -738,9 +748,39 @@ async def chat_reply(message, history=None, session=None):
     return reply
 
 
+# ── Rate limits (per client IP, per instance; best effort on serverless) ──────
+_HITS = {}
+
+
+def _client_ip(request):
+    # the site sits behind Cloudflare, so its visitor header comes first (else every visitor shares an edge IP)
+    fwd = (request.headers.get("cf-connecting-ip") or request.headers.get("x-forwarded-for")
+           or request.headers.get("x-real-ip") or "")
+    ip = fwd.split(",")[0].strip()
+    return ip or (request.client.host if request.client else "unknown")
+
+
+def rate_limited(request, bucket, limit, window):
+    """True when this IP made `limit` calls to `bucket` within the last `window` seconds."""
+    now = time.monotonic()
+    if len(_HITS) > 5000:  # forget idle clients so the table can't grow without bound
+        for k in [k for k, q in _HITS.items() if not q or now - q[-1] > 600]:
+            _HITS.pop(k, None)
+    q = _HITS.setdefault((bucket, _client_ip(request)), deque())
+    while q and now - q[0] > window:
+        q.popleft()
+    if len(q) >= limit:
+        return True
+    q.append(now)
+    return False
+
+
 # ── Routes ────────────────────────────────────────────────────────────────────
 @app.post("/api/chat")
 async def chat(request: Request):
+    if rate_limited(request, "chat", 20, 60):
+        return JSONResponse(status_code=429, content={
+            "reply": "You're sending messages quickly. Please wait a minute and try again.", "error": "rate_limited"})
     try:
         data = await request.json()
     except Exception:
@@ -781,21 +821,29 @@ async def visits(inc: bool = True):
 STATIC_DIR = HERE.parent  # frontend/
 
 
-@app.get("/projects")
-@app.get("/projects.html")
-@app.get("/all-projects")
-@app.get("/all-projects.html")
+@app.api_route("/projects", methods=["GET", "HEAD"])
+@app.api_route("/projects.html", methods=["GET", "HEAD"])
+@app.api_route("/all-projects", methods=["GET", "HEAD"])
+@app.api_route("/all-projects.html", methods=["GET", "HEAD"])
 async def _old_work_pages():
     from fastapi.responses import RedirectResponse
 
     return RedirectResponse("/work.html", status_code=301)
 
 
-@app.get("/{full_path:path}")
+# files under frontend/ that are code or config, never site content
+_PRIVATE = re.compile(r"(^|/)(\.|__pycache__(/|$))|\.(py|pyc)$|^requirements\.txt$", re.I)
+
+
+@app.api_route("/{full_path:path}", methods=["GET", "HEAD"])
 async def static_site(full_path: str):
     from fastapi.responses import FileResponse
 
     req = (full_path or "").lstrip("/")
+    if req == "api" or req.startswith("api/"):  # an unknown API route: JSON, not the HTML 404 page
+        return JSONResponse(status_code=404, content={"detail": "not found"})
+    if _PRIVATE.search(req):
+        req = "-private-"  # not a file: falls through to the 404 below
     if not req or req.endswith("/"):
         req = "index.html"
     # map extension-less page routes to .html
@@ -803,7 +851,7 @@ async def static_site(full_path: str):
         req = req + ".html"
     root = STATIC_DIR.resolve()
     candidate = (root / req).resolve()
-    if str(candidate).startswith(str(root)):
+    if candidate == root or root in candidate.parents:
         if candidate.is_file():
             return FileResponse(str(candidate))
     # unknown path: a real 404 (never a soft 200 with the home page)
@@ -823,7 +871,7 @@ class ContactIn(BaseModel):
 
 
 @app.post("/api/contact")
-async def contact(payload: ContactIn):
+async def contact(payload: ContactIn, request: Request):
     name = payload.name.strip()
     email = payload.email.strip()
     message = payload.message.strip()
@@ -831,9 +879,17 @@ async def contact(payload: ContactIn):
         return JSONResponse(
             status_code=422, content={"ok": False, "detail": "All fields are required."}
         )
+    if len(name) > 120 or len(email) > 254 or len(message) > 5000:
+        return JSONResponse(
+            status_code=422, content={"ok": False, "detail": "That's too long: keep the name under 120 characters and the message under 5,000."}
+        )
     if not EMAIL_RE.match(email):
         return JSONResponse(
             status_code=422, content={"ok": False, "detail": "Invalid email address."}
+        )
+    if rate_limited(request, "contact", 5, 600):
+        return JSONResponse(
+            status_code=429, content={"ok": False, "detail": "Too many messages in a short time. Please try again later, or email shubham.mallick1440@gmail.com."}
         )
     await db_save_contact(name, email, message)
     return {"ok": True}

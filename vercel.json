@@ -1,45 +1,8 @@
 {
-  "cleanUrls": true,
   "redirects": [
-    {
-      "source": "/docs/:path*",
-      "destination": "/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/home",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/imurun",
-      "destination": "/imurun.html",
-      "permanent": true
-    },
-    {
-      "source": "/projects",
-      "destination": "/work",
-      "permanent": true
-    },
-    {
-      "source": "/projects.html",
-      "destination": "/work",
-      "permanent": true
-    },
-    {
-      "source": "/all-projects",
-      "destination": "/work",
-      "permanent": true
-    },
-    {
-      "source": "/all-projects.html",
-      "destination": "/work",
-      "permanent": true
-    }
+    { "source": "/projects", "destination": "/work.html", "permanent": true },
+    { "source": "/projects.html", "destination": "/work.html", "permanent": true },
+    { "source": "/all-projects", "destination": "/work.html", "permanent": true },
+    { "source": "/all-projects.html", "destination": "/work.html", "permanent": true }
   ]
 }
