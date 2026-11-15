@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /sw.js
 
-Sitemap: https://shubhammallickengineer.hosteler.shop/sitemap.xml
+Sitemap: https://shubham.imutechz.in/sitemap.xml
