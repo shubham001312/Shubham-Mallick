@@ -1,0 +1,7 @@
+api
+requirements.txt
+data/profile.json
+__pycache__
+*.py
+*.pyc
+.assetsignore
