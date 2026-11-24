@@ -5,6 +5,8 @@
   "workers_dev": false,
   "preview_urls": false,
   "assets": { "directory": "../frontend", "binding": "ASSETS", "run_worker_first": true, "html_handling": "none", "not_found_handling": "404-page" },
+  "durable_objects": { "bindings": [{ "name": "KEEPER", "class_name": "Keeper" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Keeper"] }],
   "ai": { "binding": "AI" },
   "d1_databases": [{ "binding": "DB", "database_name": "portfolio", "database_id": "2344458b-df17-4afb-a968-874caaa86496" }, { "binding": "CATALOG", "database_name": "imutechz-catalog", "database_id": "a6eb7a67-2697-4e0b-a6c4-e2d39a4f0703" }],
   "routes": [{ "pattern": "shubham.imutechz.in/*", "zone_name": "imutechz.in" }],

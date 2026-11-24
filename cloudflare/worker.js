@@ -1,21 +1,44 @@
 /* shubham.imutechz.in: the static site plus the API that used to be FastAPI
    (frontend/api/index.py). The model is the same one, run by Workers AI. */
+import { DurableObject } from "cloudflare:workers";
 import { MAX_MSG, cleanReply, guard, offline, retrieve, site } from "./sasy.js";
 
 const MODEL = "@cf/openai/gpt-oss-20b";
 const json = (body, status = 200) => Response.json(body, { status, headers: { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" } });
 const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-/* counted in D1, so it holds across Workers. The address itself is not kept. */
+/* Counts requests (memory only), and keeps what D1 could not take until it can:
+   the free plan stops all D1 writes for the day once the account's limit is hit. */
+export class Keeper extends DurableObject {
+  hits = new Map();
+  take(key, max, seconds) {
+    const now = Date.now(), list = (this.hits.get(key) || []).filter((t) => now - t < seconds * 1000);
+    if (list.length >= max) return false;
+    list.push(now);
+    this.hits.set(key, list);
+    return true;
+  }
+  async keep(sql, args) {
+    await this.ctx.storage.put(`q${Date.now()}-${Math.random().toString(36).slice(2, 8)}`, { sql, args });
+    if (!(await this.ctx.storage.getAlarm())) await this.ctx.storage.setAlarm(Date.now() + 3600_000);
+  }
+  async alarm() {
+    for (const [k, { sql, args }] of await this.ctx.storage.list({ prefix: "q", limit: 200 })) {
+      try { await this.env.DB.prepare(sql).bind(...args).run(); await this.ctx.storage.delete(k); } catch { break; }
+    }
+    if ((await this.ctx.storage.list({ prefix: "q", limit: 1 })).size) await this.ctx.storage.setAlarm(Date.now() + 3600_000);
+  }
+}
+const keeper = (env, name) => env.KEEPER.get(env.KEEPER.idFromName(name));
+/** write to D1, or keep it safely for later */
+async function write(env, sql, ...args) {
+  try { await env.DB.prepare(sql).bind(...args).run(); } catch { await keeper(env, "queue").keep(sql, args); }
+}
+
+/* one counter for each address, in memory */
 async function limited(request, env, bucket, max, windowSec) {
   const ip = request.headers.get("cf-connecting-ip") || "unknown";
-  const slot = Math.floor(Date.now() / 1000 / windowSec);
-  const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(`${bucket}|${slot}|${ip}`));
-  const key = [...new Uint8Array(bytes).slice(0, 12)].map((b) => b.toString(16).padStart(2, "0")).join("");
-  const until = (slot + 1) * windowSec;
-  const r = await env.DB.prepare("insert into hits (key, n, until) values (?, 1, ?) on conflict(key) do update set n = n + 1 returning n").bind(key, until).first();
-  if (Math.random() < 0.02) await env.DB.prepare("delete from hits where until < ?").bind(Math.floor(Date.now() / 1000)).run();
-  return (r?.n || 0) > max;
+  try { return !(await keeper(env, `ip:${ip}`).take(bucket, max, windowSec)); } catch { return false; }
 }
 
 async function askModel(env, msg, history, ctx) {
@@ -50,8 +73,8 @@ async function chat(request, env, ctx) {
     reply = await askModel(env, msg, Array.isArray(b.history) ? b.history : [], notes) || offline(msg, hits);
   }
   const now = new Date().toISOString();
-  const add = env.DB.prepare("insert into chats (at, session, role, text) values (?,?,?,?)");
-  ctx.waitUntil(env.DB.batch([add.bind(now, session || "anon", "user", msg), add.bind(now, session || "anon", "assistant", reply)]).catch(() => {}));
+  const add = "insert into chats (at, session, role, text) values (?,?,?,?)";
+  ctx.waitUntil((async () => { await write(env, add, now, session || "anon", "user", msg); await write(env, add, now, session || "anon", "assistant", reply); })().catch(() => {}));
   return json({ reply });
 }
 
@@ -64,7 +87,7 @@ async function contact(request, env) {
   if (!EMAIL.test(email)) return json({ ok: false, detail: "Invalid email address." }, 422);
   if (await limited(request, env, "contact", 5, 600)) return json({ ok: false, detail: "Too many messages in a short time. Please try again later, or email shubham.mallick1440@gmail.com." }, 429);
   /* a message that cannot be stored must not look sent */
-  try { await env.DB.prepare("insert into messages (at, name, email, message) values (?,?,?,?)").bind(new Date().toISOString(), name, email, message).run(); } catch {
+  try { await write(env, "insert into messages (at, name, email, message) values (?,?,?,?)", new Date().toISOString(), name, email, message); } catch {
     return json({ ok: false, detail: "Your message could not be saved. Please email shubham.mallick1440@gmail.com." }, 503);
   }
   return json({ ok: true });
@@ -79,7 +102,7 @@ async function api(request, env, ctx, url) {
   if (url.pathname === "/api/skills") return json(site.skills);
   if (url.pathname === "/api/visits") {
     const inc = url.searchParams.get("inc") !== "false" && !(await limited(request, env, "visit", 10, 3600));
-    if (inc) await env.DB.prepare("insert into visits (day, n) values (?, 1) on conflict(day) do update set n = n + 1").bind(new Date().toISOString().slice(0, 10)).run();
+    if (inc) await write(env, "insert into visits (day, n) values (?, 1) on conflict(day) do update set n = n + 1", new Date().toISOString().slice(0, 10));
     const r = await env.DB.prepare("select sum(n) as n from visits").first();
     return json({ count: r?.n || 0 });
   }
